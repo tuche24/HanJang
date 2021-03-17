@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	
+
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
@@ -36,4 +38,19 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "/mainAll.do")
+	public String goToMain() {
+		
+		return "main";
+	}
+	
+	@RequestMapping(value = "/testError.do")
+	public String goToError() {
+		return "error/1111";
+	}
+	
+	/*@RequestMapping(value = "/goToNewBook.do")
+	public String goToNewBook() {
+		return "new_book/New_Book";
+	}*/
 }
