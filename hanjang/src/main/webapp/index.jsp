@@ -34,5 +34,9 @@
 <input type="submit" value="커뮤니티 - 책 추천 게시판" />
 </form>
 
+<form action="goToBestSeller.do">
+<input type="submit" value="베스트셀러" />
+</form>
+
 </body>
 </html>
