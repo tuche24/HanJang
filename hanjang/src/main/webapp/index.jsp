@@ -42,6 +42,9 @@
 <input type="submit" value="추천도서 (인터파크 api)" />
 </form>
 
+<form action="goToBestSeller.do">
+<input type="submit" value="베스트셀러" />
+</form>
 
 </body>
 </html>

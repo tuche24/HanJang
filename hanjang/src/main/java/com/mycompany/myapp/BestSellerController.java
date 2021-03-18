@@ -22,4 +22,15 @@ public class BestSellerController {
 		mav.setViewName("bestSeller");
 		return mav;
 	}
+
+	@RequestMapping(value = "/goToBestSeller.do")
+	public String goToNewBook() {
+		return "best_seller/Best_Seller";
+	}
+	
+	@RequestMapping(value = "/goToBestSellerGenre.do")
+	public String goToBestSellerGenre() {
+		return "best_seller/Best_Seller_bottomline";
+	}
 }
+
