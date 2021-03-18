@@ -20,14 +20,14 @@
 	</tr>
 	<tr style="height:30px;">
 		<td style="width:120px;">제목</td>
-		<td colspan="4"><input type="text" name="title"  style="text-align:center;" required></td>
+		<td colspan="4"><input type="text" name="title" style="width: 90%; text-align:center;" required></td>
 	</tr>
 	<tr style="height:30px;">
 		<td colspan="5"><hr class="line"></td>
 	</tr>
 	<tr>
 		<td style="height:30px;">작성자</td>
-		<td colspan="4" style="height:30px;"><input type="text" name="writer" style="text-align:center;" required></td>
+		<td colspan="4" style="height:30px;"><input type="text" name="writer" style="width: 90%; text-align:center;" required></td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>
