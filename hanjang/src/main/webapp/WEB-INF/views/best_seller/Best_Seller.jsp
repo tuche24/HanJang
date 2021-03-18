@@ -4,37 +4,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>새로 나온 책</title>
+<title>베스트셀러</title>
 </head>
 <link rel="stylesheet" href="../resources/css/reset.css" />
 <link rel="stylesheet" href="../resources/css/book_list.css" />
-
-<style>
-#bottomLine #genre1 {
-   display: block;
-   margin-top: 10px;
-   width: 100px;
-   height: 2px;
-   background: black;
-}
-</style>
 
 <body>
 	<div id="container">
 		<div id="title">
 			<ul>
-				<li class="title_wrap"><p>새로 나온 책</p></li>
+				<li class="title_wrap"><p>베스트셀러</p></li>
 			</ul>
 		</div>
 
 		<div id="wrap">
 			<div id="category">
-				<button style="cursor: pointer;" onclick="location='#''">신간 종류</button>
+				<button style="cursor: pointer;" onclick="location='#''">베스트셀러 종류</button>
 			</div>
 
 			<div id="genre">
 				<ul>
-					<li><a href="goToNewBookGenre.do">유아/어린이</a></li>					
+					<li><a href="goToBestSellerGenre.do">유아/어린이</a></li>
 					<li><a href="#">소설/시/희곡</a></li>
 					<li><a href="#">에세이</a></li>
 					<li><a href="#">인문학</a></li>
@@ -61,7 +51,6 @@
          			</div>
 				</ul>
 			</div>
-			
 
 			<hr>
 
