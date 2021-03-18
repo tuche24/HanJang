@@ -34,6 +34,14 @@
 <input type="submit" value="커뮤니티 - 책 추천 게시판" />
 </form>
 
+<form action="bestSellerList.do">
+<input type="submit" value="베스트셀러 (인터파크 api)" />
+</form>
+
+<form action="recommendBookList.do">
+<input type="submit" value="추천도서 (인터파크 api)" />
+</form>
+
 <form action="goToBestSeller.do">
 <input type="submit" value="베스트셀러" />
 </form>
