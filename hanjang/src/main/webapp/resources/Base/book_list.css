@@ -1,0 +1,96 @@
+#container {
+   margin: 0 auto;
+   width: 1080px;
+}
+
+/* 타이틀 */
+#title ul li {
+   list-style: none;
+}
+
+.title_wrap {
+   text-align: center;
+}
+
+.title_wrap a {
+   color: #fff;
+   background-color: #fc585e;
+   padding: 25px 0px;
+   font-size: 16pt;
+   font-weight: bold;
+   display: block;
+   margin: 0 auto;
+}
+
+#wrap {
+   margin: 0 auto;
+   width: 100%;
+   text-align: center;
+   margin-top: 20px;
+}
+
+/* 카테고리 메뉴 */
+#category {
+   height: 40px;
+   padding: 0;
+   margin-left: 365px;
+}
+
+#category button {
+   color: #fff;
+   background-color: #fc585e;
+   outline: none;
+   border: 0;
+   width: 100%;
+   height: 100%;
+   padding: 10px;
+   font-weight: bold;
+   font-size: 11.5pt;
+}
+
+#genre ul li {
+	list-style:none;
+}
+
+#domestic {
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+#genre ul li:nth-child(n+2):nth-child(-n+8) {
+	font-size: 10pt;
+	margin-right: 60px;
+}
+
+#overseas {
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+#genre ul li:nth-child(n+10) {
+	font-size: 10pt;
+	margin-right: 60px;
+}
+
+#content {
+	width: 1080px;
+	margin-top: 125px;
+	vertical-align: center;
+	text-align: center;
+	margin-left: 50px;
+}
+
+#content ul li .image {
+	float: left;
+	width: 80px;
+	height: 100px;
+	margin-left: 10px;
+}
+
+#content ul li .buy_button button {
+	float: right;
+	width: 80px;
+	height: 20px;
+	color: #fff;
+	background-color: #fc585e;
+}
