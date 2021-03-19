@@ -12,7 +12,7 @@
 <input type="submit" value="검색" />
 </form>
 
-<h1>인기도서</h1>
+<h1>인기도서test</h1>
 <c:forEach items="${bookList}" var="b">
 <ul>
 	<li>${b.ranking}</li>

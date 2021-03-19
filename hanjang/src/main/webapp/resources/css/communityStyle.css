@@ -8,27 +8,98 @@ a:hover {text-decoration: none; color: black;}
 a:link {text-decoration: none; color: black;}
 a:visited {text-decoration: none; color: black;}
 a:active {text-decoration: none; color: black;}
-.boardTitle {	/* 책 읽기 추천해요 문구 */
+/* 책 읽기 추천해요 문구 */
+.boardTitle {
 	margin-top: 100px;
-	margin-bottom: 100px;
 	text-align: center;
-	font-size:35px;
+	font-size:30px;
+	font-weight:bold;
 }
+.boardSubTitle {
+	font-size:14px;
+	font-weight: bold;
+	color: #7c7c7c;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 100px;
+}
+/* hr 관련 */
 hr {
-	background-color: red;
+	background-color: #dddddd;
 }
-.MainBoardLayout {	/* 게시판 테이블 */
+.headline {
+	height: 2px;
+	border: none;
+	background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);
+}
+.line {
+	border: none;
+	height: 1px;
+	background-color: #dddddd;
+	margin-bottom:20px;
+}
+/* 게시판 테이블 */
+.MainBoardLayout {
 	width: 1100px;
-	height: 400px;
+	height: 550px;
 	margin: auto;
 	background-color: white;
 	text-align: center;
 }
-.MainBoardLayout td {
-	margin: auto;
-	padding: auto;
+.MainBoardLayout a:hover {
+	background-color:#f7f7f7
 }
-.pagingSection {	/* 페이징 섹션 */
+.headerTR {
+	height: 30px;
+}
+/* input, textarea 관련 */
+input {
+	font-family: noto sans, malgun gothic, AppleGothic, dotum;
+	font-size: 15px;
+	border: 3px dotted #dddddd;
+	border-radius: 10px;
+}
+input:focus {
+    outline: none;
+}
+.submitBtn {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	margin-right:20px;
+	font-family: noto sans, malgun gothic, AppleGothic, dotum;
+	font-size: 15px;
+}
+.listANDregister {
+	text-align: right;
+	margin-right: 30px;
+	margin-left: 0px;
+}
+textarea {
+	width: 1000px;
+	font-family: noto sans, malgun gothic, AppleGothic, dotum;
+	font-size: 15px;
+	resize: none;
+}
+.postsection {
+	border: 3px dotted #dddddd;
+	border-radius: 10px;
+	margin-bottom: 10px;	
+}
+.replysection {
+	border: 1px solid #dddddd;
+}
+textarea:focus {
+    outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+/* 글쓰기, 목록, 수정, 삭제 버튼 */
+.insertBtn {
+	position: fixed;
+}
+/* 페이징 섹션 */
+.pagingSection {
 	text-align: center;
 	font-family: noto sans, malgun gothic, AppleGothic, dotum;
 	margin-top: 0;
@@ -42,7 +113,8 @@ hr {
 	font-size: 13px;
 	font-weight: bold;
 }
-.pagingBtn {	/* 페이징 섹션 - 각각의 버튼 */
+/* 페이징 섹션 - 각각의 버튼 */
+.pagingBtn {
 	display: inline-block;
 	border: 1.5px solid #dddddd;
 	padding:8px;

@@ -8,34 +8,40 @@
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
 <style>
-
 </style>
 </head>
 <body>
-<h2>이 책 추천해요</h2>
+<div class="boardTitle">이 책 추천해요</div>
+<div class="boardSubTitle">인상 깊게 읽었던 책을 공유하는 커뮤니티입니다.</div>
 <form action="recommendInsert.do" method="post">
-<table>
+<table border="1" class="MainBoardLayout">
 	<tr>
-		<td colspan="4"><hr></td>
+		<td colspan="5" style="height:30px;"><hr class="headline"></td>
+	</tr>
+	<tr style="height:38 px;">
+		<td style="width:120px;">제목</td>
+		<td colspan="4"><input type="text" name="title" style="width: 90%; text-align:center;" required></td>
+	</tr>
+	<tr style="height:30px;">
+		<td colspan="5"><hr class="line"></td>
 	</tr>
 	<tr>
-		<td>제목</td>
-		<td><input type="text" name="title"></td>
-		<td>작성자</td>
-		<td><input type="text" name="writer"></td>
+		<td style="height:30px;">작성자</td>
+		<td colspan="4" style="height:30px;"><input type="text" name="writer" style="width: 90%; text-align:center;" required></td>
 	</tr>
 	<tr>
-		<td colspan="4"><hr></td>
+		<td colspan="5"><hr class="line"></td>
 	</tr>
 	<tr>
-		<td colspan="4"><textarea rows="20" cols="100" name="content"></textarea></td>
+		<td colspan="5"><textarea rows="20" cols="100" class="postsection" name="content" required>${post.content }</textarea></td>
 	</tr>
 	<tr>
-		<td colspan="4"><hr></td>
+		<td colspan="5"><hr class="line"></td>
 	</tr>
 	<tr>
-		<td><input type="submit" value="등록"></td>
-		<td><a href="recommendList.do"><input type="button" value="목록" /></a></td>
+		<td colspan="5" style="text-align:right;"><div class="listANDregister">
+		<a href="recommendList.do" style="margin-right:20px;">목록</a>
+		<input type="submit" class="submitBtn" value="등록"></div></td>
 	</tr>
 </table>
 </form>

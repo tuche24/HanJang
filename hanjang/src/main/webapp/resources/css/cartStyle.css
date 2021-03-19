@@ -1,0 +1,126 @@
+button{
+-webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+
+hr{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#container {
+	margin: 0 auto;
+	width: 1080px;
+}
+
+#title_wrap {font-size:32px;
+	margin: 50px auto;
+	font-weight: bold;
+text-align: center;}
+
+#cartItemList{
+
+}
+
+.cart_item{
+	font-size:15px;
+}
+
+#item{
+	margin-top: 30px;
+}
+
+#category{
+	margin: 20px 0;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+#bookimg{
+	width: 50px;
+	height: 50px;
+}
+
+#bookname{
+	display: inline-block;
+	font-size: 25px;
+	width: 600px;
+}
+
+#bookamount{
+	margin-left: 140px;
+	text-align: center;
+}
+
+#bookprice{
+	margin-left: 100px;
+}
+
+#cancel_btn{
+	margin-left: 10px;
+}
+
+.inner_result{
+	padding: 12px;
+	position: absolute;
+	margin-left: 1100px;
+	margin-top: -180px;
+	font-size: 20px;
+	margin-right: 20px;
+	line-height: 30px;
+	border: 1px solid gray;
+}
+
+.amount_view{
+}
+
+.tit{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.delivery {
+	margin-top: 40px;
+	font-size: 12px;
+	color: gray;
+}
+a.btn{
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: center;
+	border: 2px solid green;
+	text-decoration: none;
+	color:green;
+	border-radius: 4px;
+}
+
+dl.amount{
+	margin-top: 40px;
+}
+
+.btn_submit{
+
+}
+
+.btn_submit .active{
+  margin-top: 30px;
+  padding: 0.5rem 1rem;
+
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+
+  display: inline-block;
+  width: auto;
+
+  border: none;
+  border-radius: 4px;
+
+  padding-right: 57px;
+  padding-left: 57px;
+}
