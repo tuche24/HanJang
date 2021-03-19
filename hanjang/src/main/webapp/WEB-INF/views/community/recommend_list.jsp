@@ -37,14 +37,18 @@
 	<c:forEach var="list" items="${list }">
 	<tr style="height:37px;">
 		<td>${list.boardNo }</td>
-		<td colspan="7"><a href="recommendPost.do?boardNo=${list.boardNo }">${list.title }</a></td>
+		<td colspan="7">
+		<a href="recommendPost.do?boardNo=${list.boardNo }">${list.title }</a>
+		<!-- 댓글 개수 표시 부분 -->
+		<c:if test="${list.reCnt } > 0">
+		 (<div style="display:inline-block; color:red;">${list.reCnt }</div>)</c:if></td>
 		<td>${list.writer }</td>
 		<td>${list.regDate }</td>
 		<td>${list.viewCnt }</td>
 	</tr>
 	</c:forEach>
 	<tr>
-		<td colspan="11"><hr class="line" style="margin-top:-1px; margin-bottom:-10px;"></td>
+		<td colspan="11" style="height:50px;"><hr class="line" style="margin-top:-1px; margin-bottom:-10px;"></td>
 	</tr>
 	<tr>
 		<td colspan="10"></td>
