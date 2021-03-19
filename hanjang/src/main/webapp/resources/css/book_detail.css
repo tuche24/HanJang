@@ -1,0 +1,313 @@
+#container {
+	margin: 0 auto;
+	width: 1080px;
+}
+
+/* 내용 부분 */
+#wrap {
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+/* 제목 부분 */
+#detail_title {
+	width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+#detail_title .title {
+	font-size: 20pt;
+	font-weight: bold;
+}
+
+#detail_title ul li:first-child {
+	margin-bottom: 10px;
+}
+
+/* 상세 내용 */
+#bookwrap {
+	width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    margin-top: 30px;
+}
+
+/* 상세 내용 sector 1 */
+#bookwrap .prod_bookwrap {
+	width: 1080px;
+	height: 300px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+/* 그림 부분 */
+#bookwrap .detail_picture {
+	margin: 0;
+    padding: 0;
+    float: left;
+    width: 200px;
+}
+
+.detail_picture img {
+	width: 200px;
+	height: 300px;
+}
+
+/* 주문 부분 */
+#bookwrap .detail_order {
+	margin: 0 0 0 40px;
+    padding: 0px;
+    float: left;
+    width: 560px;
+    height: 300px;
+    text-align: left;
+}
+
+
+.detail_order ul li {
+	list-style: none;
+    position: relative;
+    padding: 0 0 3px 0;
+    margin: 0;
+	font-size: 15px;
+}
+
+.detail_order ul li .Litem {
+	position: absolute;
+    left: 0;
+    width: 100px;
+    color: #222;
+    font-weight: bold;
+    font-size: 17px;    
+}
+
+.detail_order ul li .Ritem {
+	margin-left: 100px;
+    width: 460px;
+    padding-bottom: 3px;
+    color: #222;
+}
+
+.detail_order .price {
+	clear: both;
+    padding: 0;
+    margin: 0 0 25px 0;
+    line-height: 1.5;
+}
+
+.detail_order .delivery ul li {
+	clear: both;
+    padding: 0;
+    margin: 0 0 25px 0;
+    line-height: 1.5;
+}
+
+.detail_order .quantity {
+	clear: both;
+    padding: 0;
+    margin: 0 0 25px 0;
+    line-height: 1.5;
+}
+
+.quantity ul li .Litem {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.quantity .Ritem button {
+	color: #fff;	
+	outline: none;
+	border: 0;
+	width: 40px;
+	height: 30%;
+	padding: 10px;
+	font-weight: bold;
+	font-size: 16pt;
+}
+
+.quantity .Ritem button:first-child {
+	margin-right: 10px;
+	background-color: #FF0000;
+}
+
+.quantity .Ritem button:last-child {
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: #09AE32;
+}
+
+.detail_order .buy_btn {
+	display: flex;
+}
+
+.detail_order .cart button {
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    background: #df307f;
+	outline: 0;
+	border: 0;
+    color: #FFF;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+    line-height: 1.5;
+    display: block;
+    white-space: nowrap;
+    margin: 0;
+    padding: 17px 30px 17px 27px;
+    margin-right: 10px;
+}
+
+.detail_order .buynow button {
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    background: #e24457;
+    outline: 0;
+    border: 0;
+    color: #FFF;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+    line-height: 1.5;
+    display: block;
+    white-space: nowrap;
+    margin: 0;
+    padding: 17px 30px 17px 27px;
+}
+
+
+/* 상세 내용 sector2 */
+#bookwrap .detail_info {
+	width: 1080px;
+    margin: 0 auto;
+    padding: 0;
+    margin-top: 30px;
+    text-align: left;
+}
+
+/* 책소개 부분 */
+.detail_info .book_introduce {
+	margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: left;
+}
+
+.book_introduce .intro_title {
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0px 0 0 0;
+    font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+    font-size: 21px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.book_introduce .intro_content {
+	float: left;
+    width: 1080px;
+    margin: 50px 0 50px 0px;
+    padding: 0;
+    font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* 저자 및 역자 소개 부분 */
+.detail_info .book_author {
+	margin: 30px 0 0 0px;
+    padding: 0;
+    position: relative;
+    text-align: left;
+}
+
+.book_author .author_title {
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0px 0 0 0;
+    font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+    font-size: 21px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.book_author .author_content {
+	float: left;
+    width: 1080px;
+    margin: 50px 0 50px 0px;
+    padding: 0;
+    font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.author_content .author_name {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.author_content .author_detail {
+	margin-bottom: 10px;
+}
+
+.author_content .drawer_name {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.author_content .drawer_detail {
+	margin-bottom: 10px;
+}
+
+/* 출판사 서평 부분 */
+.detail_info .book_preview {
+	margin: 30px 0 0 0px;
+    padding: 0;
+    position: relative;
+    text-align: left;
+}
+
+.book_preview .preview_title {
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0px 0 0 0;
+    font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+    font-size: 21px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.book_preview .preview_content {
+	float: left;
+    width: 1080px;
+    margin: 50px 0 50px 0px;
+    padding: 0;
+    font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: left;
+}

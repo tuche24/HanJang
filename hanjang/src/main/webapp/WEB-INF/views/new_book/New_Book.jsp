@@ -70,7 +70,7 @@
 
 							<div class="detail">
 								<div class="title">
-									<a href="#"><strong>${b.title}</strong></a>
+									<a href="goToBookDetail.do"><strong>${b.title}</strong></a>
 								</div>
 								<div class="pub_info">
 									<span class="author">${b.author}</span>
