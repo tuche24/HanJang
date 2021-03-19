@@ -65,7 +65,7 @@
 
 							<div class="detail">
 								<div class="title">
-									<a href="#"><strong>우리는 안녕</strong></a>
+									<a href="goToBookDetail.do"><strong>우리는 안녕</strong></a>
 								</div>
 								<div class="pub_info">
 									<span class="author">박준</span>
