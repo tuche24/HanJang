@@ -10,6 +10,19 @@
 <!--  검색어  -->
 
 <script>
+	window.addEventListener("resize", homzzang);
+	function homzzang() {
+		var windowWidth = $(window).width();
+		if (windowWidth < 1100) {
+		 
+			$('.follow').css("display", "none");
+		} else {
+			$('.follow').css("display", "block");
+		}
+
+	}
+</script>
+<script>
 $(document).ready(function(){
 	
 	$(window).scroll(function(){
@@ -88,25 +101,49 @@ $(function(){
     	  
 	rolling = setInterval(rollingStart,3000);
       }
+	
+	function stop(){
+		clearInterval(rolling);
+	}
 	 $panel.mouseover(function() {
-         clearInterval(rolling);
+       stop();
      });
 
      // 배너 마우스 아웃 이벤트
      $panel.mouseout(function() {
          auto();
      });
+     
+     $(".prev input").on("click", function() {
+			stop();
+			backslide();
+			auto();
+		});
+
+      $(".next input").on("click", function() {
+    	  stop();
+    	  rollingStart();
+			auto();
+		});
 
 	function rollingStart(){
 		 $panel.css("width", itemWidth * itemLength);
-         $panel.animate({"marginLeft": - itemWidth + "px"}, function() {
+         $panel.animate({"left": - itemWidth + "px"}, function() {
              $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
             $(this).find("li").css("width","25%");
              $(this).find("li:first").remove();
 
-             $(this).css("marginLeft", 0);
+             $(this).css("left", 0);
 	  });
 	  	
+	}
+	function backslide(){
+		 $panel.css("left", - itemWidth);
+         $panel.prepend("<li>" + $panel.find("li:last").html() + "</li>");
+         $panel.animate({"left": "0px"}, function() {
+             $(this).find("li:last").remove();
+	  });
+		
 	}
 });
 
@@ -117,10 +154,10 @@ $(function(){
 function smallprevclick(){
 	var ml1 = $(".intro_book_slide ul").css("marginLeft");
 	if(ml1=="-2192px"){
-	$(".intro_book_slide ul").animate({marginLeft:"-1096px"},1000);
+	$(".intro_book_slide ul").animate({marginLeft:"-1096px"},400);
 	$(".smallnext a").css("visibility","visible");
 	}else if(ml1=="-1096px"){
-		$(".intro_book_slide ul").animate({marginLeft:"0"},1000);
+		$(".intro_book_slide ul").animate({marginLeft:"0"},400);
 		$(".smallprev a").css("visibility","hidden");
 	}
 }
@@ -128,10 +165,10 @@ function smallprevclick(){
 function smallnextclick(){
 	var ml1 = $(".intro_book_slide ul").css("marginLeft");
 	if(ml1=="0px"){
-	$(".intro_book_slide ul").animate({marginLeft:"-1096px"},1000);
+	$(".intro_book_slide ul").animate({marginLeft:"-1096px"},400);
 	$(".smallprev a").css("visibility","visible");
 	}else if(ml1=="-1096px"){
-		$(".intro_book_slide ul").animate({marginLeft:"-2192px"},1000);
+		$(".intro_book_slide ul").animate({marginLeft:"-2192px"},400);
 	$(".smallnext a").css("visibility","hidden");
 	}
 }
@@ -475,7 +512,7 @@ margin-top:30px;
 </head>
 <body><div class="headerwe"></div>
 <div class="header">
-<div class="usermenu" \\>
+<div class="usermenu" >
 <ul>
 <li><a href="">로그인</a></li>
 <li><a href="">회원가입</a></li>
@@ -608,6 +645,7 @@ margin-top:30px;
 </ul>
 
 
+</div>
 </div>
 </div>
 <hr style="margin:40px;">

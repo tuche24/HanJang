@@ -10,7 +10,7 @@
 	
 	
 	<!-- 나중에 합칠때 경로 다시 설정해주셔야 할수도 있어요. -->
-	<link href='../../css/join_style.css' rel='stylesheet' style='text/css'/>
+	<link href='../resources/css/join_style.css' rel='stylesheet' style='text/css'/>
 	
 	<script type="text/javascript">
 	
