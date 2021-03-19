@@ -33,6 +33,9 @@
 <form action="recommendList.do">
 <input type="submit" value="커뮤니티 - 책 추천 게시판" />
 </form>
+<form action="loginform.do">
+<input type="submit" value="로그인폼" />
+</form>
 
 <form action="bestSellerList.do">
 <input type="submit" value="베스트셀러 (인터파크 api)" />

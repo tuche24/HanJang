@@ -7,8 +7,21 @@
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <link rel="stylesheet" type="text/css" href="">
+<!--  검색어  -->
 
+<script>
+	window.addEventListener("resize", homzzang);
+	function homzzang() {
+		var windowWidth = $(window).width();
+		if (windowWidth < 1100) {
+		 
+			$('.follow').css("display", "none");
+		} else {
+			$('.follow').css("display", "block");
+		}
 
+	}
+</script>
 <script>
 $(document).ready(function(){
 	
@@ -26,8 +39,10 @@ $(document).ready(function(){
 			$(".search").css("top","2px");
 			$(".menubar").css("z-index","9999");
 			$(".main_menu li").css("width","80px");	
-			$(".main_menu li a").css("width","80px");	
-			
+			$(".main_menu li a").css("width","80px");
+			$(".menu_container1").css("margin-left","-360px");
+			$(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 3px 0px");
+			$(".main_menu ").css("margin-top","10px");	
 		}else{
 			$(".menubar").css("position","static");
 			$(".search").css("position","static");
@@ -35,6 +50,8 @@ $(document).ready(function(){
 			$(".main_menu li").css("position","relative");
 			$(".main_menu li").css("width","100px");	
 			$(".main_menu li a").css("width","100px");
+			$(".menu_container1").css("margin-left","0px");
+			$(".main_menu ").css("margin-top","0px");	
 		}
 		 var currentTop = $(window).scrollTop();
 
@@ -46,11 +63,31 @@ $(document).ready(function(){
 		 }
 	});
 	
+	
+
 });
 
 
 </script>
+<!-- 검색어 -->
+<script>
+$(document).ready(function(){
+	
+	$(".search_text").keyup(function(){
+       $ajax({
+    	url:"/search.do",
+    	type:"json",
+    	success : function(data){
+    		resultHtml(data);
+    	},
+    	error : function(){ alert("로딩실패!");}
+    	  
+       });
+	});
+	
+});
 
+</script>
 <script>
 $(function(){
 	
@@ -64,25 +101,49 @@ $(function(){
     	  
 	rolling = setInterval(rollingStart,3000);
       }
+	
+	function stop(){
+		clearInterval(rolling);
+	}
 	 $panel.mouseover(function() {
-         clearInterval(rolling);
+       stop();
      });
 
      // 배너 마우스 아웃 이벤트
      $panel.mouseout(function() {
          auto();
      });
+     
+     $(".prev input").on("click", function() {
+			stop();
+			backslide();
+			auto();
+		});
+
+      $(".next input").on("click", function() {
+    	  stop();
+    	  rollingStart();
+			auto();
+		});
 
 	function rollingStart(){
 		 $panel.css("width", itemWidth * itemLength);
-         $panel.animate({"marginLeft": - itemWidth + "px"}, function() {
+         $panel.animate({"left": - itemWidth + "px"}, function() {
              $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
             $(this).find("li").css("width","25%");
              $(this).find("li:first").remove();
 
-             $(this).css("marginLeft", 0);
+             $(this).css("left", 0);
 	  });
 	  	
+	}
+	function backslide(){
+		 $panel.css("left", - itemWidth);
+         $panel.prepend("<li>" + $panel.find("li:last").html() + "</li>");
+         $panel.animate({"left": "0px"}, function() {
+             $(this).find("li:last").remove();
+	  });
+		
 	}
 });
 
@@ -93,10 +154,10 @@ $(function(){
 function smallprevclick(){
 	var ml1 = $(".intro_book_slide ul").css("marginLeft");
 	if(ml1=="-2192px"){
-	$(".intro_book_slide ul").animate({marginLeft:"-1096px"},1000);
+	$(".intro_book_slide ul").animate({marginLeft:"-1096px"},400);
 	$(".smallnext a").css("visibility","visible");
 	}else if(ml1=="-1096px"){
-		$(".intro_book_slide ul").animate({marginLeft:"0"},1000);
+		$(".intro_book_slide ul").animate({marginLeft:"0"},400);
 		$(".smallprev a").css("visibility","hidden");
 	}
 }
@@ -104,10 +165,10 @@ function smallprevclick(){
 function smallnextclick(){
 	var ml1 = $(".intro_book_slide ul").css("marginLeft");
 	if(ml1=="0px"){
-	$(".intro_book_slide ul").animate({marginLeft:"-1096px"},1000);
+	$(".intro_book_slide ul").animate({marginLeft:"-1096px"},400);
 	$(".smallprev a").css("visibility","visible");
 	}else if(ml1=="-1096px"){
-		$(".intro_book_slide ul").animate({marginLeft:"-2192px"},1000);
+		$(".intro_book_slide ul").animate({marginLeft:"-2192px"},400);
 	$(".smallnext a").css("visibility","hidden");
 	}
 }
@@ -123,9 +184,11 @@ function smallnextclick(){
 	text-decoration: none;
 	border-collapse: collapse;
 }
+
 .headerwe{
 height:20px;
 background:linear-gradient( to right, #7effa8, #3fcbff );
+box-shadow: 0 7px 3px 0 gray;
 }
 .header{
 min-width:1050px;
@@ -152,13 +215,13 @@ color:black;}
 
 .logo_place{
 margin:0 150px;
-height:200px;
+height:180px;
 }
 
 .logo{
 margin: 0 auto;
 width:150px;
-height:200px;
+height:180px;
 background:red;
 }
 .logo a{
@@ -176,6 +239,7 @@ height:100%;
 .menubar{
 text-align:center;
 background:white;
+height:45px;
 }
 
 .main_menu li{
@@ -228,6 +292,7 @@ background:white;}
 height:400px;
 }
 .search{
+line-height:45px;
 width:300px;
 margin-left:10px;}
 
@@ -268,10 +333,11 @@ height:500px;
 background:white;
 }
 .eventintro{
-width:1100px;
+min-width:1100px;
 margin:20px auto;
 height:640px;
 background:#f7f7f7;
+margin-top:50px;
 }
 .search_text{
 width:200px;
@@ -439,11 +505,14 @@ background:black;
 right:20px;
 
 }
+.bookslide{
+margin-top:30px;
+}
 </style>
 </head>
 <body><div class="headerwe"></div>
 <div class="header">
-<div class="usermenu" \\>
+<div class="usermenu" >
 <ul>
 <li><a href="">로그인</a></li>
 <li><a href="">회원가입</a></li>
@@ -453,7 +522,7 @@ right:20px;
 <div class="logo_place"><div class="logo"><a href="">
 <img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a></div></div>
 <div class="menubar" >
-<div>
+<div class="menu_container1">
 <ul class="main_menu">
 <li class="menu1"><a href="">카테고리</a>
 <ul class="dropdown">
@@ -544,7 +613,7 @@ right:20px;
 <li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
 <div>11</div></li>
 <li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>12</div></li>
+<div>122</div></li>
 </ul>
 </div>
 </div>
@@ -569,13 +638,14 @@ right:20px;
 </div>
 <div class="eventintro_event">
 <ul>
-<li><a href="">이미지들어올곳ㅁ</a><div>이벤트이름</div></li>
+<li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
 <li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
 <li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
 
 </ul>
 
 
+</div>
 </div>
 </div>
 <hr style="margin:40px;">
