@@ -58,4 +58,10 @@ public class HomeController {
 	public String goToCart() {
 		return "cart/cart";
 	}
+	
+	@RequestMapping(value = "/goToLogin.do")
+	public String goToLogin() {
+		return "LoginForm";
+	}
+	
 }

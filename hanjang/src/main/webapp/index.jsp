@@ -49,5 +49,15 @@
 <form action="goToCart.do">
 <input type="submit" value="장바구니 이동" />
 </form>
+
+<form action="goToLogin.do">
+<input type="submit" value="로그인" />
+</form>
+
+<form action="NewBookList1.do">
+<input type="submit" value="새책페이지1" />
+</form>
+
+
 </body>
 </html>
