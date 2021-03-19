@@ -13,11 +13,11 @@
 
 <form action="mainAll.do">
 <input type="submit" value="메인페이지이동" /></form>
-
+<!-- 
 <form action="testError.do">
 <input type="submit" value="위치못찾는파일설정" />
 </form>
-
+ -->
 <form action="goToNewBook.do" >
 <input type="submit" value="새책페이지" />
 </form>
@@ -46,5 +46,8 @@
 <input type="submit" value="베스트셀러" />
 </form>
 
+<form action="goToCart.do">
+<input type="submit" value="장바구니 이동" />
+</form>
 </body>
 </html>

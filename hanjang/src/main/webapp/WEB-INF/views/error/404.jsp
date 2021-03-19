@@ -5,10 +5,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+
+</style>
 <meta charset="UTF-8">
 <title>404에러 페이지</title>
 </head>
 <body>
-404오류입니다
+<img src="resources/img/error/404error.png" alt="" />
 </body>
 </html>

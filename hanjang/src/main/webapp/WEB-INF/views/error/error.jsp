@@ -9,6 +9,6 @@
 <title>에러 페이지</title>
 </head>
 <body>
-에러 페이지 입니다
+<img src="resources/img/error/error.png" alt="" />
 </body>
 </html>

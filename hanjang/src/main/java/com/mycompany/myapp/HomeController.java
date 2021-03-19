@@ -53,4 +53,9 @@ public class HomeController {
 	public String goToNewBook() {
 		return "new_book/New_Book";
 	}*/
+	
+	@RequestMapping(value = "/goToCart.do")
+	public String goToCart() {
+		return "cart/cart";
+	}
 }
