@@ -613,7 +613,7 @@ margin-top:30px;
 <li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
 <div>11</div></li>
 <li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>12</div></li>
+<div>122</div></li>
 </ul>
 </div>
 </div>
