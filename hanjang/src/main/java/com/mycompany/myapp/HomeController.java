@@ -46,9 +46,13 @@ public class HomeController {
 	}
 	@RequestMapping(value="/loginform.do")
 	public String goToLogin() {
-		return "LoginForm";
+		return "login/LoginForm";
 	}
-	
+	@RequestMapping(value="/joinform.do")
+	public String goToJoinform() {
+		return "login/JoinForm";
+		
+	}
 	@RequestMapping(value = "/testError.do")
 	public String goToError() {
 		return "error/1111";

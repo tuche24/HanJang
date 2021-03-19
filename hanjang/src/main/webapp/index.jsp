@@ -36,6 +36,9 @@
 <form action="loginform.do">
 <input type="submit" value="로그인폼" />
 </form>
+<form action="joinform.do">
+<input type="submit" value="회원가입폼" />
+</form>
 
 </body>
 </html>
