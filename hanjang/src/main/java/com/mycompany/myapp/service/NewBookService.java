@@ -21,11 +21,14 @@ public class NewBookService {
 
 	private static String interKey = "BA6560491284A2D95D0B5AEFBEE97D064EC633386A6C652A22C74BED0E7FBDCC";
 
-	public List<NewBookVO> searchBook() {
+	public List<NewBookVO> searchBook(String categoryId) {
 		List<NewBookVO> list = null;
+		if(categoryId == null) {
+			categoryId = "100";
+		}
 		try {
 			URL url;
-			url = new URL("http://book.interpark.com/api/newBook.api?key=" + interKey + "&categoryId=100");
+			url = new URL("http://book.interpark.com/api/newBook.api?key=" + interKey + "&categoryId=" + categoryId);
 
 			URLConnection urlConn = url.openConnection();
 
@@ -83,6 +86,10 @@ public class NewBookService {
 					case "coverLargeUrl":
 						if (b != null)
 							b.setCoverLargeUrl(parser.nextText());
+						break;
+					case "categoryId":
+						if (b != null)
+							b.setCategoryId(parser.nextText());
 						break;
 					case "categoryName":
 						if (b != null)

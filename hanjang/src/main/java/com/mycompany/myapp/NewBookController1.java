@@ -15,10 +15,10 @@ public class NewBookController1 {
 	private NewBookService service;
 	
 	@RequestMapping("NewBookList1.do")
-	public ModelAndView bookList(@RequestParam(required=false) String keyword) {
+	public ModelAndView bookList(@RequestParam(required=false) String categoryId) {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("bookList", service.searchBook());
+		mav.addObject("bookList", service.searchBook(categoryId));
 		mav.setViewName("new_book/New_Book");
 		return mav;
 	}
