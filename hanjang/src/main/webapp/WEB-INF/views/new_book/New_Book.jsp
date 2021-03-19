@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>새로 나온 책</title>
 </head>
-<link rel="stylesheet" href="../resources/css/reset.css" />
-<link rel="stylesheet" href="../resources/css/book_list.css" />
+<link rel="stylesheet" href="resources/css/reset.css" />
+<link rel="stylesheet" href="resources/css/book_list.css" />
 
 <body>
 	<div id="container">
@@ -55,32 +56,39 @@
 			<hr>
 
 			<div id="content">
+			
 				<ul>
+				<c:forEach items="${bookList}" var ="b">
 					<li>
 						<div class="info_area">
 							<div class="image">
-								<a href="#"><img src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg" 
-								alt="우리는 안녕"/></a>
+								<a href="#">
+								<img src="${b.coverLargeUrl}" alt="" />
+								<%-- <img src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg" 
+								alt="우리는 안녕"/> --%></a>
 							</div>
 
 							<div class="detail">
 								<div class="title">
-									<a href="#"><strong>우리는 안녕</strong></a>
+									<a href="#"><strong>${b.title}</strong></a>
 								</div>
 								<div class="pub_info">
-									<span class="author">박준</span>
+									<span class="author">${b.author}</span>
 									<span>|</span> 
-									<span class="publication">난다</span>
+									<span class="publication">${b.publisher}</span>
 									<span>|</span>
-									<span class="publication_date">2021년 03월 20일</span>
+									<span class="publication_date">${b.pubDate}</span>
 								</div>
 								<div class="price">
-									<span class="sell_price">14,850원</span>
+									<span class="sell_price">${b.priceStandard}원</span>
 								</div>
 								<div class="info">
-									<span>"안녕은 그리는 거야." 박준 시인의 첫 시 그림책<br> 안녕은 그리는 거야.<br>
+									<span>
+										${b.description}
+									
+									<!-- "안녕은 그리는 거야." 박준 시인의 첫 시 그림책<br> 안녕은 그리는 거야.<br>
 										그리고 그리고 또 그리는 것을 그리움이라고 하는 거야.<br> 시인 박준의 첫 시 그림책 '우리는
-										안녕'
+										안녕' -->
 									</span>
 								</div>
 							</div>
@@ -92,7 +100,8 @@
 							</div>
 						</div>
 					</li>
-
+					</c:forEach>
+<%-- 
 					<li>
 						<div class="info_area">
 							<div class="image">
@@ -240,7 +249,7 @@
 						</div>
 					</li>
 
-
+ --%>
 				</ul>
 			</div>
 
