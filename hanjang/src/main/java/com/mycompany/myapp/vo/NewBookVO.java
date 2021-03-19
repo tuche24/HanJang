@@ -10,6 +10,7 @@ public class NewBookVO {
 	private String description; // 책 설명
 	private String priceStandard; // 상품 정가
 	private String coverLargeUrl; // 책 썸네일 주소
+	private String categoryId; // 카테고리아이디
 	private String categoryName; // 카테고리이름
 	private String publisher; // 출판사
 	private String pubDate; // 출간일
@@ -68,6 +69,14 @@ public class NewBookVO {
 
 	public void setCoverLargeUrl(String coverLargeUrl) {
 		this.coverLargeUrl = coverLargeUrl;
+	}
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public String getCategoryName() {

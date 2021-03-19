@@ -25,11 +25,11 @@
 
 			<div id="genre">
 				<ul>
-					<li><a href="goToNewBookGenre.do">유아/어린이</a></li>
-					<li><a href="#">소설/시/희곡</a></li>
-					<li><a href="#">에세이</a></li>
-					<li><a href="#">인문학</a></li>
-					<li><a href="#">과학/역사</a></li>
+					<li><a href="NewBookList1.do?categoryId=109">유아/어린이</a></li>
+					<li><a href="NewBookList1.do?categoryId=101">소설/시/희곡</a></li>
+					<li><a href="NewBookList1.do?categoryId=102">에세이</a></li>
+					<li><a href="NewBookList1.do?categoryId=103">인문학</a></li>
+					<li><a href="NewBookList1.do?categoryId=116">과학/역사</a></li>
 					<div id="bottomLine">
             			<span id="genre1"></span>
             			<span id="genre2"></span>
@@ -38,11 +38,11 @@
             			<span id="genre5"></span>
          			</div>
          			<br><br>
-					<li><a href="#">수험서/참고서</a></li>
-					<li><a href="#">영미소설</a></li>
-					<li><a href="#">경제경영</a></li>
-					<li><a href="#">자기계발</a></li>
-					<li><a href="#">기타</a></li>
+					<li><a href="NewBookList1.do?categoryId=114">수험서/참고서</a></li>
+					<li><a href="NewBookList1.do?categoryId=205">영미소설</a></li>
+					<li><a href="NewBookList1.do?categoryId=117">경제경영</a></li>
+					<li><a href="NewBookList1.do?categoryId=118">자기계발</a></li>
+					<li><a href="NewBookList1.do?categoryId=128">기타</a></li>
 					<div id="bottomLine">
             			<span id="genre6"></span>
             			<span id="genre7"></span>
@@ -84,6 +84,8 @@
 								</div>
 								<div class="info">
 									<span>
+									<c:if test="${empty b.description }">책 설명 업데이트 예정<br><br><br><br>
+									</c:if>
 										${b.description}
 									
 									<!-- "안녕은 그리는 거야." 박준 시인의 첫 시 그림책<br> 안녕은 그리는 거야.<br>
@@ -253,7 +255,7 @@
 				</ul>
 			</div>
 
-			<div class="paging">
+<!-- 			<div class="paging">
 				<a class="btn_pre" href="#">&lt;</a>
 				<ul>
 					<li><a href="#">1</a></li>
@@ -263,7 +265,7 @@
 					<li><a href="#">5</a></li>
 				</ul>
 				<a class="btn_next" href="#">&gt;</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </body>
