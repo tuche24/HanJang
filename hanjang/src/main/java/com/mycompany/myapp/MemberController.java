@@ -25,6 +25,12 @@ public class MemberController {
 		memberservice1.MemberInsert(membervo);
 		return "LoginForm";
 	}
+	
+	
+	
+	
+	
+	
 	/* *** 여기서부터 이 책 추천해요 게시판 컨트롤러 *** */
 	
 	// 게시물 목록 조회 + 페이징
