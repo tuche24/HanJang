@@ -14,7 +14,7 @@
 	function homzzang() {
 		var windowWidth = $(window).width();
 		if (windowWidth < 1100) {
-		 
+		  
 			$('.follow').css("display", "none");
 		} else {
 			$('.follow').css("display", "block");
@@ -90,7 +90,7 @@ $(document).ready(function(){
 </script>
 <script>
 $(function(){
-	
+	var widthh = $(".slide").outerWidth();
 	  var $panel = $(".slide_img").find("ul");
 	  var rolling
       var itemWidth = $panel.children().outerWidth(); // 아이템 가로 길이
@@ -324,6 +324,8 @@ background:#ffffff45;
 }
 .slide{
 overflow:hidden;
+min-width:1280px;
+max-width:100%;
 height:400px;
 }
 .today_book{
@@ -360,11 +362,14 @@ min-width:100%;
 position:relative;
 }
 .slide_img ul li{
-min-width:1280px;
 width:25%;
 height:100%;
 float:left;
 position:relative;
+}
+.slide_img ul li a {
+width:100%;
+height:100%;
 }
 .slide_img ul li a img{
 width:100%;

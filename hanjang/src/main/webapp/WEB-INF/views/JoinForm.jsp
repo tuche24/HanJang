@@ -72,13 +72,18 @@ height:44px;
 
 
 		</style>
-
-
-	<script type="text/javascript">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script>
+	
 	
 		// 필수 입력정보인 아이디, 비밀번호가 입력되었는지 확인하는 함수
 		function checkValue()
 		{
+			var dateva = $('#birthdate').val();
+		var datepattern = /^([0-9]){8}$/;
+			//생년월일 유효성검사 추가해야됨.
+		 
+			
 			if(!document.userInfo.id.value){
 				alert("아이디를 입력하세요.");
 				return false;
@@ -94,14 +99,65 @@ height:44px;
 				alert("비밀번호를 동일하게 입력하세요.");
 				return false;
 			}
+		  
+			if(!datepattern.test(dateva)){
+			  alert("생년월일 8자리를 정확히 입력하세요");
+			  return false;
+		  }
+			//아이디 중복체크했는지 확인
+			if(document.userInfo.idDuplication.value != "idCheck"){
+				alert("아이디 중복체크를 해주세요.");
+				return false;
+			}    
+			
+		
+			
 		}
 		
 		// 취소 버튼 클릭시 로그인 화면으로 이동
 		function goLoginForm() {
 			location.href="LoginForm.jsp";
 		}
+		
 	</script>
+
 	
+	<script>
+	function idcheck(){
+		document.userInfo.idDuplication.value="idUncheck";
+		var userID = $('#idt').val();
+		var idpatten = /^([a-z0-9]){6,12}$/;
+		if(!idpatten.test($('#idt').val())){
+			$('#IdChecked').html('<p class="IdChecked">영문소문자 숫자포함 6~12자를 입력하세요</p>');
+		}else{
+			$('#IdChecked').html('<p class="IdChecked">아이디 중복체크를 해주세요</p>');
+		}
+	}
+	</script>
+	<script>
+	function check(){
+	
+		var userID = $('#idt').val();
+		var idpatten = /^([a-z0-9]){6,12}$/;
+		if(!idpatten.test($('#idt').val())){
+			alert("아이디양식에 맞게 입력하세요.");
+			$('#IdChecked').html('<p class="IdChecked">영문소문자 숫자포함 6~12자를 입력하세요</p>');
+		}else{
+			$.ajax({
+				url:'idcheck.do',
+				type:'POST',
+				dataType:'text',
+				contentType : 'text/plain; charset=utf-8;',
+				data:userID,
+				
+				
+			});
+			
+		}
+	}
+	
+	
+	</script>
 </head>
 <body>
 	<!-- div 왼쪽, 오른쪽 바깥여백을 auto로 주면 중앙정렬된다.  -->
@@ -118,15 +174,19 @@ height:44px;
 		<!-- 값 전송은 POST 방식, 전송할 페이지는 JoinPro.jsp -->
 		<form method="post" action="JoinPro.do" name="userInfo" 
 				onsubmit="return checkValue()">
-			<table>
+			<table> 
 				<tr>
 					<td id="title">아이디<span id="startag">*</span></td>
 					<td>
-						<input type="text" name="id" maxlength="50" class="input_text_f" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
-						<input type="button" value="중복확인"class="button">	
+						<input type="text" name="id" maxlength="15" class="input_text_f" id="idt" pattern="^([a-z0-9]){6,12}$" placeholder="6~12자의 영문 혹은 영문과 숫자를 조합" onkeyup="idcheck()">
+						<input type="button" value="중복확인"class="button"  id="idcheck_But" onclick="check()" >	
+						<input type="hidden" name="idDuplication" value="idUncheck" />
 					</td>
 				</tr>
-				
+				<tr>
+					<td></td>
+					<td id="IdChecked" ></td>
+				</tr>
 				<tr>
 					<td id="title">닉네임<span id="startag">*</span></td>
 					<td>
@@ -166,7 +226,8 @@ height:44px;
 				<tr>
 					<td id="title">생일</td>
 					<td>
-							<input type="text" name="birthdate" maxlength="50" class="input_text_f" placeholder="ex)19990101">
+							<input type="text"  id="birthdate" name="birthdate" maxlength="50" class="input_text_f" pattern="^([0-9]){8}$" placeholder="ex)19990101">
+							<div class="check_font" id="birth_check"></div>
 					</td>
 				</tr>
 					
