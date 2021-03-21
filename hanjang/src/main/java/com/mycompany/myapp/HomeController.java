@@ -1,10 +1,6 @@
 package com.mycompany.myapp;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
-
-import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.mycompany.myapp.vo.MemberVO;
 
 /**
  * Handles requests for the application home page.
@@ -68,11 +62,6 @@ public class HomeController {
 	@RequestMapping(value = "/goToCart.do")
 	public String goToCart() {
 		return "cart/cart";
-	}
-	
-	@RequestMapping(value = "/goToLogin.do")
-	public String goToLogin() {
-		return "LoginForm";
 	}
 	
 }
