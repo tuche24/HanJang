@@ -4,13 +4,8 @@
 <mapper namespace="com.mycompany.myapp.service.dao.BookDBDAO">
 	
 	<!-- Book 정보 DB insert -->
-	<!-- <insert id="insertBookDB">
-	INSERT INTO Book
-	VALUES(#{vItemId}, #{vTitle}, #{vIsbn}, #{vAuthor}, #{vDescription}, #{vPriceStandard}, #{vCoverLargeUrl},
-			#{vCategoryId}, #{vCategoryName}, #{vPublisher}, #{vPubDate})
-	</insert> -->
 	<!-- insert 중복처리 -->
-	<insert id="insertBook" parameterType="bookDBVO">
+	<insert id="insertBook" parameterType="bookVO">
 	INSERT IGNORE INTO Book
 	VALUES(#{itemID}, #{title}, #{isbn}, #{author}, #{description}, #{priceStandard}, #{coverLargeUrl},
 		#{categoryId}, #{categoryName}, #{publisher}, #{pubDate})

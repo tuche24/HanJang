@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.myapp.service.BookDBService;
 import com.mycompany.myapp.service.dao.BookDBDAO;
-import com.mycompany.myapp.vo.NewBookVO;
+import com.mycompany.myapp.vo.BookVO;
 
 // 책 정보를 DB에 넣는 서비스 입니다
 @Service("bookDBService")
@@ -15,9 +15,9 @@ public class BookDBServiceImpl implements BookDBService{
 	private BookDBDAO dao;
 	
 	@Override
-	public void insertBook(NewBookVO newBookVO) {
+	public void insertBook(BookVO bookVO) {
 		// TODO Auto-generated method stub
-		dao.insertBook(newBookVO);
+		dao.insertBook(bookVO);
 	}
 
 }
