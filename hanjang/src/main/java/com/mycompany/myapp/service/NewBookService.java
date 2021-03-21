@@ -14,15 +14,15 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import com.mycompany.myapp.vo.NewBookVO;
+import com.mycompany.myapp.vo.BookVO;
 
 @Service
 public class NewBookService {
 
 	private static String interKey = "BA6560491284A2D95D0B5AEFBEE97D064EC633386A6C652A22C74BED0E7FBDCC";
 
-	public List<NewBookVO> searchBook(String categoryId) {
-		List<NewBookVO> list = null;
+	public List<BookVO> searchBook(String categoryId) {
+		List<BookVO> list = null;
 		if(categoryId == null) {
 			categoryId = "100";
 		}
@@ -37,14 +37,14 @@ public class NewBookService {
 			parser.setInput(new InputStreamReader(urlConn.getInputStream()));
 
 			int eventType = parser.getEventType();
-			NewBookVO b = null;
+			BookVO b = null;
 
 			while (eventType != XmlPullParser.END_DOCUMENT) {
 				switch (eventType) {
 				case XmlPullParser.END_DOCUMENT:
 					break;
 				case XmlPullParser.START_DOCUMENT:
-					list = new ArrayList<NewBookVO>();
+					list = new ArrayList<BookVO>();
 					break;
 				case XmlPullParser.END_TAG: { // 두번째 반복될때
 					String tag = parser.getName();
@@ -57,7 +57,7 @@ public class NewBookService {
 					String tag = parser.getName();
 					switch (tag) {
 					case "item":
-						b = new NewBookVO();
+						b = new BookVO();
 						break;
 					case "itemId":
 						if (b != null)

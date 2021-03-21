@@ -1,81 +1,106 @@
 package com.mycompany.myapp.vo;
 
+// 책 상품 VO 
 public class BookVO {
-    private String title;
-    private String link;
-    private String image;
-    private String author;
-    private String price;
-    private String discount;
-    private String publisher;
-    private String pubdate;
-    private String isbn;
-    private String description;
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public String getLink() {
-        return link;
-    }
-    public void setLink(String link) {
-        this.link = link;
-    }
-    public String getImage() {
-        return image;
-    }
-    public void setImage(String image) {
-        this.image = image;
-    }
-    public String getAuthor() {
-        return author;
-    }
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-    public String getPrice() {
-        return price;
-    }
-    public void setPrice(String price) {
-        this.price = price;
-    }
-    public String getDiscount() {
-        return discount;
-    }
-    public void setDiscount(String discount) {
-        this.discount = discount;
-    }
-    public String getPublisher() {
-        return publisher;
-    }
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-    public String getPubdate() {
-        return pubdate;
-    }
-    public void setPubdate(String pubdate) {
-        this.pubdate = pubdate;
-    }
-    public String getIsbn() {
-        return isbn;
-    }
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    @Override
-    public String toString() {
-        return "Book [title=" + title + ", link=" + link + ", image=" + image + ", author=" + author + ", price=" + price
-                + ", discount=" + discount + ", publisher=" + publisher + ", pubdate=" + pubdate + ", isbn=" + isbn
-                + ", description=" + description + "]";
-    }
-    
+
+	private String itemID; // 책 고유번호
+	private String title; // 책 제목
+	private String isbn; // ISBN 번호
+	private String author; // 책 저자
+	private String description; // 책 설명
+	private String priceStandard; // 상품 정가
+	private String coverLargeUrl; // 책 썸네일 주소
+	private String categoryId; // 카테고리아이디
+	private String categoryName; // 카테고리이름
+	private String publisher; // 출판사
+	private String pubDate; // 출간일
+
+	public String getItemID() {
+		return itemID;
+	}
+
+	public void setItemID(String itemID) {
+		this.itemID = itemID;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getPriceStandard() {
+		return priceStandard;
+	}
+
+	public void setPriceStandard(String priceStandard) {
+		this.priceStandard = priceStandard;
+	}
+
+	public String getCoverLargeUrl() {
+		return coverLargeUrl;
+	}
+
+	public void setCoverLargeUrl(String coverLargeUrl) {
+		this.coverLargeUrl = coverLargeUrl;
+	}
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getPubDate() {
+		return pubDate;
+	}
+
+	public void setPubDate(String pubDate) {
+		this.pubDate = pubDate;
+	}
+
 }
