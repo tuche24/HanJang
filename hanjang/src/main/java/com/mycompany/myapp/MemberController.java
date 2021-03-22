@@ -1,9 +1,11 @@
 package com.mycompany.myapp;
 
 
+import java.io.PrintWriter;
 import java.text.ParseException;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -28,7 +30,7 @@ public class MemberController {
 	
 	
 	@RequestMapping(value="/JoinPro.do")
-	public String InsertMember(MemberVO membervo) {
+	public String InsertMember(MemberVO membervo) throws Exception {
 		
 		memberservice1.MemberInsert(membervo);
 		return "LoginForm";
@@ -36,17 +38,21 @@ public class MemberController {
 	
 	
 	@RequestMapping(value="/login.do")
-	public String loginMember(Model model,@ModelAttribute MemberVO membervo,HttpSession session) {
+	public String loginMember(MemberVO membervo,HttpSession session, HttpServletResponse res) throws Exception {
 		
-		boolean result = memberservice1.LoginCheck(membervo,session);
-
-		if(result== true) {
-			model.addAttribute("msg","success");
-			return "main";
+	MemberVO membervo2 = memberservice1.LoginCheck(membervo);
+	res.setContentType("text/html; charset=UTF_8");
+	PrintWriter out = res.getWriter();
+	if(membervo2.getId()==null || membervo2.getPassword()==null) {
+		out.println("<script>alert(\"아이디나 비밀번호가 틀렸습니다.\")</script>");
+		out.flush();
+		return "LoginForm";
 		}else {
-			model.addAttribute("msg","failure");
-			return "LoginForm";
+			session.setAttribute("loginVO", membervo2);
+			out.println("<script>alert(\"로그인되었습니다.\")</script>");
 		}
+	out.flush();
+	return "main";
 	}
 	/*@ResponseBody
 	@RequestMapping(value="/idcheck.do",produces="text/plane")

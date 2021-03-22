@@ -7,6 +7,6 @@ public interface MemberDAO {
 	
 	void MemberInsert(MemberVO membervo);
 	
-	public boolean LoginCheck(MemberVO membervo);
-	public MemberVO viewMember(MemberVO membervo);
+	public MemberVO LoginCheck(MemberVO membervo) throws Exception;
+	public MemberVO viewMember(MemberVO membervo) throws Exception;
 }

@@ -25,16 +25,9 @@
 	
 	</insert>
 	
-	<select id="LoginCheck" resultType="String">
-	SELECT UserName from User
+	<select id="LoginCheck" resultType="com.mycompany.myapp.vo.MemberVO">
+	SELECT * from User
 	where UserId = #{id} and UserPassword = #{password}
 	</select>
 	
-	<select  id="viewMember" resultType="com.mycompany.myapp.vo.MemberVO">
-	
-	SELECT
-	   UserName, UserId, UserPassword, UserNickName
-	   FROM User
-	   WHERE UserId = #{id} and UserPassword = #{password}
-	</select>
 </mapper>

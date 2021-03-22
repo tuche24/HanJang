@@ -17,25 +17,16 @@ public class MemberServiceImpl implements MemberService{
 	MemberDAO dao;
 	
 	@Override
-	public void MemberInsert(MemberVO membervo) {
+	public void MemberInsert(MemberVO membervo) throws Exception{
 		dao.MemberInsert(membervo);
 	}
 	
 	@Override
-	public boolean LoginCheck(MemberVO membervo,HttpSession session) {
-		boolean result = dao.LoginCheck(membervo);
-		
-		if (result) {
-			MemberVO vo2 = viewMember(membervo);
-			session.setAttribute("userId", vo2.getId());
-			session.setAttribute("username", vo2.getName());
-		}
-		return result;
+	public MemberVO LoginCheck(MemberVO membervo) throws Exception{
+
+      MemberVO membervo2 = dao.LoginCheck(membervo);
+      return membervo2;
 	}
 	
-	@Override 
-	public MemberVO viewMember(MemberVO membervo) {
-		return dao.viewMember(membervo);
-	}
 
 }
