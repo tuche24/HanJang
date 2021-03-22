@@ -26,8 +26,10 @@
 	</insert>
 	
 	<select id="LoginCheck" resultType="com.mycompany.myapp.vo.MemberVO">
-	SELECT * from User
-	where UserId = #{id} and UserPassword = #{password}
+     SELECT UserId, UserPassword
+	  FROM User 
+	  where UserId = #{id} 
+	  and UserPassword = #{password}
 	</select>
 	
 </mapper>

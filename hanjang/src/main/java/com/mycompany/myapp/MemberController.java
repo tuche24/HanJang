@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mycompany.myapp.service.MemberService;
@@ -37,26 +38,25 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping(value="/login.do")
+	@RequestMapping(value="/login.do", method = RequestMethod.POST)
 	public String loginMember(MemberVO membervo,HttpSession session, HttpServletResponse res) throws Exception {
-		
 	MemberVO membervo2 = memberservice1.LoginCheck(membervo);
-	res.setContentType("text/html; charset=UTF_8");
+	res.setContentType("text/html; charset=UTF-8");
 	PrintWriter out = res.getWriter();
 	if(membervo2.getId()==null || membervo2.getPassword()==null) {
 		out.println("<script>alert(\"아이디나 비밀번호가 틀렸습니다.\")</script>");
 		out.flush();
 		return "LoginForm";
-		}else {
-			session.setAttribute("loginVO", membervo2);
-			out.println("<script>alert(\"로그인되었습니다.\")</script>");
-		}
+	} else {
+		session.setAttribute("loginVO", membervo2);
+		out.println("<script>alert(\"로그인되었습니다.\")</script>");
+	}
 	out.flush();
 	return "main";
 	}
 	/*@ResponseBody
 	@RequestMapping(value="/idcheck.do",produces="text/plane")
-	public String IDCheck(@RequestBody String paramData) throws ParseException{
+	public String IDCheck(@RequestBody String paramData) throws ParseException{=
 		String ID = paramData.trim();
 		System.out.println(ID);
 		MemberVO mvo = memberservice1.Id_Check(ID);

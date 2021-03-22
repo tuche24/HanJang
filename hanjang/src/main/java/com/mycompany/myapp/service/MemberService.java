@@ -1,7 +1,5 @@
 package com.mycompany.myapp.service;
 
-import javax.servlet.http.HttpSession;
-
 import com.mycompany.myapp.vo.MemberVO;
 
 public interface MemberService {
