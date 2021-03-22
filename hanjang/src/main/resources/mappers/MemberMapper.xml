@@ -18,11 +18,23 @@
 	
 	<!--  회원가입 insert -->
 	
-	<select id="MemberInsert">
+	<insert id="MemberInsert">
 	INSERT INTO User
     ( UserId, UserPassword, UserName, UserNickName, UserGender, UserBirthday, UserEmail, UserPhone, UserAddress)
     VALUES (#{id}, #{password}, #{name}, #{nickname}, #{gender}, #{birthdate}, #{mail1}, #{phone}, #{address})
 	
+	</insert>
+	
+	<select id="LoginCheck" resultType="String">
+	SELECT UserName from User
+	where UserId = #{id} and UserPassword = #{password}
 	</select>
 	
+	<select  id="viewMember" resultType="com.mycompany.myapp.vo.MemberVO">
+	
+	SELECT
+	   UserName, UserId, UserPassword, UserNickName
+	   FROM User
+	   WHERE UserId = #{id} and UserPassword = #{password}
+	</select>
 </mapper>

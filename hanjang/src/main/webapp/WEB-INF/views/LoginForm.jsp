@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 	<%
@@ -40,11 +41,11 @@
 </head>
 <body>
 	<div id="wrap">
-		<form name="loginInfo" method="post" action="../pro/LoginPro.jsp" 
+		<form name="loginInfo" method="post" action="login.do" 
 				onsubmit="return checkValue()">
 		
 			
-			<img src="../../img/welcome.jpg">
+			<img src="../resources/img/welcome.jpg">
 			<br><br>
 			
 			<table>
@@ -64,22 +65,7 @@
 			<input type="button" value="비밀번호찾기" onclick=""/>
 		</form>
 		
-		<% 
-			// 아이디, 비밀번호가 틀릴경우 화면에 메시지 표시
-			// LoginPro.jsp에서 로그인 처리 결과에 따른 메시지를 보낸다.
-			String msg=request.getParameter("msg");
-			
-			if(msg!=null && msg.equals("0")) // request.getAttribute("error") == "0" 
-			{
-				out.println("<br>");
-				out.println("<font color='red' size='5'>비밀번호를 확인해 주세요.</font>");
-			}
-			else if(msg!=null && msg.equals("-1")) //request.getAttribute("error") == "-1"
-			{	
-				out.println("<br>");
-				out.println("<font color='red' size='5'>아이디를 확인해 주세요.</font>");
-			}
-		%>	
+		
 	</div>	
 </body>
 </html>
