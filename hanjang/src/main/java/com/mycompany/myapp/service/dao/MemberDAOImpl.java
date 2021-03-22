@@ -20,7 +20,7 @@ public class MemberDAOImpl implements MemberDAO{
 		sql.insert(namespace+".MemberInsert",membervo);
 		
 	}
-
+//흠
 	@Override
 	public MemberVO LoginCheck(MemberVO membervo) throws Exception {
 	

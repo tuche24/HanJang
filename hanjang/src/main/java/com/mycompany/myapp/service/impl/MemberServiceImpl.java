@@ -28,7 +28,7 @@ public class MemberServiceImpl implements MemberService{
       System.out.println(membervo2.getId());
       return membervo2;
       
-      //return dao.LoginCheck(membervo); 이것도해봄
+      //return dao.LoginCheck(membervo); 이것도해봄.
 	}
 	
 
