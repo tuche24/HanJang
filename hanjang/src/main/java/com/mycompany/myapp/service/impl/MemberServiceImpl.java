@@ -1,5 +1,7 @@
 package com.mycompany.myapp.service.impl;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +17,16 @@ public class MemberServiceImpl implements MemberService{
 	MemberDAO dao;
 	
 	@Override
-	public void MemberInsert(MemberVO membervo) {
+	public void MemberInsert(MemberVO membervo) throws Exception{
 		dao.MemberInsert(membervo);
 	}
 	
-	
+	@Override
+	public MemberVO LoginCheck(MemberVO membervo) throws Exception{
+
+      MemberVO membervo2 = dao.LoginCheck(membervo);
+      return membervo2;
+	}
 	
 
 }
