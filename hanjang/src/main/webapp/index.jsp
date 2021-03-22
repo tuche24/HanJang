@@ -21,10 +21,6 @@
 <input type="submit" value="회원가입폼" />
 </form>
 
-<form action="goToBestSeller.do">
-<input type="submit" value="베스트셀러" />
-</form>
-
 <form action="goToCart.do">
 <input type="submit" value="장바구니 이동" />
 </form>
@@ -35,6 +31,10 @@
 
 <form action="getOneCart.do">
 <input type="submit" value="카트테스트" />
+
+<form action="BestSellerList1.do">
+<input type="submit" value="베스트셀러" />
+
 </form>
 </body>
 </html>
