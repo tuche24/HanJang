@@ -29,8 +29,12 @@
 <input type="submit" value="새책페이지1" />
 </form>
 
+<form action="getOneCart.do">
+<input type="submit" value="카트테스트" />
+
 <form action="BestSellerList1.do">
 <input type="submit" value="베스트셀러" />
+
 </form>
 </body>
 </html>
