@@ -1,20 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="com.mycompany.myapp.service.dao.TestDAO">
-
-	<select id="getAllTest" resultType="testVO">
-	SELECT * FROM Test
-	</select>
-	
-	<insert id="insertTest">
-	INSERT INTO Test(fName, fContent)
-	VALUES(#{fName}, #{fContent})
-	</insert>
-	
-	<delete id="deleteTest">
-	DELETE FROM Test where fNum=#{fNum}
-	</delete>
-	
-
-</mapper>
+<mapper namespace="mappers.Mapper"></mapper>
+<!-- 이 파일 지우면 404오류 뜸  -->

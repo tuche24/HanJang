@@ -15,4 +15,9 @@ public class NewBookController {
 	public String goToNewBookGenre() {
 		return "new_book/New_Book_bottomline";
 	}
+
+	@RequestMapping(value = "/goToBookDetail.do")
+	public String goToBookDetail() {
+		return "book_detail/Book_Detail";
+	}
 }

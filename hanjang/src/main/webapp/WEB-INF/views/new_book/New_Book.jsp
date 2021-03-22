@@ -1,13 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>새로 나온 책</title>
 </head>
-<link rel="stylesheet" href="../resources/css/reset.css" />
-<link rel="stylesheet" href="../resources/css/book_list.css" />
+<link rel="stylesheet" href="resources/css/reset.css" />
+<link rel="stylesheet" href="resources/css/book_list.css" />
+
+<style>
+#content ul li {
+	list-style: none;
+	height: 300px;
+	display: list-item;
+}
+
+#content .thumb_cont {
+	position: relative;
+    margin: 25px 20px 25px 0px;
+}
+
+#content .info_area .detail {
+	margin-left: 190px;
+	margin-right: 140px;
+}
+
+
+.thumb_cont .buy_button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1;
+    width: 118px;
+    margin-top: -64px;
+}
+
+#content .info_area .buy_button {
+	position: absolute;
+	margin-top: -200px;
+	/* right: 150px; */
+	margin-left: 950px;
+}
+
+#content ul li .buy_button button {
+	float: right;
+	width: 120px;
+	height: 50px;
+	color: #fff;
+	font-weight: bold;
+	border: 0;
+}
+</style>
 
 <body>
 	<div id="container">
@@ -19,16 +65,16 @@
 
 		<div id="wrap">
 			<div id="category">
-				<button style="cursor: pointer;" onclick="location='#''">신간 종류</button>
+				<button style="cursor: pointer;" onclick="location='NewBookList1.do?categoryId=100'">신간 종류</button>
 			</div>
 
 			<div id="genre">
 				<ul>
-					<li><a href="goToNewBookGenre.do">유아/어린이</a></li>
-					<li><a href="#">소설/시/희곡</a></li>
-					<li><a href="#">에세이</a></li>
-					<li><a href="#">인문학</a></li>
-					<li><a href="#">과학/역사</a></li>
+					<li><a href="NewBookList1.do?categoryId=109">유아/어린이</a></li>
+					<li><a href="NewBookList1.do?categoryId=101">소설/시/희곡</a></li>
+					<li><a href="NewBookList1.do?categoryId=102">에세이</a></li>
+					<li><a href="NewBookList1.do?categoryId=103">인문학</a></li>
+					<li><a href="NewBookList1.do?categoryId=116">과학/역사</a></li>
 					<div id="bottomLine">
             			<span id="genre1"></span>
             			<span id="genre2"></span>
@@ -37,11 +83,11 @@
             			<span id="genre5"></span>
          			</div>
          			<br><br>
-					<li><a href="#">수험서/참고서</a></li>
-					<li><a href="#">영미소설</a></li>
-					<li><a href="#">경제경영</a></li>
-					<li><a href="#">자기계발</a></li>
-					<li><a href="#">기타</a></li>
+					<li><a href="NewBookList1.do?categoryId=114">수험서/참고서</a></li>
+					<li><a href="NewBookList1.do?categoryId=205">영미소설</a></li>
+					<li><a href="NewBookList1.do?categoryId=117">경제경영</a></li>
+					<li><a href="NewBookList1.do?categoryId=118">자기계발</a></li>
+					<li><a href="NewBookList1.do?categoryId=128">여행</a></li>
 					<div id="bottomLine">
             			<span id="genre6"></span>
             			<span id="genre7"></span>
@@ -55,36 +101,50 @@
 			<hr>
 
 			<div id="content">
+			
 				<ul>
+				<c:forEach items="${bookList}" var ="b">
 					<li>
-						<div class="info_area">
-							<div class="image">
-								<a href="#"><img src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg" 
-								alt="우리는 안녕"/></a>
-							</div>
+						<div class="thumb_cont">
+							<div class="info_area">
+								<div class="image">
+									<a href="goToBookDetail.do">
+									<img src="${b.coverLargeUrl}" alt="" />
+									<%-- <img src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg" 
+									alt="우리는 안녕"/> --%></a>
+								</div>
 
-							<div class="detail">
-								<div class="title">
-									<a href="#"><strong>우리는 안녕</strong></a>
-								</div>
-								<div class="pub_info">
-									<span class="author">박준</span>
-									<span>|</span> 
-									<span class="publication">난다</span>
-									<span>|</span>
-									<span class="publication_date">2021년 03월 20일</span>
-								</div>
-								<div class="price">
-									<span class="sell_price">14,850원</span>
-								</div>
-								<div class="info">
-									<span>"안녕은 그리는 거야." 박준 시인의 첫 시 그림책<br> 안녕은 그리는 거야.<br>
-										그리고 그리고 또 그리는 것을 그리움이라고 하는 거야.<br> 시인 박준의 첫 시 그림책 '우리는
-										안녕'
-									</span>
+								<div class="detail">
+									<div class="title">
+										<a href="goToBookDetail.do"><strong>${b.title}</strong></a>
+									</div>
+									<div class="pub_info">
+										<span class="author">${b.author}</span>
+										<span>|</span> 
+										<span class="publication">${b.publisher}</span>
+										<span>|</span>
+										<span class="publication_date">
+											<fmt:parseDate value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd"/>
+											<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" />
+										</span>
+									</div>
+									<div class="price">
+										<span class="sell_price"><fmt:formatNumber value="${b.priceStandard}" pattern="#,###"/>원</span>
+									</div>
+									<div class="info">
+										<span>
+										<c:if test="${empty b.description }">책 설명 업데이트 예정<br><br><br><br>
+										</c:if>
+											${b.description}
+									
+										<!-- "안녕은 그리는 거야." 박준 시인의 첫 시 그림책<br> 안녕은 그리는 거야.<br>
+											그리고 그리고 또 그리는 것을 그리움이라고 하는 거야.<br> 시인 박준의 첫 시 그림책 '우리는
+											안녕' -->
+										</span>
+									</div>
 								</div>
 							</div>
-
+							
 							<div class="buy_button">
 								<button style="cursor: pointer;" onclick="location='#'">장바구니</button>
 								<br>
@@ -92,7 +152,8 @@
 							</div>
 						</div>
 					</li>
-
+					</c:forEach>
+<%-- 
 					<li>
 						<div class="info_area">
 							<div class="image">
@@ -240,11 +301,11 @@
 						</div>
 					</li>
 
-
+ --%>
 				</ul>
 			</div>
 
-			<div class="paging">
+<!-- 			<div class="paging">
 				<a class="btn_pre" href="#">&lt;</a>
 				<ul>
 					<li><a href="#">1</a></li>
@@ -254,7 +315,7 @@
 					<li><a href="#">5</a></li>
 				</ul>
 				<a class="btn_next" href="#">&gt;</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </body>

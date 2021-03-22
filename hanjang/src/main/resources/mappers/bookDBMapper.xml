@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mycompany.myapp.service.dao.BookDBDAO">
+	
+	<!-- Book 정보 DB insert -->
+	<!-- insert 중복처리 -->
+	<insert id="insertBook" parameterType="bookVO">
+	INSERT IGNORE INTO Book
+	VALUES(#{itemID}, #{title}, #{isbn}, #{author}, #{description}, #{priceStandard}, #{coverLargeUrl},
+		#{categoryId}, #{categoryName}, #{publisher}, #{pubDate})
+	</insert>
+	
+</mapper>

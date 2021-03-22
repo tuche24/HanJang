@@ -1,119 +1,251 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>È¸¿ø°¡ÀÔ È­¸é</title>
+	<title>íšŒì›ê°€ì… í™”ë©´</title>
 	
-	<!-- css ÆÄÀÏ ºĞ¸® -->
-	<link href='../../css/join_style.css' rel='stylesheet' style='text/css'/>
+	<!-- css íŒŒì¼ ë¶„ë¦¬ -->
+	<link href="../resouces/css/join_style.css" rel="stylesheet"/>
+	
+	<style>
+	.button{
+	
+	color:#5f0080;
+	width:130;height:43px;
+	background:white;
+	border-radius:3px;
+		font-weight:700;
+		border-radius:2px;
+		font-weight:700;
+  border: solid 3px transparent;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+	}
+	#wrap{
+	width:1050px;
+	margin: 0 auto;
+	}
+	
+	.member_join_field{
+	width:640px;
+	margin:0 auto;}
+	
+	.member_join_field table{
+	font-weight:700;
+	font-size:14px;
+	}
+	#startag{
+	color:red;
+	font-size:14px;
+	}
+	
+	#title{
+  width:130px;
+  height:60px;
+	}
+.input_text_f{
+width:332px;
+height:44px;
+border: 1px solid #ccc;
+}
 
-	<script type="text/javascript">
+.butt{
+width:120px;
+height:44px;
 	
-		// ÇÊ¼ö ÀÔ·ÂÁ¤º¸ÀÎ ¾ÆÀÌµğ, ºñ¹Ğ¹øÈ£°¡ ÀÔ·ÂµÇ¾ú´ÂÁö È®ÀÎÇÏ´Â ÇÔ¼ö
-		function checkValue()
+	color:#5f0080;
+	background:white;
+	border-radius:2px;
+		font-weight:700;
+  border: solid 3px transparent;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  
+}
+
+.two_1{
+   height: 2px;
+   border: none;
+   background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);}
+
+
+		</style>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script>
+	
+	
+		// í•„ìˆ˜ ì…ë ¥ì •ë³´ì¸ ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì—ˆëŠ”ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜,ìƒë…„ì›”ì¼ ë“±ë“±ì²´í¬
+	/* 	function checkValue()
 		{
+			var dateva = $('#birthdate').val();
+		var datepattern = /^([0-9]){8}$/;
+			//ìƒë…„ì›”ì¼ ìœ íš¨ì„±ê²€ì‚¬ ì¶”ê°€í•´ì•¼ë¨.
+		 
+			
 			if(!document.userInfo.id.value){
-				alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				return false;
 			}
 			
 			if(!document.userInfo.password.value){
-				alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				return false;
 			}
 			
-			// ºñ¹Ğ¹øÈ£¿Í ºñ¹Ğ¹øÈ£ È®ÀÎ¿¡ ÀÔ·ÂµÈ °ªÀÌ µ¿ÀÏÇÑÁö È®ÀÎ
+			// ë¹„ë°€ë²ˆí˜¸ì™€ ë¹„ë°€ë²ˆí˜¸ í™•ì¸ì— ì…ë ¥ëœ ê°’ì´ ë™ì¼í•œì§€ í™•ì¸
 			if(document.userInfo.password.value != document.userInfo.passwordcheck.value ){
-				alert("ºñ¹Ğ¹øÈ£¸¦ µ¿ÀÏÇÏ°Ô ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ë™ì¼í•˜ê²Œ ì…ë ¥í•˜ì„¸ìš”.");
 				return false;
 			}
-		}
+		  
+			if(!datepattern.test(dateva)){
+			  alert("ìƒë…„ì›”ì¼ 8ìë¦¬ë¥¼ ì •í™•íˆ ì…ë ¥í•˜ì„¸ìš”");
+			  return false;
+		  }
+			//ì•„ì´ë”” ì¤‘ë³µì²´í¬í–ˆëŠ”ì§€ í™•ì¸
+			if(document.userInfo.idDuplication.value != "idCheck"){
+				alert("ì•„ì´ë”” ì¤‘ë³µì²´í¬ë¥¼ í•´ì£¼ì„¸ìš”.");
+				return false;
+			}    
+			
 		
-		// Ãë¼Ò ¹öÆ° Å¬¸¯½Ã ·Î±×ÀÎ È­¸éÀ¸·Î ÀÌµ¿
+			
+		} */
+		
+		// ì·¨ì†Œ ë²„íŠ¼ í´ë¦­ì‹œ ë¡œê·¸ì¸ í™”ë©´ìœ¼ë¡œ ì´ë™
 		function goLoginForm() {
 			location.href="LoginForm.jsp";
 		}
+		
 	</script>
+
 	
+	<script>
+	function idcheck(){
+		document.userInfo.idDuplication.value="idUncheck";
+		$('#IdChecked').css("color","red");
+		var userID = $('#idt').val();
+		var idpatten = /^([a-z0-9]){6,12}$/;
+		if(!idpatten.test($('#idt').val())){
+			$('#IdChecked').html('<p class="IdChecked">ì˜ë¬¸ì†Œë¬¸ì ìˆ«ìí¬í•¨ 6~12ìë¥¼ ì…ë ¥í•˜ì„¸ìš”</p>');
+		}else{
+			$('#IdChecked').html('<p class="IdChecked">ì•„ì´ë”” ì¤‘ë³µì²´í¬ë¥¼ í•´ì£¼ì„¸ìš”</p>');
+		}
+	}
+	</script>
+	<script>
+	////////////////////ì•„ì´ë”” ì¤‘ë³µì²´í¬
+/* 	function check(){
+	
+		var userID = $('#idt').val();
+		var idpatten = /^([a-z0-9]){6,12}$/;
+		if(!idpatten.test($('#idt').val())){
+			alert("ì•„ì´ë””ì–‘ì‹ì— ë§ê²Œ ì…ë ¥í•˜ì„¸ìš”.");
+			$('#IdChecked').html('<p class="IdChecked">ì˜ë¬¸ì†Œë¬¸ì ìˆ«ìí¬í•¨ 6~12ìë¥¼ ì…ë ¥í•˜ì„¸ìš”</p>');
+		}else{
+			$.ajax({
+				url:'idcheck.do',
+				type:'POST',
+				dataType:'text',
+				contentType : 'text/plain; charset=utf-8;',
+				data:userID,
+				success: function(data){
+					if(data ==0){
+						$('#IdChecked').css("color","red");
+						$('#IdChecked').html('<p class="IdChecked">ì‚¬ìš©í•˜ì‹¤ìˆ˜ ìˆëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤</p>');
+						document.userInfo.idDuplication.value="idcheck";
+					}else{
+						$('#IdChecked').css("color","red");
+						$('#IdChecked').html('<p class="IdChecked">ì¤‘ë³µëœ ì•„ì´ë””ê°€ ì¡´ì¬í•©ë‹ˆë‹¤.ë‹¤ì‹œì…ë ¥í•´ì£¼ì„¸ìš”</p>');
+					}	
+				}
+			});
+			
+		}
+	}
+	
+	 */
+	</script>
 </head>
 <body>
-	<!-- div ¿ŞÂÊ, ¿À¸¥ÂÊ ¹Ù±ù¿©¹éÀ» auto·Î ÁÖ¸é Áß¾ÓÁ¤·ÄµÈ´Ù.  -->
+	<!-- div ì™¼ìª½, ì˜¤ë¥¸ìª½ ë°”ê¹¥ì—¬ë°±ì„ autoë¡œ ì£¼ë©´ ì¤‘ì•™ì •ë ¬ëœë‹¤.  -->
 	<div id="wrap">
+	 <div class="member_join_field">
 		<br><br>
-		<b><font size="6" color="gray">È¸¿ø°¡ÀÔ</font></b>
-		<br><br><br>
+		<div style="text-align:center;"><h2>íšŒì›ê°€ì…</h2></div>
+		<br><div style="text-align:right; font-size:10px;"><span id="startag">*</span>í•„ìˆ˜ì…ë ¥ì‚¬í•­</div>
+		<hr class="two_1">
+		<br><br>
 		
 		
-		<!-- ÀÔ·ÂÇÑ °ªÀ» Àü¼ÛÇÏ±â À§ÇØ form ÅÂ±×¸¦ »ç¿ëÇÑ´Ù -->
-		<!-- °ª Àü¼ÛÀº POST ¹æ½Ä, Àü¼ÛÇÒ ÆäÀÌÁö´Â JoinPro.jsp -->
-		<form method="post" action="../pro/JoinPro.jsp" name="userInfo" 
+		<!-- ì…ë ¥í•œ ê°’ì„ ì „ì†¡í•˜ê¸° ìœ„í•´ form íƒœê·¸ë¥¼ ì‚¬ìš©í•œë‹¤ -->
+		<!-- ê°’ ì „ì†¡ì€ POST ë°©ì‹, ì „ì†¡í•  í˜ì´ì§€ëŠ” JoinPro.jsp -->
+		<form method="post" action="JoinPro.do" name="userInfo" 
 				onsubmit="return checkValue()">
-			<table>
+			<table> 
 				<tr>
-					<td id="title">¾ÆÀÌµğ</td>
+					<td id="title">ì•„ì´ë””<span id="startag">*</span></td>
 					<td>
-						<input type="text" name="id" maxlength="50">
-						<input type="button" value="Áßº¹È®ÀÎ" >	
+						<input type="text" name="id" maxlength="15" class="input_text_f" id="idt" pattern="^([a-z0-9]){6,12}$" placeholder="6~12ìì˜ ì˜ë¬¸ í˜¹ì€ ì˜ë¬¸ê³¼ ìˆ«ìë¥¼ ì¡°í•©" onkeyup="idcheck()">
+						<input type="button" value="ì¤‘ë³µí™•ì¸"class="button"  id="idcheck_But" onclick="check()" >	
+						<input type="hidden" name="idDuplication" value="idUncheck" />
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td id="IdChecked" ></td>
+				</tr>
+				<tr>
+					<td id="title">ë‹‰ë„¤ì„<span id="startag">*</span></td>
+					<td>
+						<input type="text" name="nickname" maxlength="50" class="input_text_f" placeholder="8ìì´í•˜ë¡œ ì…ë ¥í•˜ì„¸ìš”">
 					</td>
 				</tr>
 						
 				<tr>
-					<td id="title">ºñ¹Ğ¹øÈ£</td>
+					<td id="title">ë¹„ë°€ë²ˆí˜¸<span id="startag">*</span></td>
 					<td>
-						<input type="password" name="password" maxlength="50">
+						<input type="password" name="password" maxlength="50" class="input_text_f"placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”">
 					</td>
 				</tr>
 				
 				<tr>
-					<td id="title">ºñ¹Ğ¹øÈ£ È®ÀÎ</td>
+					<td id="title">ë¹„ë°€ë²ˆí˜¸ í™•ì¸<span id="startag" >*</span></td>
 					<td>
-						<input type="password" name="passwordcheck" maxlength="50">
+						<input type="password" name="passwordcheck" maxlength="50" class="input_text_f" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ í•œë²ˆ ë” ì…ë ¥í•´ì£¼ì„¸ìš”" >
 					</td>
 				</tr>
 					
 				<tr>
-					<td id="title">ÀÌ¸§</td>
+					<td id="title">ì´ë¦„<span id="startag">*</span></td>
 					<td>
-						<input type="text" name="name" maxlength="50">
+						<input type="text" name="name" maxlength="50" class="input_text_f" placeholder="ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”">
 					</td>
 				</tr>
 					
 				<tr>
-					<td id="title">¼ºº°</td>
+					<td id="title">ì„±ë³„</td>
 					<td>
-						<input type="radio" name="gender" value="³²" checked>³²
-						<input type="radio" name="gender" value="¿©" checked>¿©
+						<input type="radio" name="gender" value="ë‚¨" checked>ë‚¨
+						<input type="radio" name="gender" value="ì—¬" checked>ì—¬
 					</td>
 				</tr>
 					
 				<tr>
-					<td id="title">»ıÀÏ</td>
+					<td id="title">ìƒì¼</td>
 					<td>
-						<input type="text" name="birthyy" maxlength="4" placeholder="³â(4ÀÚ)" size="6" >
-						<select name="birthmm">
-							<option value="">¿ù</option>
-							<option value="01" >1</option>
-							<option value="02" >2</option>
-							<option value="03" >3</option>
-							<option value="04" >4</option>
-							<option value="05" >5</option>
-							<option value="06" >6</option>
-							<option value="07" >7</option>
-							<option value="08" >8</option>
-							<option value="09" >9</option>
-							<option value="10" >10</option>
-							<option value="11" >11</option>
-							<option value="12" >12</option>
-						</select>
-						<input type="text" name="birthdd" maxlength="2" placeholder="ÀÏ" size="4" >
+							<input type="text"  id="birthdate" name="birthdate" maxlength="50" class="input_text_f" pattern="^([0-9]){8}$" placeholder="ex)19990101">
+							<div class="check_font" id="birth_check"></div>
 					</td>
 				</tr>
 					
 				<tr>
-					<td id="title">ÀÌ¸ŞÀÏ</td>
+					<td id="title">ì´ë©”ì¼</td>
 					<td>
-						<input type="text" name="mail1" maxlength="50">@
-						<select name="mail2">
+						<input type="text" name="mail1" maxlength="50" style="width:170px; height:44px; border: 1px solid #ccc; border-radius:3px">@
+						<select name="mail2" style="width:148px; height:44px; border: 1px solid #ccc; border-radius:3px">
 							<option>naver.com</option>
 							<option>daum.net</option>
 							<option>gmail.com</option>
@@ -123,22 +255,24 @@
 				</tr>
 					
 				<tr>
-					<td id="title">ÈŞ´ëÀüÈ­</td>
+					<td id="title">íœ´ëŒ€ì „í™”</td>
 					<td>
-						<input type="text" name="phone" />
+						<input type="text" name="phone"  class="input_text_f" placeholder="ìˆ«ìë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”"/>
 					</td>
 				</tr>
 				<tr>
-					<td id="title">ÁÖ¼Ò</td>
+					<td id="title">ì£¼ì†Œ</td>
 					<td>
-						<input type="text" size="50" name="address"/>
+						<input type="text" size="50" name="address" style="height:44px; border: 1px solid #ccc;"/>
 					</td>
 				</tr>
 			</table>
-			<br>
-			<input type="submit" value="°¡ÀÔ">  
-			<input type="button" value="Ãë¼Ò" onclick="goLoginForm()">
+			<br><div style="text-align:center;">
+			<input type="submit" value="ê°€ì…" class="butt">  
+			<input type="button" value="ì·¨ì†Œ" onclick="goLoginForm()" class="butt">
+			</div>
 		</form>
+		</div>
 	</div>
 </body>
 </html>
