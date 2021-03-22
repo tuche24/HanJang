@@ -3,7 +3,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="testVO" type="com.mycompany.myapp.vo.TestVO" />
-		<typeAlias alias="boardVO" type="com.mycompany.myapp.vo.BoardVO" />
+		<typeAlias alias="boardVO" type="com.mycompany.myapp.vo.CommunityVO" />
 		<typeAlias alias="pageVO" type="com.mycompany.myapp.vo.PageVO" />
 	</typeAliases>
 </configuration>

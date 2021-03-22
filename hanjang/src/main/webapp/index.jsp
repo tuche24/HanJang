@@ -31,7 +31,11 @@
 </form>
 
 <form action="recommendList.do">
-<input type="submit" value="커뮤니티 - 책 추천 게시판" />
+<input type="submit" value="커뮤니티 - 책 추천 게시판"/>
+</form>
+
+<form action="requestList.do">
+<input type="submit" value="커뮤니티 - 없는 책 게시판" />
 </form>
 
 <form action="bestSellerList.do">

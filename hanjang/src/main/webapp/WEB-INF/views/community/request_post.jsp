@@ -11,14 +11,14 @@
 <script>
 	$("#deleteBtn").click(function() {
 		if(confirm("삭제하시겠습니까?")) {
-			location.href="recommendDelete.do?boardNo=${post.boardNo }"
+			location.href="requestDelete.do?boardNo=${post.boardNo }"
 		}
 	})
 </script>
 </head>
 <body>
-<div class="boardTitle">이 책 추천해요</div>
-<div class="boardSubTitle">인상 깊게 읽었던 책을 공유하는 커뮤니티입니다.</div>
+<div class="boardTitle">없는 책 요청해요</div>
+<div class="boardSubTitle">한장두장에 없는 도서를 입고요청하는 게시판입니다.</div>
 <table border="1" class="MainBoardLayout">
 	<tr>
 		<td colspan="5" style="height:30px;"><hr class="headline"></td>
@@ -63,7 +63,7 @@
 	<!-- 댓글 작성 부분 -->
 	<tr>
 		<td colspan="5">
-		<form action="recommendReplyInsert.do">
+		<form action="requestReplyInsert.do">
 			<table style="margin:auto;">
 				<tr>
 				</tr>
@@ -86,9 +86,9 @@
 	</tr>
 	<tr>
 		<td colspan="4"></td>
-		<td style="text-align:right;"><a href="recommendList.do" style="margin-right:20px;">목록</a>
+		<td style="text-align:right;"><a href="requestList.do" style="margin-right:20px;">목록</a>
 		<!-- 로그인한 사람만, 해당 글을 작성한 사람만 삭제 가능하게 해야 됨 -->
-		<a href="recommendUpdateForm.do?boardNo=${post.boardNo }" style="margin-right:20px;">수정</a>
+		<a href="requestUpdateForm.do?boardNo=${post.boardNo }" style="margin-right:20px;">수정</a>
 		<a id="deleteBtn" style="margin-right:20px;">삭제</a></td>
 	</tr>
 </table>

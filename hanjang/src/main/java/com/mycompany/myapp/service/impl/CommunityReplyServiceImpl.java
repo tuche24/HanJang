@@ -5,28 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mycompany.myapp.service.ReplyService;
+import com.mycompany.myapp.service.CommunityReplyService;
 import com.mycompany.myapp.service.dao.ReplyDAO;
-import com.mycompany.myapp.vo.ReplyVO;
+import com.mycompany.myapp.vo.CommunityReplyVO;
 
 @Service("replyService")
-public class ReplyServiceImpl implements ReplyService {
+public class CommunityReplyServiceImpl implements CommunityReplyService {
 	
 	@Autowired
 	private ReplyDAO dao;
 
 	@Override
-	public List<ReplyVO> getReplyList(int boardNo) {
+	public List<CommunityReplyVO> getReplyList(int boardNo) {
 		return dao.getReplyList(boardNo);
 	}
 
 	@Override
-	public void insertReply(ReplyVO rv) {
+	public void insertReply(CommunityReplyVO rv) {
 		dao.insertReply(rv);
 	}
 
 	@Override
-	public void updateReply(ReplyVO rv) {
+	public void updateReply(CommunityReplyVO rv) {
 		dao.updateReply(rv);
 	}
 

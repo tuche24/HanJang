@@ -3,7 +3,7 @@
 
 <mapper namespace="com.mycompany.myapp.service.dao.ReplyDAO">
 
-	<resultMap id="ReplyMap" type="com.mycompany.myapp.vo.ReplyVO">
+	<resultMap id="ReplyMap" type="com.mycompany.myapp.vo.CommunityReplyVO">
 		<id property="replyNo" column="replyno"/>
 		<result property="boardNo" column="boardno"/>
 		<result property="replyContent" column="replycontent"/>
