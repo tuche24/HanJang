@@ -5,8 +5,7 @@ import com.mycompany.myapp.vo.MemberVO;
 public interface MemberDAO {
 
 	
-	void MemberInsert(MemberVO membervo);
+	void MemberInsert(MemberVO membervo) throws Exception;
 	
 	public MemberVO LoginCheck(MemberVO membervo) throws Exception;
-	public MemberVO viewMember(MemberVO membervo) throws Exception;
 }
