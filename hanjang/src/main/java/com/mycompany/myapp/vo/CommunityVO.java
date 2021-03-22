@@ -2,7 +2,7 @@ package com.mycompany.myapp.vo;
 
 import java.sql.Date;
 
-public class BoardVO {
+public class CommunityVO {
 	
 	private int boardNo;
 	private String title;
@@ -62,6 +62,5 @@ public class BoardVO {
 		return "BoardVO [boardNo=" + boardNo + ", title=" + title + ", content=" + content + ", writer=" + writer
 				+ ", regDate=" + regDate + ", viewCnt=" + viewCnt + ", reCnt=" + reCnt + "]";
 	}
-
 
 }
