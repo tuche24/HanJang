@@ -3,7 +3,7 @@
 <mapper namespace="com.mycompany.myapp.service.dao.MemberDAO">
 
 
-<resultMap id="BoardMap" type="com.mycompany.myapp.vo.MemberVO">
+<resultMap id="MemberMap" type="com.mycompany.myapp.vo.MemberVO">
 		
 		<result property="id" column="UserId"/>
 		<result property="password" column="UserPassword"/>
@@ -25,7 +25,7 @@
 	
 	</insert>
 	
-	<select id="LoginCheck" resultType="com.mycompany.myapp.vo.MemberVO">
+	<select id="LoginCheck" resultMap="MemberMap">
      SELECT UserId, UserPassword
 	  FROM User 
 	  where UserId = #{id} 
