@@ -5,5 +5,7 @@
 		<typeAlias alias="boardVO" type="com.mycompany.myapp.vo.BoardVO" />
 		<typeAlias alias="pageVO" type="com.mycompany.myapp.vo.PageVO" />
 		<typeAlias alias="bookVO" type="com.mycompany.myapp.vo.BookVO" />
+		<typeAlias alias="cartVO" type="com.mycompany.myapp.vo.CartVO" />
+		<typeAlias alias="cartProductVO" type="com.mycompany.myapp.vo.CartProductVO" />
 	</typeAliases>
 </configuration>

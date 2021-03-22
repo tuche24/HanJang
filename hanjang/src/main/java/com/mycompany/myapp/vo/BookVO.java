@@ -1,6 +1,9 @@
 package com.mycompany.myapp.vo;
 
+import org.springframework.stereotype.Component;
+
 // 책 상품 VO 
+@Component
 public class BookVO {
 
 	private String itemID; // 책 고유번호
