@@ -2,7 +2,7 @@ package com.mycompany.myapp.vo;
 
 import java.sql.Date;
 
-public class ReplyVO {
+public class CommunityReplyVO {
 	
 	private int replyNo;
 	private int boardNo;

@@ -15,5 +15,10 @@ public class BestSellerController {
 	public String goToBestSellerGenre() {
 		return "best_seller/Best_Seller_bottomline";
 	}
+	
+	/*@RequestMapping(value = "/goToBookDetail.do")
+	public String goToBookDetail() {
+		return "book_detail/Book_Detail";
+	}*/
 }
 

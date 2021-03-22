@@ -2,22 +2,22 @@ package com.mycompany.myapp.service.dao;
 
 import java.util.List;
 
-import com.mycompany.myapp.vo.BoardVO;
+import com.mycompany.myapp.vo.CommunityVO;
 import com.mycompany.myapp.vo.PageVO;
 
-public interface BoardDAO {
+public interface Community2DAO {
 	
-	// 게시글 목록 조회
-	List<BoardVO> getPostList();
+	// 게시글 목록 조회 + 페이징
+	List<CommunityVO> getPostListPaging(PageVO pv);
 	
 	// 게시글 상세 조회
-	BoardVO getPost(int boardNo);
+	CommunityVO getPost(int boardNo);
 	
 	// 게시글 등록
-	void insertPost(BoardVO post);
+	void insertPost(CommunityVO post);
 	
 	// 게시글 수정
-	void updatePost(BoardVO post);
+	void updatePost(CommunityVO post);
 	
 	// 게시글 삭제
 	void deletePost(int boardNo);
@@ -27,8 +27,5 @@ public interface BoardDAO {
 	
 	// 총 게시글 수 조회
 	int countPosts();
-	
-	// 게시글 페이징 목록 조회
-	List<BoardVO> getPostListPaging(PageVO pv);
 
 }

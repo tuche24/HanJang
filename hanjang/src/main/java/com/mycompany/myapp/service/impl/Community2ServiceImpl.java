@@ -5,34 +5,34 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mycompany.myapp.service.BoardService;
-import com.mycompany.myapp.service.dao.BoardDAO;
-import com.mycompany.myapp.vo.BoardVO;
+import com.mycompany.myapp.service.CommunityService;
+import com.mycompany.myapp.service.dao.Community2DAO;
+import com.mycompany.myapp.vo.CommunityVO;
 import com.mycompany.myapp.vo.PageVO;
 
-@Service("boardService")
-public class BoardServiceImpl implements BoardService {
+@Service("community2Service")
+public class Community2ServiceImpl implements CommunityService {
 	
 	@Autowired
-	private BoardDAO dao;
+	private Community2DAO dao;
 
 	@Override
-	public List<BoardVO> getPostList() {
-		return dao.getPostList();
+	public List<CommunityVO> getPostListPaging(PageVO pv) {
+		return dao.getPostListPaging(pv);
 	}
 
 	@Override
-	public BoardVO getPost(int boardNo) {
+	public CommunityVO getPost(int boardNo) {
 		return dao.getPost(boardNo);
 	}
 
 	@Override
-	public void insertPost(BoardVO post) {
+	public void insertPost(CommunityVO post) {
 		dao.insertPost(post);
 	}
 
 	@Override
-	public void updatePost(BoardVO post) {
+	public void updatePost(CommunityVO post) {
 		dao.updatePost(post);
 	}
 
@@ -40,7 +40,7 @@ public class BoardServiceImpl implements BoardService {
 	public void deletePost(int boardNo) {
 		dao.deletePost(boardNo);
 	}
-	
+
 	@Override
 	public void updateViewCnt(int boardNo) {
 		dao.updateViewCnt(boardNo);
@@ -49,11 +49,6 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int countPosts() {
 		return dao.countPosts();
-	}
-
-	@Override
-	public List<BoardVO> getPostListPaging(PageVO pv) {
-		return dao.getPostListPaging(pv);
 	}
 
 }
