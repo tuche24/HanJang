@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="../resources/css/reset.css" />
 <link rel="stylesheet" href="../resources/css/book_detail.css" />
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
 $(function only_number(){
@@ -20,7 +20,7 @@ $(function only_number(){
 	var num = parseInt(stat,10);
 	num--;
 	if (num <= 0) {
-		alert('책은 1권 이상 구매 할 수 있습니다.');
+		swal("구매 횟수 제한","책은 1권 이상 구매 할 수 있습니다.","warning");
 		num = 1;
 	}
 	
@@ -34,8 +34,8 @@ $(function only_number(){
 	num++;
 
 	if (num > 5) {
-		alert('구매 제한은 5권입니다.');
-		num=5;
+		swal("구매 횟수 제한","구매 제한은 5권입니다.","warning");
+		num = 5;
 	}
 	
 	$('#count_form_input').text(num);
