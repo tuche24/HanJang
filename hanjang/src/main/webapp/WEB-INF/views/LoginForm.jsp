@@ -3,6 +3,8 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<%
 		// 인코딩 
 		request.setCharacterEncoding("euc-kr"); 
@@ -20,13 +22,13 @@
 			inputForm = eval("document.loginInfo");
 			if(!inputForm.id.value)
 			{
-				alert("아이디를 입력하세요");	
+				swal("아이디를 입력하세요");	
 				inputForm.id.focus();
 				return false;
 			}
 			if(!inputForm.password.value)
 			{
-				alert("비밀번호를 입력하세요");	
+				swal("비밀번호를 입력하세요");	
 				inputForm.password.focus();
 				return false;
 			}

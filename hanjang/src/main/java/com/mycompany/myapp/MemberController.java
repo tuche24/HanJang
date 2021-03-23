@@ -47,7 +47,8 @@ public class MemberController {
 	
 	
 	if(membervo2!=null) {
-		session.setAttribute("loginVO", membervo2);
+		session.setAttribute("loginVO", membervo2.getId());
+		session.setAttribute("loginNick", membervo2.getNickname());
 		out.println("<script>alert(\"로그인되었습니다.\")</script>");
 		out.flush();
 		return "main";
