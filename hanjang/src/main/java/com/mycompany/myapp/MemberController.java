@@ -40,19 +40,23 @@ public class MemberController {
 	
 	@RequestMapping(value="/login.do", method = RequestMethod.POST)
 	public String loginMember(MemberVO membervo,HttpSession session, HttpServletResponse res) throws Exception {
-	MemberVO membervo2 = memberservice1.LoginCheck(membervo);
+	MemberVO membervo2 = null;
+	membervo2 = memberservice1.LoginCheck(membervo);
 	res.setContentType("text/html; charset=UTF-8");
 	PrintWriter out = res.getWriter();
-	if(membervo2.getId()==null || membervo2.getPassword()==null) {
+	
+	
+	if(membervo2!=null) {
+		session.setAttribute("loginVO", membervo2);
+		out.println("<script>alert(\"로그인되었습니다.\")</script>");
+		out.flush();
+		return "main";
+	} else {
 		out.println("<script>alert(\"아이디나 비밀번호가 틀렸습니다.\")</script>");
 		out.flush();
 		return "LoginForm";
-	} else {
-		session.setAttribute("loginVO", membervo2);
-		out.println("<script>alert(\"로그인되었습니다.\")</script>");
-	}
-	out.flush();
-	return "main";
+			}
+	
 	}
 	/*@ResponseBody
 	@RequestMapping(value="/idcheck.do",produces="text/plane")

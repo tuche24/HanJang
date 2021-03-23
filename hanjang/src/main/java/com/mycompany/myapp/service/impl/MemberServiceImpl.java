@@ -24,8 +24,7 @@ public class MemberServiceImpl implements MemberService{
 	public MemberVO LoginCheck(MemberVO membervo) throws Exception{
 
       MemberVO membervo2 = dao.LoginCheck(membervo);
-      System.out.println(membervo.getId());
-      System.out.println(membervo2.getId());
+      
       return membervo2;
       
       //return dao.LoginCheck(membervo); 이것도해봄.
