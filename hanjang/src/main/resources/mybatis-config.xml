@@ -2,7 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="boardVO" type="com.mycompany.myapp.vo.CommunityVO" />
+		<typeAlias alias="communityVO" type="com.mycompany.myapp.vo.CommunityVO" />
 		<typeAlias alias="pageVO" type="com.mycompany.myapp.vo.PageVO" />
 		<typeAlias alias="bookVO" type="com.mycompany.myapp.vo.BookVO" />
 		<typeAlias alias="memberVO" type="com.mycompany.myapp.vo.MemberVO"/>

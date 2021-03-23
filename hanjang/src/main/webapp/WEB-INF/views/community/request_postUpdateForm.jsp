@@ -27,7 +27,7 @@
 	</tr>
 	<tr>
 		<td style="height:30px;">작성자</td>
-		<td colspan="4" style="height:30px;">${post.writer }</td>
+		<td colspan="4" style="height:30px;">${post.writerNick }</td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>

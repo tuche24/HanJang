@@ -8,12 +8,29 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+	// 삭제 버튼 클릭 시
 	$("#deleteBtn").click(function() {
 		if(confirm("삭제하시겠습니까?")) {
-			location.href="requestDelete.do?boardNo=${post.boardNo }"
+			location.href="recommendDelete.do?boardNo=${post.boardNo }"
 		}
 	})
+	
+	// 댓글 등록 버튼 클릭 시
+	function replyBtnClick() {
+		var id = '<%= session.getAttribute("loginVO") %>';
+		
+		if(id == 'null') {
+			swal("로그인 안내","로그인 후 이용하실 수 있습니다.","warning");
+			document.getElementById("replyTextarea").setAttribute("disabled", true);
+		} else {
+			var form = document.getElementById("replyForm");
+			form.action = "recommendReplyInsert.do";
+			form.method = "POST";
+			form.submit();
+		}
+	}
 </script>
 </head>
 <body>
@@ -32,7 +49,7 @@
 	</tr>
 	<tr>
 		<td style="height:30px;">작성자</td>
-		<td colspan="4" style="height:30px;">${post.writer }</td>
+		<td colspan="4" style="height:30px;">${post.writerNick }</td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>
@@ -63,18 +80,19 @@
 	<!-- 댓글 작성 부분 -->
 	<tr>
 		<td colspan="5">
-		<form action="requestReplyInsert.do">
+		<form id="replyForm">
 			<table style="margin:auto;">
 				<tr>
 				</tr>
 				<tr>
-					<td><textarea name="replyContent" class="replysection" rows="10" placeholder="댓글을 작성해주세요."></textarea></td>
+					<td><textarea id="replyTextarea" name="replyContent" class="replysection" rows="10" placeholder="댓글을 작성해주세요." required></textarea></td>
 				</tr>
 				<tr>
 					<td>
 					<!-- 로그인한 아이디 sessionScope 들어갈 hidden -->
-					<input type="hidden" name="" />
-					<input type="submit" class="submitBtn" value="댓글 등록" /></td>
+					<input type="hidden" name="replyWriterId" value="<%= session.getAttribute("loginVO") %>" />
+					<input type="hidden" name="replyWriterNick" value="<%= session.getAttribute("loginNick") %>" />
+					<input type="submit" class="submitBtn" value="댓글 등록" onclick="replyBtnClick()"/></td>
 				</tr>
 			</table>
 		</form>
@@ -87,9 +105,10 @@
 	<tr>
 		<td colspan="4"></td>
 		<td style="text-align:right;"><a href="requestList.do" style="margin-right:20px;">목록</a>
-		<!-- 로그인한 사람만, 해당 글을 작성한 사람만 삭제 가능하게 해야 됨 -->
+		<!-- 해당 글을 작성한 사람과 관리자만 삭제 가능 -->
+		<c:if test="${(loginVO == post.writerId || loginVO == 'ADMIN')}" >
 		<a href="requestUpdateForm.do?boardNo=${post.boardNo }" style="margin-right:20px;">수정</a>
-		<a id="deleteBtn" style="margin-right:20px;">삭제</a></td>
+		<a id="deleteBtn" style="margin-right:20px;">삭제</a></c:if></td>
 	</tr>
 </table>
 </body>
