@@ -14,6 +14,7 @@ import com.mycompany.myapp.service.CommunityService;
 import com.mycompany.myapp.vo.CommunityReplyVO;
 import com.mycompany.myapp.vo.CommunityVO;
 import com.mycompany.myapp.vo.PageVO;
+import com.mycompany.myapp.vo.PagingObject;
 
 @Controller
 public class CommunityController {
@@ -99,10 +100,10 @@ public class CommunityController {
 	
 	// 댓글 등록
 	@RequestMapping(value="recommendReplyInsert.do")
-	public String insertRecommendReply(CommunityReplyVO rv) {
-		replyservice.insertReply(rv);
+	public String insertRecommendReply(CommunityReplyVO rv, int boardNo) {
 		System.out.println(rv);
-		return "redirect:community/recommend_post";
+		replyservice.insertReply(rv);
+		return "redirect:recommendPost.do?boardNo="+boardNo;
 	}
 	
 	// 댓글 수정

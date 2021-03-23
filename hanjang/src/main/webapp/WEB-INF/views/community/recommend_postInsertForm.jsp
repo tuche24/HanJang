@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
-<style>
-</style>
 </head>
 <body>
 <div class="boardTitle">이 책 추천해요</div>
@@ -27,7 +25,10 @@
 	</tr>
 	<tr>
 		<td style="height:30px;">작성자</td>
-		<td colspan="4" style="height:30px;"><input type="text" name="writer" style="width: 90%; text-align:center;" required></td>
+		<td colspan="4" style="height:30px; width: 90%; text-align:center;">
+		<%= session.getAttribute("loginNick") %>
+		<input type="hidden" name="writerId" value="<%= session.getAttribute("loginVO") %>" />
+		<input type="hidden" name="writerNick" value="<%= session.getAttribute("loginNick") %>"/></td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>

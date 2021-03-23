@@ -8,12 +8,24 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 	const result = "${msg}";
 	if(result == "updateSuccess") {
 		alert("게시글이 수정되었습니다.");
 	} else if(result == "deleteSuccess") {
 		alert("게시글이 삭제되었습니다.");
+	}
+	
+	// 글쓰기 버튼 클릭 시
+	function postBtnClick() {
+		var id = '<%= session.getAttribute("loginVO") %>';
+		
+		if(id == 'null') {
+			swal("로그인 안내","로그인 후 이용하실 수 있습니다.","warning");
+		} else {
+			location.href="recommendInsertForm.do";
+		}
 	}
 </script>
 </head>
@@ -42,7 +54,7 @@
 		<!-- 댓글 개수 표시 부분 -->
 		<c:if test="${list.reCnt } > 0">
 		 (<div style="display:inline-block; color:red;">${list.reCnt }</div>)</c:if></td>
-		<td>${list.writer }</td>
+		<td>${list.writerNick }</td>
 		<td>${list.regDate }</td>
 		<td>${list.viewCnt }</td>
 	</tr>
@@ -52,7 +64,7 @@
 	</tr>
 	<tr>
 		<td colspan="10"></td>
-		<td><a href="recommendInsertForm.do">글쓰기</a></td>
+		<td><input type="button" class="submitBtn" value="글쓰기" onclick="postBtnClick()"/></td>
 	</tr>
 </table>
 <ul class="pagingSection">	<!-- 페이징 부분 -->

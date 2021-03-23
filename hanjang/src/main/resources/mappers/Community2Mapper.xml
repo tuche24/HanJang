@@ -7,7 +7,8 @@
 		<id property="boardNo" column="boardno"/>
 		<result property="title" column="title"/>
 		<result property="content" column="content"/>
-		<result property="writer" column="writer"/>
+		<result property="writerId" column="writerid"/>
+		<result property="writerNick" column="writernick"/>
 		<result property="regDate" column="regdate"/>
 		<result property="viewCnt" column="viewcnt"/>
 	</resultMap>
@@ -16,7 +17,7 @@
 	<select id="getPostListPaging" resultMap="BoardMap">
 		<![CDATA[
 		SELECT * FROM
-			(SELECT @ROWNUM:=@ROWNUM+1 as rn, boardno, title, writer, content, regdate, viewcnt, (SELECT COUNT(*) FROM BoardReply r, RequestBoard b WHERE r.boardno = b.boardno) reCnt
+			(SELECT @ROWNUM:=@ROWNUM+1 as rn, boardno, title, writerid, writernick, content, regdate, viewcnt, (SELECT COUNT(*) FROM BoardReply r, RequestBoard b WHERE r.boardno = b.boardno) reCnt
 				FROM RequestBoard, (SELECT @ROWNUM:=0) TMP ORDER BY boardno DESC
 			) RequestBoard
 		WHERE rn > (#{page}-1) * #{countPerPage} AND rn <= #{page} * #{countPerPage}
@@ -32,8 +33,8 @@
 	<!-- 게시글 등록 -->
 	<insert id="insertPost">
 		INSERT INTO RequestBoard
-		(boardno, title, content, writer)
-		VALUES (NEXTVAL(hanjang.seq), #{title}, #{content}, #{writer})
+		(boardno, title, content, writerid, writernick)
+		VALUES (NEXTVAL(hanjang.seq), #{title}, #{content}, #{writerId}, #{writerNick})
 	</insert>
 	
 	<!-- 게시글 수정 -->

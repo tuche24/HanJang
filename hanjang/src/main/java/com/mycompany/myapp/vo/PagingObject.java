@@ -1,6 +1,4 @@
-package com.mycompany.myapp;
-
-import com.mycompany.myapp.vo.PageVO;
+package com.mycompany.myapp.vo;
 
 public class PagingObject {
 	
