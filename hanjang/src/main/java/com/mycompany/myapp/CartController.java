@@ -1,11 +1,15 @@
 package com.mycompany.myapp;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.myapp.service.CartService;
@@ -41,20 +45,30 @@ public class CartController {
 		return mav;
 	}
 	
-	// 장바구니 수정
-	@RequestMapping(value="/updateCart.do")
-	public String updateCart(CartVO cartVO) {
+	// 장바구니 수정 ajax
+	@PostMapping("updateCart.do")
+	@ResponseBody
+	public Map<String, Object> updateCart(CartVO cartVO) {
+		
+		Map<String, Object> result = new HashMap<String, Object>();
+		System.out.println("업데이트 카트 테스트 : " + cartVO.getAmount());
 		service.updateCart(cartVO);
 		
-		return "cart/cart";
+		result.put("code", "서버동기화");
+		return result;
 	}
 	
 	// 장바구니 삭제
-	@RequestMapping(value="/deleteCart.do")
-	public String deleteCart(CartVO cartVO) {
-		service.deleteCart(cartVO);
+	@PostMapping(value="deleteCart.do")
+	@ResponseBody
+	public Map<String, Object> deleteCart(CartVO cartVO) {
+		System.out.println("동기화확인");
 		
-		return "cart/cart";
+		Map<String, Object> result = new HashMap<String, Object>();
+		
+		service.deleteCart(cartVO);
+		result.put("code", "서버동기화");
+		return result;
 	}
 	
 }
