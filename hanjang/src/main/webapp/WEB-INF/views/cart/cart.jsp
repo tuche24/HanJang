@@ -8,6 +8,89 @@
 <link rel="stylesheet" type="text/css" href="resources/css/reset.css">
 <link rel="stylesheet" type="text/css"
 	href="resources/css/cartStyle.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+
+$(function only_number(){
+	$('#amount_dec').click(function(e){
+		e.preventDefault();
+		var stat = $('#bookamount').text();
+		var num = parseInt(stat, 10);
+		num--;
+		var cartNo = $('#cartNo_hidden').val();
+		/* 	ajax  */
+		var params = {
+				amount : num,
+				cartNo : cartNo
+		}
+		
+		$.ajax({
+			type : "POST",
+			url : "updateCart.do",
+			data : params,
+			success : function(res){
+				swal("장바구니","장바구니 수량이 변경되었습니다","success");
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown){
+				swal("error","서버동기화실패","error");
+			}
+		});
+		/* ajax 종료 */
+	});
+	/* 장바구니 + 버튼 */
+	$('#amount_inc').click(function(e){
+		e.preventDefault();
+		var stat = $('#bookamount').text();
+		var num = parseInt(stat, 10);
+		num++;
+		var cartNo = $('#cartNo_hidden').val();
+		/* ajax */
+		var params = {
+				amount : num,
+				cartNo : cartNo
+		}
+		
+		$.ajax({
+			type : "POST",
+			url : "updateCart.do",
+			data : params,
+			success : function(res){
+				swal("장바구니","장바구니 수량이 변경되었습니다","success");
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown){
+				swal("error","서버동기화실패","error");
+			}
+		});
+		/* ajax 종료 */
+	});
+});
+
+/* 선택삭제 버튼 눌렀을 시 */
+$(function cancel_btn(){
+	$('#cancel_btn').click(function(e){
+		e.preventDefault();
+		var cartNo = $('#cartNo_hidden').val();
+		var params = {
+				cartNo : cartNo
+		}
+		
+		$.ajax({
+			type : "POST",
+			url : "deleteCart.do",
+			data : params,
+			success : function(res){
+				swal("상품삭제", "선택된 상품이 장바구니에서 제거되었습니다", "success");
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown){
+				swal("error","서버동기화실패","error");
+			}
+		});
+	});
+});
+</script>
+
 <title>장바구니</title>
 </head>
 <body>
@@ -34,12 +117,17 @@
 							<c:forEach items="${cartList}" var="cart">
 								<div id="item">
 									<div id="category">${cart.bookVO.categoryName}</div>
-									<input type="checkbox" name="Checkitem" checked> <span
-										id="bookname"> <img src="${cart.bookVO.coverLargeUrl}"
-										id="bookimg"> ${cart.bookVO.title}
-									</span> <input type="number" min="1" max="10" id="bookamount"
-										value="${cart.cartVO.amount}"> <span id="bookprice">${cart.bookVO.priceStandard * cart.cartVO.amount}원</span>
-									<span id="cancel_btn"><button>X</button></span>
+									<input type="checkbox" name="Checkitem" checked> <img
+										src="${cart.bookVO.coverLargeUrl}" id="bookimg"> <span
+										id="bookname"> ${cart.bookVO.title} </span>
+									<input type="hidden" id="cartNo_hidden" value="${cart.cartVO.cartNo}"/>
+									<button id="amount_dec" style="cursor: pointer;" onclick="javascript:only_number();">-</button>
+									<span id="bookamount">${cart.cartVO.amount}</span>
+									<button id="amount_inc" style="cursor: pointer;" onclick="javascript:only_number();">+</button>
+									<span id="bookprice">${cart.bookVO.priceStandard * cart.cartVO.amount}원</span>
+									<span id="cancel_btn">
+										<button>X</button>
+									</span>
 								</div>
 								<hr>
 							</c:forEach>

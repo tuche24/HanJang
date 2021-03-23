@@ -3,36 +3,38 @@
 
 <mapper namespace="com.mycompany.myapp.service.dao.CartDAO">
 
-<resultMap id="cartMap" type="com.mycompany.myapp.vo.CartVO">
-	<result property="userNo" column="UserNo" />
-	<result property="itemId" column="ItemId" />
-	<result property="cartNo" column="CartNo" />
-	<result property="amount" column="Amount" />
-</resultMap>
+	<resultMap id="cartMap" type="com.mycompany.myapp.vo.CartVO">
+		<result property="userNo" column="UserNo" />
+		<result property="itemId" column="ItemId" />
+		<result property="cartNo" column="CartNo" />
+		<result property="amount" column="Amount" />
+	</resultMap>
 
-<resultMap id="bookMap" type="com.mycompany.myapp.vo.BookVO">
-	<result property="itemID" column="ItemId"/>
-	<result property="title" column="Title" />
-	<result property="isbn" column="Isbn" />
-	<result property="author" column="Author" />
-	<result property="description" column="Description" />
-	<result property="priceStandard" column="PriceStandard" />
-	<result property="coverLargeUrl" column="CoverLargeUrl" />
-	<result property="categoryId" column="CategoryId" />
-	<result property="categoryName" column="CategoryName" />
-	<result property="publisher" column="Publisher" />
-	<result property="pubDate" column="PubDate" />
-</resultMap>
+	<resultMap id="bookMap" type="com.mycompany.myapp.vo.BookVO">
+		<result property="itemID" column="ItemId" />
+		<result property="title" column="Title" />
+		<result property="isbn" column="Isbn" />
+		<result property="author" column="Author" />
+		<result property="description" column="Description" />
+		<result property="priceStandard" column="PriceStandard" />
+		<result property="coverLargeUrl" column="CoverLargeUrl" />
+		<result property="categoryId" column="CategoryId" />
+		<result property="categoryName" column="CategoryName" />
+		<result property="publisher" column="Publisher" />
+		<result property="pubDate" column="PubDate" />
+	</resultMap>
 
-<resultMap type="com.mycompany.myapp.vo.CartProductVO" id="cartProductMap">
-	<collection property="cartVO" resultMap="cartMap"/>
-	<collection property="bookVO" resultMap="bookMap"/>
-</resultMap>
+	<resultMap type="com.mycompany.myapp.vo.CartProductVO"
+		id="cartProductMap">
+		<collection property="cartVO" resultMap="cartMap" />
+		<collection property="bookVO" resultMap="bookMap" />
+	</resultMap>
 
 
 	<!-- 카트 insert -->
 	<insert id="insertCart" parameterType="cartVO">
-		INSERT INTO Cart(UserNo, ItemId, Amount)
+		INSERT INTO Cart(UserNo,
+		ItemId, Amount)
 		VALUES(#{userNo}, #{itemId}, #{amount})
 	</insert>
 
@@ -46,12 +48,15 @@
 	<update id="updateCart" parameterType="cartVO">
 		UPDATE Cart
 		SET Amount = #{amount}
-		WHERE ItemId = #{itemId}
+		<if test="cartNo != null">
+			WHERE CartNo = #{cartNo}
+		</if>
 	</update>
 
 	<!-- 장바구니 삭제 -->
 	<delete id="deleteCart" parameterType="cartVO">
-		DELETE FROM Cart WHERE ItemId = #{ItemId}
+		DELETE FROM Cart 
+		WHERE CartNo = #{cartNo}
 	</delete>
 
 
