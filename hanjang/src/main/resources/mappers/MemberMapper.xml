@@ -24,12 +24,19 @@
     VALUES (#{id}, #{password}, #{name}, #{nickname}, #{gender}, #{birthdate}, #{mail1}, #{phone}, #{address})
 	
 	</insert>
-	
+	<!-- 로그인체크 -->
 	<select id="LoginCheck" resultMap="MemberMap">
      SELECT UserId, UserPassword, UserNickName
 	  FROM User 
 	  where UserId = #{id} 
 	  and UserPassword = #{password}
+	</select>
+	
+	<!--  아디 중복체크 -->
+	
+	<select id="IdCheck" resultType="int" >
+	SELECT COUNT(*) FROM User
+	WHERE UserId = #{id}
 	</select>
 	
 </mapper>
