@@ -52,7 +52,7 @@ public class MemberController {
 		session.setAttribute("loginNick", membervo2.getNickname());
 		out.println("<script>alert(\"로그인되었습니다.\")</script>");
 		out.flush();
-		return "main";
+		return "forward:/mainAll.do";
 	} else {
 		out.println("<script>alert(\"아이디나 비밀번호가 틀렸습니다.\")</script>");
 		out.flush();
