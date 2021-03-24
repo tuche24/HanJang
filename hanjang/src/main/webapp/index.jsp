@@ -32,7 +32,7 @@
 
 <form action="requestList.do">
 <input type="submit" value="커뮤니티 - 없는 책 게시판" />
-</form>
+</form>	
 
 <form action="NewBookList1.do">
 <input type="submit" value="새책페이지1" />
