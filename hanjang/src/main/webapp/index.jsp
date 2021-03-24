@@ -11,8 +11,6 @@
 <form action="mainAll.do">
 <input type="submit" value="메인페이지이동" /></form>
 
-<form action="recommendList.do">
-<input type="submit" value="커뮤니티 - 책 추천 게시판" />
 </form>
 <form action="loginform.do">
 <input type="submit" value="로그인폼" />

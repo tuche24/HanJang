@@ -23,7 +23,7 @@
 		if(id == 'null') {
 			swal("로그인 안내","로그인 후 이용하실 수 있습니다.","warning");
 		} else {
-			location.href="recommendInsertForm.do";
+			location.href="requestInsertForm.do";
 		}
 	}
 </script>
