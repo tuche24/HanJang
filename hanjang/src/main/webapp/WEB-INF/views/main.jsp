@@ -531,7 +531,7 @@ margin-top:30px;
 <div class="header">
 <div class="usermenu" >
 <ul>
-<li><a href="">로그인</a></li>
+<li><a href="loginform.do">로그인</a></li>
 <li><a href="">회원가입</a></li>
 <li><a href="">카트</a></li>
 </ul>
