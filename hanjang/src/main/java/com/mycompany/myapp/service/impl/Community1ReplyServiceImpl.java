@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.myapp.service.CommunityReplyService;
-import com.mycompany.myapp.service.dao.ReplyDAO;
+import com.mycompany.myapp.service.dao.Community1ReplyDAO;
 import com.mycompany.myapp.vo.CommunityReplyVO;
 
-@Service("replyService")
-public class CommunityReplyServiceImpl implements CommunityReplyService {
+@Service("reply1Service")
+public class Community1ReplyServiceImpl implements CommunityReplyService {
 	
 	@Autowired
-	private ReplyDAO dao;
+	private Community1ReplyDAO dao;
 
 	@Override
 	public List<CommunityReplyVO> getReplyList(int boardNo) {
@@ -31,8 +31,8 @@ public class CommunityReplyServiceImpl implements CommunityReplyService {
 	}
 
 	@Override
-	public void deleteReply(int replyNo) {
-		dao.deleteReply(replyNo);
+	public void deleteReply(CommunityReplyVO rv) {
+		dao.deleteReply(rv);
 	}
 
 }

@@ -67,7 +67,7 @@
 		<td><input type="button" class="submitBtn" value="글쓰기" onclick="postBtnClick()"/></td>
 	</tr>
 </table>
-<ul class="pagingSection">	<!-- 페이징 부분 -->
+<div class="pagingSection">	<!-- 페이징 부분 -->
 	<!-- 이전 버튼 -->
 	<c:if test="${po.prev }">
 	<div class="pagingBtn">
@@ -96,7 +96,7 @@
 		<a href="<c:url value='recommendList.do?page=${po.lastPage +1 }&countPerPage=${po.paging.countPerPage }'/>">next</a>
 	</div>
 	</c:if>
-</ul>
+</div>
 
 </body>
 </html>

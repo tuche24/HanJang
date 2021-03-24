@@ -10,25 +10,20 @@
 <link rel="stylesheet" href="resources/css/communityStyle.css">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-	// 삭제 버튼 클릭 시
-	$("#deleteBtn").click(function() {
-		if(confirm("삭제하시겠습니까?")) {
-			location.href="recommendDelete.do?boardNo=${post.boardNo }"
-		}
-	})
-	
 	// 댓글 등록 버튼 클릭 시 로그인 체크
-	function replyBtnClick() {
+	function clickReplyInsertConfirm() {
 		var id = '<%= session.getAttribute("loginVO") %>';
 		
 		if(id == 'null') {
 			swal("로그인 안내","로그인 후 이용하실 수 있습니다.","warning");
 			document.getElementById("replyTextarea").setAttribute("disabled", true);
 		} else {
-			var form = document.getElementById("replyForm");
-			form.action = "recommendReplyInsert.do";
-			form.method = "POST";
-			form.submit();
+			if(confirm("댓글을 등록하시겠습니까?")) {
+				var form = document.getElementById("replyForm");
+				form.action = "recommendReplyInsert.do";
+				form.method = "POST";
+				form.submit();
+			}
 		}
 	}
 </script>
@@ -66,34 +61,63 @@
 		<!-- 댓글 개수 표시 부분 -->
 		 (<div style="display:inline-block; color:red;">${post.reCnt }</div>)</td>
 	</tr>
-	<c:if test="${!empty reply }">
 	<!-- 댓글 목록 부분 -->
+	<c:if test="${!empty reply }">
+	<c:forEach var="reply" items="${reply }">
 	<tr>
-		<td>${reply.replyWriterNick }</td>
-		<td>${reply.regDate }</td>
+		<td colspan="5">
+		<table border="1" class="replyOutputTable">
+			<tr style="height:30px;">
+				<td style="font-weight:bold; text-align:left; width:80%;">${reply.replyWriterNick }</td>
+				<!-- 로그인 한 아이디 == 해당 댓글 작성한 아이디, 관리자 아이디만 권한주기 -->
+				<c:if test="${(loginVO == reply.replyWriterId || loginVO == 'ADMIN')}" >
+				<td style="text-align:right;"><input type="button" class="submitBtn" onclick="clickReplyUpdateConfirm()" value="수정" />
+				<script>
+				// 댓글 수정 시 확인 창
+				function clickReplyUpdateConfirm() {
+					var replyNo = "<c:out value='${reply.replyNo}'/>";
+					var boardNo = "<c:out value='${post.boardNo}'/>";
+					if(confirm("댓글을 수정하시겠습니까?")) {
+						location.href = "recommendReplyDelete.do?replyNo="+replyNo+"&boardNo="+boardNo;
+						swal("댓글 안내", "댓글이 삭제되었습니다.", "success");
+					}
+				}
+				</script></td>
+				<td style="text-align:right;"><input type="button" class="submitBtn" onclick="clickReplyDeleteConfirm()" value="삭제" />
+				<script>
+				// 댓글 삭제 시 확인 창
+				function clickReplyDeleteConfirm() {
+					var replyNo = "<c:out value='${reply.replyNo}'/>";
+					var boardNo = "<c:out value='${post.boardNo}'/>";
+					if(confirm("댓글을 삭제하시겠습니까?")) {
+						location.href = "recommendReplyDelete.do?replyNo="+replyNo+"&boardNo="+boardNo;
+						swal("댓글 안내", "댓글이 삭제되었습니다.", "success");
+					}
+				}
+				</script></td></c:if>
+				<td class="replyRegDate">${reply.regDate }</td>
+			</tr>
+			<tr>
+				<td colspan="5" style="padding:10px; background-color:#f5f5f5; border:none; border-radius:4px; height:30px; text-align:left; vertical-align:middle;">${reply.replyContent }</td>
+			</tr>
+		</table>
+		</td>
 	</tr>
-	<tr>
-		<td colspan="5" style="background-color:#dddddd; border: none; border-radius: 10px;">${reply.replyContent }</td>
-	</tr>
-	<!-- 댓글 목록 부분 끝 -->
+	</c:forEach>
 	</c:if>
+	<!-- 댓글 목록 부분 끝 -->
 	<!-- 댓글 작성 부분 -->
 	<tr>
 		<td colspan="5">
 		<form id="replyForm">
-			<table style="margin:auto;">
+			<table border="1" class="replyInputTable">
 				<tr>
-				</tr>
-				<tr>
-					<td><textarea id="replyTextarea" name="replyContent" class="replysection" rows="10" placeholder="댓글을 작성해주세요." required></textarea></td>
-				</tr>
-				<tr>
-					<td>
+					<td class="replysection"><textarea id="replyTextarea" class="replytextarea" name="replyContent" placeholder="댓글을 작성해주세요." required></textarea>
 					<!-- 로그인한 아이디 sessionScope 들어갈 hidden -->
 					<input type="hidden" name="replyWriterId" value="<%= session.getAttribute("loginVO") %>" />
 					<input type="hidden" name="replyWriterNick" value="<%= session.getAttribute("loginNick") %>" />
 					<input type="hidden" name="boardNo" value="${post.boardNo }" />
-					<input type="button" class="submitBtn" value="댓글 등록" onclick="replyBtnClick()" /></td>
+					<input type="button" class="replySubmitBtn" value="댓글등록" onclick="clickReplyInsertConfirm()" /></td>
 				</tr>
 			</table>
 		</form>
@@ -108,8 +132,24 @@
 		<td style="text-align:right;"><a href="recommendList.do" style="margin-right:20px;">목록</a>
 		<!-- 해당 글을 작성한 사람과 관리자만 삭제 가능 -->
 		<c:if test="${(loginVO == post.writerId || loginVO == 'ADMIN')}" >
-		<a href="recommendUpdateForm.do?boardNo=${post.boardNo }" style="margin-right:20px;">수정</a>
-		<a id="deleteBtn" style="margin-right:20px;">삭제</a></c:if></td>
+		<input type="button" class="submitBtn" value="수정" onclick="clickUpdateConfirm()" style="margin-right:20px;"/>
+		<script>
+		function clickUpdateConfirm() {
+			if(confirm("해당 게시물을 수정하시겠습니까?")) {
+				var boardNo = "<c:out value='${post.boardNo}'/>";
+				location.href = 
+			}
+		}
+		</script>
+		<input type="button" class="submitBtn" value="삭제" onclick="clickDeleteConfirm()" style="margin-right:20px;"/>
+		<script>
+		function clickDeleteConfirm() {
+			if(confirm("해당 게시물을 삭제하시겠습니까?")) {
+				var boardNo = "<c:out value='${post.boardNo}'/>";
+				location.href = "recommendDelete.do?boardNo="+boardNo;
+			}
+		}
+		</script></c:if></td>
 	</tr>
 </table>
 </body>

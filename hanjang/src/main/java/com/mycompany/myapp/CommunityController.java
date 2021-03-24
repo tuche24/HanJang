@@ -19,17 +19,22 @@ import com.mycompany.myapp.vo.PagingObject;
 @Controller
 public class CommunityController {
 	
-	// 책 추천 게시판
+	// 추천 게시판 게시글
 	@Resource(name = "community1Service")
 	private CommunityService service1;
 	
-	// 책 요청 게시판
+	// 추천 게시판 댓글
+	@Resource(name = "reply1Service")
+	private CommunityReplyService reply1service;
+	
+	// 요청 게시판 게시글
 	@Resource(name = "community2Service")
 	private CommunityService service2;
 	
-	// 댓글
-	@Resource(name = "replyService")
-	private CommunityReplyService replyservice;
+	// 요청 게시판 댓글
+	@Resource(name = "reply2Service")
+	private CommunityReplyService reply2service;
+	
 	
 	/* *** 여기서부터 이 책 추천해요 게시판 컨트롤러 *** */
 	
@@ -55,10 +60,10 @@ public class CommunityController {
 	
 	// 게시물 상세 조회 + 조회수 카운트
 	@RequestMapping(value="/recommendPost.do")
-	public String getRecommendPost(int boardNo, Model model) {
-		service1.updateViewCnt(boardNo);
-		model.addAttribute("post", service1.getPost(boardNo));
-		model.addAttribute("reply", replyservice.getReplyList(boardNo));
+	public String getRecommendPost(CommunityVO vo, Model model) {
+		service1.updateViewCnt(vo.getBoardNo());
+		model.addAttribute("post", service1.getPost(vo.getBoardNo()));
+		model.addAttribute("reply", reply1service.getReplyList(vo.getBoardNo()));
 		return "community/recommend_post";
 	}
 	
@@ -102,26 +107,29 @@ public class CommunityController {
 	@RequestMapping(value="recommendReplyInsert.do")
 	public String insertRecommendReply(CommunityReplyVO rv, int boardNo) {
 		System.out.println(rv);
-		replyservice.insertReply(rv);
+		reply1service.insertReply(rv);
 		return "redirect:recommendPost.do?boardNo="+boardNo;
 	}
 	
 	// 댓글 수정
 	@RequestMapping(value="recommendReplyUpdate.do")
 	public String updateRecommendReply(CommunityReplyVO rv) {
-		replyservice.updateReply(rv);
+		reply1service.updateReply(rv);
 		return "redirect:commnuity/recommend_post";
 	}
 	
 	// 댓글 삭제
 	@RequestMapping(value="recommendReplyDelete.do")
-	public String deleteRecommendReply(int replyNo) {
-		return "redirect:community/recommend_post";
+	public String deleteRecommendReply(CommunityReplyVO rv, int boardNo) {
+		System.out.println(rv);
+		System.out.println(boardNo);
+		reply1service.deleteReply(rv);
+		return "redirect:recommendPost.do?boardNo="+boardNo;
 	}
 	
 	/* *** 여기까지 이 책 추천해요 게시판 컨트롤러 *** */
 	
-	/******************************************************************/
+	/******************************************************************************/
 	
 	/* *** 여기서부터 없는 책 요청해요 게시판 컨트롤러 *** */
 	
@@ -147,10 +155,10 @@ public class CommunityController {
 	
 	// 게시물 상세 조회 + 조회수 카운트
 	@RequestMapping(value="/requestPost.do")
-	public String getRequestPost(int boardNo, Model model) {
-		service2.updateViewCnt(boardNo);
-		model.addAttribute("post", service2.getPost(boardNo));
-		model.addAttribute("reply", replyservice.getReplyList(boardNo));
+	public String getRequestPost(CommunityVO vo, Model model) {
+		service2.updateViewCnt(vo.getBoardNo());
+		model.addAttribute("post", service2.getPost(vo.getBoardNo()));
+		model.addAttribute("reply", reply2service.getReplyList(vo.getBoardNo()));
 		return "community/request_post";
 	}
 	
@@ -192,23 +200,23 @@ public class CommunityController {
 	
 	// 댓글 등록
 	@RequestMapping(value="requestReplyInsert.do")
-	public String insertRequestReply(CommunityReplyVO rv) {
-		replyservice.insertReply(rv);
+	public String insertRequestReply(CommunityReplyVO rv, int boardNo) {
 		System.out.println(rv);
-		return "redirect:community/request_post";
+		reply2service.insertReply(rv);
+		return "redirect:requestPost.do?boardNo="+boardNo;
 	}
 	
 	// 댓글 수정
 	@RequestMapping(value="requestReplyUpdate.do")
 	public String updateRequestReply(CommunityReplyVO rv) {
-		replyservice.updateReply(rv);
+		reply2service.updateReply(rv);
 		return "redirect:commnuity/request_post";
 	}
 	
 	// 댓글 삭제
 	@RequestMapping(value="requestReplyDelete.do")
-	public String deleteRequestReply(int replyNo) {
-		replyservice.deleteReply(replyNo);
+	public String deleteRequestReply(CommunityReplyVO rv) {
+		reply2service.deleteReply(rv);
 		return "redirect:community/request_post";
 	}
 	

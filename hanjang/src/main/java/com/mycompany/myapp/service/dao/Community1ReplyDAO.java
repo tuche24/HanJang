@@ -1,11 +1,11 @@
-package com.mycompany.myapp.service;
+package com.mycompany.myapp.service.dao;
 
 import java.util.List;
 
 import com.mycompany.myapp.vo.CommunityReplyVO;
 
-public interface CommunityReplyService {
-	
+public interface Community1ReplyDAO {
+
 	// 댓글 목록
 	List<CommunityReplyVO> getReplyList(int boardNo);
 	
