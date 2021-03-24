@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,9 @@
 		}
 
 	}
+	
 </script>
+
 <script>
 $(document).ready(function(){
 	
@@ -63,8 +66,9 @@ $(document).ready(function(){
 		 }
 	});
 	
-	
 
+	
+	
 });
 
 
@@ -88,6 +92,7 @@ $(document).ready(function(){
 });
 
 </script>
+
 <script>
 $(function(){
 	var widthh = $(".slide").outerWidth();
@@ -398,14 +403,20 @@ position:relative;
 margin:0 8px;
 float:left;
 }
+.intro_book_slide ul li div{
+width:258px;
+height:120px;
+}
 .intro_book_slide ul li a{
 display:block;
 position:relative;
 overflow:hidden;
+width:258px;
+height:380px;
 }
 .intro_book_slide ul li a img{
 width:100%;
-height:150%;
+height:100%;
 }
 .today_book div{
 float:left;
@@ -515,7 +526,8 @@ margin-top:30px;
 }
 </style>
 </head>
-<body><div class="headerwe"></div>
+<body>
+<div class="headerwe"></div>
 <div class="header">
 <div class="usermenu" >
 <ul>
@@ -595,30 +607,9 @@ margin-top:30px;
 <div class="smallprev"><a href="#"  onclick="smallprevclick(); return false;" style="visibility:hidden;"></a></div>
 <div class="smallnext"><a href="#" onclick="smallnextclick(); return false;"></a></div>
 <ul>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>asd</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>2</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>3</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>4</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>5</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>6</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>7</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>8</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>9</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>10</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>11</div></li>
-<li><a href=""><img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a>
-<div>12</div></li>
+<c:forEach items="${bookList}" var="b" begin="0" end="11">
+						<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a><div>asd</div></li>
+						</c:forEach>
 </ul>
 </div>
 </div>
