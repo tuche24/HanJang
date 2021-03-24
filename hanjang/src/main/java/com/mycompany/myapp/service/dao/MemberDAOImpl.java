@@ -27,4 +27,9 @@ public class MemberDAOImpl implements MemberDAO{
 		return sql.selectOne(namespace+".LoginCheck",membervo);
 	}
 
+	@Override
+	public int IdCheck(String param) throws Exception{
+		int result = sql.selectOne(namespace+".IdCheck",param);
+		return result;
+	}
 }

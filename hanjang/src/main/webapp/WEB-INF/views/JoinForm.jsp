@@ -77,7 +77,7 @@ height:44px;
 	
 	
 		// 필수 입력정보인 아이디, 비밀번호가 입력되었는지 확인하는 함수,생년월일 등등체크
-	/* 	function checkValue()
+	 	function checkValue()
 		{
 			var dateva = $('#birthdate').val();
 		var datepattern = /^([0-9]){8}$/;
@@ -112,7 +112,7 @@ height:44px;
 			
 		
 			
-		} */
+		} 
 		
 		// 취소 버튼 클릭시 로그인 화면으로 이동
 		function goLoginForm() {
@@ -137,9 +137,8 @@ height:44px;
 	</script>
 	<script>
 	////////////////////아이디 중복체크
-/* 	function check(){
+	function check(){
 	
-		var userID = $('#idt').val();
 		var idpatten = /^([a-z0-9]){6,12}$/;
 		if(!idpatten.test($('#idt').val())){
 			alert("아이디양식에 맞게 입력하세요.");
@@ -148,14 +147,12 @@ height:44px;
 			$.ajax({
 				url:'idcheck.do',
 				type:'POST',
-				dataType:'text',
-				contentType : 'text/plain; charset=utf-8;',
-				data:userID,
+				data:{id:$('#idt').val()},
 				success: function(data){
 					if(data ==0){
 						$('#IdChecked').css("color","red");
 						$('#IdChecked').html('<p class="IdChecked">사용하실수 있는 아이디입니다</p>');
-						document.userInfo.idDuplication.value="idcheck";
+						document.userInfo.idDuplication.value="idCheck";
 					}else{
 						$('#IdChecked').css("color","red");
 						$('#IdChecked').html('<p class="IdChecked">중복된 아이디가 존재합니다.다시입력해주세요</p>');
@@ -166,7 +163,7 @@ height:44px;
 		}
 	}
 	
-	 */
+	
 	</script>
 </head>
 <body>

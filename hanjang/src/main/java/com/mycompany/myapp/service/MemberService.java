@@ -6,4 +6,5 @@ public interface MemberService {
 
 		void MemberInsert(MemberVO membervo) throws Exception;
 		public MemberVO LoginCheck(MemberVO membervo) throws Exception;
+		public int IdCheck(String param) throws Exception;
 }

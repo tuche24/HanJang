@@ -29,6 +29,12 @@ public class MemberServiceImpl implements MemberService{
       
       //return dao.LoginCheck(membervo); 이것도해봄.
 	}
+	@Override
+	public int IdCheck(String param) throws Exception{
+		int result = dao.IdCheck(param);
+		
+		return result;
+	}
 	
 
 }
