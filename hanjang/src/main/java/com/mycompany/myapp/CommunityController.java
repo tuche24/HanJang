@@ -111,13 +111,6 @@ public class CommunityController {
 		return "redirect:recommendPost.do?boardNo="+boardNo;
 	}
 	
-	// 댓글 수정
-	@RequestMapping(value="recommendReplyUpdate.do")
-	public String updateRecommendReply(CommunityReplyVO rv) {
-		reply1service.updateReply(rv);
-		return "redirect:commnuity/recommend_post";
-	}
-	
 	// 댓글 삭제
 	@RequestMapping(value="recommendReplyDelete.do")
 	public String deleteRecommendReply(CommunityReplyVO rv, int boardNo) {
@@ -206,19 +199,13 @@ public class CommunityController {
 		return "redirect:requestPost.do?boardNo="+boardNo;
 	}
 	
-	// 댓글 수정
-	@RequestMapping(value="requestReplyUpdate.do")
-	public String updateRequestReply(CommunityReplyVO rv) {
-		reply2service.updateReply(rv);
-		return "redirect:commnuity/request_post";
-	}
-	
 	// 댓글 삭제
 	@RequestMapping(value="requestReplyDelete.do")
-	public String deleteRequestReply(CommunityReplyVO rv) {
+	public String deleteRequestReply(CommunityReplyVO rv, int boardNo) {
 		reply2service.deleteReply(rv);
-		return "redirect:community/request_post";
+		return "redirect:requestPost.do?boardNo="+boardNo;
 	}
+	
 	
 	/* *** 여기까지 없는 책 요청해요 게시판 컨트롤러 *** */
 

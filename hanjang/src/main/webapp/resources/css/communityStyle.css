@@ -131,11 +131,10 @@ textarea:focus {
 	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff );
 	height: 87px;
 	margin: 10px 20px 10px 5px;
-	vertical-align: middle;
-	font-family: noto sans, malgun gothic, AppleGothic, dotum;
-	font: white;
-	font-weight: bold;
 	padding: 10px 20px 10px 20px;
+	font-family: noto sans, malgun gothic, AppleGothic, dotum;
+	font-weight: bold;
+	vertical-align: middle;
 	cursor: pointer;
 }
 /* 글쓰기, 목록, 수정, 삭제 버튼 */

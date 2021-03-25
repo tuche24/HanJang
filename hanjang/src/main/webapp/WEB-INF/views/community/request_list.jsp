@@ -12,11 +12,12 @@
 <script>
 	const result = "${msg}";
 	if(result == "updateSuccess") {
-		alert("게시글이 수정되었습니다.");
+		swal("게시글 안내", "게시글이 수정되었습니다.", "success");
 	} else if(result == "deleteSuccess") {
-		alert("게시글이 삭제되었습니다.");
+		swal("게시글 안내", "게시글이 삭제되었습니다.", "success");
 	}
 	
+	// 글쓰기 버튼 클릭 시
 	function postBtnClick() {
 		var id = '<%= session.getAttribute("loginVO") %>';
 		
@@ -45,19 +46,26 @@
 	<tr>
 		<td colspan="11" style="height:10px;"><hr class="line"></td>
 	</tr>
+	<c:if test="${list.size() <= 0 }">
+	<tr>
+		<td colspan="11">게시물이 없습니다.</td>
+	</tr>
+	</c:if>
+	<c:if test="${list.size() > 0 }">
 	<c:forEach var="list" items="${list }">
 	<tr style="height:37px;">
 		<td>${list.boardNo }</td>
 		<td colspan="7">
 		<a href="requestPost.do?boardNo=${list.boardNo }">${list.title }</a>
 		<!-- 댓글 개수 표시 부분 -->
-		<c:if test="${list.reCnt } > 0">
+		<c:if test="${list.reCnt > 0 }">
 		 (<div style="display:inline-block; color:red;">${list.reCnt }</div>)</c:if></td>
 		<td>${list.writerNick }</td>
 		<td>${list.regDate }</td>
 		<td>${list.viewCnt }</td>
 	</tr>
 	</c:forEach>
+	</c:if>
 	<tr>
 		<td colspan="11" style="height:50px;"><hr class="line" style="margin-top:-1px; margin-bottom:-10px;"></td>
 	</tr>
@@ -66,7 +74,7 @@
 		<td><input type="button" class="submitBtn" value="글쓰기" onclick="postBtnClick()"/></td>
 	</tr>
 </table>
-<ul class="pagingSection">	<!-- 페이징 부분 -->
+<div class="pagingSection">	<!-- 페이징 부분 -->
 	<!-- 이전 버튼 -->
 	<c:if test="${po.prev }">
 	<div class="pagingBtn">
@@ -95,7 +103,7 @@
 		<a href="<c:url value='requestList.do?page=${po.lastPage +1 }&countPerPage=${po.paging.countPerPage }'/>">next</a>
 	</div>
 	</c:if>
-</ul>
+</div>
 
 </body>
 </html>
