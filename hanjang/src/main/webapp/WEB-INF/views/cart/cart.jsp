@@ -208,7 +208,7 @@ Number.prototype.formatNumber = function(){
 	}
 </script>
 
-<title>장바구니</title>
+<title>장바구니1</title>
 </head>
 <body>
 
