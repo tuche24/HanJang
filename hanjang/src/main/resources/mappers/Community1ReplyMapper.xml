@@ -23,7 +23,7 @@
 	<!-- 댓글 등록 -->
 	<insert id="insertReply">
 	INSERT INTO BoardReply (replyno, boardno, replycontent, replyWriterId, replyWriterNick)
-	VALUES (NEXTVAL(hanjang.reply_seq), #{boardNo}, #{replyContent}, #{replyWriterId}, #{replyWriterNick})
+	VALUES (NEXTVAL(hanjang.RecReply_seq), #{boardNo}, #{replyContent}, #{replyWriterId}, #{replyWriterNick})
 	</insert>
 	
 	<!-- 댓글 수정 -->

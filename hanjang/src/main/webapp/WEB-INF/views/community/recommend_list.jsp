@@ -8,13 +8,21 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
 	const result = "${msg}";
 	if(result == "updateSuccess") {
-		alert("게시글이 수정되었습니다.");
+		swal.fire({
+			icon:'success',
+			title:'게시글 수정 안내',
+			text:'게시글이 수정되었습니다.'
+		});
 	} else if(result == "deleteSuccess") {
-		alert("게시글이 삭제되었습니다.");
+		swal.fire({
+			icon:'success',
+			title:'게시글 삭제 안내',
+			text:'게시글이 삭제되었습니다.'
+		});
 	}
 	
 	// 글쓰기 버튼 클릭 시
@@ -22,7 +30,11 @@
 		var id = '<%= session.getAttribute("loginVO") %>';
 		
 		if(id == 'null') {
-			swal("로그인 안내","로그인 후 이용하실 수 있습니다.","warning");
+			swal.fire({
+				icon:'warning',
+				title:'로그인 안내',
+				text:'로그인 후 이용하실 수 있습니다.'
+			});
 		} else {
 			location.href="recommendInsertForm.do";
 		}
@@ -46,19 +58,26 @@
 	<tr>
 		<td colspan="11" style="height:10px;"><hr class="line"></td>
 	</tr>
+	<c:if test="${list.size() <= 0 }">
+	<tr>
+		<td colspan="11">게시물이 없습니다.</td>
+	</tr>
+	</c:if>
+	<c:if test="${list.size() > 0 }">
 	<c:forEach var="list" items="${list }">
 	<tr style="height:37px;">
 		<td>${list.boardNo }</td>
 		<td colspan="7">
 		<a href="recommendPost.do?boardNo=${list.boardNo }">${list.title }</a>
 		<!-- 댓글 개수 표시 부분 -->
-		<c:if test="${list.reCnt } > 0">
+		<c:if test="${list.reCnt > 0 }">
 		 (<div style="display:inline-block; color:red;">${list.reCnt }</div>)</c:if></td>
 		<td>${list.writerNick }</td>
 		<td>${list.regDate }</td>
 		<td>${list.viewCnt }</td>
 	</tr>
 	</c:forEach>
+	</c:if>
 	<tr>
 		<td colspan="11" style="height:50px;"><hr class="line" style="margin-top:-1px; margin-bottom:-10px;"></td>
 	</tr>
