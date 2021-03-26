@@ -31,28 +31,6 @@ public class HomeController {
 	 */
 	
 	
-	@Autowired
-	private BestSellerService service;
-	@Autowired
-	private BookDBController dbcontroller;
-	
-	@RequestMapping("mainAll.do")
-	public ModelAndView bookList(@RequestParam(required=false) String categoryId) {
-		ModelAndView mav = new ModelAndView();
-		
-		// xml 파싱 후 VO로 값을 받음
-		List<BookVO> bookList = service.searchBook(categoryId);
-		
-		// DB에 VO 반복해 넣는 메소드
-		for(BookVO vo: bookList) {
-			dbcontroller.DBinsert(vo);
-		}
-		
-		
-		mav.addObject("bookList", bookList);
-		mav.setViewName("main");
-		return mav;
-	}
 	@RequestMapping(value="/loginform.do")
 	public String goToLogin() {
 		return "LoginForm";
