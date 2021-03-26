@@ -88,4 +88,13 @@ public class HomeController {
 		return "cart/cart";
 	}
 	
+	@RequestMapping(value = "/goToPay.do")
+	public String goToPay() {
+		return "payment/Payment";
+	}
+	
+	@RequestMapping(value = "/goToComplete.do")
+	public String goToComplete() {
+		return "payment/Complete";
+	}
 }
