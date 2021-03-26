@@ -294,12 +294,12 @@ Number.prototype.formatNumber = function(){
 						<h3 class="tit">배송지</h3>
 						<div class="address">
 							<p class="addr">
-								<c:if test="${empty MemberList}">
-								경기 의왕시
+								<c:if test="${empty sessionScope.memberVO}">
+								LoginVO session이 필요합니다
 								<!-- 주소 출력 -->
 								</c:if>
-								<c:if test="${not empty MemberList}">
-								"${MemberList.addr}"
+								<c:if test="${not empty sessionScope.memberVO}">
+								${sessionScope.memberVO.address}
 								<!-- 나중에 주소 넣을 것 -->
 								</c:if>
 							</p>
