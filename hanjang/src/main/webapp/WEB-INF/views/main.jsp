@@ -73,25 +73,7 @@ $(document).ready(function(){
 
 
 </script>
-<!-- 검색어 -->
-<script>
-$(document).ready(function(){
-	
-	$(".search_text").keyup(function(){
-       $ajax({
-    	url:"/search.do",
-    	type:"json",
-    	success : function(data){
-    		resultHtml(data);
-    	},
-    	error : function(){ alert("로딩실패!");}
-    	  
-       });
-	});
-	
-});
 
-</script>
 
 <script>
 $(function(){
@@ -181,6 +163,20 @@ function smallnextclick(){
 
 </script>
 
+<script>
+function search(){
+	var searchval = $("#keyword").val();
+	$.ajax({
+     		
+		
+		
+	});
+	
+}
+
+
+
+</script>
 <style>
 
 * {
@@ -580,10 +576,9 @@ margin-top:30px;
 </div>
 <div class="search" >
 <form id="idFrom" action="BookList.do">
-<input type="text" class="search_text" name="keyword" placeholder="검색어를 입력하세요"/>
-
+<input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" onkeyup="search()"/>
 <input type="submit" value="검색" class="search_sub"/>
-<ul>
+<ul id="searchList">
 
 </ul>
 </form>
