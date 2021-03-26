@@ -147,7 +147,7 @@ Number.prototype.formatNumber = function(){
 			// ajax
 			let cartNo = document.querySelector('#cartNo_hidden' + idx)
 					.getAttribute('value');
-			alert(cartNo);
+			/* alert(cartNo); */
 
 			var params = {
 				cartNo : cartNo
@@ -264,35 +264,26 @@ Number.prototype.formatNumber = function(){
 							<h1>장바구니에 담긴 상품이 없습니다</h1>
 						</c:if>
 
-						<c:if test="${not empty cartList}">
-							<c:forEach items="${cartList}" var="cart" varStatus="status">
-								<div id="item">
-									<div id="category">${cart.bookVO.categoryName}</div>
-									<input type="checkbox" name="Checkitem"
-										onclick="getCheckedCnt()" checked> <img
-										src="${cart.bookVO.coverLargeUrl}" id="bookimg"> <span
-										id="bookname"> ${cart.bookVO.title} </span> <input
-										type="hidden" id="cartNo_hidden${status.count}"
-										value="${cart.cartVO.cartNo}" /> <span><input
-										type="hidden" id="book_priceStandard"
-										value="${cart.bookVO.priceStandard}" /></span> <span class="updown">
-										<button id="amount_dec" class="amount_dec"
-											style="cursor: pointer;">-</button> <input type="text"
-										name="p_num${cart.cartVO.cartNo}"
-										id="p_num${cart.cartVO.cartNo}" class="p_num" size="2"
-										maxlength="2" value="${cart.cartVO.amount}" readonly>
-
-										<button id="amount_inc" class="amount_inc"
-											style="cursor: pointer;">+</button>
-									</span> <span id="bookprice"><fmt:formatNumber
-											value="${cart.bookVO.priceStandard * cart.cartVO.amount}"
-											pattern="#,###" />원</span> <span id="cancel_btn">
-										<button>X</button>
-									</span>
-									<hr>
-								</div>
-							</c:forEach>
-						</c:if>
+<c:if test="${not empty cartList}">
+<c:forEach items="${cartList}" var="cart" varStatus="status">
+	<div id="item">
+		<div id="category">${cart.bookVO.categoryName}</div>
+		<input type="checkbox" name="Checkitem" onclick="getCheckedCnt()" checked> 
+		<img src="${cart.bookVO.coverLargeUrl}" id="bookimg"> 
+		<span id="bookname"> ${cart.bookVO.title} </span> 
+		<input type="hidden" id="cartNo_hidden${status.count}" value="${cart.cartVO.cartNo}" /> 
+		<span><input type="hidden" id="book_priceStandard" value="${cart.bookVO.priceStandard}" /></span> 
+		<span class="updown">
+			<button id="amount_dec" class="amount_dec" style="cursor: pointer;">-</button> 
+			<input type="text" name="p_num${cart.cartVO.cartNo}" id="p_num${cart.cartVO.cartNo}" class="p_num" size="2"	maxlength="2" value="${cart.cartVO.amount}" readonly>
+			<button id="amount_inc" class="amount_inc" style="cursor: pointer;">+</button>
+		</span> 
+		<span id="bookprice"><fmt:formatNumber value="${cart.bookVO.priceStandard * cart.cartVO.amount}" pattern="#,###" />원</span> 
+		<span id="cancel_btn"><button>X</button></span>
+		<hr>
+	</div>
+</c:forEach>
+</c:if>
 					</div>
 				</div>
 				<div class="inner_result">

@@ -8,12 +8,41 @@
 <meta charset="UTF-8">
 <!-- jquery 링크-->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- 헤더연결 -->
 <script>
 	$(document).ready(function(){
 		$("#header").load("/myapp/resources/jsp/header/header.jsp");
 	})
+</script>
+<script>
+/* 장바구니 담기 버튼을 눌렀을 시 책 정보를 장바구니에 담음 */
+function addCart(){
+	let UserNo = event.target.parentElement.parentElement.firstElementChild.getAttribute('value');
+	if(UserNo == null || UserNo == ""){swal("로그인","로그인이 필요합니다","error"); false}
+	/* else {swal(UserNo)} */
+	let itemID = event.target.parentElement.parentElement.firstElementChild.nextElementSibling.getAttribute('value');
+	/* alert(itemID); */
+	var params = {
+			UserNo : UserNo,
+			ItemId : itemID,
+			Amount : 1
+		}
+
+		$.ajax({
+			type : "POST",
+			url : "addCart.do",
+			data : params,
+			success : function(res) {
+				console.log("동기화성공");
+			},
+			error : function() {
+				console.log("동기화실패");
+			}
+		});
+		// ajax-end
+		swal("성공","장바구니에 상품을 담았습니다", "success");
+}
 </script>
 <title>새로 나온 책</title>
 </head>
@@ -109,6 +138,8 @@
 				<c:forEach items="${bookList}" var ="b">
 					<li>
 						<div class="thumb_cont">
+							<input type="hidden" value="${sessionScope.memberVO.userNo}" />
+							<input type="hidden" value="${b.itemID}"/>
 							<div class="info_area">
 								<div class="image">
 									<a href="goToBookDetail.do">
@@ -149,7 +180,7 @@
 							</div>
 							
 							<div class="buy_button">
-								<button style="cursor: pointer;" onclick="location='#'">장바구니</button>
+								<button style="cursor: pointer;" onclick="javascrpt:addCart()">장바구니</button>
 								<br>
 								<button style="cursor: pointer;" onclick="location='goToPay.do'">바로 구매</button>
 							</div>

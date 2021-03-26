@@ -6,6 +6,7 @@
 	<resultMap id="MemberMap"
 		type="com.mycompany.myapp.vo.MemberVO">
 
+		<result property="userNo" column="UserNo" />
 		<result property="id" column="UserId" />
 		<result property="password" column="UserPassword" />
 		<result property="name" column="UserName" />
