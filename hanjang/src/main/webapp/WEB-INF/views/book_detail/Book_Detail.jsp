@@ -4,6 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- jquery 링크-->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<!-- 헤더연결 -->
+<script>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
 <title>책 상세내용</title>
 </head>
 <link rel="stylesheet" href="../resources/css/reset.css" />

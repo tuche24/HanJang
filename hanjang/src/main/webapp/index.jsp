@@ -18,11 +18,6 @@
 <input type="submit" value="회원가입폼" />
 </form>
 
-<form action="goToCart.do">
-<input type="submit" value="장바구니 이동" />
-</form>
-
-
 <form action="recommendList.do">
 <input type="submit" value="커뮤니티 - 책 추천 게시판"/>
 </form>

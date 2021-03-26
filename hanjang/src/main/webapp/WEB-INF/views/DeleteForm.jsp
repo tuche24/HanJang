@@ -1,8 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>Å»Åð È­¸é</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<!-- í—¤ë”ì—°ê²° -->
+<script>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
+	<title>íƒˆí‡´ í™”ë©´</title>
 	
 	<style type="text/css">
 		table{
@@ -21,10 +29,10 @@
 	</style>
 	
 	<script type="text/javascript">
-		// ºñ¹Ð¹øÈ£ ¹ÌÀÔ·Â½Ã °æ°íÃ¢
+		// ë¹„ë°€ë²ˆí˜¸ ë¯¸ìž…ë ¥ì‹œ ê²½ê³ ì°½
 		function checkValue(){
 			if(!document.deleteform.password.value){
-				alert("ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 				return false;
 			}
 		}
@@ -32,9 +40,10 @@
 	
 </head>
 <body>
-
+<!-- headerë¶€ë¶„ -->
+<div id="header"></div>
 	<br><br>
-	<b><font size="6" color="black">³» Á¤º¸</font></b>
+	<b><font size="6" color="black">ë‚´ ì •ë³´</font></b>
 	<br><br><br>
 
 	<form name="deleteform" method="post" action="MainForm.jsp?contentPage=member/pro/DeletePro.jsp"
@@ -42,14 +51,14 @@
 
 		<table>
 			<tr>
-				<td bgcolor="black">ºñ¹Ð¹øÈ£</td>
+				<td bgcolor="black">ë¹„ë°€ë²ˆí˜¸</td>
 				<td><input type="password" name="password" maxlength="50"></td>
 			</tr>
 		</table>
 		
 		<br> 
-		<input type="button" value="Ãë¼Ò" onclick=""> <!-- ¸ÞÀÎ  -->
-		<input type="submit" value="Å»Åð" /> 
+		<input type="button" value="ì·¨ì†Œ" onclick=""> <!-- ë©”ì¸  -->
+		<input type="submit" value="íƒˆí‡´" /> 
 	</form>
 </body>
 </html>

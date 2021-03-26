@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mycompany.myapp.service.CartService;
 import com.mycompany.myapp.vo.CartProductVO;
 import com.mycompany.myapp.vo.CartVO;
+import com.mycompany.myapp.vo.MemberVO;
 
 // 장바구니에 담기 버튼을 클릭시 작동하는 컨트롤러
 @Controller
@@ -25,7 +27,8 @@ public class CartController {
 	
 	// 장바구니 담기 서비스
 	@RequestMapping(value="/addCart.do")
-	public String addCart(CartVO cartVO) {
+	public String addCart(CartVO cartVO, HttpSession session) {
+		// DB에 cart 정보 담기
 		service.insertCart(cartVO);
 		
 		return "cart/cart";

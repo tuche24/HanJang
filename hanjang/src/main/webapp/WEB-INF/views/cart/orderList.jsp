@@ -8,12 +8,17 @@
 <link rel="stylesheet" href="resources/css/orderList.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- 헤더연결 -->
+<script>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
 <title>주문리스트</title>
 </head>
 <body>
-	<div id="header">
-		<!-- 헤더 들어갈 곳 -->
-	</div>
+<!-- header부분 -->
+<div id="header"></div>
 
 	<div class="tit_page">주문서</div>
 	<div id="main">

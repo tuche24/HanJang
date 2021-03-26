@@ -32,6 +32,7 @@ two_1 {
 }
 
 .cart_item {
+	float:left;
 	font-size: 15px;
 }
 
@@ -91,7 +92,7 @@ two_1 {
 
 #cancel_btn {
 	margin-left: 10px;
-	width: 12px;
+	width: 32px;
 }
 
 .inner_result {

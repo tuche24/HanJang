@@ -9,6 +9,12 @@
 		// 인코딩 
 		request.setCharacterEncoding("euc-kr"); 
 	%>
+<!-- 헤더연결 -->
+<script>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
 	<title>로그인 화면</title>
 	
 	
@@ -42,6 +48,8 @@
 
 </head>
 <body>
+<!-- header부분 -->
+<div id="header"></div>
 	<div id="wrap">
 		<form name="loginInfo" method="post" action="login.do" 
 				onsubmit="return checkValue()">
