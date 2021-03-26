@@ -124,7 +124,7 @@ $(function only_number(){
 							</div>
 
 							<div class="buynow">
-								<button style="cursor: pointer;" onclick="location='#'">바로 구매하기</button>
+								<button style="cursor: pointer;" onclick="location='goToPay.do'">바로 구매하기</button>
 							</div>
 						</div>
 					</div>

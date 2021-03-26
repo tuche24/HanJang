@@ -11,101 +11,6 @@
 <link rel="stylesheet" href="resources/css/reset.css" />
 <link rel="stylesheet" href="resources/css/book_list.css" />
 
-<style>
-/*장르 하단 바*/
-#bottomLine {
-	display: flex;
-}
-
-#bottomLine #genre1 {
-   display: none;
-   margin-top: 10px;
-   width: 100px;
-   height: 2px;
-   background: black;
-}
-
-#bottomLine #genre2 {
-   display: none;
-   margin-top: 10px;
-   margin-left: 165px;
-   width: 110px;
-   height: 2px;
-   background: black;
-}
-
-#bottomLine #genre3 {
-   display: none;
-   margin-top: 10px;
-   margin-left: 345px;
-   width: 55px;
-   height: 2px;
-   background: black;
-}
-
-#bottomLine #genre4 {
-   display: none;
-   margin-top: 10px;
-   margin-left: 467px;
-   width: 55px;
-   height: 2px;
-   background: black;
-}
-
-#bottomLine #genre5 {
-   display: none;
-   margin-top: 10px;
-   margin-left: 590px;
-   width: 85px;
-   height: 2px;
-   background: black;
-}
-
-#bottomLine #genre6 {
-   display: none;
-   margin-top: 10px;
-   width: 120px;
-   height: 2px;
-   background: black;
-}
-
-#bottomLine #genre7 {
-   display: none;
-   margin-top: 10px;
-   margin-left: 185px;
-   width: 80px;
-   height: 2px;
-   background: black;
-}
-
-#bottomLine #genre8 {
-   display: none;
-   margin-top: 10px;
-   margin-left: 332px;
-   width: 70px;
-   height: 2px;
-   background: black;
-}
-
-#bottomLine #genre9 {
-   display: none;
-   margin-top: 10px;
-   margin-left: 470px;
-   width: 73px;
-   height: 2px;
-   background: black;
-}
-
-#bottomLine #genre10 {
-   display: none;
-   margin-top: 10px;
-   margin-left: 610px;
-   width: 40px;
-   height: 2px;
-   background: black;
-}
-</style>
-
 <body>
 	<div id="container">
 		<div id="title">
@@ -235,7 +140,7 @@
 							<div class="buy_button">
 								<button style="cursor: pointer;" onclick="location='#'">장바구니</button>
 								<br>
-								<button style="cursor: pointer;" onclick="location='#'">바로 구매</button>
+								<button style="cursor: pointer;" onclick="location='goToPay.do'">바로 구매</button>
 							</div>
 						</div>
 					</li>

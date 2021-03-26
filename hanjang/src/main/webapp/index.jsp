@@ -42,6 +42,10 @@
 <form action="BestSellerList1.do">
 <input type="submit" value="베스트셀러" />
 </form>
+
+<form action="goToPay.do">
+<input type="submit" value="결제창" />
+</form>
   
 <form action="goToOrderList.do">
 <input type="submit" value="주문확인서" />

@@ -1,6 +1,7 @@
 #container {
 	margin: 0 auto;
 	width: 1080px;
+	overflow: hidden;
 }
 
 /* 타이틀 */
