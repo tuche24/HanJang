@@ -38,8 +38,11 @@ public class CartController {
 		int UserNo = 27; // test
 		
 		List<CartProductVO> cartList = service.getOneCart(UserNo);
-		System.out.println("cartList 테스트 : " + cartList.get(0).getBookVO().getTitle());
-		mav.addObject("cartList", cartList);
+		/*System.out.println("cartList 테스트 : " + cartList.get(0).getBookVO().getTitle());*/
+		if(cartList != null) {
+			mav.addObject("cartList", cartList);
+		}
+			// 카트리스트 없을때 오류
 		mav.setViewName("cart/cart");
 		
 		return mav;
