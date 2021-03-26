@@ -1,5 +1,9 @@
 package com.mycompany.myapp.service.impl;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +39,15 @@ public class MemberServiceImpl implements MemberService{
 		
 		return result;
 	}
+    @Override
+    public void logout(HttpServletResponse response) throws Exception{
+    	response.setContentType("text/html;charset=utf-8");
+    	PrintWriter out = response.getWriter();
+    	out.println("<script>");
+    	out.println("location.href=document.referrer;");
+    	out.println("</script>");
+    	out.close();
+    }
 	
 
 }

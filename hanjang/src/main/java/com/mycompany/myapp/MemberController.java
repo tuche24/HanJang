@@ -64,6 +64,7 @@ public class MemberController {
 		
 		memberservice1.MemberInsert(membervo);
 		return "LoginForm";
+		
 	}
 	
 	
@@ -87,6 +88,17 @@ public class MemberController {
 			}
 	
 	}
+	
+	//로그아웃
+
+	@RequestMapping(value = "/Logout.do", method = RequestMethod.GET)
+	public void logout(HttpSession session,HttpServletResponse response)throws Exception{
+		session.removeAttribute("loginVO");
+		session.removeAttribute("loginNick");
+		memberservice1.logout(response);
+		
+	}
+	
 	//회원가입 아이디 중복확인
 	@ResponseBody
 	@RequestMapping(value="/idcheck.do", method=RequestMethod.POST)
