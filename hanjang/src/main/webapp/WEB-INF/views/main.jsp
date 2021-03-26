@@ -180,6 +180,7 @@ function smallnextclick(){
 
 
 </script>
+
 <style>
 
 * {
@@ -227,7 +228,6 @@ height:180px;
 margin: 0 auto;
 width:150px;
 height:180px;
-background:red;
 }
 .logo a{
 width:100%;
@@ -531,9 +531,21 @@ margin-top:30px;
 <div class="header">
 <div class="usermenu" >
 <ul>
-<li><a href="">로그인</a></li>
-<li><a href="">회원가입</a></li>
-<li><a href="">카트</a></li>
+<c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
+						<li><a href="loginform.do">장바구니</a></li>
+						<li><a href="">내정보</a></li>
+						<li><a href="">로그아웃</a></li>
+						<li><a href="">카트</a></li>
+					</c:if>
+					<c:if test="${(loginVO=='ADMIN') ? true : false }">
+						<li><a href="">회원관리</a></li>
+						<li><a href="">로그아웃</a></li>
+					</c:if>
+					<c:if test="${(loginVO==null) ? true : false}">
+						<li><a href="loginform.do">로그인</a></li>
+
+					</c:if>
+
 </ul>
 </div>
 <div class="logo_place"><div class="logo"><a href="">
@@ -567,8 +579,8 @@ margin-top:30px;
 </ul>
 </div>
 <div class="search" >
-<form action="">
-<input type="text" class="search_text" placeholder="검색어를 입력하세요"/>
+<form id="idFrom" action="BookList.do">
+<input type="text" class="search_text" name="keyword" placeholder="검색어를 입력하세요"/>
 
 <input type="submit" value="검색" class="search_sub"/>
 <ul>
