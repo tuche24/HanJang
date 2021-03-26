@@ -74,4 +74,10 @@ public class CartController {
 		return result;
 	}
 	
+	// 주문확인서이동
+	@RequestMapping(value="/goToOrderList.do")
+	public String goToOrderList() {
+		
+		return "cart/orderList";
+	}
 }

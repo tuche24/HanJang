@@ -11,7 +11,6 @@
 <form action="mainAll.do">
 <input type="submit" value="메인페이지이동" /></form>
 
-</form>
 <form action="loginform.do">
 <input type="submit" value="로그인폼" />
 </form>
@@ -44,5 +43,8 @@
 <input type="submit" value="베스트셀러" />
 </form>
   
+<form action="goToOrderList.do">
+<input type="submit" value="주문확인서" />
+</form>
 </body>
 </html>
