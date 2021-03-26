@@ -66,13 +66,16 @@ two_1 {
 	text-align: center;
 }
 
+.updown {
+	width: 100px;
+}
 .p_num {
 	text-align: center;
-	width: 12px;
+	width: 22px;
 }
 
 .amount_dec{
-	width : 15px;
+	width : 22px;
 	text-align: center;
 }
 

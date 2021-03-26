@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +28,6 @@ Number.prototype.formatNumber = function(){
 		/* 선택삭제 버튼을 눌렀을 시 완료*/
 		document.querySelectorAll('#cancel_btn').forEach(function(item, idx) {
 			item.addEventListener('click', function() {
-				alert("취소버튼을 눌렀습니다");
 				basket.delItem(idx + 1);
 			});
 		});
@@ -38,21 +37,22 @@ Number.prototype.formatNumber = function(){
 			// 수량 입력 필드 값 변경
 
 			item.children[2].addEventListener('click', function() {
-				alert("수량증가버튼을 눌렀습니다");
 				basket.changePNum(idx + 1);
 			});
 
 			// 수량 감소 화살표 클릭
 			item.children[0].addEventListener('click', function() {
-				alert("수량감소버튼을 눌렀습니다");
 				basket.changePNum(idx + 1);
 			});
 		});
 
-		/* // 선택삭제 버튼을 클릭시 미구현
+		// 선택삭제 버튼을 클릭시
 		document.querySelector('.btn_delete').addEventListener('click', function(){
 			basket.delCheckedItem();
-		}); */
+			
+			basket.reCalc();
+			basket.updateUI();
+		}); 
 		
 		basket.reCalc();
 		basket.updateUI();
@@ -161,20 +161,45 @@ Number.prototype.formatNumber = function(){
 			});
 			// ajax-end
 			// event.target 이란 이벤트가 일어날 객체
-			// parentElement 두번 하여 item을 삭제한다
 			event.target.parentElement.parentElement.remove();
-		}
+		},
 		
-/* 		// 미구현
+ 		// 삭제 구현
 		delCheckedItem: function(){
-			document.querySelectorAll("input[name=Checkitem]:checked").forEach(function(item){
-				item.parentElement.parentElement.remove();
+			
+			document.querySelectorAll("input[name=Checkitem]:checked").forEach(function(item, idx){
+				
+			basket.delCheck(idx+1);
+
 			});
 			
-			// ajax 처리 미구현
+		},
+		
+		delCheck: function(idx){
+			let cartNo = document.querySelector('#cartNo_hidden' + idx).getAttribute('value');
+			alert(cartNo);
 			
-			
-		} */
+			var params = {
+					cartNo : cartNo
+				}
+
+				$.ajax({
+					type : "POST",
+					url : "deleteCart.do",
+					data : params,
+					success : function(res) {
+						console.log("동기화성공");
+					},
+					error : function() {
+						console.log("동기화실패");
+					}
+				});
+				// ajax-end
+				
+			  document.querySelector('#cartNo_hidden' + idx).parentElement.remove(); 
+		}
+		
+		
 	}
 
 	// 체크박스 선택된 개수 가져오기
@@ -251,8 +276,9 @@ Number.prototype.formatNumber = function(){
 
 										<button id="amount_inc" class="amount_inc"
 											style="cursor: pointer;">+</button>
-									</span> <span id="bookprice"><fmt:formatNumber value="${cart.bookVO.priceStandard * cart.cartVO.amount}" pattern="#,###" />원</span>
-									<span id="cancel_btn">
+									</span> <span id="bookprice"><fmt:formatNumber
+											value="${cart.bookVO.priceStandard * cart.cartVO.amount}"
+											pattern="#,###" />원</span> <span id="cancel_btn">
 										<button>X</button>
 									</span>
 									<hr>
@@ -266,14 +292,14 @@ Number.prototype.formatNumber = function(){
 						<h3 class="tit">배송지</h3>
 						<div class="address">
 							<p class="addr">
-							<c:if test="${empty MemberList}">
+								<c:if test="${empty MemberList}">
 								경기 의왕시
 								<!-- 주소 출력 -->
-							</c:if>
-							<c:if test="${not empty MemberList}">
+								</c:if>
+								<c:if test="${not empty MemberList}">
 								"${MemberList.addr}"
 								<!-- 나중에 주소 넣을 것 -->
-							</c:if>
+								</c:if>
 							</p>
 							<div class="delivery">택배배송</div>
 							<a href="#" class="btn">배송지 변경</a>
