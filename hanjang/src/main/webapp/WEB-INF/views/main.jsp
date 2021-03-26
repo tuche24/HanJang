@@ -530,12 +530,12 @@ margin-top:30px;
 <c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
 						<li><a href="loginform.do">장바구니</a></li>
 						<li><a href="">내정보</a></li>
-						<li><a href="">로그아웃</a></li>
+						<li><a href="Logout.do">로그아웃</a></li>
 						<li><a href="">카트</a></li>
 					</c:if>
 					<c:if test="${(loginVO=='ADMIN') ? true : false }">
 						<li><a href="">회원관리</a></li>
-						<li><a href="">로그아웃</a></li>
+						<li><a href="Logout.do">로그아웃</a></li>
 					</c:if>
 					<c:if test="${(loginVO==null) ? true : false}">
 						<li><a href="loginform.do">로그인</a></li>
