@@ -231,6 +231,8 @@ Number.prototype.formatNumber = function(){
 		
 		basket.updateUI();
 	}
+	
+	
 </script>
 
 <title>장바구니1</title>
@@ -312,7 +314,7 @@ Number.prototype.formatNumber = function(){
 						</dl>
 					</div>
 					<div class="btn_submit">
-						<button type="submit" class="btn active">주문하기</button>
+						<button class="btn active">주문하기</button>
 					</div>
 				</div>
 			</div>
