@@ -12,7 +12,12 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+<!-- 헤더연결 -->
+<script>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
 <script>
 //숫자 3자리 콤마찍기
 
@@ -238,7 +243,8 @@ Number.prototype.formatNumber = function(){
 <title>장바구니1</title>
 </head>
 <body>
-
+<!-- header부분 -->
+<div id="header"></div>
 	<div id="container">
 		<div id="title_wrap">장바구니</div>
 		<div id="main">
