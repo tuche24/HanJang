@@ -9,7 +9,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<!-- 헤더연결 -->
-<script>
+<script defer>
 	$(document).ready(function(){
 		$("#header").load("/myapp/resources/jsp/header/header.jsp");
 	})

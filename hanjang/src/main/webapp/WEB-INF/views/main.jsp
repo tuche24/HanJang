@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="">
 <!--  검색어  -->
 
-<script>
+<script defer>
 	$(document).ready(function(){
 		$("#header").load("/myapp/resources/jsp/header/header.jsp");
 	})
