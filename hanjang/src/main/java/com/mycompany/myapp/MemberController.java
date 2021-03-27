@@ -96,6 +96,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/Logout.do", method = RequestMethod.GET)
 	public void logout(HttpSession session,HttpServletResponse response)throws Exception{
+		session.removeAttribute("memberVO"); // 
 		session.removeAttribute("loginVO");
 		session.removeAttribute("loginNick");
 		memberservice1.logout(response);
