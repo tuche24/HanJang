@@ -10,7 +10,7 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- 헤더연결 -->
-<script>
+<script defer>
 	$(document).ready(function(){
 		$("#header").load("/myapp/resources/jsp/header/header.jsp");
 	})
