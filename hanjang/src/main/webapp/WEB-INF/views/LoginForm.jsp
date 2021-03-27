@@ -7,7 +7,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<%
 		// 인코딩 
-		request.setCharacterEncoding("euc-kr"); 
+		request.setCharacterEncoding("UTF-8"); 
 	%>
 <!-- 헤더연결 -->
 <script>

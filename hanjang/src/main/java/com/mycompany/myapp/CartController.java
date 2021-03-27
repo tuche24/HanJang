@@ -1,10 +1,13 @@
 package com.mycompany.myapp;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -36,18 +39,27 @@ public class CartController {
 	
 	// 특정 유저 장바구니 확인
 	@RequestMapping(value="/getOneCart.do")
-	public ModelAndView getOneCart() {
+	public ModelAndView getOneCart(HttpSession session, HttpServletResponse res) throws IOException {
 		ModelAndView mav = new ModelAndView();
-		int UserNo = 27; // test
-		
-		List<CartProductVO> cartList = service.getOneCart(UserNo);
-		/*System.out.println("cartList 테스트 : " + cartList.get(0).getBookVO().getTitle());*/
-		if(cartList != null) {
-			mav.addObject("cartList", cartList);
+		PrintWriter out = res.getWriter();
+		/*int UserNo = 27; // test*/
+		res.setContentType("text/html; charset=UTF-8");
+		MemberVO membervo = (MemberVO) session.getAttribute("memberVO");
+		if(membervo != null) {
+			List<CartProductVO> cartList = service.getOneCart(membervo.getUserNo());
+			/*System.out.println("cartList 테스트 : " + cartList.get(0).getBookVO().getTitle());*/
+			if(cartList != null) {
+				mav.addObject("cartList", cartList);
+			}
+				// 카트리스트 없을때 오류
+			mav.setViewName("cart/cart");
+			
+			return mav;
 		}
-			// 카트리스트 없을때 오류
-		mav.setViewName("cart/cart");
-		
+		// 유저정보가 없을때 loginForm으로 이동
+		mav.setViewName("LoginForm");
+		out.println("<script>alert(\"유저정보가 없습니다.\")</script>");
+		out.flush();
 		return mav;
 	}
 	
