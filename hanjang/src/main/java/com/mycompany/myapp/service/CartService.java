@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mycompany.myapp.vo.CartProductVO;
 import com.mycompany.myapp.vo.CartVO;
+import com.mycompany.myapp.vo.OrderListVO;
 
 // DAO와 연결서비스
 public interface CartService {
@@ -19,4 +20,9 @@ public interface CartService {
 	// 장바구니 삭제
 	void deleteCart(CartVO cartVO);
 
+	// 주문리스트에 인서트
+	void insertOrderList(OrderListVO orderListVO);
+	
+	// 주문리스트에 담긴 DB정보 보기
+	List<OrderListVO> getOneOrderList(int userNo);
 }

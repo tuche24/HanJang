@@ -9,6 +9,7 @@ import com.mycompany.myapp.service.CartService;
 import com.mycompany.myapp.service.dao.CartDAO;
 import com.mycompany.myapp.vo.CartProductVO;
 import com.mycompany.myapp.vo.CartVO;
+import com.mycompany.myapp.vo.OrderListVO;
 
 @Service("cartService")
 public class CartServiceImpl implements CartService {
@@ -35,6 +36,17 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public void deleteCart(CartVO cartVO) {
 		dao.deleteCart(cartVO);		
+	}
+
+	@Override
+	public void insertOrderList(OrderListVO orderListVO) {
+		dao.insertOrderList(orderListVO);
+	}
+
+	@Override
+	public List<OrderListVO> getOneOrderList(int userNo) {
+		List<OrderListVO> orderListVO = dao.getOneOrderList(userNo);
+		return orderListVO;
 	}
 
 

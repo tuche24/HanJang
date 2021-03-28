@@ -2,6 +2,8 @@ package com.mycompany.myapp;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +22,7 @@ import com.mycompany.myapp.service.CartService;
 import com.mycompany.myapp.vo.CartProductVO;
 import com.mycompany.myapp.vo.CartVO;
 import com.mycompany.myapp.vo.MemberVO;
+import com.mycompany.myapp.vo.OrderListVO;
 
 // 장바구니에 담기 버튼을 클릭시 작동하는 컨트롤러
 @Controller
@@ -89,10 +92,56 @@ public class CartController {
 		return result;
 	}
 	
-	// 주문확인서이동
+	// 주문확인서이동 
 	@RequestMapping(value="/goToOrderList.do")
-	public String goToOrderList() {
+	public ModelAndView goToOrderList(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
 		
-		return "cart/orderList";
+		if(memberVO == null) {
+			mav.setViewName("main");
+			return mav;
+		}
+		
+		int userNo = memberVO.getUserNo();
+		
+		List<OrderListVO> orderListVO = service.getOneOrderList(userNo);
+		
+		mav.addObject("orderList", orderListVO);
+		mav.setViewName("cart/orderList");
+		
+		return mav;
 	}
+	
+	// 장바구니에서 주문확인서로 구매확인
+	@RequestMapping(value="/insertOrderList.do")
+	public String insertOrderList(OrderListVO orderListVO, HttpSession session) {
+		/*ModelAndView mav = new ModelAndView();*/
+		
+		// 주문번호 생성을 위한 로직
+		Calendar cal = Calendar.getInstance();
+		int year = cal.get(Calendar.YEAR);
+		String ym = year + new DecimalFormat("00").format(cal.get(Calendar.MONTH) + 1);
+		String ymd = ym + new DecimalFormat("00").format(cal.get(Calendar.DATE));
+		String subNum = "";
+		
+		for(int i = 1; i <= 6; i++) {
+			subNum += (int)(Math.random() * 10);
+		}
+		
+		String orderId = ymd + "_" + subNum; // ex)20200508_373063
+		System.out.println(orderId);
+		////////////////////
+		// 세션에서 UserNo 가져오기
+		MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
+		int UserNo = memberVO.getUserNo();
+		
+		orderListVO.setOrderListNo(orderId);
+		orderListVO.setUserNo(UserNo);
+		
+		service.insertOrderList(orderListVO);
+		
+		return "redirect:goToOrderList.do";
+	}
+	
 }

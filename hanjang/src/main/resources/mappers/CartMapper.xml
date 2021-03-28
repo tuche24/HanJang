@@ -30,6 +30,12 @@
 		<collection property="bookVO" resultMap="bookMap" />
 	</resultMap>
 
+	<resultMap type="com.mycompany.myapp.vo.OrderListVO" id="orderListMap">
+		<result property="orderListNo" column="OrderListNo" />
+		<result property="userNo" column="UserNo" />
+		<result property="cartNo" column="CartNo" />
+		<result property="itemId" column="ItemId" />
+	</resultMap>
 
 	<!-- 카트 insert -->
 	<insert id="insertCart" parameterType="cartVO">
@@ -59,6 +65,16 @@
 		WHERE CartNo = #{cartNo}
 	</delete>
 
+	<!-- 장바구니에서 주문리스트DB에 추가 -->
+	<insert id="insertOrderList" parameterType="orderListVO">
+		INSERT INTO OrderList(OrderListNo, CartNo)
+		VALUES(#{orderListNo}, #{cartNo})
+	</insert>
 
+	<!-- 주문확인서  -->
+	<select id="getOneOrderList" parameterType="int" resultMap="orderListMap">
+		SELECT * FROM OrderList
+		WHERE UserNo = #{userNo}
+	</select> 
 </mapper>
 
