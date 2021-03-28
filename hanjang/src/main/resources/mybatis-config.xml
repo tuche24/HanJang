@@ -8,6 +8,7 @@
 		<typeAlias alias="memberVO" type="com.mycompany.myapp.vo.MemberVO"/>
 		<typeAlias alias="cartVO" type="com.mycompany.myapp.vo.CartVO" />
 		<typeAlias alias="cartProductVO" type="com.mycompany.myapp.vo.CartProductVO" />
+		<typeAlias alias="orderListVO" type="com.mycompany.myapp.vo.OrderListVO" />
 	</typeAliases>
 	
 </configuration>

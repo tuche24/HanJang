@@ -30,6 +30,14 @@ Number.prototype.formatNumber = function(){
 };
 
 	document.addEventListener('DOMContentLoaded', function() {
+		
+		/* 주문확인버튼 클릭시 주문확인서로 이동 */
+		document.querySelector('.active').addEventListener('click', function(){
+			// swal로 분기처리해야함
+			basket.addOrderList();
+			// 주문하고 페이지이동하는 분기처리
+			location.href="insertOrderList.do";
+		})
 		/* 선택삭제 버튼을 눌렀을 시 완료*/
 		document.querySelectorAll('#cancel_btn').forEach(function(item, idx) {
 			item.addEventListener('click', function() {
@@ -85,6 +93,7 @@ Number.prototype.formatNumber = function(){
 							}, this);
 		},
 
+		
 		// 화면 업데이트
 		updateUI : function() {
 			document.querySelector('.price').textContent = '합계금액 : '
@@ -169,6 +178,37 @@ Number.prototype.formatNumber = function(){
 			event.target.parentElement.parentElement.remove();
 		},
 		
+		// 선택상품 주문리스트로 이동 // 진행중
+		addOrderList : function(idx){
+			document.querySelectorAll("input[name=Checkitem]:checked").forEach(function(item, idx){
+				
+				basket.addOrderList2(idx+1);
+			});
+		},
+		
+		// 선택상품 주문리스트로 이동 // 진행중
+		addOrderList2 : function(idx){
+			let cartNo = document.querySelector('#cartNo_hidden' + idx).getAttribute('value');
+			alert(cartNo); // test
+						
+			var params = {
+					cartNo : cartNo
+			}
+			
+			$.ajax({
+				type : "POST",
+				url : "insertOrderList.do",
+				data : params,
+				success : function(){
+					console.log("동기화성공");
+				},
+				error : function() {
+					console.log("동기화실패");
+				}
+			});
+			
+		},
+		
  		// 삭제 구현
 		delCheckedItem: function(){
 			
@@ -182,7 +222,7 @@ Number.prototype.formatNumber = function(){
 		
 		delCheck: function(idx){
 			let cartNo = document.querySelector('#cartNo_hidden' + idx).getAttribute('value');
-			alert(cartNo);
+			alert(cartNo); // test
 			
 			var params = {
 					cartNo : cartNo

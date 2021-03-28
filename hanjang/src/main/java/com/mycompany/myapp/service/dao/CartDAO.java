@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mycompany.myapp.vo.CartProductVO;
 import com.mycompany.myapp.vo.CartVO;
+import com.mycompany.myapp.vo.OrderListVO;
 
 // 장바구니 DAO
 public interface CartDAO {
@@ -18,4 +19,10 @@ public interface CartDAO {
 	
 	// 장바구니 삭제
 	void deleteCart(CartVO cartVO);
+	
+	// 주문리스트에 인서트
+	void insertOrderList(OrderListVO orderListVO);
+	
+	// 주문리스트 정보보기
+	List<OrderListVO> getOneOrderList(int userNo);
 }

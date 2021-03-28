@@ -27,7 +27,7 @@
 				<h2 id="tit_section">주문상품</h2>
 				<div id="itemList" class="page_article">
 					<div class="short_info">
-						[쉐프엠] 요린이 전골 떡볶이 외 <span class="num"></span>상품을 주문합니다.
+						<!-- [쉐프엠] 요린이 전골 떡볶이 외 -->${orderList[0].itemId} <span class="num">${orderList[0].cartNo.amount}</span>상품을 주문합니다.
 					</div>
 				</div>
 				<form id="form">
@@ -36,15 +36,15 @@
 						<table class="goodsinfo_table">
 							<tr>
 								<th>보내는 분</th>
-								<td>정현수</td>
+								<td>${sessionScope.memberVO.id}</td>
 							</tr>
 							<tr>
 								<th>휴대폰</th>
-								<td>01095401451</td>
+								<td>${sessionScope.memberVO.phone}</td>
 							</tr>
 							<tr>
 								<th>이메일</th>
-								<td>tuche24@naver.com</td>
+								<td>${sessionScope.memberVO.mail1}</td>
 							</tr>
 						</table>
 					</div>
@@ -57,7 +57,7 @@
 					<div class="section_full">
 						<span class="address" id="divDestination">
 						<span class="default">기본배송지</span>
-						<span class="addr">경기 의왕시</span>
+						<span class="addr">${sessionScope.memberVO.address}</span>
 						</span>
 					</div>
 					<div id="paymentMethodResult">
