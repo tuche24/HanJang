@@ -108,7 +108,7 @@ public class CommunityController {
 	
 	// 게시물 수정 처리
 	@RequestMapping(value="/recommendUpdate.do")
-	public String updateRecommendPost(CommunityVO post, RedirectAttributes ra) {
+	public String updateRecommendPost(CommunityVO post, RedirectAttributes ra) throws Exception {
 		service1.updatePost(post);
 		ra.addFlashAttribute("msg", "updateSuccess");
 		return "redirect:recommendList.do";
