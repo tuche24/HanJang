@@ -7,56 +7,53 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- jquery 링크-->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- 헤더연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
+<script>
+/* 장바구니 담기 버튼을 눌렀을 시 책 정보를 장바구니에 담음 */
+function addCart(){
+	let UserNo = event.target.parentElement.parentElement.firstElementChild.getAttribute('value');
+	if(UserNo == null || UserNo == ""){swal("로그인","로그인이 필요합니다","error"); false}
+	/* else {swal(UserNo)} */
+	let itemID = event.target.parentElement.parentElement.firstElementChild.nextElementSibling.getAttribute('value');
+	/* alert(itemID);  */
+	var params = {
+			UserNo : UserNo,
+			ItemId : itemID,
+			Amount : 1
+		}
+
+		$.ajax({
+			type : "POST",
+			url : "addCart.do",
+			data : params,
+			success : function(res) {
+				console.log("동기화성공");
+			},
+			error : function() {
+				console.log("동기화실패");
+			}
+		});
+		// ajax-end
+		swal("성공","장바구니에 상품을 담았습니다", "success");
+}
+</script>
 <title>베스트셀러</title>
 </head>
-<link rel="stylesheet" href="../resources/css/reset.css" />
-<link rel="stylesheet" href="../resources/css/book_list.css" />
-
-<style>
-#content ul li {
-	list-style: none;
-	height: 300px;
-	display: list-item;
-}
-
-#content .thumb_cont {
-	position: relative;
-    margin: 25px 20px 25px 0px;
-}
-
-#content .info_area .detail {
-	margin-left: 190px;
-	margin-right: 140px;
-}
-
-
-.thumb_cont .buy_button {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    z-index: 1;
-    width: 118px;
-    margin-top: -64px;
-}
-
-#content .info_area .buy_button {
-	position: absolute;
-	margin-top: -200px;
-	/* right: 150px; */
-	margin-left: 950px;
-}
-
-#content ul li .buy_button button {
-	float: right;
-	width: 120px;
-	height: 50px;
-	color: #fff;
-	font-weight: bold;
-	border: 0;
-}
-</style>
+<link rel="stylesheet" href="/myapp/resources/css/reset.css" />
+<link rel="stylesheet" href="/myapp/resources/css/book_list.css" />
 
 <body>
+<!-- header부분 -->
+<div id="header"></div>
+
 	<div id="container">
 		<div id="title">
 			<ul>
@@ -72,11 +69,32 @@
 
 			<div id="genre">
 				<ul>
-					<li><a href="BestSellerList1.do?categoryId=109">유아/어린이</a></li>
-					<li><a href="BestSellerList1.do?categoryId=101">소설/시/희곡</a></li>
-					<li><a href="BestSellerList1.do?categoryId=102">에세이</a></li>
-					<li><a href="BestSellerList1.do?categoryId=103">인문학</a></li>
-					<li><a href="BestSellerList1.do?categoryId=116">과학/역사</a></li>
+					<li>
+						<a href="BestSellerList1.do?categoryId=109" onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'" 
+					 	onclick="javascript: document.getElementById('genre1').style.display = 'block';">유아/어린이</a>
+					</li>
+					<li>
+						<a href="BestSellerList1.do?categoryId=101" onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'" 
+					 	onclick="javascript: document.getElementById('genre2').style.display = 'block';">소설/시/희곡</a>
+					</li>
+					<li>
+						<a href="BestSellerList1.do?categoryId=102" onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'" 
+					 	onclick="javascript: document.getElementById('genre3').style.display = 'block';">에세이</a>
+					</li>
+					<li>
+						<a href="BestSellerList1.do?categoryId=103" onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'" 
+					 	onclick="javascript: document.getElementById('genre4').style.display = 'block';">인문학</a>
+					</li>
+					<li>
+						<a href="BestSellerList1.do?categoryId=116" onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'" 
+					 	onclick="javascript: document.getElementById('genre5').style.display = 'block';">과학/역사</a>
+					</li>
+					
 					<div id="bottomLine">
 						<span id="genre1"></span>
 						<span id="genre2"></span>
@@ -86,11 +104,32 @@
 					</div>
 					<br>
 					<br>
-					<li><a href="BestSellerList1.do?categoryId=114">수험서/참고서</a></li>
-					<li><a href="BestSellerList1.do?categoryId=205">영미소설</a></li>
-					<li><a href="BestSellerList1.do?categoryId=117">경제경영</a></li>
-					<li><a href="BestSellerList1.do?categoryId=118">자기계발</a></li>
-					<li><a href="BestSellerList1.do?categoryId=128">여행</a></li>
+					<li>
+						<a href="BestSellerList1.do?categoryId=114" onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'" 
+					 	onclick="javascript: document.getElementById('genre6').style.display = 'block';">수험서/참고서</a>
+					</li>
+					<li>
+						<a href="BestSellerList1.do?categoryId=205" onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'" 
+					 	onclick="javascript: document.getElementById('genre7').style.display = 'block';">영미소설</a>
+					</li>
+					<li>
+						<a href="BestSellerList1.do?categoryId=117" onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'" 
+					 	onclick="javascript: document.getElementById('genre8').style.display = 'block';">경제경영</a>
+					</li>
+					<li>
+						<a href="BestSellerList1.do?categoryId=118" onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'" 
+					 	onclick="javascript: document.getElementById('genre9').style.display = 'block';">자기계발</a>
+					</li>
+					<li>
+						<a href="BestSellerList1.do?categoryId=128" onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'" 
+					 	onclick="javascript: document.getElementById('genre10').style.display = 'block';">여행</a>
+					</li>
+					
 					<div id="bottomLine">
 						<span id="genre6"></span>
 						<span id="genre7"></span>
@@ -108,6 +147,8 @@
 					<c:forEach items="${bookList}" var="b">
 						<li>
 							<div class="thumb_cont">
+							<input type="hidden" value="${sessionScope.memberVO.userNo}" />
+							<input type="hidden" value="${b.itemID}"/>
 								<div class="info_area">
 									<div class="image">
 										<a href="goToBookDetail.do">
@@ -152,9 +193,9 @@
 								</div>
 								
 								<div class="buy_button">
-									<button style="cursor: pointer;" onclick="location='#'">장바구니</button>
+									<button style="cursor: pointer;" onclick="javascript:addCart()">장바구니</button>
 									<br>
-									<button style="cursor: pointer;" onclick="location='#'">바로 구매</button>
+									<button style="cursor: pointer;" onclick="location='goToPay.do'">바로 구매</button>
 								</div>
 							</div>
 						</li>

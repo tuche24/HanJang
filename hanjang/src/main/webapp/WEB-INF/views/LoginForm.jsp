@@ -7,8 +7,14 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<%
 		// 인코딩 
-		request.setCharacterEncoding("euc-kr"); 
+		request.setCharacterEncoding("UTF-8"); 
 	%>
+<!-- 헤더연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
 	<title>로그인 화면</title>
 	
 	
@@ -239,7 +245,6 @@ width:40px;
 </div>
 </div>
 </div>
-
 
 	<div id="wrap">
 		<form name="loginInfo" method="post" action="login.do" 

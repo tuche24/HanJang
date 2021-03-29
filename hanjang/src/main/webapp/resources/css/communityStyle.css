@@ -45,12 +45,21 @@ hr {
 	margin: auto;
 	background-color: white;
 	text-align: center;
+	margin-bottom: 20px;
 }
 .MainBoardLayout a:hover {
 	background-color:#f7f7f7
 }
 .headerTR {
 	height: 30px;
+}
+/* 이미지 첨부 출력 부분 */
+.imgSection {
+	text-align: center;
+}
+.attachedImg {
+	width: 600px;
+	height: auto;	
 }
 /* input, textarea 관련 */
 input {
@@ -66,7 +75,6 @@ input:focus {
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
-	margin-right:20px;
 	font-family: noto sans, malgun gothic, AppleGothic, dotum;
 	font-size: 15px;
 }
@@ -76,23 +84,66 @@ input:focus {
 	margin-left: 0px;
 }
 textarea {
-	width: 1000px;
 	font-family: noto sans, malgun gothic, AppleGothic, dotum;
 	font-size: 15px;
 	resize: none;
-}
-.postsection {
-	border: 3px dotted #dddddd;
-	border-radius: 10px;
-	margin-bottom: 10px;	
-}
-.replysection {
-	border: 1px solid #dddddd;
 }
 textarea:focus {
     outline: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
+}
+.postsection {
+	width: 1000px;
+	border: 3px dotted #dddddd;
+	border-radius: 10px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+/* 댓글 출력 부분 */
+.replyOutputTable {
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 25px;
+	border-spacing: 10px;
+	width: 90%
+}
+.replyRegDate {
+	font-weight: bold;
+	text-align: right;
+	background: linear-gradient(45deg,#7effa8,#3fcbff);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+/* 댓글 입력 부분 */
+.replyInputTable {
+	margin: auto;
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 30px;
+}
+.replysection {
+	border: 3px dotted #dddddd;
+	border-radius: 10px;
+}
+.replytextarea {
+	margin: 20px;
+	width: 840px;
+	height: 80px;
+	vertical-align: middle;
+	border: 1px dotted #dddddd;
+}
+.replySubmitBtn {
+	border: none;
+	border-radius: 3px;
+	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff );
+	height: 87px;
+	margin: 10px 20px 10px 5px;
+	padding: 10px 20px 10px 20px;
+	font-family: noto sans, malgun gothic, AppleGothic, dotum;
+	font-weight: bold;
+	vertical-align: middle;
+	cursor: pointer;
 }
 /* 글쓰기, 목록, 수정, 삭제 버튼 */
 .insertBtn {
@@ -102,7 +153,7 @@ textarea:focus {
 .pagingSection {
 	text-align: center;
 	font-family: noto sans, malgun gothic, AppleGothic, dotum;
-	margin-top: 0;
+	margin-bottom: 250px;
 	height: 40px;
 	border: 0px solid gray;
 	box-sizing: border-box;

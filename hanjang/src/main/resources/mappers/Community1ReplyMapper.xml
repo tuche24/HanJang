@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mycompany.myapp.service.dao.ReplyDAO">
+<mapper namespace="com.mycompany.myapp.service.dao.Community1ReplyDAO">
 
 	<resultMap id="ReplyMap" type="com.mycompany.myapp.vo.CommunityReplyVO">
 		<id property="replyNo" column="replyno"/>
@@ -22,8 +22,8 @@
 	
 	<!-- 댓글 등록 -->
 	<insert id="insertReply">
-	INSERT INTO BoardReply (replyno, boardno, replycontent, replyWriterId)
-	VALUES (NEXTVAL(hanjang.reply_seq), #{boardno}, #{replyContent}, #{replyWriterId})
+	INSERT INTO BoardReply (replyno, boardno, replycontent, replyWriterId, replyWriterNick)
+	VALUES (NEXTVAL(hanjang.RecReply_seq), #{boardNo}, #{replyContent}, #{replyWriterId}, #{replyWriterNick})
 	</insert>
 	
 	<!-- 댓글 수정 -->

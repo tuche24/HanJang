@@ -77,6 +77,9 @@ public class MemberController {
 	
 	//로그인체크
 	if(membervo2!=null) {
+		// memberVO 키에 MemberVO VO값을 넣음
+		session.setAttribute("memberVO", membervo2);
+		
 		session.setAttribute("loginVO", membervo2.getId());
 		session.setAttribute("loginNick", membervo2.getNickname());
 		
@@ -93,6 +96,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/Logout.do", method = RequestMethod.GET)
 	public void logout(HttpSession session,HttpServletResponse response)throws Exception{
+		session.removeAttribute("memberVO"); // 
 		session.removeAttribute("loginVO");
 		session.removeAttribute("loginNick");
 		memberservice1.logout(response);

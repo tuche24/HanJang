@@ -4,21 +4,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- jquery 링크-->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<!-- 헤더연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
-<style>
-</style>
 </head>
 <body>
+<!-- header부분 -->
+<div id="header"></div>
 <div class="boardTitle">이 책 추천해요</div>
 <div class="boardSubTitle">인상 깊게 읽었던 책을 공유하는 커뮤니티입니다.</div>
-<form action="recommendInsert.do" method="post">
+<form action="recommendInsert.do" method="post" autocomplete="off" enctype="multipart/form-data">
 <table border="1" class="MainBoardLayout">
 	<tr>
 		<td colspan="5" style="height:30px;"><hr class="headline"></td>
 	</tr>
-	<tr style="height:38 px;">
+	<tr style="height:38px;">
 		<td style="width:120px;">제목</td>
 		<td colspan="4"><input type="text" name="title" style="width: 90%; text-align:center;" required></td>
 	</tr>
@@ -27,7 +36,18 @@
 	</tr>
 	<tr>
 		<td style="height:30px;">작성자</td>
-		<td colspan="4" style="height:30px;"><input type="text" name="writer" style="width: 90%; text-align:center;" required></td>
+		<td colspan="4" style="height:30px; width: 90%; text-align:center;">
+		<%= session.getAttribute("loginNick") %>
+		<input type="hidden" name="writerId" value="<%= session.getAttribute("loginVO") %>" />
+		<input type="hidden" name="writerNick" value="<%= session.getAttribute("loginNick") %>"/></td>
+	</tr>
+	<tr style="height:30px;">
+		<td colspan="5"><hr class="line"></td>
+	</tr>
+	<tr>
+		<td style="height:30px;">파일</td>
+		<td colspan="4" style="height:30px; width: 90%; text-align:center;">
+		<input type="file" name="file" style="width:90%; text-align:center;"><%= request.getRealPath("/") %></td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>

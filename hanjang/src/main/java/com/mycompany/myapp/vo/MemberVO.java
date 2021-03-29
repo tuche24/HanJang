@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 // �������� ������ ����ϴ� Ŭ���� - DTO
 public class MemberVO 
 {
+	private int userNo; 		// 유저번호
 	private String id;			// ���̵�
 	private String password; 	// ��й�ȣ
 	private String name;		// �̸�
@@ -28,7 +29,15 @@ public class MemberVO
 		this.id = id;
 		this.password=password;
 	}
-	
+
+	public int getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
+	}
+
 	public String getId() {return id;}
 	public void setId(String id) {this.id = id;}
 	

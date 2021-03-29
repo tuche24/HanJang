@@ -12,20 +12,12 @@
 
 <input type="submit" value="메인페이지이동" /></form>
 
-<form action="recommendList.do">
-<input type="submit" value="커뮤니티 - 책 추천 게시판" />
-</form>
 <form action="loginform.do">
 <input type="submit" value="로그인폼" />
 </form>
 <form action="joinform.do">
 <input type="submit" value="회원가입폼" />
 </form>
-
-<form action="goToCart.do">
-<input type="submit" value="장바구니 이동" />
-</form>
-
 
 <form action="recommendList.do">
 <input type="submit" value="커뮤니티 - 책 추천 게시판"/>
@@ -46,6 +38,13 @@
 <form action="BestSellerList1.do">
 <input type="submit" value="베스트셀러" />
 </form>
+
+<form action="goToPay.do">
+<input type="submit" value="결제창" />
+</form>
   
+<form action="goToOrderList.do">
+<input type="submit" value="주문확인서" />
+</form>
 </body>
 </html>

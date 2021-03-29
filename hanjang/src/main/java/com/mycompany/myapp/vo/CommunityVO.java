@@ -7,11 +7,12 @@ public class CommunityVO {
 	private int boardNo;
 	private String title;
 	private String content;
-	private String writer;
+	private String writerId;
+	private String writerNick;
 	private Date regDate;
 	private int viewCnt;
 	private int reCnt;
-	
+	private String imgFile;
 	
 	public int getBoardNo() {
 		return boardNo;
@@ -31,11 +32,17 @@ public class CommunityVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getWriter() {
-		return writer;
+	public String getWriterId() {
+		return writerId;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setWriterId(String writerId) {
+		this.writerId = writerId;
+	}
+	public String getWriterNick() {
+		return writerNick;
+	}
+	public void setWriterNick(String writerNick) {
+		this.writerNick = writerNick;
 	}
 	public Date getRegDate() {
 		return regDate;
@@ -55,12 +62,20 @@ public class CommunityVO {
 	public void setReCnt(int reCnt) {
 		this.reCnt = reCnt;
 	}
+	public String getImgFile() {
+		return imgFile;
+	}
+	public void setImgFile(String imgFile) {
+		this.imgFile = imgFile;
+	}
 	
 	
 	@Override
 	public String toString() {
-		return "BoardVO [boardNo=" + boardNo + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", regDate=" + regDate + ", viewCnt=" + viewCnt + ", reCnt=" + reCnt + "]";
+		return "CommunityVO [boardNo=" + boardNo + ", title=" + title + ", content=" + content + ", writerId="
+				+ writerId + ", writerNick=" + writerNick + ", regDate=" + regDate + ", viewCnt=" + viewCnt + ", reCnt="
+				+ reCnt + ", imgFile=" + imgFile + "]";
 	}
 
+	
 }

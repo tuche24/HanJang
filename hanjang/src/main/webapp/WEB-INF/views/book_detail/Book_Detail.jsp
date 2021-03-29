@@ -4,13 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- jquery 링크-->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<!-- 헤더연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
 <title>책 상세내용</title>
 </head>
 <link rel="stylesheet" href="../resources/css/reset.css" />
 <link rel="stylesheet" href="../resources/css/book_detail.css" />
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
 $(function only_number(){
@@ -20,7 +29,7 @@ $(function only_number(){
 	var num = parseInt(stat,10);
 	num--;
 	if (num <= 0) {
-		alert('책은 1권 이상 구매 할 수 있습니다.');
+		swal("구매 횟수 제한","책은 1권 이상 구매 할 수 있습니다.","warning");
 		num = 1;
 	}
 	
@@ -34,8 +43,8 @@ $(function only_number(){
 	num++;
 
 	if (num > 5) {
-		alert('구매 제한은 5권입니다.');
-		num=5;
+		swal("구매 횟수 제한","구매 제한은 5권입니다.","warning");
+		num = 5;
 	}
 	
 	$('#count_form_input').text(num);
@@ -124,7 +133,7 @@ $(function only_number(){
 							</div>
 
 							<div class="buynow">
-								<button style="cursor: pointer;" onclick="location='#'">바로 구매하기</button>
+								<button style="cursor: pointer;" onclick="location='goToPay.do'">바로 구매하기</button>
 							</div>
 						</div>
 					</div>

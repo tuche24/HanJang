@@ -5,8 +5,13 @@
 	<title>회원가입 화면</title>
 	
 	<!-- css 파일 분리 -->
-	<link href="../resouces/css/join_style.css" rel="stylesheet"/>
-	
+<!-- 	<link href="../resouces/css/join_style.css" rel="stylesheet"/> -->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script defer>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
 	<style>
 	.button{
 	
@@ -163,6 +168,7 @@ height:44px;
 	</script>
 </head>
 <body>
+<div id="header"></div>
 	<!-- div 왼쪽, 오른쪽 바깥여백을 auto로 주면 중앙정렬된다.  -->
 	<div id="wrap">
 	 <div class="member_join_field">

@@ -10,6 +10,12 @@
 <link rel="stylesheet" type="text/css" href="">
 <!--  검색어  -->
 
+<script defer>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
+
 <script>
 	window.addEventListener("resize", homzzang);
 	function homzzang() {
@@ -25,9 +31,11 @@
 	
 </script>
 
+
 <script>
 
 ///////스크롤이벤트종합 헤더에 포함
+
 $(document).ready(function(){
 	
 	$(window).scroll(function(){
@@ -68,13 +76,8 @@ $(document).ready(function(){
 		 }
 	});
 	
-
-	
-	
 });
-
-
-</script>
+</script> -->
 
 
 <script>
@@ -533,6 +536,7 @@ height:420px;
 </style>
 </head>
 <body>
+
 <div class="headerwe"></div>
 <div class="header">
 <div class="usermenu" >
@@ -595,6 +599,7 @@ height:420px;
 </div>
 </div>
 </div>
+
 <div class="main">
 <div class="slide_container"> 
 <div class="slide">

@@ -1,6 +1,7 @@
 #container {
 	margin: 0 auto;
 	width: 1080px;
+	overflow: hidden;
 }
 
 /* 타이틀 */
@@ -85,7 +86,7 @@
 #bottomLine #genre2 {
    display: none;
    margin-top: 10px;
-   margin-left: 65px;
+   margin-left: 165px;
    width: 110px;
    height: 2px;
    background: black;
@@ -94,7 +95,7 @@
 #bottomLine #genre3 {
    display: none;
    margin-top: 10px;
-   margin-left: 68px;
+   margin-left: 345px;
    width: 55px;
    height: 2px;
    background: black;
@@ -103,7 +104,7 @@
 #bottomLine #genre4 {
    display: none;
    margin-top: 10px;
-   margin-left: 68px;
+   margin-left: 467px;
    width: 55px;
    height: 2px;
    background: black;
@@ -112,7 +113,7 @@
 #bottomLine #genre5 {
    display: none;
    margin-top: 10px;
-   margin-left: 65px;
+   margin-left: 590px;
    width: 85px;
    height: 2px;
    background: black;
@@ -129,7 +130,7 @@
 #bottomLine #genre7 {
    display: none;
    margin-top: 10px;
-   margin-left: 65px;
+   margin-left: 185px;
    width: 80px;
    height: 2px;
    background: black;
@@ -138,7 +139,7 @@
 #bottomLine #genre8 {
    display: none;
    margin-top: 10px;
-   margin-left: 65px;
+   margin-left: 332px;
    width: 70px;
    height: 2px;
    background: black;
@@ -147,7 +148,7 @@
 #bottomLine #genre9 {
    display: none;
    margin-top: 10px;
-   margin-left: 68px;
+   margin-left: 470px;
    width: 73px;
    height: 2px;
    background: black;
@@ -156,7 +157,7 @@
 #bottomLine #genre10 {
    display: none;
    margin-top: 10px;
-   margin-left: 65px;
+   margin-left: 610px;
    width: 40px;
    height: 2px;
    background: black;
@@ -201,7 +202,7 @@
 
 #content .info_area .detail {
 	margin-left: 190px;
-	margin-right: 130px;
+	margin-right: 140px;
 }
 
 #content .info_area .detail .title a {

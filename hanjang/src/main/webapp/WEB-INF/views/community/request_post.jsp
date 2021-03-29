@@ -5,18 +5,62 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- jquery 링크-->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<!-- 헤더연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-	$("#deleteBtn").click(function() {
-		if(confirm("삭제하시겠습니까?")) {
-			location.href="requestDelete.do?boardNo=${post.boardNo }"
-		}
-	})
+//댓글 등록 버튼 클릭 시 로그인 체크
+function clickReplyInsertConfirm() {
+	var id = '<%= session.getAttribute("loginVO") %>';
+	if(id == 'null') {
+		swal.fire({
+			icon:'error',
+			title:'댓글 등록 안내',
+			text:'로그인 후 이용하실 수 있습니다.'
+		});
+		document.getElementById("replyTextarea").setAttribute("disabled", true);
+	} else {
+		swal.fire({
+			icon:'warning',
+			title:'댓글 등록 안내',
+			text:'해당 댓글을 등록시겠습니까?',
+			showCancelButton: true,
+			confirmButtonText: '등록',
+			cancelButtonText: '취소'
+		}).then((result) => {
+			if(result.isConfirmed) {
+				var textarea = document.getElementById("replyTextarea");
+				if(textarea.value.length == 0) {
+					swal.fire({
+						icon:'error',
+						title:'댓글 등록 안내',
+						text:'댓글 내용을 입력해주세요.'
+					});
+				} else {
+				var form = document.getElementById("replyForm");
+					form.action = "requestReplyInsert.do";
+					form.method = "POST";
+					form.submit();	
+				}
+			}
+		})
+	}
+}
 </script>
 </head>
 <body>
+<!-- header부분 -->
+<div id="header"></div>
 <div class="boardTitle">없는 책 요청해요</div>
 <div class="boardSubTitle">한장두장에 없는 도서를 입고요청하는 게시판입니다.</div>
 <table border="1" class="MainBoardLayout">
@@ -32,10 +76,13 @@
 	</tr>
 	<tr>
 		<td style="height:30px;">작성자</td>
-		<td colspan="4" style="height:30px;">${post.writer }</td>
+		<td colspan="4" style="height:30px;">${post.writerNick }</td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>
+	</tr>
+	<tr>
+		<td><img src="${pageContext.request.contextPath}${post.imgFile }" class="imgSection"></td>
 	</tr>
 	<tr>
 		<td colspan="5"><textarea class="postsection" rows="20" cols="100" readonly>${post.content }</textarea></td>
@@ -49,32 +96,65 @@
 		<!-- 댓글 개수 표시 부분 -->
 		 (<div style="display:inline-block; color:red;">${post.reCnt }</div>)</td>
 	</tr>
-	<c:if test="${!empty reply }">
 	<!-- 댓글 목록 부분 -->
+	<c:if test="${!empty reply }">
+	<c:forEach var="reply" items="${reply }">
 	<tr>
-		<td>${reply.replyWriterNick }</td>
-		<td>${reply.regDate }</td>
+		<td colspan="5">
+		<table class="replyOutputTable">
+			<tr style="height:30px;">
+				<td style="font-weight:bold; text-align:left;">${reply.replyWriterNick }</td>
+				<!-- 로그인 한 아이디 == 해당 댓글 작성한 아이디, 관리자 아이디만 삭제 권한주기 -->
+				<c:if test="${(loginVO == reply.replyWriterId || loginVO == 'ADMIN')}" >
+				<td style="text-align:right;"><input type="button" class="submitBtn" onclick="clickReplyDeleteConfirm()" value="삭제" />
+				<script>
+				// 댓글 삭제 시 확인 창
+				function clickReplyDeleteConfirm() {
+					swal.fire({
+						icon:'warning',
+						title:'댓글 삭제 안내',
+						text:'해당 댓글을 삭제하시겠습니까?',
+						showCancelButton: true,
+						confirmButtonColor: '#d90000',
+						confirmButtonText: '삭제',
+						cancelButtonText: '취소'
+					}).then((result) => {
+						if(result.isConfirmed) {
+							var replyNo = "<c:out value='${reply.replyNo}'/>";
+							var boardNo = "<c:out value='${post.boardNo}'/>";
+							location.href = "requestReplyDelete.do?replyNo="+replyNo+"&boardNo="+boardNo;
+							swal.fire({
+								icon:'success',
+								title:'댓글 삭제 안내',
+								text:'댓글이 삭제되었습니다.'
+							})
+						}
+					})
+				}
+				</script></td></c:if>
+				<td style="width:90px"class="replyRegDate">${reply.regDate }</td>
+			</tr>
+			<tr>
+				<td colspan="4" style="padding:10px; background-color:#f5f5f5; border:none; border-radius:4px; height:30px; text-align:left; vertical-align:middle;">${reply.replyContent }</td>
+			</tr>
+		</table>
+		</td>
 	</tr>
-	<tr>
-		<td colspan="5" style="background-color:#dddddd; border: none; border-radius: 10px;">${reply.replyContent }</td>
-	</tr>
-	<!-- 댓글 목록 부분 끝 -->
+	</c:forEach>
 	</c:if>
+	<!-- 댓글 목록 부분 끝 -->
 	<!-- 댓글 작성 부분 -->
 	<tr>
 		<td colspan="5">
-		<form action="requestReplyInsert.do">
-			<table style="margin:auto;">
+		<form id="replyForm">
+			<table class="replyInputTable">
 				<tr>
-				</tr>
-				<tr>
-					<td><textarea name="replyContent" class="replysection" rows="10" placeholder="댓글을 작성해주세요."></textarea></td>
-				</tr>
-				<tr>
-					<td>
+					<td class="replysection"><textarea id="replyTextarea" class="replytextarea" name="replyContent" placeholder="댓글을 작성해주세요." required></textarea>
 					<!-- 로그인한 아이디 sessionScope 들어갈 hidden -->
-					<input type="hidden" name="" />
-					<input type="submit" class="submitBtn" value="댓글 등록" /></td>
+					<input type="hidden" name="replyWriterId" value="<%= session.getAttribute("loginVO") %>" />
+					<input type="hidden" name="replyWriterNick" value="<%= session.getAttribute("loginNick") %>" />
+					<input type="hidden" name="boardNo" value="${post.boardNo }" />
+					<input type="button" class="replySubmitBtn" value="댓글등록" onclick="clickReplyInsertConfirm()" /></td>
 				</tr>
 			</table>
 		</form>
@@ -87,9 +167,47 @@
 	<tr>
 		<td colspan="4"></td>
 		<td style="text-align:right;"><a href="requestList.do" style="margin-right:20px;">목록</a>
-		<!-- 로그인한 사람만, 해당 글을 작성한 사람만 삭제 가능하게 해야 됨 -->
-		<a href="requestUpdateForm.do?boardNo=${post.boardNo }" style="margin-right:20px;">수정</a>
-		<a id="deleteBtn" style="margin-right:20px;">삭제</a></td>
+		<!-- 해당 글을 작성한 사람과 관리자만 삭제 가능 -->
+		<c:if test="${(loginVO == post.writerId || loginVO == 'ADMIN')}" >
+		<input type="button" class="submitBtn" value="수정" onclick="clickUpdateConfirm()" style="margin-right:20px;"/>
+		<script>
+		// 게시물 수정 확인창
+		function clickUpdateConfirm() {
+			swal.fire({
+				icon:'warning',
+				title:'게시글 수정 안내',
+				text:'해당 게시물을 수정하시겠습니까?',
+				showCancelButton: true,
+				confirmButtonText: '수정',
+				cancelButtonText: '취소'
+			}).then((result) => {
+				if(result.isConfirmed) {
+					var boardNo = "<c:out value='${post.boardNo}'/>";
+					location.href = "requestUpdateForm.do?boardNo="+boardNo;
+				}
+			})
+		}
+		</script>
+		<input type="button" class="submitBtn" value="삭제" onclick="clickDeleteConfirm()" style="margin-right:20px;"/>
+		<script>
+		// 게시물 삭제 확인창
+		function clickDeleteConfirm() {
+			swal.fire({
+				icon:'warning',
+				title:'게시글 삭제 안내',
+				text:'해당 게시물을 삭제하시겠습니까?',
+				showCancelButton: true,
+				confirmButtonColor: '#d90000',
+				confirmButtonText: '삭제',
+				cancelButtonText: '취소'
+			}).then((result) => {
+				if(result.isConfirmed) {
+					var boardNo = "<c:out value='${post.boardNo}'/>";
+					location.href = "requestDelete.do?boardNo="+boardNo;
+				}
+			})
+		}
+		</script></c:if></td>
 	</tr>
 </table>
 </body>
