@@ -10,7 +10,7 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script>
 
-///////스크롤이벤트종합 헤더에 포함
+///////스크롤이벤트종합 헤더에 포함.
 $(document).ready(function(){
 	
 	$(window).scroll(function(){
