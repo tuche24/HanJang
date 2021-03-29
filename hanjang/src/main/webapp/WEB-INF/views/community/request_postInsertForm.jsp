@@ -44,6 +44,11 @@
 	<tr>
 		<td colspan="5"><hr class="line"></td>
 	</tr>
+		<tr>
+		<td style="height:30px;">파일</td>
+		<td colspan="4" style="height:30px; width: 90%; text-align:center;">
+		<input type="file" name="file" style="width:90%; text-align:center;"><%= request.getRealPath("/") %></td>
+	</tr>
 	<tr>
 		<td colspan="5"><textarea rows="20" cols="100" class="postsection" name="content" required>${post.content }</textarea></td>
 	</tr>

@@ -12,7 +12,7 @@ public class CommunityVO {
 	private Date regDate;
 	private int viewCnt;
 	private int reCnt;
-	
+	private String imgFile;
 	
 	public int getBoardNo() {
 		return boardNo;
@@ -62,13 +62,20 @@ public class CommunityVO {
 	public void setReCnt(int reCnt) {
 		this.reCnt = reCnt;
 	}
+	public String getImgFile() {
+		return imgFile;
+	}
+	public void setImgFile(String imgFile) {
+		this.imgFile = imgFile;
+	}
 	
 	
 	@Override
 	public String toString() {
 		return "CommunityVO [boardNo=" + boardNo + ", title=" + title + ", content=" + content + ", writerId="
 				+ writerId + ", writerNick=" + writerNick + ", regDate=" + regDate + ", viewCnt=" + viewCnt + ", reCnt="
-				+ reCnt + "]";
+				+ reCnt + ", imgFile=" + imgFile + "]";
 	}
+
 	
 }

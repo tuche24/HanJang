@@ -33,8 +33,8 @@
 	<!-- 게시글 등록 -->
 	<insert id="insertPost">
 		INSERT INTO RecommendBoard
-		(boardno, title, content, writerid, writernick)
-		VALUES (NEXTVAL(hanjang.RecBoard_seq), #{title}, #{content}, #{writerId}, #{writerNick})
+		(boardno, title, content, writerid, writernick, imgfile)
+		VALUES (NEXTVAL(hanjang.RecBoard_seq), #{title}, #{content}, #{writerId}, #{writerNick}, #{imgFile})
 	</insert>
 	
 	<!-- 게시글 수정 -->

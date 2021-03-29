@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,6 +82,12 @@ function clickReplyInsertConfirm() {
 	<tr>
 		<td colspan="5"><hr class="line"></td>
 	</tr>
+	<c:if test="${post.imgFile != none }">
+	<tr>
+		<!-- 첨부 이미지 파일 출력 부분 -->
+		<td colspan="5"><div class="imgSetion"><img src="${pageContext.request.contextPath}${post.imgFile }" class="attachedImg"></div></td>
+	</tr>
+	</c:if>
 	<tr>
 		<td colspan="5"><textarea class="postsection" rows="20" cols="100" readonly>${post.content }</textarea></td>
 	</tr>

@@ -1,5 +1,7 @@
 package com.mycompany.myapp;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -7,10 +9,12 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mycompany.myapp.service.CommunityReplyService;
 import com.mycompany.myapp.service.CommunityService;
+import com.mycompany.myapp.utils.UploadFileUtils;
 import com.mycompany.myapp.vo.CommunityReplyVO;
 import com.mycompany.myapp.vo.CommunityVO;
 import com.mycompany.myapp.vo.PageVO;
@@ -35,6 +39,8 @@ public class CommunityController {
 	@Resource(name = "reply2Service")
 	private CommunityReplyService reply2service;
 	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
 	
 	/* *** 여기서부터 이 책 추천해요 게시판 컨트롤러 *** */
 	
@@ -75,8 +81,21 @@ public class CommunityController {
 	
 	// 게시물 등록 처리
 	@RequestMapping(value="/recommendInsert.do")
-	public String insertRecommendPost(CommunityVO post) {
+	public String insertRecommendPost(CommunityVO post, MultipartFile file) throws Exception {
+		String imgUploadPath = uploadPath+File.separator+"imgUpload";
+		String ymPath = UploadFileUtils.calcPath(imgUploadPath);
+		String fileName = null;
+		
+		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymPath);
+		} else {
+			fileName = uploadPath+File.separator+"images"+File.separator+"none.png";
+		}
+		
+		post.setImgFile(File.separator+"imgUpload"+ymPath+File.separator+fileName);
+		System.out.println(post.getImgFile());
 		service1.insertPost(post);
+		
 		return "redirect:recommendList.do";
 	}
 	
@@ -163,7 +182,20 @@ public class CommunityController {
 	
 	// 게시물 등록 처리
 	@RequestMapping(value="/requestInsert.do")
-	public String insertRequestPost(CommunityVO post) {
+	public String insertRequestPost(CommunityVO post, MultipartFile file) throws Exception {
+		String imgUploadPath = uploadPath+File.separator+"imgUpload";
+		String ymPath = UploadFileUtils.calcPath(imgUploadPath);
+		String fileName = null;
+		
+		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymPath);
+		} else {
+			fileName = uploadPath+File.separator+"images"+File.separator+"none.png";
+		}
+		
+		post.setImgFile(File.separator+"imgUpload"+ymPath+File.separator+fileName);
+		System.out.println(post.getImgFile());
+		
 		service2.insertPost(post);
 		return "redirect:requestList.do";
 	}
