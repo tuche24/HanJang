@@ -9,6 +9,7 @@
 <body>
 
 <form action="mainAll.do">
+
 <input type="submit" value="메인페이지이동" /></form>
 
 <form action="loginform.do">
