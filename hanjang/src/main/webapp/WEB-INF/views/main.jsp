@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <link rel="stylesheet" type="text/css" href="">
+
 <!--  검색어  -->
 
 <script defer>
@@ -51,6 +52,7 @@ $(document).ready(function(){
 			$(".search").css("rigth","88px");
 			$(".search").css("top","2px");
 			$(".menubar").css("z-index","9999");
+			$(".p1").css("z-index","9998");
 			$(".main_menu li").css("width","80px");	
 			$(".main_menu li a").css("width","80px");
 			$(".menu_container1").css("margin-left","-360px");
@@ -179,6 +181,21 @@ function search(){
 	
 }
 
+</script>
+<script>
+
+
+    function setCookie( name, value, expiredays ) {
+        var todayDate = new Date();
+        todayDate.setDate( todayDate.getDate() + expiredays ); 
+        document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+    }
+    function closePop() {
+        if ( document.getElementById("popcheckb").checked ){
+            setCookie( "maindiv", "done" , 1 );
+        }
+        document.getElementById("p1").style.visibility="hidden";
+    }
 
 
 </script>
@@ -536,7 +553,21 @@ height:420px;
 </style>
 </head>
 <body>
-
+<div id="p1"
+		style="position: absolute; left: 200px; top: 100px; visibility: visible; z-index:9999;">
+		<table border="1" width=300 height=300>
+<tr><td style="border: 2px #0000ff solod" bgcolor=white>
+팝 업 창 <br> 
+	</td></tr>
+						
+		</table>
+		<table style="border:0; background:gray; width:300px;height:5px;">
+		<tr style="float:right;">
+		<td>24시간동안 이 창을 띄우지 않기<input type="checkbox" name="popcheckb" id="popcheckb"/></td>
+		<td><input type="button" value="닫기" onclick="closePop();"></td>
+		</tr>
+		</table>
+	</div>
 <div class="headerwe"></div>
 <div class="header">
 <div class="usermenu" >
@@ -680,4 +711,15 @@ height:420px;
 
 </div>
 </body>
+<script language="Javascript">
+    cookiedata = document.cookie;   
+    if ( cookiedata.indexOf("maindiv=done") < 0 ){     
+    	 document.getElementById("p1").style.visibility="visible";
+    }
+    else {
+    	 document.getElementById("p1").style.visibility="hidden";
+    }
+</script>
+
+
 </html>
