@@ -13,6 +13,14 @@
 	})
 </script>
 	<style>
+	
+* {
+   margin: 0px;
+   padding: 0px;
+   list-style: none;
+   text-decoration: none;
+   border-collapse: collapse;
+}
 	.button{
 	
 	color:#5f0080;
@@ -166,6 +174,44 @@ height:44px;
 	
 	
 	</script>
+	<script>
+
+
+$(document).ready(function(){
+	
+	$(window).scroll(function(){
+		var floatPosition = parseInt($(".follow").css('top'))
+		var rollit = $(this).scrollTop() >= 280;
+		if(rollit){
+			$(".menubar").css("position","fixed");
+			$(".menubar").css("top",0);
+			$(".menubar").css("width","100%");
+			$(".menubar").css("text-align","center");
+			$(".search").css("position","absolute");
+			$(".search").css("rigth","88px");
+			$(".search").css("top","2px");
+			$(".menubar").css("z-index","9999");
+			$(".main_menu li").css("width","80px");	
+			$(".main_menu li a").css("width","80px");
+			$(".menu_container1").css("margin-left","-360px");
+			$(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 3px 0px");
+			$(".main_menu ").css("margin-top","10px");	
+		}else{
+			$(".menubar").css("position","static");
+			$(".search").css("position","static");
+			$(".menubar").css("text-align","center");
+			$(".main_menu li").css("position","relative");
+			$(".main_menu li").css("width","100px");	
+			$(".main_menu li a").css("width","100px");
+			$(".menu_container1").css("margin-left","0px");
+			$(".main_menu ").css("margin-top","0px");	
+		}
+		
+	});
+	
+});
+</script> 
+	
 </head>
 <body>
 <div id="header"></div>

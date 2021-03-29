@@ -10,11 +10,7 @@
 		request.setCharacterEncoding("UTF-8"); 
 	%>
 <!-- 헤더연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#header").load("/myapp/resources/jsp/header/header.jsp");
-	})
-</script>
+
 	<title>로그인 화면</title>
 	
 	

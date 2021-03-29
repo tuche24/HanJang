@@ -32,9 +32,9 @@
 </script>
 
 
+<!-- ///////스크롤이벤트종합 헤더에 포함 -->
 <script>
 
-///////스크롤이벤트종합 헤더에 포함
 
 $(document).ready(function(){
 	
@@ -77,7 +77,7 @@ $(document).ready(function(){
 	});
 	
 });
-</script> -->
+</script> 
 
 
 <script>
