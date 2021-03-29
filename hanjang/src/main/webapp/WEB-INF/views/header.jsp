@@ -16,7 +16,6 @@ $(document).ready(function(){
 	$(window).scroll(function(){
 		var floatPosition = parseInt($(".follow").css('top'))
 		var rollit = $(this).scrollTop() >= 280;
-		var rollit2 = $(this).scrollTop() >= 450;
 		if(rollit){
 			$(".menubar").css("position","fixed");
 			$(".menubar").css("top",0);
@@ -41,14 +40,6 @@ $(document).ready(function(){
 			$(".menu_container1").css("margin-left","0px");
 			$(".main_menu ").css("margin-top","0px");	
 		}
-		 var currentTop = $(window).scrollTop();
-
-		 //이동 애니메이션
-		 if(rollit2){
-		 $(".follow").stop().animate({
-		   "top" : currentTop+250+"px"
-		 }, 570);
-		 }
 	});
 	
 
