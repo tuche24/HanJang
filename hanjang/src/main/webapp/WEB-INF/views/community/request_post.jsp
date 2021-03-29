@@ -71,6 +71,9 @@ function clickReplyInsertConfirm() {
 		<td colspan="5"><hr class="line"></td>
 	</tr>
 	<tr>
+		<td><img src="${pageContext.request.contextPath}${post.imgFile }" class="imgSection"></td>
+	</tr>
+	<tr>
 		<td colspan="5"><textarea class="postsection" rows="20" cols="100" readonly>${post.content }</textarea></td>
 	</tr>
 	<tr>
