@@ -10,13 +10,13 @@
 <!-- 헤더연결 -->
 <script defer>
 	$(document).ready(function(){
-		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
 	})
 </script>
 <title>책 상세내용</title>
 </head>
-<link rel="stylesheet" href="../resources/css/reset.css" />
-<link rel="stylesheet" href="../resources/css/book_detail.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_detail.css" />
 
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -51,6 +51,12 @@ $(function only_number(){
 	});
 });
 </script>
+
+<style>
+#detail_title {
+	margin-top: 100px;
+}
+</style>
 
 <body>
 	<div id="container">

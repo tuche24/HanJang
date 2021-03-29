@@ -61,7 +61,8 @@
 						</span>
 					</div>
 					<div id="paymentMethodResult">
-					<input type="submit" value="결제하기" class="btn_payment" />
+					<input type="submit" value="결제하기" class="btn_payment" 
+					style="cursor: pointer;" onclick="location='goToPay.do'"/>
 					</div>
 				</form>
 			</div>
