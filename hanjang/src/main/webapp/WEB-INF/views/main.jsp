@@ -26,6 +26,8 @@
 </script>
 
 <script>
+
+///////스크롤이벤트종합 헤더에 포함
 $(document).ready(function(){
 	
 	$(window).scroll(function(){
@@ -520,6 +522,14 @@ right:20px;
 .bookslide{
 margin-top:30px;
 }
+.footer div{
+float:left;
+}
+.footer{
+margin:0 auto;
+width:1050px;
+height:420px;
+}
 </style>
 </head>
 <body>
@@ -539,7 +549,7 @@ margin-top:30px;
 					</c:if>
 					<c:if test="${(loginVO==null) ? true : false}">
 						<li><a href="loginform.do">로그인</a></li>
-
+<li><a href="joinform.do">회원가입</a></li>
 					</c:if>
 
 </ul>
@@ -651,9 +661,17 @@ margin-top:30px;
 </div>
 </div>
 </div>
-<hr style="margin:40px;">
+<hr style="margin:30px; ">
 <div class="footer">
 <h1>푸터부분얍</h1>
+<div style="width:500px; height:300px; background:aqua;text-align:left;">
+<h2>고객센터</h2>
+<div>전화번호</div><span>adsads</span>
+</div>
+
+
+
+<div style="width:550px; height:300px; background:yellow;">adads</div>
 
 </div>
 </body>

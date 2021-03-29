@@ -113,11 +113,7 @@ height:44px;
 		
 			
 		} 
-		
-		// 취소 버튼 클릭시 로그인 화면으로 이동
-		function goLoginForm() {
-			location.href="LoginForm.jsp";
-		}
+	
 		
 	</script>
 
@@ -266,7 +262,7 @@ height:44px;
 			</table>
 			<br><div style="text-align:center;">
 			<input type="submit" value="가입" class="butt">  
-			<input type="button" value="취소" onclick="goLoginForm()" class="butt">
+			<input type="button" value="취소" onclick= "loginform.do" class="butt">
 			</div>
 		</form>
 		</div>

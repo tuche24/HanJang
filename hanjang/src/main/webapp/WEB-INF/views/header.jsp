@@ -1,47 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<%
-		// 인코딩 
-		request.setCharacterEncoding("euc-kr"); 
-	%>
-	<title>로그인 화면</title>
-	
-	
-	<!-- 나중에 합칠때 경로 다시 설정해주셔야 할수도 있어요. -->
-	<link href='./resources/css/join_style.css' rel='stylesheet' style='text/css'/>
-	
-	<script type="text/javascript">
-	
-		function checkValue()
-		{
-			inputForm = eval("document.loginInfo");
-			if(!inputForm.id.value)
-			{
-				swal("아이디를 입력하세요");	
-				inputForm.id.focus();
-				return false;
-			}
-			if(!inputForm.password.value)
-			{
-				swal("비밀번호를 입력하세요");	
-				inputForm.password.focus();
-				return false;
-			}
-		}
-	
-		// 회원가입 버튼 클릭시 회원가입 화면으로 이동
-		function goJoinForm() {
-			location.href="JoinForm.jsp";
-		}	
-	</script>
-
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
 
+///////스크롤이벤트종합 헤더에 포함
+$(document).ready(function(){
+	
+	$(window).scroll(function(){
+		var floatPosition = parseInt($(".follow").css('top'))
+		var rollit = $(this).scrollTop() >= 280;
+		var rollit2 = $(this).scrollTop() >= 450;
+		if(rollit){
+			$(".menubar").css("position","fixed");
+			$(".menubar").css("top",0);
+			$(".menubar").css("width","100%");
+			$(".menubar").css("text-align","center");
+			$(".search").css("position","absolute");
+			$(".search").css("rigth","88px");
+			$(".search").css("top","2px");
+			$(".menubar").css("z-index","9999");
+			$(".main_menu li").css("width","80px");	
+			$(".main_menu li a").css("width","80px");
+			$(".menu_container1").css("margin-left","-360px");
+			$(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 3px 0px");
+			$(".main_menu ").css("margin-top","10px");	
+		}else{
+			$(".menubar").css("position","static");
+			$(".search").css("position","static");
+			$(".menubar").css("text-align","center");
+			$(".main_menu li").css("position","relative");
+			$(".main_menu li").css("width","100px");	
+			$(".main_menu li a").css("width","100px");
+			$(".menu_container1").css("margin-left","0px");
+			$(".main_menu ").css("margin-top","0px");	
+		}
+		 var currentTop = $(window).scrollTop();
+
+		 //이동 애니메이션
+		 if(rollit2){
+		 $(".follow").stop().animate({
+		   "top" : currentTop+250+"px"
+		 }, 570);
+		 }
+	});
+	
+
+	
+	
+});
+
+
+</script>
 <style>
 
 * {
@@ -192,7 +208,6 @@ width:40px;
 					</c:if>
 					<c:if test="${(loginVO==null) ? true : false}">
 						<li><a href="loginform.do">로그인</a></li>
-						<li><a href="joinform.do">회원가입</a></li>
 
 					</c:if>
 
@@ -239,32 +254,5 @@ width:40px;
 </div>
 </div>
 </div>
-
-
-	<div id="wrap">
-		<form name="loginInfo" method="post" action="login.do" 
-				onsubmit="return checkValue()">
-		
-			<br><br>
-			
-			<table>
-				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="id" maxlength="50"></td>
-				</tr> 
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="password" maxlength="50"></td>
-				</tr> 
-			</table>
-			<br>
-			<input type="submit" value="로그인"/> <br>
-			<!-- <input type="button" value="회원가입" onclick="goJoinForm()" />  -->
-			<input type="button" value="아이디찾기" onclick=""/>
-			<input type="button" value="비밀번호찾기" onclick=""/>
-		</form>
-		
-		
-	</div>	
 </body>
 </html>
