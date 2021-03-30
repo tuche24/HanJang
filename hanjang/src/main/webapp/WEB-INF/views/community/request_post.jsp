@@ -148,7 +148,7 @@ function clickReplyInsertConfirm() {
 					})
 				}
 				</script></td></c:if>
-				<td style="width:90px"class="replyRegDate">${reply.regDate }</td>
+				<td style="width:90px" class="replyRegDate">${reply.regDate }</td>
 			</tr>
 			<tr>
 				<td colspan="4" style="padding:10px; background-color:#f5f5f5; border:none; border-radius:4px; height:30px; text-align:left; vertical-align:middle;">${reply.replyContent }</td>
