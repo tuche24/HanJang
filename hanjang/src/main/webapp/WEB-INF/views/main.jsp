@@ -86,7 +86,7 @@ $(document).ready(function(){
 $(function(){
 	var widthh = $(".slide").outerWidth();
 	  var $panel = $(".slide_img").find("ul");
-	  var rolling
+	  var rolling;
       var itemWidth = $panel.children().outerWidth(); // 아이템 가로 길이
       var itemLength = $panel.children().length;      // 아이템 수
       
@@ -121,8 +121,7 @@ $(function(){
 		});
 
 	function rollingStart(){
-		 $panel.css("width", itemWidth * itemLength);
-         $panel.animate({"left": - itemWidth + "px"}, function() {
+         $panel.animate({"left": - itemWidth}, function() {
              $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
             $(this).find("li").css("width","25%");
              $(this).find("li:first").remove();
@@ -220,8 +219,7 @@ max-width:100%;
 
 }
 .main{
-min-width:1050px;
-max-width:100%;}
+min-width:1050px;}
 .usermenu{
 margin:0 150px;
 height:30px;}
@@ -239,13 +237,13 @@ color:black;}
 
 .logo_place{
 margin:0 150px;
-height:180px;
+height:160px;
 }
 
 .logo{
 margin: 0 auto;
-width:140px;
-height:180px;
+width:120px;
+height:160px;
 }
 .logo a{
 width:100%;
@@ -377,11 +375,13 @@ width:40px;
 }
 .slide_img ul{
 width:400%;
-height:400px;
+height:370px;
 position:relative;
 }
 .slide_img{
-min-width:100%;
+width:100%;
+overflow:hidden;
+height:370px;
 position:relative;
 }
 .slide_img ul li{
@@ -637,14 +637,14 @@ height:420px;
 <div class="prev"><input type="button"  value="<"/></div>
 <div class="slide_img">
 <ul>
-	<li><a href="detail.do?mutual=파씨오네"> <img
-					src="https://blog.kakaocdn.net/dn/cR7waL/btqXu4FLKS7/vYSN9vBsWRghFL53cUO3m1/img.jpg" /></a></li>
-	<li><a href="detail.do?mutual=미라이"> <img
-					src="https://blog.kakaocdn.net/dn/b8Bj8p/btqXrDIuL8J/Q8j9820lZR0qnhuD8TH5y0/img.jpg" /></a></li>
-	<li><a href="detail.do?mutual=진만두"> <img
-					src="https://blog.kakaocdn.net/dn/UVA5M/btqXDfFWUs0/NHZbwEvQh9IMYpvekuDa60/img.jpg" /></a></li>
-	<li><a href="detail.do?mutual=진만두"> <img
-					src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a></li>
+	<li><a href="#"> <img
+					src="resources\img\main\mainslide1.jpg" /></a></li>
+	<li><a href="#"> <img
+					src="resources\img\main\mainslide2.jpg" /></a></li>
+	<li><a href="#"> <img
+					src="resources\img\main\mainslide3.jpg" /></a></li>
+	<li><a href="#"> <img
+					src="resources\img\main\mainslide2.jpg" /></a></li>
 </ul>
 </div>
 <div class="next"><input type="button" value=">" /></div>
@@ -661,7 +661,7 @@ height:420px;
 <div class="smallnext"><a href="#" onclick="smallnextclick(); return false;"></a></div>
 <ul>
 <c:forEach items="${bookList}" var="b" begin="0" end="11">
-						<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a><div>asd</div></li>
+						<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a><div style="font-size:13px;font-weight:70;">${b.title }</div></li>
 						</c:forEach>
 </ul>
 </div>
