@@ -536,14 +536,28 @@ height:450px;
 background:black;
 margin-top:20px;
 }
-
-.follow{
+.follow {
 position:absolute;
-width:80px;
+width:90px;
 height:180px;
-background:black;
+border:none;
 right:20px;
-
+}
+.follow img {
+border:1px solid #dddddd;
+}
+.follow_menu li {
+border:1px solid #dddddd;
+font-family:noto sans;
+font-size:12px;
+font-weight:bold;
+text-align:center;
+padding:3px;
+color:#333333;
+background:white;
+}
+.follow_menu li a:hover {
+color:#3fcbff;
 }
 .bookslide{
 margin-top:30px;
@@ -643,14 +657,10 @@ height:300px;
 <div class="prev"><input type="button"  value="<"/></div>
 <div class="slide_img">
 <ul>
-	<li><a href="#"> <img
-					src="resources\img\main\mainslide1.jpg" /></a></li>
-	<li><a href="#"> <img
-					src="resources\img\main\mainslide2.jpg" /></a></li>
-	<li><a href="#"> <img
-					src="resources\img\main\mainslide3.jpg" /></a></li>
-	<li><a href="#"> <img
-					src="resources\img\main\mainslide2.jpg" /></a></li>
+	<li><a href="#"><img src="resources\img\main\mainslide1.jpg" /></a></li>
+	<li><a href="#"><img src="resources\img\main\mainslide2.jpg" /></a></li>
+	<li><a href="#"><img src="resources\img\main\mainslide3.jpg" /></a></li>
+	<li><a href="#"><img src="resources\img\main\mainslide2.jpg" /></a></li>
 </ul>
 </div>
 <div class="next"><input type="button" value=">" /></div>
@@ -660,15 +670,24 @@ height:300px;
 <div class="bookslide">
 <div style="text-align:center" class="bookslide_title"><h1>이 책 어떠세요 ?</h1></div>
 <div class="intro_book">
-<span class="follow">asdaasd</span>
+<!-- 따라다니는 퀵메뉴 시작 -->
+<div class="follow"><img src="resources\img\main\quick.jpg">
+<div class="follow_menu">
+<ul>
+<li><a href="#">장바구니</a></li>
+<li><a href="#">베스트셀러</a></li>
+<li><a href="#">이 책 추천해요</a></li>
+</ul>
+</div></div>
+<!-- 따라다니는 퀵메뉴 끝 -->
 
 <div class="intro_book_slide">
 <div class="smallprev"><a href="#"  onclick="smallprevclick(); return false;" style="visibility:hidden;"></a></div>
 <div class="smallnext"><a href="#" onclick="smallnextclick(); return false;"></a></div>
 <ul>
 <c:forEach items="${bookList}" var="b" begin="0" end="11">
-						<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a><div style="font-size:13px;font-weight:70;">${b.title }</div></li>
-						</c:forEach>
+<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a><div style="font-size:13px;font-weight:70;">${b.title }</div></li>
+</c:forEach>
 </ul>
 </div>
 </div>
@@ -701,7 +720,7 @@ height:300px;
 </div>
 </div>
 <!-- footer부분 -->
-<div id="footer"></div>
+<div id="footer"></div></div>
 </body>
 <script language="Javascript">
     cookiedata = document.cookie;   
