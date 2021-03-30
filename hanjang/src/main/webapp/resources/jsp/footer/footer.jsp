@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="footerImg">
-<img src="resources\img\footer\tmpimg.jpg">
+<img src="resources\img\footer\footerimg.jpg">
 </div>
 <hr class="line">
 <div class="footer">

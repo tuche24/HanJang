@@ -11,12 +11,18 @@
 
 <!--  검색어  -->
 
+<!-- 헤더연결 -->
 <script defer>
 	$(document).ready(function(){
 		$("#header").load("/myapp/resources/jsp/header/header.jsp");
 	})
 </script>
-
+<!-- 푸터연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
+	})
+</script>
 <script>
 	window.addEventListener("resize", homzzang);
 	function homzzang() {
@@ -548,7 +554,7 @@ float:left;
 .footer{
 margin:0 auto;
 width:1050px;
-height:420px;
+height:300px;
 }
 </style>
 </head>
@@ -692,24 +698,10 @@ height:420px;
 <li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
 
 </ul>
-
-
 </div>
 </div>
-</div>
-<hr style="margin:30px; ">
-<div class="footer">
-<h1>푸터부분얍</h1>
-<div style="width:500px; height:300px; background:aqua;text-align:left;">
-<h2>고객센터</h2>
-<div>전화번호</div><span>adsads</span>
-</div>
-
-
-
-<div style="width:550px; height:300px; background:yellow;">adads</div>
-
-</div>
+<!-- footer부분 -->
+<div id="footer"></div>
 </body>
 <script language="Javascript">
     cookiedata = document.cookie;   
