@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
@@ -11,19 +11,24 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- 헤더연결 -->
 <script defer>
-	$(document).ready(function(){
-		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	$(document).ready(function() {
+		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
 	})
 </script>
 <script>
-/* 장바구니 담기 버튼을 눌렀을 시 책 정보를 장바구니에 담음 */
-function addCart(){
-	let UserNo = event.target.parentElement.parentElement.firstElementChild.getAttribute('value');
-	if(UserNo == null || UserNo == ""){swal("로그인","로그인이 필요합니다","error"); false}
-	/* else {swal(UserNo)} */
-	let itemID = event.target.parentElement.parentElement.firstElementChild.nextElementSibling.getAttribute('value');
-	/* alert(itemID); */
-	var params = {
+	/* 장바구니 담기 버튼을 눌렀을 시 책 정보를 장바구니에 담음 */
+	function addCart() {
+		let UserNo = event.target.parentElement.parentElement.firstElementChild
+				.getAttribute('value');
+		if (UserNo == null || UserNo == "") {
+			swal("로그인", "로그인이 필요합니다", "error");
+			false
+		}
+		/* else {swal(UserNo)} */
+		let itemID = event.target.parentElement.parentElement.firstElementChild.nextElementSibling
+				.getAttribute('value');
+		/* alert(itemID); */
+		var params = {
 			UserNo : UserNo,
 			ItemId : itemID,
 			Amount : 1
@@ -41,18 +46,155 @@ function addCart(){
 			}
 		});
 		// ajax-end
-		swal("성공","장바구니에 상품을 담았습니다", "success");
-}
+		swal("성공", "장바구니에 상품을 담았습니다", "success");
+	}
+
+	$(document).ready(function() {
+		var categoryId = $(".genre").val();
+		
+		if (categoryId == 109) {
+			$("#genre1").css("display", "block");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 101) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "block");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 102) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "block");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 103) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "block");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 116) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "block");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 114) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "block");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 205) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "block");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 117) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "block");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 118) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "block");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 128) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "block");
+		} else {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		}
+	})
 </script>
+
 <title>새로 나온 책</title>
 </head>
-<link rel="stylesheet" href="resources/css/reset.css" />
-<link rel="stylesheet" href="resources/css/book_list.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/reset.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/book_list.css" />
+
+<style>
+#title {
+	margin-top: 100px;
+}
+</style>
 
 <body>
-<!-- header부분 -->
-<div id="header"></div>
 	<div id="container">
+		<!-- header부분 -->
+		<div id="header"></div>
+
 		<div id="title">
 			<ul>
 				<li class="title_wrap"><p>새로 나온 책</p></li>
@@ -61,133 +203,129 @@ function addCart(){
 
 		<div id="wrap">
 			<div id="category">
-				<button style="cursor: pointer;" onclick="location='NewBookList1.do?categoryId=100'">신간 종류</button>
+				<button style="cursor: pointer;"
+					onclick="location='NewBookList1.do?categoryId=100'">신간 종류</button>
 			</div>
 
 			<div id="genre">
+				<input type="hidden" class="genre" value="${categoryId}">
 				<ul>
-					<li>
-						<a id="baby" href="NewBookList1.do?categoryId=109" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre1').style.display = 'block';">유아/어린이</a>
+					<li><a id="baby" href="NewBookList1.do?categoryId=109"
+						onmouseover="this.style.color='#0000FF'"
+						onmouseout="this.style.color='#555'">유아/어린이</a>
 					</li>
-					<li>
-						<a href="NewBookList1.do?categoryId=101" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre2').style.display = 'block';">소설/시/희곡</a>
+					<li><a href="NewBookList1.do?categoryId=101"
+						onmouseover="this.style.color='#0000FF'"
+						onmouseout="this.style.color='#555'">소설/시/희곡</a>
 					</li>
-					<li><a href="NewBookList1.do?categoryId=102" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre3').style.display = 'block';">에세이</a>
+					<li><a href="NewBookList1.do?categoryId=102"
+						onmouseover="this.style.color='#0000FF'"
+						onmouseout="this.style.color='#555'">에세이</a>
 					</li>
-					<li><a href="NewBookList1.do?categoryId=103" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre4').style.display = 'block';">인문학</a>
+					<li><a href="NewBookList1.do?categoryId=103"
+						onmouseover="this.style.color='#0000FF'"
+						onmouseout="this.style.color='#555'">인문학</a>
 					</li>
-					<li><a href="NewBookList1.do?categoryId=116" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre5').style.display = 'block';">과학/역사</a>
+					<li><a href="NewBookList1.do?categoryId=116"
+						onmouseover="this.style.color='#0000FF'"
+						onmouseout="this.style.color='#555'">과학/역사</a>
 					</li>
-					
+
 					<div id="bottomLine">
-            			<span id="genre1"></span>
-            			<span id="genre2"></span>
-            			<span id="genre3"></span>
-            			<span id="genre4"></span>
-            			<span id="genre5"></span>
-         			</div>
-         			<br><br>
-					<li><a href="NewBookList1.do?categoryId=114" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre6').style.display = 'block';">수험서/참고서</a>
+						<span id="genre1"></span>
+						<span id="genre2"></span>
+						<span id="genre3"></span>
+						<span id="genre4"></span>
+						<span id="genre5"></span>
+					</div>
+					<br>
+					<br>
+					<li><a href="NewBookList1.do?categoryId=114"
+						onmouseover="this.style.color='#0000FF'"
+						onmouseout="this.style.color='#555'">수험서/참고서</a>
 					</li>
-					<li><a href="NewBookList1.do?categoryId=205" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre7').style.display = 'block';">영미소설</a>
+					<li><a href="NewBookList1.do?categoryId=205"
+						onmouseover="this.style.color='#0000FF'"
+						onmouseout="this.style.color='#555'">영미소설</a>
 					</li>
-					<li><a href="NewBookList1.do?categoryId=117" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre8').style.display = 'block';">경제경영</a>
+					<li><a href="NewBookList1.do?categoryId=117"
+						onmouseover="this.style.color='#0000FF'"
+						onmouseout="this.style.color='#555'">경제경영</a>
 					</li>
-					<li>
-						<a href="NewBookList1.do?categoryId=118" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre9').style.display = 'block';">자기계발</a>
+					<li><a href="NewBookList1.do?categoryId=118"
+						onmouseover="this.style.color='#0000FF'"
+						onmouseout="this.style.color='#555'">자기계발</a>
 					</li>
-					<li>
-						<a href="NewBookList1.do?categoryId=128" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre10').style.display = 'block';">여행</a>
+					<li><a href="NewBookList1.do?categoryId=128"
+						onmouseover="this.style.color='#0000FF'"
+						onmouseout="this.style.color='#555'">여행</a>
 					</li>
-					
+
 					<div id="bottomLine">
-            			<span id="genre6"></span>
-            			<span id="genre7"></span>
-            			<span id="genre8"></span>
-            			<span id="genre9"></span>
-            			<span id="genre10"></span>
-         			</div>
+						<span id="genre6"></span>
+						<span id="genre7"></span>
+						<span id="genre8"></span>
+						<span id="genre9"></span>
+						<span id="genre10"></span>
+					</div>
 				</ul>
 			</div>
 
 			<hr>
 
 			<div id="content">
-			
-				<ul>
-				<c:forEach items="${bookList}" var ="b">
-					<li>
-						<div class="thumb_cont">
-							<input type="hidden" value="${sessionScope.memberVO.userNo}" />
-							<input type="hidden" value="${b.itemID}"/>
-							<div class="info_area">
-								<div class="image">
-									<a href="goToBookDetail.do">
-									<img src="${b.coverLargeUrl}" alt="" />
-									<%-- <img src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg" 
-									alt="우리는 안녕"/> --%></a>
-								</div>
 
-								<div class="detail">
-									<div class="title">
-										<a href="goToBookDetail.do"><strong>${b.title}</strong></a>
+				<ul>
+					<c:forEach items="${bookList}" var="b">
+						<li>
+							<div class="thumb_cont">
+								<input type="hidden" value="${sessionScope.memberVO.userNo}" />
+								<input type="hidden" value="${b.itemID}" />
+								<div class="info_area">
+									<div class="image">
+										<a href="goToBookDetail.do"> <img src="${b.coverLargeUrl}"
+											alt="" /> <%-- <img src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg" 
+									alt="우리는 안녕"/> --%></a>
 									</div>
-									<div class="pub_info">
-										<span class="author">${b.author}</span>
-										<span>|</span> 
-										<span class="publication">${b.publisher}</span>
-										<span>|</span>
-										<span class="publication_date">
-											<fmt:parseDate value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd"/>
-											<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" />
-										</span>
-									</div>
-									<div class="price">
-										<span class="sell_price"><fmt:formatNumber value="${b.priceStandard}" pattern="#,###"/>원</span>
-									</div>
-									<div class="info">
-										<span>
-										<c:if test="${empty b.description }">책 설명 업데이트 예정<br><br><br><br>
-										</c:if>
-											${b.description}
-									
-										<!-- "안녕은 그리는 거야." 박준 시인의 첫 시 그림책<br> 안녕은 그리는 거야.<br>
+
+									<div class="detail">
+										<div class="title">
+											<a href="goToBookDetail.do"><strong>${b.title}</strong></a>
+										</div>
+										<div class="pub_info">
+											<span class="author">${b.author}</span> <span>|</span> <span
+												class="publication">${b.publisher}</span> <span>|</span> <span
+												class="publication_date"> <fmt:parseDate
+													value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd" />
+												<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" />
+											</span>
+										</div>
+										<div class="price">
+											<span class="sell_price"><fmt:formatNumber
+													value="${b.priceStandard}" pattern="#,###" />원</span>
+										</div>
+										<div class="info">
+											<span> <c:if test="${empty b.description }">책 설명 업데이트 예정<br>
+													<br>
+													<br>
+													<br>
+												</c:if> ${b.description} <!-- "안녕은 그리는 거야." 박준 시인의 첫 시 그림책<br> 안녕은 그리는 거야.<br>
 											그리고 그리고 또 그리는 것을 그리움이라고 하는 거야.<br> 시인 박준의 첫 시 그림책 '우리는
 											안녕' -->
-										</span>
+											</span>
+										</div>
 									</div>
 								</div>
+
+								<div class="buy_button">
+									<button style="cursor: pointer;" onclick="javascrpt:addCart()">장바구니</button>
+									<br>
+									<button style="cursor: pointer;" onclick="location='goToOrderList.do'">바로 구매</button>
+								</div>
 							</div>
-							
-							<div class="buy_button">
-								<button style="cursor: pointer;" onclick="javascrpt:addCart()">장바구니</button>
-								<br>
-								<button style="cursor: pointer;" onclick="location='goToPay.do'">바로 구매</button>
-							</div>
-						</div>
-					</li>
+						</li>
 					</c:forEach>
-<%-- 
+					<%-- 
 					<li>
 						<div class="info_area">
 							<div class="image">
@@ -339,7 +477,7 @@ function addCart(){
 				</ul>
 			</div>
 
-<!-- 			<div class="paging">
+			<!-- 			<div class="paging">
 				<a class="btn_pre" href="#">&lt;</a>
 				<ul>
 					<li><a href="#">1</a></li>

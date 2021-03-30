@@ -13,18 +13,18 @@
 <!-- 헤더연결 -->
 <script defer>
 	$(document).ready(function(){
-		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
 	})
 </script>
 <script>
 /* 장바구니 담기 버튼을 눌렀을 시 책 정보를 장바구니에 담음 */
-function addCart(){
-	let UserNo = event.target.parentElement.parentElement.firstElementChild.getAttribute('value');
-	if(UserNo == null || UserNo == ""){swal("로그인","로그인이 필요합니다","error"); false}
-	/* else {swal(UserNo)} */
-	let itemID = event.target.parentElement.parentElement.firstElementChild.nextElementSibling.getAttribute('value');
-	/* alert(itemID);  */
-	var params = {
+	function addCart(){
+		let UserNo = event.target.parentElement.parentElement.firstElementChild.getAttribute('value');
+		if(UserNo == null || UserNo == ""){swal("로그인","로그인이 필요합니다","error"); false}
+		/* else {swal(UserNo)} */
+		let itemID = event.target.parentElement.parentElement.firstElementChild.nextElementSibling.getAttribute('value');
+		/* alert(itemID);  */
+		var params = {
 			UserNo : UserNo,
 			ItemId : itemID,
 			Amount : 1
@@ -43,18 +43,151 @@ function addCart(){
 		});
 		// ajax-end
 		swal("성공","장바구니에 상품을 담았습니다", "success");
-}
+	}
+	
+	$(document).ready(function() {
+		var categoryId = $(".genre").val();
+		
+		if (categoryId == 109) {
+			$("#genre1").css("display", "block");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 101) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "block");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 102) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "block");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 103) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "block");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 116) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "block");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 114) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "block");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 205) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "block");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 117) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "block");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 118) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "block");
+			$("#genre10").css("display", "none");
+		} else if (categoryId == 128) {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "block");
+		} else {
+			$("#genre1").css("display", "none");
+			$("#genre2").css("display", "none");
+			$("#genre3").css("display", "none");
+			$("#genre4").css("display", "none");
+			$("#genre5").css("display", "none");
+			$("#genre6").css("display", "none");
+			$("#genre7").css("display", "none");
+			$("#genre8").css("display", "none");
+			$("#genre9").css("display", "none");
+			$("#genre10").css("display", "none");
+		}
+	})
 </script>
 <title>베스트셀러</title>
 </head>
-<link rel="stylesheet" href="/myapp/resources/css/reset.css" />
-<link rel="stylesheet" href="/myapp/resources/css/book_list.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_list.css" />
+
+<style>
+#title {
+	margin-top: 100px;
+}
+</style>
 
 <body>
-<!-- header부분 -->
-<div id="header"></div>
-
 	<div id="container">
+		<!-- header부분 -->
+		<div id="header"></div>
+		
 		<div id="title">
 			<ul>
 				<li class="title_wrap"><p>베스트셀러</p></li>
@@ -68,31 +201,32 @@ function addCart(){
 			</div>
 
 			<div id="genre">
+			<input type="hidden" class="genre" value="${categoryId}">
 				<ul>
 					<li>
-						<a href="BestSellerList1.do?categoryId=109" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre1').style.display = 'block';">유아/어린이</a>
+						<a href="BestSellerList1.do?categoryId=109" 
+						onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'">유아/어린이</a>
 					</li>
 					<li>
-						<a href="BestSellerList1.do?categoryId=101" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre2').style.display = 'block';">소설/시/희곡</a>
+						<a href="BestSellerList1.do?categoryId=101" 
+						onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'">소설/시/희곡</a>
 					</li>
 					<li>
-						<a href="BestSellerList1.do?categoryId=102" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre3').style.display = 'block';">에세이</a>
+						<a href="BestSellerList1.do?categoryId=102" 
+						onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'">에세이</a>
 					</li>
 					<li>
-						<a href="BestSellerList1.do?categoryId=103" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre4').style.display = 'block';">인문학</a>
+						<a href="BestSellerList1.do?categoryId=103" 
+						onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'">인문학</a>
 					</li>
 					<li>
-						<a href="BestSellerList1.do?categoryId=116" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre5').style.display = 'block';">과학/역사</a>
+						<a href="BestSellerList1.do?categoryId=116" 
+						onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'">과학/역사</a>
 					</li>
 					
 					<div id="bottomLine">
@@ -105,29 +239,29 @@ function addCart(){
 					<br>
 					<br>
 					<li>
-						<a href="BestSellerList1.do?categoryId=114" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre6').style.display = 'block';">수험서/참고서</a>
+						<a href="BestSellerList1.do?categoryId=114" 
+						onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'">수험서/참고서</a>
 					</li>
 					<li>
-						<a href="BestSellerList1.do?categoryId=205" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre7').style.display = 'block';">영미소설</a>
+						<a href="BestSellerList1.do?categoryId=205" 
+						onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'">영미소설</a>
 					</li>
 					<li>
-						<a href="BestSellerList1.do?categoryId=117" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre8').style.display = 'block';">경제경영</a>
+						<a href="BestSellerList1.do?categoryId=117" 
+						onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'">경제경영</a>
 					</li>
 					<li>
-						<a href="BestSellerList1.do?categoryId=118" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre9').style.display = 'block';">자기계발</a>
+						<a href="BestSellerList1.do?categoryId=118" 
+						onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'">자기계발</a>
 					</li>
 					<li>
-						<a href="BestSellerList1.do?categoryId=128" onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'" 
-					 	onclick="javascript: document.getElementById('genre10').style.display = 'block';">여행</a>
+						<a href="BestSellerList1.do?categoryId=128" 
+						onmouseover="this.style.color='#0000FF'"
+					 	onmouseout="this.style.color='#555'">여행</a>
 					</li>
 					
 					<div id="bottomLine">
@@ -195,7 +329,7 @@ function addCart(){
 								<div class="buy_button">
 									<button style="cursor: pointer;" onclick="javascript:addCart()">장바구니</button>
 									<br>
-									<button style="cursor: pointer;" onclick="location='goToPay.do'">바로 구매</button>
+									<button style="cursor: pointer;" onclick="location='goToOrderList.do'">바로 구매</button>
 								</div>
 							</div>
 						</li>

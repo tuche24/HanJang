@@ -25,35 +25,34 @@
 <form action="recommendInsert.do" method="post" autocomplete="off" enctype="multipart/form-data">
 <table border="1" class="MainBoardLayout">
 	<tr>
-		<td colspan="5" style="height:30px;"><hr class="headline"></td>
+		<td colspan="5" style="height:20px;"><hr class="headline"></td>
 	</tr>
-	<tr style="height:38px;">
-		<td style="width:120px;">제목</td>
-		<td colspan="4"><input type="text" name="title" style="width: 90%; text-align:center;" required></td>
+	<tr>
+		<td style="height:35px;">제목</td>
+		<td colspan="4"><input type="text" name="title" style="width:75%; text-align:center;" required></td>
 	</tr>
-	<tr style="height:30px;">
+	<tr style="height:20px;">
 		<td colspan="5"><hr class="line"></td>
 	</tr>
 	<tr>
-		<td style="height:30px;">작성자</td>
-		<td colspan="4" style="height:30px; width: 90%; text-align:center;">
+		<td style="height:35px;">작성자</td>
+		<td colspan="4" style="height:30px; width:70%; text-align:center;">
 		<%= session.getAttribute("loginNick") %>
 		<input type="hidden" name="writerId" value="<%= session.getAttribute("loginVO") %>" />
 		<input type="hidden" name="writerNick" value="<%= session.getAttribute("loginNick") %>"/></td>
 	</tr>
-	<tr style="height:30px;">
-		<td colspan="5"><hr class="line"></td>
-	</tr>
-	<tr>
-		<td style="height:30px;">파일</td>
-		<td colspan="4" style="height:30px; width: 90%; text-align:center;">
-		<input type="file" name="file" style="width:90%; text-align:center;"><%= request.getRealPath("/") %></td>
-	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>
 	</tr>
 	<tr>
-		<td colspan="5"><textarea rows="20" cols="100" class="postsection" name="content" required>${post.content }</textarea></td>
+		<td style="height:35px;">파일</td>
+		<td colspan="4" style="height:35px;"><input type="file" name="file" style="font-size:13px; width:75%; text-align:center;"></td>
+	</tr>
+	<tr>
+		<td colspan="5"><hr class="line"></td>
+	</tr>
+	<tr>
+		<td colspan="5"><textarea rows="20" cols="100" class="postSection_inserttxt" name="content" required>${post.content }</textarea></td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>
@@ -65,5 +64,6 @@
 	</tr>
 </table>
 </form>
+<div style="width:100%; height:150px;"></div>
 </body>
 </html>

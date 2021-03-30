@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,28 +66,43 @@ function clickReplyInsertConfirm() {
 <div class="boardSubTitle">한장두장에 없는 도서를 입고요청하는 게시판입니다.</div>
 <table border="1" class="MainBoardLayout">
 	<tr>
-		<td colspan="5" style="height:30px;"><hr class="headline"></td>
+		<td colspan="5" style="height:20px;"><hr class="headline"></td>
 	</tr>
-	<tr style="height:32px;">
+	<tr style="height:35px;">
 		<td style="width:120px;">제목</td>
 		<td colspan="4">${post.title }</td>
 	</tr>
-	<tr style="height:30px;">
+	<tr style="height:20px;">
 		<td colspan="5"><hr class="line"></td>
 	</tr>
 	<tr>
-		<td style="height:30px;">작성자</td>
+		<td style="height:35px;">작성자</td>
 		<td colspan="4" style="height:30px;">${post.writerNick }</td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>
 	</tr>
+	<tr style="height:20px;"/>
 	<tr>
-		<td><img src="${pageContext.request.contextPath}${post.imgFile }" class="imgSection"></td>
+		<td colspan="5">
+		<div class="postSection">
+		<table border="1" style="width:100%;">	<!-- 글 내용 출력 부분 -->
+			<!-- 첨부 이미지 파일 출력 부분 -->
+			<!-- 이미지 첨부 했을 시에만 보여지고, 첨부 안했을 시에 뜨는 엑박 없애기 -->
+			<c:set var="str" value="${post.imgFile}"/>
+			<c:set var="length" value="${fn:length(str)}" />
+			<c:if test="${fn:substring(str, length-8, length) != 'none.png'}">
+			<tr>
+				<td class="imgSection"><img src="${pageContext.request.contextPath}${post.imgFile }" class="postSection_img"></td>
+			</tr></c:if>
+			<tr>	<!-- 글 내용 부분 -->
+				<td><textarea class="postSection_txt" readonly>${post.content }</textarea></td>
+			</tr>
+		</table>
+		</div>
+		</td>
 	</tr>
-	<tr>
-		<td colspan="5"><textarea class="postsection" rows="20" cols="100" readonly>${post.content }</textarea></td>
-	</tr>
+	<tr style="height:40px;"/>
 	<tr>
 		<td colspan="5"><hr class="line"></td>
 	</tr>
@@ -210,5 +226,6 @@ function clickReplyInsertConfirm() {
 		</script></c:if></td>
 	</tr>
 </table>
+<div style="width:100%; height:150px;"></div>
 </body>
 </html>

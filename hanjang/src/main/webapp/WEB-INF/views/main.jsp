@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <link rel="stylesheet" type="text/css" href="">
+
 <!--  검색어  -->
 
 <script defer>
@@ -32,9 +33,9 @@
 </script>
 
 
+<!-- ///////스크롤이벤트종합 헤더에 포함 -->
 <script>
 
-///////스크롤이벤트종합 헤더에 포함
 
 $(document).ready(function(){
 	
@@ -51,6 +52,7 @@ $(document).ready(function(){
 			$(".search").css("rigth","88px");
 			$(".search").css("top","2px");
 			$(".menubar").css("z-index","9999");
+			$(".p1").css("z-index","9998");
 			$(".main_menu li").css("width","80px");	
 			$(".main_menu li a").css("width","80px");
 			$(".menu_container1").css("margin-left","-360px");
@@ -77,14 +79,14 @@ $(document).ready(function(){
 	});
 	
 });
-</script> -->
+</script> 
 
 
 <script>
 $(function(){
 	var widthh = $(".slide").outerWidth();
 	  var $panel = $(".slide_img").find("ul");
-	  var rolling
+	  var rolling;
       var itemWidth = $panel.children().outerWidth(); // 아이템 가로 길이
       var itemLength = $panel.children().length;      // 아이템 수
       
@@ -119,8 +121,7 @@ $(function(){
 		});
 
 	function rollingStart(){
-		 $panel.css("width", itemWidth * itemLength);
-         $panel.animate({"left": - itemWidth + "px"}, function() {
+         $panel.animate({"left": - itemWidth}, function() {
              $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
             $(this).find("li").css("width","25%");
              $(this).find("li:first").remove();
@@ -179,6 +180,21 @@ function search(){
 	
 }
 
+</script>
+<script>
+
+
+    function setCookie( name, value, expiredays ) {
+        var todayDate = new Date();
+        todayDate.setDate( todayDate.getDate() + expiredays ); 
+        document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+    }
+    function closePop() {
+        if ( document.getElementById("popcheckb").checked ){
+            setCookie( "maindiv", "done" , 1 );
+        }
+        document.getElementById("p1").style.visibility="hidden";
+    }
 
 
 </script>
@@ -203,8 +219,7 @@ max-width:100%;
 
 }
 .main{
-min-width:1050px;
-max-width:100%;}
+min-width:1050px;}
 .usermenu{
 margin:0 150px;
 height:30px;}
@@ -222,13 +237,13 @@ color:black;}
 
 .logo_place{
 margin:0 150px;
-height:180px;
+height:160px;
 }
 
 .logo{
 margin: 0 auto;
-width:150px;
-height:180px;
+width:120px;
+height:160px;
 }
 .logo a{
 width:100%;
@@ -360,11 +375,13 @@ width:40px;
 }
 .slide_img ul{
 width:400%;
-height:400px;
+height:370px;
 position:relative;
 }
 .slide_img{
-min-width:100%;
+width:100%;
+overflow:hidden;
+height:370px;
 position:relative;
 }
 .slide_img ul li{
@@ -536,7 +553,21 @@ height:420px;
 </style>
 </head>
 <body>
-
+<div id="p1"
+		style="position: absolute; left: 200px; top: 100px; visibility: visible; z-index:9999;">
+		<table border="1" width=300 height=300>
+<tr><td style="border: 2px #0000ff solod" bgcolor=white>
+팝 업 창 <br> 
+	</td></tr>
+						
+		</table>
+		<table style="border:0; background:gray; width:300px;height:5px;">
+		<tr style="float:right;">
+		<td>24시간동안 이 창을 띄우지 않기<input type="checkbox" name="popcheckb" id="popcheckb"/></td>
+		<td><input type="button" value="닫기" onclick="closePop();"></td>
+		</tr>
+		</table>
+	</div>
 <div class="headerwe"></div>
 <div class="header">
 <div class="usermenu" >
@@ -606,14 +637,14 @@ height:420px;
 <div class="prev"><input type="button"  value="<"/></div>
 <div class="slide_img">
 <ul>
-	<li><a href="detail.do?mutual=파씨오네"> <img
-					src="https://blog.kakaocdn.net/dn/cR7waL/btqXu4FLKS7/vYSN9vBsWRghFL53cUO3m1/img.jpg" /></a></li>
-	<li><a href="detail.do?mutual=미라이"> <img
-					src="https://blog.kakaocdn.net/dn/b8Bj8p/btqXrDIuL8J/Q8j9820lZR0qnhuD8TH5y0/img.jpg" /></a></li>
-	<li><a href="detail.do?mutual=진만두"> <img
-					src="https://blog.kakaocdn.net/dn/UVA5M/btqXDfFWUs0/NHZbwEvQh9IMYpvekuDa60/img.jpg" /></a></li>
-	<li><a href="detail.do?mutual=진만두"> <img
-					src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a></li>
+	<li><a href="#"> <img
+					src="resources\img\main\mainslide1.jpg" /></a></li>
+	<li><a href="#"> <img
+					src="resources\img\main\mainslide2.jpg" /></a></li>
+	<li><a href="#"> <img
+					src="resources\img\main\mainslide3.jpg" /></a></li>
+	<li><a href="#"> <img
+					src="resources\img\main\mainslide2.jpg" /></a></li>
 </ul>
 </div>
 <div class="next"><input type="button" value=">" /></div>
@@ -630,7 +661,7 @@ height:420px;
 <div class="smallnext"><a href="#" onclick="smallnextclick(); return false;"></a></div>
 <ul>
 <c:forEach items="${bookList}" var="b" begin="0" end="11">
-						<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a><div>asd</div></li>
+						<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a><div style="font-size:13px;font-weight:70;">${b.title }</div></li>
 						</c:forEach>
 </ul>
 </div>
@@ -644,9 +675,9 @@ height:420px;
 <div style="margin-left:220px;"> 책간단설명</div>
  </div>
 <div class="today_book_bookimage"> 
-<a href="">
-
-</a>
+<c:forEach items="${bookList}" var="b" begin="0" end="0">
+						<a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a>
+						</c:forEach>
 
 </div>
 </div>
@@ -680,4 +711,15 @@ height:420px;
 
 </div>
 </body>
+<script language="Javascript">
+    cookiedata = document.cookie;   
+    if ( cookiedata.indexOf("maindiv=done") < 0 ){     
+    	 document.getElementById("p1").style.visibility="visible";
+    }
+    else {
+    	 document.getElementById("p1").style.visibility="hidden";
+    }
+</script>
+
+
 </html>

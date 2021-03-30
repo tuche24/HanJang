@@ -48,6 +48,8 @@ public class MemberServiceImpl implements MemberService{
     	out.println("</script>");
     	out.close();
     }
+    
+    
 	
 	public void sendEmail(MemberVO vo, String div) throws Exception {
 		// Mail Server 설정

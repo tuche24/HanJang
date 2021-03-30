@@ -19,19 +19,21 @@
 <link rel="stylesheet" href="resources/css/communityStyle.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-	const result = "${msg}";
-	if(result == "updateSuccess") {
-		swal.fire({
-			icon:'success',
-			title:'게시글 수정 안내',
-			text:'게시글이 수정되었습니다.'
-		});
-	} else if(result == "deleteSuccess") {
-		swal.fire({
-			icon:'success',
-			title:'게시글 삭제 안내',
-			text:'게시글이 삭제되었습니다.'
-		});
+	window.onload = function() {
+		const result = "${msg}";
+		if(result == 'updateSuccess') {
+			swal.fire({
+				icon:'success',
+				title:'게시글 수정 안내',
+				text:'게시글이 수정되었습니다.'
+			});
+		} else if(result == 'deleteSuccess') {
+			swal.fire({
+				icon:'success',
+				title:'게시글 삭제 안내',
+				text:'게시글이 삭제되었습니다.'
+			});
+		}
 	}
 	
 	// 글쓰기 버튼 클릭 시
@@ -57,9 +59,9 @@
 <div class="boardSubTitle">인상 깊게 읽었던 책을 공유하는 커뮤니티입니다.</div>
 <table class="MainBoardLayout">
 	<tr>
-		<td colspan="11" style="height:30px;"><hr class="headline"></td>
+		<td colspan="11" style="height:20px;"><hr class="headline"></td>
 	</tr>
-	<tr class="headerTR" style="height:30px;">
+	<tr class="headerTR" style="height:35px;">
 		<td>글 번호</td>
 		<td colspan="7">제목</td>
 		<td>작성자</td>
@@ -127,6 +129,6 @@
 	</div>
 	</c:if>
 </div>
-
+<div style="width:100%; height:150px;"></div>
 </body>
 </html>

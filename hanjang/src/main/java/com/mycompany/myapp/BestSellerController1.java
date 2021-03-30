@@ -32,6 +32,7 @@ public class BestSellerController1 {
 			dbcontroller.DBinsert(vo);
 		}
 		
+		mav.addObject("categoryId", categoryId);
 		
 		mav.addObject("bookList", bookList);
 		mav.setViewName("best_seller/Best_Seller");

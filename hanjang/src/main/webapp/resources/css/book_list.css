@@ -9,6 +9,10 @@
 	list-style: none;
 }
 
+#title {
+	margin-top: 20px;
+}
+
 .title_wrap {
 	text-align: center;
 }
