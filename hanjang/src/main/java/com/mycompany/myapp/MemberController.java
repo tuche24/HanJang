@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.myapp.service.BestSellerService;
+import com.mycompany.myapp.service.KakaoService;
 import com.mycompany.myapp.service.MemberService;
 import com.mycompany.myapp.service.dao.MemberDAO;
 import com.mycompany.myapp.vo.BookVO;
@@ -35,12 +36,13 @@ public class MemberController {
 	@Resource(name = "memberService")
 	private MemberService memberservice1;
 	
-
+	
 	@Autowired
 	private BestSellerService service;
 	@Autowired
 	private BookDBController dbcontroller;
-	
+	@Autowired
+    private KakaoService kakaoService;
 	@RequestMapping("mainAll.do")
 	public ModelAndView bookList(@RequestParam(required=false) String categoryId) {
 		ModelAndView mav = new ModelAndView();
@@ -129,6 +131,14 @@ public class MemberController {
 	/* *** 여기서부터 이 책 추천해요 게시판 컨트롤러 *** */
 	
 	// 게시물 목록 조회 + 페이징
+
+	@RequestMapping("/kakaologin.do")
+    public String home(@RequestParam(value = "code", required = false) String code) throws Exception{
+        System.out.println("#########" + code);
+        String access_Token = kakaoService.getAccessToken(code);
+        return "main";
+    }
+
 	
 	///////////////////////////////////////
 

@@ -310,7 +310,7 @@ cursor:pointer;
 			
 		</form>
 		
-		
 	</div>	
+		<div style="width:30px; height:30px;"><a style="width:30px; height:30px; background:black;" href="https://kauth.kakao.com/oauth/authorize?client_id=036ccf425c45c76afae938160b6e023e&redirect_uri=http://localhost:8081/myapp/kakaologin.do&response_type=code">카카오</a></div>
 </body>
 </html>
