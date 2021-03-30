@@ -94,6 +94,9 @@ height:44px;
 		{
 			var dateva = $('#birthdate').val();
 		var datepattern = /^([0-9]){8}$/;
+		var emailval = $('#email').val();
+		var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
 			//생년월일 유효성검사 추가해야됨.
 		 
 			
@@ -115,6 +118,11 @@ height:44px;
 		  
 			if(!datepattern.test(dateva)){
 			  alert("생년월일 8자리를 정확히 입력하세요");
+			  return false;
+		  }
+
+			if(!regExp.test(emailval)){
+			  alert("이메일을 형식에 맞게 입력해주세요");
 			  return false;
 		  }
 			//아이디 중복체크했는지 확인
@@ -281,7 +289,7 @@ $(document).ready(function(){
 				<tr>
 					<td id="title">생일</td>
 					<td>
-							<input type="text"  id="birthdate" name="birthdate" maxlength="50" class="input_text_f" pattern="^([0-9]){8}$" placeholder="ex)19990101">
+							<input type="text"  id="birthdate" name="birthdate" maxlength="50" class="input_text_f"  placeholder="ex)19990101">
 							<div class="check_font" id="birth_check"></div>
 					</td>
 				</tr>
@@ -289,13 +297,9 @@ $(document).ready(function(){
 				<tr>
 					<td id="title">이메일</td>
 					<td>
-						<input type="text" name="mail1" maxlength="50" style="width:170px; height:44px; border: 1px solid #ccc; border-radius:3px">@
-						<select name="mail2" style="width:148px; height:44px; border: 1px solid #ccc; border-radius:3px">
-							<option>naver.com</option>
-							<option>daum.net</option>
-							<option>gmail.com</option>
-							<option>nate.com</option>						
-						</select>
+						<input type="text" name="email" maxlength="50" class="input_text_f" id="email"placeholder="ex)ggggg@gmail.com">
+						
+					
 					</td>
 				</tr>
 					

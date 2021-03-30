@@ -14,8 +14,7 @@ public class MemberVO
 	private String gender;		// ����
 	private String birthdate;		// ���� - ��
 
-	private String mail1;		// �̸��� - @ �պκ�
-	private String mail2;		// �̸��� - @ �޺κ�
+	private String email;	// �̸��� - @ �޺κ�
 	private String phone;		// ��ȭ
 	private String address;		// �ּ�
 	private Timestamp reg;		// ������
@@ -57,10 +56,9 @@ public class MemberVO
 	public void setBirthdate(String birthdate) {this.birthdate = birthdate;}
 
 	
-	public String getMail1() {return mail1;}
-	public void setMail1(String mail1) {this.mail1 = mail1;}
-	public String getMail2() {return mail2;}
-	public void setMail2(String mail2) {this.mail2 = mail2;}
+	public String getEmail() {return email;}
+	public void setEmail(String email) {this.email = email;}
+
 	
 	public String getPhone() {return phone;}
 	public void setPhone(String phone) {this.phone = phone;}

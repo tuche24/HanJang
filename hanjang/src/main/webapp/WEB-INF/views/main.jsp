@@ -341,7 +341,7 @@ right:0px;
 float:left;
 }
 .prev input:hover, .next input:hover{
-background:#ffffff45;
+background:#333;
 }
 .slide{
 overflow:hidden;
