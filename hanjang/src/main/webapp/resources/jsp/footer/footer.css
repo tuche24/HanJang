@@ -1,0 +1,118 @@
+* {
+   margin: 0px;
+   padding: 0px;
+   list-style: none;
+   text-decoration: none;
+   border-collapse: collapse;
+}
+
+body {
+	font-family: noto sans;
+}
+
+/* 링크 색상, 밑줄 없애기 */
+a {text-decoration: none;}
+a:hover {text-decoration: none; color: black;}
+a:link {text-decoration: none; color: black;}
+a:visited {text-decoration: none; color: black;}
+a:active {text-decoration: none; color: black;}
+
+/* footer 이미지 */
+.footerImg {
+	text-align:center;
+	margin-top:200px;
+	margin-bottom:-5px;
+}
+
+/* hr관련 */
+.line {
+	border: none;
+	height: 1px;
+	background-color: #dddddd;
+	margin-top:0px;
+	margin-bottom:20px;	
+}
+.bottomline {
+	width:1000px;
+	margin:auto;
+	border: none;
+	height: 1px;
+	background-color: #dddddd;
+	margin-top:0px;
+	margin-bottom:20px;	
+}
+
+/* footer 전체 */
+.footer {
+	font-family: noto sans;
+}
+
+/* footer 왼쪽 */
+.customer_center {
+	padding-left:17px;
+	color:black;
+	font-size:25px;
+	font-weight:bold;
+}
+.footer_left {	
+	width:530px;
+	height:300px;
+	text-align:left;
+	line-height:30px;
+}
+.left_table {
+	border-collapse:separate;
+	border-spacing:15px 5px;
+	color:#999999;
+	font-size:14px;
+}
+.phone_nb {
+	background: linear-gradient(45deg,#7effa8,#3fcbff);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+.talkBtn {
+	border:1px solid #dddddd;
+	border-radius:5px;
+	background-color:white;
+	padding:10px;
+	cursor:pointer;
+	width:140px;
+	font-size:15px;
+}
+
+/* footer 오른쪽 */
+.footer_right {
+	width:470px;
+	height:300px;
+	color:#999999;
+	font-weight:bold;
+}
+.companyMenu {
+	display:inline-block;
+}
+.list {
+	font-size: 15px;
+	font-weight: bold;
+	list-style:none;
+}
+.list li {
+	padding:0px 20px 0px 0px;
+	border:none;
+	float:left;
+}
+.companyDesc {
+	font-size: 12px;
+	line-height:20px;
+}
+.sns_list li {
+	float:left;
+}
+.sns_list li img {
+	width:30px;
+	height:30px;
+	padding:10px 10px 10px 0px;
+}
+.bar {
+	
+}
