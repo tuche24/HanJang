@@ -94,5 +94,9 @@ public class CartController {
 		return result;
 	}
 	
+	@RequestMapping(value = "/goToPopUp.do")
+	public String goToPopUp() {
+		return "cart/address_popup";
+	}
 
 }

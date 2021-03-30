@@ -16,6 +16,7 @@ two_1 {
 }
 
 #container {
+	position: relative;
 	margin: 0 auto;
 	width: 1080px;
 }
