@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
 				<h2 id="tit_section">주문상품</h2>
 				<div id="itemList" class="page_article">
 					<div class="short_info">
-						<!-- [쉐프엠] 요린이 전골 떡볶이 외 -->${orderList[0].itemId} <span class="num">${orderList[0].cartNo.amount}</span>상품을 주문합니다.
+						<!-- [쉐프엠] 요린이 전골 떡볶이 외 -->${orderList.itemId} <span class="num">${orderList.amount}</span>상품을 주문합니다.
 					</div>
 				</div>
 				<form id="form">
