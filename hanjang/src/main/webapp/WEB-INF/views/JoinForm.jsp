@@ -89,8 +89,15 @@ height:44px;
    border: none;
    background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);}
 
-
-		</style>
+.footer div{
+float:left;
+}
+.footer{
+margin:0 auto;
+width:1050px;
+height:300px;
+}
+</style>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script>
 	

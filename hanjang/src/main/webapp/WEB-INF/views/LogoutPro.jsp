@@ -17,7 +17,17 @@
 		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
 	})
 </script>
-	<title>로그아웃 처리</title>
+<title>로그아웃 처리</title>
+<style>
+.footer div{
+	float:left;
+}
+.footer{
+	margin:0 auto;
+	width:1050px;
+	height:300px;
+}
+</style>
 </head>
 <body>
 <!-- header부분 -->

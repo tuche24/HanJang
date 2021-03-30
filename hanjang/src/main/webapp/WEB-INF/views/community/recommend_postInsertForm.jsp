@@ -20,6 +20,16 @@
 	})
 </script>
 <title>Insert title here</title>
+<style>
+.footer div{
+	float:left;
+}
+.footer{
+	margin:0 auto;
+	width:1050px;
+	height:300px;
+}
+</style>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
 </head>

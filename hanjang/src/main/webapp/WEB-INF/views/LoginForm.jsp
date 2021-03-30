@@ -21,8 +21,17 @@
 		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
 	})
 </script>
-	<title>로그인 화면</title>
-	
+<title>로그인 화면</title>
+<style>
+.footer div{
+	float:left;
+}
+.footer{
+	margin:0 auto;
+	width:1050px;
+	height:300px;
+}
+</style>
 	
 	<!-- 나중에 합칠때 경로 다시 설정해주셔야 할수도 있어요. -->
 	<link href='./resources/css/join_style.css' rel='stylesheet' style='text/css'/>

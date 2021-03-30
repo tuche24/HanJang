@@ -22,6 +22,16 @@
 	})
 </script>
 <title>주문리스트</title>
+<style>
+.footer div{
+	float:left;
+}
+.footer{
+	margin:0 auto;
+	width:1050px;
+	height:300px;
+}
+</style>
 </head>
 <body>
 <!-- header부분 -->

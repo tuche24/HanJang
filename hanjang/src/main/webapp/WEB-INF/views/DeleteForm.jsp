@@ -16,23 +16,28 @@
 		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
 	})
 </script>
-	<title>탈퇴 화면</title>
-	
-	<style type="text/css">
-		table{
-			margin-left:auto; 
-			margin-right:auto;
-			border:3px ;
+<title>탈퇴 화면</title>
+<style type="text/css">
+table{
+	margin-left:auto; 
+	margin-right:auto;
+	border:3px ;
+}
+td{
+	border:1px ;
 		}
-		
-		td{
-			border:1px ;
-		}
-		
-		#title{
-			background-color:white;
-		}
-	</style>
+#title{
+	background-color:white;
+}
+.footer div{
+	float:left;
+}
+.footer{
+	margin:0 auto;
+	width:1050px;
+	height:300px;
+}
+</style>
 	
 	<script type="text/javascript">
 		// 비밀번호 미입력시 경고창

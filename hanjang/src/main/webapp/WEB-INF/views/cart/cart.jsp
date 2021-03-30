@@ -345,7 +345,14 @@ Number.prototype.formatNumber = function(){
 #items {
 	padding: 50px 0px;
 }
-
+.footer div{
+	float:left;
+}
+.footer{
+	margin:0 auto;
+	width:1050px;
+	height:300px;
+}
 </style>
 
 <title>장바구니1</title>

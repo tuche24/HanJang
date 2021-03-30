@@ -32,6 +32,14 @@
    height: 2px;
    background: black;
 }
+.footer div{
+	float:left;
+}
+.footer{
+	margin:0 auto;
+	width:1050px;
+	height:300px;
+}
 </style>
 
 <body>
