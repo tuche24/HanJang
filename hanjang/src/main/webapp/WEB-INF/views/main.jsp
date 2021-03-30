@@ -217,7 +217,6 @@ function search(){
 .headerwe{
 height:20px;
 background:linear-gradient( to right, #7effa8, #3fcbff );
-box-shadow: 0 7px 3px 0 gray;
 }
 .header{
 min-width:1050px;
