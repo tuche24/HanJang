@@ -136,7 +136,7 @@ public class MemberController {
     public String home(@RequestParam(value = "code", required = false) String code) throws Exception{
         System.out.println("#########" + code);
         String access_Token = kakaoService.getAccessToken(code);
-        return "main";
+        return "redirect:mainAll.do";
     }
 
 	
