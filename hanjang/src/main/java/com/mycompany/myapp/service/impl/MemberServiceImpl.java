@@ -74,7 +74,7 @@ public class MemberServiceImpl implements MemberService{
 		}
 
 		// �޴� ��� E-Mail �ּ�
-		String mail = vo.getMail1();
+		String mail = vo.getEmail();
 		try {
 			HtmlEmail email = new HtmlEmail();
 			email.setDebug(true);
@@ -106,7 +106,7 @@ public class MemberServiceImpl implements MemberService{
 			out.close();
 		}
 		// 가입된 이메일이 아니면
-		else if(!vo.getMail1().equals(ck.getMail1())) {
+		else if(!vo.getEmail().equals(ck.getEmail())) {
 			out.print("test2");
 			out.close();
 		}else {
