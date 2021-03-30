@@ -38,17 +38,4 @@ public class CartServiceImpl implements CartService {
 		dao.deleteCart(cartVO);		
 	}
 
-	@Override
-	public void insertOrderList(OrderListVO orderListVO) {
-		dao.insertOrderList(orderListVO);
-	}
-
-	@Override
-	public List<OrderListVO> getOneOrderList(int userNo) {
-		List<OrderListVO> orderListVO = dao.getOneOrderList(userNo);
-		return orderListVO;
-	}
-
-
-
 }

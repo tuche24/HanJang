@@ -36,7 +36,7 @@ Number.prototype.formatNumber = function(){
 			// swal로 분기처리해야함
 			basket.addOrderList();
 			// 주문하고 페이지이동하는 분기처리
-			location.href="insertOrderList.do";
+			location.href="goToOrderList.do";
 		})
 		/* 선택삭제 버튼을 눌렀을 시 완료*/
 		document.querySelectorAll('#cancel_btn').forEach(function(item, idx) {
@@ -178,7 +178,7 @@ Number.prototype.formatNumber = function(){
 			event.target.parentElement.parentElement.remove();
 		},
 		
-		// 선택상품 주문리스트로 이동 // 진행중
+		// 선택상품 주문리스트로 이동
 		addOrderList : function(idx){
 			document.querySelectorAll("input[name=Checkitem]:checked").forEach(function(item, idx){
 				
@@ -186,13 +186,15 @@ Number.prototype.formatNumber = function(){
 			});
 		},
 		
-		// 선택상품 주문리스트로 이동 // 진행중
+		// 선택상품 주문리스트로 이동
 		addOrderList2 : function(idx){
 			let cartNo = document.querySelector('#cartNo_hidden' + idx).getAttribute('value');
 			alert(cartNo); // test
-						
+			let itemID = document.querySelector('#bookItemId' + idx).getAttribute('value');
+			alert(itemID); // test
 			var params = {
-					cartNo : cartNo
+					cartNo : cartNo,
+					itemId : itemID
 			}
 			
 			$.ajax({
@@ -311,7 +313,8 @@ Number.prototype.formatNumber = function(){
 		<input type="checkbox" name="Checkitem" onclick="getCheckedCnt()" checked> 
 		<img src="${cart.bookVO.coverLargeUrl}" id="bookimg"> 
 		<span id="bookname"> ${cart.bookVO.title} </span> 
-		<input type="hidden" id="cartNo_hidden${status.count}" value="${cart.cartVO.cartNo}" /> 
+		<input type="hidden" id="cartNo_hidden${status.count}" value="${cart.cartVO.cartNo}" />
+		<input type="hidden" id="bookItemId${status.count}" value="${cart.bookVO.itemID}"> 
 		<span><input type="hidden" id="book_priceStandard" value="${cart.bookVO.priceStandard}" /></span> 
 		<span class="updown">
 			<button id="amount_dec" class="amount_dec" style="cursor: pointer;">-</button> 

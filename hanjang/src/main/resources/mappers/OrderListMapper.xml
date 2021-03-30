@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="com.mycompany.myapp.service.dao.CartDAO">
+<mapper namespace="com.mycompany.myapp.service.dao.OrderListDAO">
 
 	<resultMap id="cartMap" type="com.mycompany.myapp.vo.CartVO">
 		<result property="userNo" column="UserNo" />
@@ -35,35 +34,27 @@
 		<result property="userNo" column="UserNo" />
 		<result property="cartNo" column="CartNo" />
 		<result property="itemId" column="ItemId" />
+		<result property="regDate" column="RegDate" />
 	</resultMap>
 
-	<!-- 카트 insert -->
-	<insert id="insertCart" parameterType="cartVO">
-		INSERT INTO Cart(UserNo,
-		ItemId, Amount)
-		VALUES(#{userNo}, #{itemId}, #{amount})
+
+	<!-- 장바구니에서 주문리스트DB에 추가 -->
+	<insert id="insertOrderList" parameterType="orderListVO">
+		INSERT INTO OrderList(UserNo, CartNo, ItemId)
+		VALUES(#{userNo}, #{cartNo}, #{itemId})
 	</insert>
 
-	<!-- 카트 특정유저 장바구니 확인 -->
-	<select id="getOneCart" resultMap="cartProductMap">
-		SELECT * FROM Cart c, Book b
-		WHERE UserNo = #{userNo} AND c.ItemId = b.ItemId
+<!-- 	주문확인서 
+	<select id="getOneOrderList" parameterType="int" resultMap="orderListMap">
+		SELECT * FROM OrderList
+		WHERE OrderListNo = #{orderListNo}
+	</select>  -->
+
+	<!-- 주문확인서 최근 데이터 하나 가져오기 -->
+	<select id="getLatelyOrderList" resultMap="orderListMap">
+		SELECT * FROM OrderList o, Book b, User u, Cart c
+		WHERE o.UserNo = #{userNo} AND o.CartNo = c.CartNo AND o.ItemId = b.ItemId AND o.UserNo = u.UserNo
+		ORDER BY RegDate DESC LIMIT 1
 	</select>
 
-	<!-- 장바구니 수정 -->
-	<update id="updateCart" parameterType="cartVO">
-		UPDATE Cart
-		SET Amount = #{amount}
-		<if test="cartNo != null">
-			WHERE CartNo = #{cartNo}
-		</if>
-	</update>
-
-	<!-- 장바구니 삭제 -->
-	<delete id="deleteCart" parameterType="cartVO">
-		DELETE FROM Cart 
-		WHERE CartNo = #{cartNo}
-	</delete>
-
 </mapper>
-

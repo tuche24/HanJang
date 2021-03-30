@@ -20,9 +20,4 @@ public interface CartService {
 	// 장바구니 삭제
 	void deleteCart(CartVO cartVO);
 
-	// 주문리스트에 인서트
-	void insertOrderList(OrderListVO orderListVO);
-	
-	// 주문리스트에 담긴 DB정보 보기
-	List<OrderListVO> getOneOrderList(int userNo);
 }
