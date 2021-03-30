@@ -13,7 +13,7 @@
 		<result property="nickname" column="UserNickName" />
 		<result property="gender" column="UserGender" />
 		<result property="birthdate" column="UserBirthday" />
-		<result property="mail1" column="UserEmail" />
+		<result property="email" column="UserEmail" />
 		<result property="phone" column="UserPhone" />
 		<result property="address" column="UserAddress" />
 	</resultMap>
@@ -25,7 +25,7 @@
 		( UserId, UserPassword, UserName, UserNickName, UserGender,
 		UserBirthday, UserEmail, UserPhone, UserAddress)
 		VALUES (#{id}, #{password}, #{name}, #{nickname}, #{gender}, #{birthdate},
-		#{mail1}, #{phone}, #{address})
+		#{email}, #{phone}, #{address})
 
 	</insert>
 	<!-- 로그인체크 -->
