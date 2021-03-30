@@ -47,5 +47,7 @@ public class MemberServiceImpl implements MemberService{
     	out.println("</script>");
     	out.close();
     }
+    
+    
 	
 }

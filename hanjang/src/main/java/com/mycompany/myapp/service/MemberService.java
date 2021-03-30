@@ -10,4 +10,5 @@ public interface MemberService {
 		public MemberVO LoginCheck(MemberVO membervo) throws Exception;
 		public int IdCheck(String param) throws Exception;
 		void logout(HttpServletResponse response) throws Exception;
+		
 }

@@ -89,7 +89,7 @@ height:180px;
 
 .logo{
 margin: 0 auto;
-width:150px;
+width:140px;
 height:180px;
 }
 .logo a{
@@ -174,6 +174,46 @@ height:28px;
 width:40px;
 }
 
+#wrap{
+width:340px;
+height:340px;
+}
+.textform{
+width:340px;
+height:49px;
+border: 1px solid #ccc;
+border-radius:4px;
+}
+#wrap table tr{
+margin:10px auto;
+}
+
+.bar{
+    float: left;
+    width: 1px;
+    height: 10px;
+    margin: 3px 6px 0;
+    background-color: #333;}
+    
+    .loginbuga{
+    height:40px;
+    margin-top:10px;
+    }
+.loginbuga div{
+float:right;
+font-size:13px;
+}  
+.loginbuga div a{
+color:black;}  
+
+ .logininbut{
+ width:340px;
+ height:49px;
+border:1px solid #5f0081;
+border-radius:4px;
+cursor:pointer;
+ }
+    
 </style>
 
 <body>
@@ -241,28 +281,33 @@ width:40px;
 </div>
 </div>
 </div>
+<br>
+<br>
 
 	<div id="wrap">
+	<h3>로그인</h3>
 		<form name="loginInfo" method="post" action="login.do" 
-				onsubmit="return checkValue()">
-		
-			<br><br>
-			
+				onsubmit="return checkValue()" style="height:250px">
+			<br><br>	
 			<table>
-				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="id" maxlength="50"></td>
+				<tr style="margin-bottom:10px;">
+					
+					<td><input type="text" name="id" maxlength="50" class="textform" placeholder="아이디를 입력해주세요"></td>
 				</tr> 
+				<tr><td><div style="height:10px"></div></td></tr>
 				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="password" maxlength="50"></td>
+					<td><input type="password" name="password" maxlength="50" class="textform" placeholder="비밀번호를 입력해주세요"></td>
 				</tr> 
 			</table>
-			<br>
-			<input type="submit" value="로그인"/> <br>
+			<div class="loginbuga">
+			<div><a href="">비밀번호 찾기</a></div>
+			<div class="bar"></div>
+			<div><a href="">아이디 찾기</a></div>
+			</div>
+			<div style="margin-bottom:8px;"><input type="submit" value="로그인" class="logininbut" style="background:#5f0081;color:white;"/></div>
+			<div><input type="button" value="회원가입" class="logininbut" style="background:white;color:#5f0081;"onclick="location.href='joinform.do'"/></div> 
 			<!-- <input type="button" value="회원가입" onclick="goJoinForm()" />  -->
-			<input type="button" value="아이디찾기" onclick=""/>
-			<input type="button" value="비밀번호찾기" onclick=""/>
+			
 		</form>
 		
 		

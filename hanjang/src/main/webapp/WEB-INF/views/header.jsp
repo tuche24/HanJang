@@ -94,7 +94,7 @@ height:180px;
 
 .logo{
 margin: 0 auto;
-width:150px;
+width:140px;
 height:180px;
 }
 .logo a{

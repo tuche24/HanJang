@@ -314,7 +314,7 @@ $(document).ready(function(){
 			</table>
 			<br><div style="text-align:center;">
 			<input type="submit" value="가입" class="butt">  
-			<input type="button" value="취소" onclick= "loginform.do" class="butt">
+			<input type="button" value="취소" onclick= location.href="loginform.do" class="butt">
 			</div>
 		</form>
 		</div>

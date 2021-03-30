@@ -244,7 +244,7 @@ height:180px;
 
 .logo{
 margin: 0 auto;
-width:150px;
+width:140px;
 height:180px;
 }
 .logo a{
@@ -675,9 +675,9 @@ height:420px;
 <div style="margin-left:220px;"> 책간단설명</div>
  </div>
 <div class="today_book_bookimage"> 
-<a href="">
-
-</a>
+<c:forEach items="${bookList}" var="b" begin="0" end="0">
+						<a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a>
+						</c:forEach>
 
 </div>
 </div>
