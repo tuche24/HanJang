@@ -3,7 +3,6 @@ package com.mycompany.myapp.service.dao;
 import javax.inject.Inject;
 
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.myapp.vo.MemberVO;
@@ -32,4 +31,14 @@ public class MemberDAOImpl implements MemberDAO{
 		int result = sql.selectOne(namespace+".IdCheck",param);
 		return result;
 	}
+	
+	//비밀번호찾기
+	public int updatePw(MemberVO vo) throws Exception {
+		return sql.update(namespace+".updatePw", vo);
+	}
+	@Override
+	public MemberVO readMember(MemberVO vo) {
+		return sql.selectOne(namespace+".readMember", vo);
+	}
+
 }

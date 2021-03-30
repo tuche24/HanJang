@@ -22,9 +22,12 @@
 
 	<insert id="MemberInsert">
 		INSERT INTO User
-		( UserId, UserPassword, UserName, UserNickName, UserGender,
-		UserBirthday, UserEmail, UserPhone, UserAddress)
-		VALUES (#{id}, #{password}, #{name}, #{nickname}, #{gender}, #{birthdate},
+		( UserId, UserPassword, UserName,
+		UserNickName, UserGender,
+		UserBirthday, UserEmail, UserPhone,
+		UserAddress)
+		VALUES (#{id}, #{password}, #{name}, #{nickname},
+		#{gender}, #{birthdate},
 		#{mail1}, #{phone}, #{address})
 
 	</insert>
@@ -36,11 +39,24 @@
 		and UserPassword = #{password}
 	</select>
 
+	<!-- ReadMember -->
+	<select id="readMember" resultMap="MemberMap">
+		SELECT *
+		FROM User
+		WHERE UserId
+		= #{id}
+	</select>
 	<!-- 아디 중복체크 -->
 
 	<select id="IdCheck" resultType="int">
 		SELECT COUNT(*) FROM User
-		WHERE UserId = #{id}
+		WHERE
+		UserId = #{id}
 	</select>
+
+	<!-- 비밀번호 변경 -->
+	<update id="updatePw">
+		update User set UserPassword = #{password} where UserId = #{id}
+	</update>
 
 </mapper>
