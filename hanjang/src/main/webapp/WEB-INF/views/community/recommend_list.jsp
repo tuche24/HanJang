@@ -14,6 +14,12 @@
 		$("#header").load("/myapp/resources/jsp/header/header.jsp");
 	})
 </script>
+<!-- 푸터연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
+	})
+</script>
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
@@ -130,5 +136,7 @@
 	</c:if>
 </div>
 <div style="width:100%; height:150px;"></div>
+<!-- footer부분 -->
+<div id="footer"></div>
 </body>
 </html>

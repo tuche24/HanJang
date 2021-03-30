@@ -10,7 +10,17 @@
 		request.setCharacterEncoding("UTF-8"); 
 	%>
 <!-- 헤더연결 -->
-
+<script defer>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
+<!-- 푸터연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
+	})
+</script>
 	<title>로그인 화면</title>
 	
 	
@@ -312,5 +322,7 @@ cursor:pointer;
 		
 	</div>	
 		<div style="width:30px; height:30px;"><a style="width:30px; height:30px; background:black;" href="https://kauth.kakao.com/oauth/authorize?client_id=036ccf425c45c76afae938160b6e023e&redirect_uri=http://localhost:8081/myapp/kakaologin.do&response_type=code">카카오</a></div>
+<!-- footer부분 -->
+<div id="footer"></div>
 </body>
 </html>

@@ -18,6 +18,12 @@
 		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
 	})
 </script>
+<!-- 푸터연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
+	})
+</script>
 <script>
 //숫자 3자리 콤마찍기
 
@@ -434,5 +440,7 @@ Number.prototype.formatNumber = function(){
 
 		</div>
 	</div>
+<!-- footer부분 -->
+<div id="footer"></div>
 </body>
 </html>

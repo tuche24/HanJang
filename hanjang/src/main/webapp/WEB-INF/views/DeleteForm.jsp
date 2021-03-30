@@ -10,6 +10,12 @@
 		$("#header").load("/myapp/resources/jsp/header/header.jsp");
 	})
 </script>
+<!-- 푸터연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
+	})
+</script>
 	<title>탈퇴 화면</title>
 	
 	<style type="text/css">
@@ -60,5 +66,7 @@
 		<input type="button" value="취소" onclick=""> <!-- 메인  -->
 		<input type="submit" value="탈퇴" /> 
 	</form>
+<!-- footer부분 -->
+<div id="footer"></div>
 </body>
 </html>
