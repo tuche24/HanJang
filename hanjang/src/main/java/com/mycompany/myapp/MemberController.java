@@ -3,6 +3,7 @@ package com.mycompany.myapp;
 
 import java.io.PrintWriter;
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -133,14 +134,15 @@ public class MemberController {
 	// 게시물 목록 조회 + 페이징
 
 	@RequestMapping("/kakaologin.do")
-    public String home(@RequestParam(value = "code", required = false) String code) throws Exception{
+    public String home(@RequestParam(value = "code", required = false) String code,HttpSession session) throws Exception{
         System.out.println("#########" + code);
         String access_Token = kakaoService.getAccessToken(code);
-        return "main";
+        HashMap<String, Object> userInfo = kakaoService.getUserInfo(access_Token);
+        String nick= (String) userInfo.get("nickname");
+        session.setAttribute("loginVO",nick);
+		session.setAttribute("loginNick", nick);
+        return "redirect:mainAll.do";
     }
-
-	
-	///////////////////////////////////////
 
 	@RequestMapping (value = "findpw.do") 
 	public  void  findPwPOST (@ModelAttribute MemberVO member, HttpServletResponse response)  throws Exception { 
@@ -152,5 +154,8 @@ public class MemberController {
 		
 		return "test/findpw";
 	}
+	
+	
+	
 	
 }
