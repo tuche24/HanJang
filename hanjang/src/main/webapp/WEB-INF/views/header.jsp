@@ -10,7 +10,7 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script>
 
-///////스크롤이벤트종합 헤더에 포함.
+///////스크롤이벤트종합 헤더에 포함. 
 $(document).ready(function(){
 	
 	$(window).scroll(function(){
@@ -52,11 +52,11 @@ $(document).ready(function(){
 <style>
 
 * {
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-	text-decoration: none;
-	border-collapse: collapse;
+   margin: 0px;
+   padding: 0px;
+   list-style: none;
+   text-decoration: none;
+   border-collapse: collapse;
 }
 
 .headerwe{
@@ -119,7 +119,7 @@ height:45px;
 display:inline-block;
 width:100px;
 margin:0 15px;
-text-align:center;	
+text-align:center;   
 background:white;
 position:relative;
 z-index:9996;
@@ -128,7 +128,7 @@ z-index:9996;
 display:block;
 width:100px;
 padding:7px 3px;
-text-align:center;	
+text-align:center;   
 background:white;
 color:black;
 }
@@ -144,7 +144,7 @@ display:none;
 display:inline-block;
 font-size:12px;
 width:100px;
-text-align:left;	
+text-align:left;   
 background:white;
 }
 .main_menu li .dropdown li a:hover{
@@ -199,7 +199,7 @@ width:40px;
 					</c:if>
 					<c:if test="${(loginVO==null) ? true : false}">
 						<li><a href="loginform.do">로그인</a></li>
-
+<li><a href="joinform.do">회원가입</a></li>
 					</c:if>
 
 </ul>

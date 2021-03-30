@@ -1,6 +1,11 @@
 package com.mycompany.myapp;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,9 +36,17 @@ public class NewBookController1 {
 			dbcontroller.DBinsert(vo);
 		}
 		
+		mav.addObject("categoryId", categoryId);
 		
 		mav.addObject("bookList", bookList);
 		mav.setViewName("new_book/New_Book");
 		return mav;
 	}
+	
+	 /*protected void service(HttpServletRequest request, HttpServletResponse response)
+			 throws ServletException, IOException {
+		 int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+		 System.out.println(categoryId);
+		 request.setAttribute("categoryId", categoryId);
+	 }*/
 }

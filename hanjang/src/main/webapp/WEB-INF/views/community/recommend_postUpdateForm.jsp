@@ -16,8 +16,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
-<style>
-</style>
 </head>
 <body>
 <!-- header부분 -->
@@ -27,24 +25,24 @@
 <form action="recommendUpdate.do">
 <table border="1" class="MainBoardLayout">
 	<tr>
-		<td colspan="5" style="height:23px;"><hr class="headline"></td>
+		<td colspan="5" style="height:20px;"><hr class="headline"></td>
 	</tr>
-	<tr style="height:38px;">
-		<td style="width:120px;">제목</td>
-		<td colspan="4"><input type="text" name="title" value="${post.title }" style="width: 90%; text-align:center;" required></td>
+	<tr>
+		<td style="height:35px;">제목</td>
+		<td colspan="4"><input type="text" name="title" value="${post.title }" style="width:75%; text-align:center;" required></td>
 	</tr>
-	<tr style="height:30px;">
+	<tr style="height:20px;">
 		<td colspan="5"><hr class="line"></td>
 	</tr>
 	<tr>
-		<td style="height:30px;">작성자</td>
+		<td style="height:35px;">작성자</td>
 		<td colspan="4" style="height:30px;">${post.writerNick }</td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>
 	</tr>
 	<tr>
-		<td colspan="5"><textarea rows="20" cols="100" name="content" class="postsection" required>${post.content }</textarea></td>
+		<td colspan="5"><textarea rows="20" cols="100" name="content" class="postSection_inserttxt" required>${post.content }</textarea></td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>
@@ -57,5 +55,6 @@
 </table>
 <input type="hidden" name="boardNo" value="${post.boardNo }" />
 </form>
+<div style="width:100%; height:150px;"></div>
 </body>
 </html>

@@ -1,13 +1,15 @@
 body {
 	font-family: noto sans, malgun gothic, AppleGothic, dotum;
-	font-size: 15px;
+	font-size: 14px;
 }
+
 /* 링크 색상, 밑줄 없애기 */
 a {text-decoration: none;}
 a:hover {text-decoration: none; color: black;}
 a:link {text-decoration: none; color: black;}
 a:visited {text-decoration: none; color: black;}
 a:active {text-decoration: none; color: black;}
+
 /* 책 읽기 추천해요 문구 */
 .boardTitle {
 	margin-top: 100px;
@@ -23,6 +25,7 @@ a:active {text-decoration: none; color: black;}
 	margin-top: 10px;
 	margin-bottom: 100px;
 }
+
 /* hr 관련 */
 hr {
 	background-color: #dddddd;
@@ -38,6 +41,7 @@ hr {
 	background-color: #dddddd;
 	margin-bottom:20px;
 }
+
 /* 게시판 테이블 */
 .MainBoardLayout {
 	width: 1100px;
@@ -53,14 +57,38 @@ hr {
 .headerTR {
 	height: 30px;
 }
-/* 이미지 첨부 출력 부분 */
+
+/* 글 내용 출력 부분 */
+.postSection {
+	width: 1000px;
+	border: 3px dotted #dddddd;
+	border-radius: 10px;
+	margin-top: 20px;
+	margin: auto;
+}
 .imgSection {
 	text-align: center;
 }
-.attachedImg {
-	width: 600px;
-	height: auto;	
+.postSection_img {
+	width: 700px;
+	height: auto;
+	margin-top: 30px;
 }
+.postSection_txt {
+	width: 900px;
+	border: none;
+	margin-top: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+}
+.postSection_inserttxt {
+	width: 900px;	
+	border: 3px dotted #dddddd;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
 /* input, textarea 관련 */
 input {
 	font-family: noto sans, malgun gothic, AppleGothic, dotum;
@@ -93,13 +121,7 @@ textarea:focus {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
-.postsection {
-	width: 1000px;
-	border: 3px dotted #dddddd;
-	border-radius: 10px;
-	margin-top: 20px;
-	margin-bottom: 30px;
-}
+
 /* 댓글 출력 부분 */
 .replyOutputTable {
 	margin: auto;
@@ -145,10 +167,12 @@ textarea:focus {
 	vertical-align: middle;
 	cursor: pointer;
 }
+
 /* 글쓰기, 목록, 수정, 삭제 버튼 */
 .insertBtn {
 	position: fixed;
 }
+
 /* 페이징 섹션 */
 .pagingSection {
 	text-align: center;
@@ -164,6 +188,7 @@ textarea:focus {
 	font-size: 13px;
 	font-weight: bold;
 }
+
 /* 페이징 섹션 - 각각의 버튼 */
 .pagingBtn {
 	display: inline-block;

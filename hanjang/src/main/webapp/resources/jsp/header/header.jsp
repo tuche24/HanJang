@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/myapp/resources/jsp/header/header.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/jsp/header/header.css" />
 <script>
 $(document).ready(function(){
 	

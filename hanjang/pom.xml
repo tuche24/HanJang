@@ -160,6 +160,12 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<!-- 메일 api -->
+<dependency>
+	<groupId>org.apache.commons</groupId>
+	<artifactId>commons-email</artifactId>
+	<version>1.2</version>
+</dependency>
 
 		<!-- @Inject -->
 		<dependency>
