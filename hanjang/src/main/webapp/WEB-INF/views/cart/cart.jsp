@@ -15,7 +15,7 @@
 <!-- 헤더연결 -->
 <script defer>
 	$(document).ready(function(){
-		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
 	})
 </script>
 <script>
@@ -279,56 +279,79 @@ Number.prototype.formatNumber = function(){
 		basket.updateUI();
 	}
 	
-	
+	// 배송지 변경 팝업창
+	function showPopup() { 
+		window.open("goToPopUp.do", "배송지 변경", "width=400, height=300, left=100, top=50");
+	}
 </script>
+
+<style>
+#container {
+	position: relative;
+	margin: 0 auto;
+	width: 1080px;
+}
+
+#content {
+	position: relative;
+	margin: 0 auto;
+	width: 1080px;
+}
+
+#cartItemList {
+	position: relative;
+	width: 1080px;
+	margin: 0 auto;
+	z-index: 3;
+}
+
+.inner_result {
+	position: absolute;
+    right: 50%;
+    top: 430px;
+    margin-right: -850px;
+}
+
+.active {
+	cursor: pointer;
+}
+
+.check {
+	margin-right: 10px;
+}
+
+.btn_delete {
+	padding: 6px 8px 6px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    color: #193b78;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.cart_item {
+	padding: 16px 0px 15px;
+    overflow: hidden;
+	border-bottom: 1px solid;
+	width: 100%;
+}
+
+#items {
+	padding: 50px 0px;
+}
+
+</style>
 
 <title>장바구니1</title>
 </head>
 <body>
-<!-- header부분 -->
-<div id="header"></div>
+	<!-- header부분 -->
+	<div id="header"></div>
 	<div id="container">
 		<div id="title_wrap">장바구니</div>
-		<div id="main">
-			<div id="content">
-				<div id="cartItemList">
-					<div class="cart_item">
-						<label class="check"> <input type="checkbox"
-							name="checkAll" onclick="selectAll(this)" checked /> 전체선택 (&nbsp<span
-							id='choicedCheckbox'></span>&nbsp/&nbsp<span id="totalCheckbox"></span>&nbsp)
-						</label>
-						<button class="btn_delete">선택삭제</button>
-					</div>
-					<hr id="two_1">
-					<div id="items">
-						<!-- 카트에 저장되어있는 상품들 출력 -->
-						<c:if test="${empty cartList}">
-							<h1>장바구니에 담긴 상품이 없습니다</h1>
-						</c:if>
 
-<c:if test="${not empty cartList}">
-<c:forEach items="${cartList}" var="cart" varStatus="status">
-	<div id="item">
-		<div id="category">${cart.bookVO.categoryName}</div>
-		<input type="checkbox" name="Checkitem" onclick="getCheckedCnt()" checked> 
-		<img src="${cart.bookVO.coverLargeUrl}" id="bookimg"> 
-		<span id="bookname"> ${cart.bookVO.title} </span> 
-		<input type="hidden" id="cartNo_hidden${status.count}" value="${cart.cartVO.cartNo}" />
-		<input type="hidden" id="bookItemId${status.count}" value="${cart.bookVO.itemID}"> 
-		<span><input type="hidden" id="book_priceStandard" value="${cart.bookVO.priceStandard}" /></span> 
-		<span class="updown">
-			<button id="amount_dec" class="amount_dec" style="cursor: pointer;">-</button> 
-			<input type="text" name="p_num${cart.cartVO.cartNo}" id="p_num${cart.cartVO.cartNo}" class="p_num" size="2"	maxlength="2" value="${cart.cartVO.amount}" readonly>
-			<button id="amount_inc" class="amount_inc" style="cursor: pointer;">+</button>
-		</span> 
-		<span id="bookprice"><fmt:formatNumber value="${cart.bookVO.priceStandard * cart.cartVO.amount}" pattern="#,###" />원</span> 
-		<span id="cancel_btn"><button>X</button></span>
-		<hr>
-	</div>
-</c:forEach>
-</c:if>
-					</div>
-				</div>
+		<div id="content">
+			<div id="cartItemList">
 				<div class="inner_result">
 					<div class="cart_delivery">
 						<h3 class="tit">배송지</h3>
@@ -343,21 +366,72 @@ Number.prototype.formatNumber = function(){
 								<!-- 나중에 주소 넣을 것 -->
 								</c:if>
 							</p>
+							
 							<div class="delivery">택배배송</div>
-							<a href="#" class="btn">배송지 변경</a>
-						</div>
+							
+							<a href="#" class="btn" onclick="javascript:showPopup();">배송지 변경</a>
+						</div>						
 					</div>
+					
 					<div class="amount_view">
 						<dl class="amount">
 							<dt class="tit">상품금액</dt>
 							<dd class="price"></dd>
 						</dl>
 					</div>
+					
 					<div class="btn_submit">
 						<button class="btn active">주문하기</button>
 					</div>
 				</div>
+
+				
+				<div class="cart_item">
+					<label class="check"> <input type="checkbox"
+						name="checkAll" onclick="selectAll(this)" checked /> 전체선택 (&nbsp<span
+						id='choicedCheckbox'></span>&nbsp/&nbsp<span id="totalCheckbox"></span>&nbsp)
+					</label>
+					<button class="btn_delete">선택삭제</button>
+				</div>
+				
+				<!-- <hr id="two_1"> -->
+				
+				<div id="items">
+					<!-- 카트에 저장되어있는 상품들 출력 -->
+					<c:if test="${empty cartList}">
+						<h1>장바구니에 담긴 상품이 없습니다</h1>
+					</c:if>
+
+					<c:if test="${not empty cartList}">
+						<c:forEach items="${cartList}" var="cart" varStatus="status">
+							<div id="item">
+								<div id="category">${cart.bookVO.categoryName}</div>
+								<input type="checkbox" name="Checkitem"
+									onclick="getCheckedCnt()" checked> <img
+									src="${cart.bookVO.coverLargeUrl}" id="bookimg"> <span
+									id="bookname"> ${cart.bookVO.title} </span> <input
+									type="hidden" id="cartNo_hidden${status.count}"
+									value="${cart.cartVO.cartNo}" /> <input type="hidden"
+									id="bookItemId${status.count}" value="${cart.bookVO.itemID}">
+								<span><input type="hidden" id="book_priceStandard"
+									value="${cart.bookVO.priceStandard}" /></span> <span class="updown">
+									<button id="amount_dec" class="amount_dec"
+										style="cursor: pointer;">-</button> <input type="text"
+									name="p_num${cart.cartVO.cartNo}"
+									id="p_num${cart.cartVO.cartNo}" class="p_num" size="2"
+									maxlength="2" value="${cart.cartVO.amount}" readonly>
+									<button id="amount_inc" class="amount_inc"
+										style="cursor: pointer;">+</button>
+								</span> <span id="bookprice"><fmt:formatNumber
+										value="${cart.bookVO.priceStandard * cart.cartVO.amount}"
+										pattern="#,###" />원</span> <span id="cancel_btn"><button>X</button></span>
+								<hr>
+							</div>
+						</c:forEach>
+					</c:if>
+				</div>
 			</div>
+
 		</div>
 	</div>
 </body>
