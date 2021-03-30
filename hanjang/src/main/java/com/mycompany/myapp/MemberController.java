@@ -130,6 +130,17 @@ public class MemberController {
 	
 	// 게시물 목록 조회 + 페이징
 	
+	///////////////////////////////////////
+
+	@RequestMapping (value = "findpw.do") 
+	public  void  findPwPOST (@ModelAttribute MemberVO member, HttpServletResponse response)  throws Exception { 
+		memberservice1.findPw (response, member); 
+	}
 	
+	@RequestMapping (value = "/gotofindpw.do")
+	public String goToFindPw() {
+		
+		return "test/findpw";
+	}
 	
 }

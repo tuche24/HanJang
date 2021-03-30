@@ -10,4 +10,12 @@ public interface MemberDAO {
 	public MemberVO LoginCheck(MemberVO membervo) throws Exception;
 	
 	public int IdCheck(String param) throws Exception;
+	
+	// 비밀번호찾기
+	public int updatePw(MemberVO vo) throws Exception;
+	
+	// readmember test
+	public MemberVO readMember(MemberVO vo);
+	
+	
 }

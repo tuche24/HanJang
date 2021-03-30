@@ -46,5 +46,9 @@
 <form action="goToOrderList.do">
 <input type="submit" value="주문확인서" />
 </form>
+
+<form action="gotofindpw.do">
+<input type="submit" value="비밀번호찾기" />
+</form>
 </body>
 </html>
