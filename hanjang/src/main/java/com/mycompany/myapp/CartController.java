@@ -35,36 +35,46 @@ public class CartController {
 	// 장바구니 담기 서비스
 	@RequestMapping(value="/addCart.do")
 	public String addCart(CartVO cartVO, HttpSession session) {
-		// DB에 cart 정보 담기
+		
+		// 세션에 장바구니 번호 받아오기
+		int sessionCartNo = (int) session.getAttribute("sessionCartNo");
+		int cartNo = 0;
+		
+		if(sessionCartNo == 0) {
+			// CartNo 생성
+			sessionCartNo = Integer.parseInt(generateCartNo());
+			cartNo = sessionCartNo; 
+		}
+		
+		cartNo = sessionCartNo;
+		session.setAttribute("sessionCartNo", cartNo);
+		
+		cartVO.setCartNo(cartNo);
 		service.insertCart(cartVO);
 		
-		return "cart/cart";
+		return "ajax success";
 	}
 	
 	// 특정 유저 장바구니 확인
 	@RequestMapping(value="/getOneCart.do")
-	public ModelAndView getOneCart(HttpSession session, HttpServletResponse res) throws IOException {
+	public ModelAndView getOneCart(HttpSession session) throws IOException {
 		ModelAndView mav = new ModelAndView();
-		PrintWriter out = res.getWriter();
-		/*int UserNo = 27; // test*/
-		res.setContentType("text/html; charset=UTF-8");
+
 		MemberVO membervo = (MemberVO) session.getAttribute("memberVO");
+		
 		if(membervo != null) {
-			System.out.println("memberVO 값이 있습니다");
 			List<CartProductVO> cartList = service.getOneCart(membervo.getUserNo());
 			
 			if(cartList != null) {
 				mav.addObject("cartList", cartList);
 			}
-				// 카트리스트 없을때 오류
 			mav.setViewName("cart/cart");
 			
 			return mav;
 		}
 		// 유저정보가 없을때 loginForm으로 이동
 		mav.setViewName("LoginForm");
-		out.println("<script>alert(\"유저정보가 없습니다.\")</script>");
-		out.flush();
+		System.out.println("유저정보가 없습니다");
 		return mav;
 	}
 	
@@ -99,4 +109,18 @@ public class CartController {
 		return "cart/address_popup";
 	}
 
+	// 장바구니 번호 생성
+	public String generateCartNo() {
+		String result = "";
+		Calendar cal = Calendar.getInstance();
+		String ymd = new DecimalFormat("##").format(cal.get(Calendar.DATE));
+		String subNum = "";
+		for(int i = 1; i <= 6; i++) {
+			subNum += (int)(Math.random() * 10);
+		}
+		result = ymd + subNum;
+		
+		System.out.println("장바구니번호가 생성되었습니다 = " + result);
+		return result;
+	}
 }

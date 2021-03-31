@@ -40,8 +40,8 @@
 	<!-- 카트 insert -->
 	<insert id="insertCart" parameterType="cartVO">
 		INSERT INTO Cart(UserNo,
-		ItemId, Amount)
-		VALUES(#{userNo}, #{itemId}, #{amount})
+		ItemId, Amount, CartNo)
+		VALUES(#{userNo}, #{itemId}, #{amount}, #{cartNo})
 	</insert>
 
 	<!-- 카트 특정유저 장바구니 확인 -->
