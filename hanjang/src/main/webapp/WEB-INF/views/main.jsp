@@ -599,6 +599,16 @@ height:300px;
 <body>
 <!-- 팝업창 시작 -->
 <div id="p1" style="position: absolute; left: 200px; top: 100px; visibility: visible; z-index:9999;">
+	<table style="width:300; height:300; background:#1c0f51; color:white; font-size:12px;">
+		<tr>
+			<td style="border:none; margin-bottom:auto;">
+			<img src="resources\img\main\popup.jpg">
+			</td>
+		</tr>		
+		<tr style="float:right;">
+			<td>24시간동안 이 창을 띄우지 않기 <input type="checkbox" name="popcheckb" id="popcheckb"/></td>
+			<td><input type="button" value="닫기" onclick="closePop();" style="color:white; background:transparent; border:none; font-size:12px; outline: none; cursor:pointer;'"></td>
+		</tr>
    <table style="width:300; height:300; background:#1c0f51; color:white; font-size:12px;">
       <tr>
          <td style="border:none; margin-bottom:auto;">
@@ -630,7 +640,6 @@ height:300px;
                   <li><a href="loginform.do">로그인</a></li>
 <li><a href="joinform.do">회원가입</a></li>
                </c:if>
-
 </ul>
 </div>
 <div class="logo_place"><div class="logo"><a href="">
@@ -668,13 +677,9 @@ height:300px;
 <input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" onkeyup="search()"/>
 <input type="submit" value="검색" class="search_sub"/>
 <ul id="searchList">
-
-</ul>
-</form>
-</div>
-</div>
-</div>
-
+		</table>
+	</div>
+<div id="header"></div>
 <div class="main">
 <div class="slide_container"> 
 <div class="slide">
