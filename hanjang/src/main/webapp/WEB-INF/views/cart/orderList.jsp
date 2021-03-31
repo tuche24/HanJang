@@ -9,33 +9,34 @@
 <link rel="stylesheet" href="resources/css/orderList.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<!-- 헤더연결 -->
+<!-- 헤더연결 -->
 <script defer>
-	$(document).ready(function(){
+	$(document).ready(function() {
 		$("#header").load("/myapp/resources/jsp/header/header.jsp");
 	})
 </script>
 <!-- 푸터연결 -->
 <script defer>
-	$(document).ready(function(){
+	$(document).ready(function() {
 		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
 	})
 </script>
 <title>주문리스트</title>
 <style>
-.footer div{
-	float:left;
+.footer div {
+	float: left;
 }
-.footer{
-	margin:0 auto;
-	width:1050px;
-	height:300px;
+
+.footer {
+	margin: 0 auto;
+	width: 1050px;
+	height: 300px;
 }
 </style>
 </head>
 <body>
-<!-- header부분 -->
-<div id="header"></div>
+	<!-- header부분 -->
+	<div id="header"></div>
 
 	<div class="tit_page">주문서</div>
 	<div id="main">
@@ -44,7 +45,13 @@
 				<h2 id="tit_section">주문상품</h2>
 				<div id="itemList" class="page_article">
 					<div class="short_info">
-						<!-- [쉐프엠] 요린이 전골 떡볶이 외 -->${orderList.itemId} <span class="num">${orderList.amount}</span>상품을 주문합니다.
+						<!-- forEach해서 상품 목록 가져오기 -->
+						<ul>
+							<c:forEach items="${orderList}" var="order" varStatus="status">
+								<li><img src="${order.bookVO.coverLargeUrl}" id="bookimage" /><span
+									id="bookname">${order.bookVO.title}</span><span id="bookamount"></span></li>
+							</c:forEach>
+						</ul>
 					</div>
 				</div>
 				<form id="form">
@@ -61,30 +68,29 @@
 							</tr>
 							<tr>
 								<th>이메일</th>
-								<td>${sessionScope.memberVO.mail1}</td>
+								<td>${sessionScope.memberVO.email}</td>
 							</tr>
 						</table>
 					</div>
 					<h2 class="tit_section1" id="divAddressWrapper">
 						배송정보 <span class="desc">배송 휴무일: 샛별배송(휴무없음), 택배배송(일요일)</span>
 					</h2>
-<!-- 					<div class="order_section">
+					<!-- 					<div class="order_section">
 						<h3 class="section_crux">배송지</h3>
 					</div> -->
 					<div class="section_full">
-						<span class="address" id="divDestination">
-						<span class="default">기본배송지</span>
-						<span class="addr">${sessionScope.memberVO.address}</span>
+						<span class="address" id="divDestination"> <span
+							class="default">기본배송지</span> <span class="addr">${sessionScope.memberVO.address}</span>
 						</span>
 					</div>
 					<div id="paymentMethodResult">
-					<input type="submit" value="결제하기" class="btn_payment" />
+						<input type="submit" value="결제하기" class="btn_payment" />
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-<!-- footer부분 -->
-<div id="footer"></div>
+	<!-- footer부분 -->
+	<div id="footer"></div>
 </body>
 </html>

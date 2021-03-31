@@ -14,5 +14,5 @@ public interface OrderListService {
 	List<OrderListVO> getOneOrderList(int orderListNo);
 
 	// 주문확인서 최근 하나보기
-	OrderListVO getLatelyOrderList(int userNo);
+	List<OrderListVO> getLatelyOrderList(OrderListVO orderListVO);
 }

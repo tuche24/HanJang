@@ -2,8 +2,15 @@ package com.mycompany.myapp.vo;
 
 import java.sql.Timestamp;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class OrderListVO {
 
+	@Autowired
+	private CartVO cartVO;
+	@Autowired
+	private BookVO bookVO;
+	
 	private int orderListNo; // 주문리스트번호
 	private int userNo; // 유저 넘버
 	private int cartNo; // 카트번호
@@ -39,6 +46,18 @@ public class OrderListVO {
 	}
 	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
+	}
+	public CartVO getCartVO() {
+		return cartVO;
+	}
+	public void setCartVO(CartVO cartVO) {
+		this.cartVO = cartVO;
+	}
+	public BookVO getBookVO() {
+		return bookVO;
+	}
+	public void setBookVO(BookVO bookVO) {
+		this.bookVO = bookVO;
 	}
 	
 }
