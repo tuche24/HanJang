@@ -591,12 +591,46 @@ height:300px;
 			<td>24시간동안 이 창을 띄우지 않기 <input type="checkbox" name="popcheckb" id="popcheckb"/></td>
 			<td><input type="button" value="닫기" onclick="closePop();" style="color:white; background:transparent; border:none; font-size:12px; outline: none; cursor:pointer;'"></td>
 		</tr>
-
+</ul>
+</div>
+<div class="logo_place"><div class="logo"><a href="">
+<img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a></div></div>
+<div class="menubar" >
+<div class="menu_container1">
+<ul class="main_menu">
+<li class="menu1"><a href="">카테고리</a>
+<ul class="dropdown">
+<li><a href=""><h3>국내도서</h3></a></li>
+<li><a href="">유아/어린이</a></li>
+<li><a href="">소설/시/희곡</a></li>
+<li><a href="">에세이</a></li>
+<li><a href="">인문학</a></li>
+<li><a href="">과학/역사</a></li>
+<li><a href="">수험서/참고서</a></li>
+<li><a href="">기타</a></li>
+<li><a href=""><h3>국외도서</h3></a></li>
+<li><a href="">영미소설</a></li>
+<li><a href="">경제경영</a></li>
+<li><a href="">자기개발</a></li>
+<li><a href="">기타</a></li>
+</ul></li>
+<li class="menu2"><a href="BestSellerList1.do">베스트셀러</a></li>
+<li class="menu3"><a href="NewBookList1.do">새로나온책</a></li>
+<li class="menu4"><a href="">커뮤니티</a>
+<ul class="dropdown">
+<li><a href="recommendList.do">이 책 추천해요</a></li>
+<li><a href="requestList.do">없는 책 요청해요</a></li>
+</ul></li>
+</ul>
+</div>
+<div class="search" >
+<form id="idFrom" action="BookList.do">
+<input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" onkeyup="search()"/>
+<input type="submit" value="검색" class="search_sub"/>
+<ul id="searchList">
 		</table>
 	</div>
 <div id="header"></div>
-
-
 <div class="main">
 <div class="slide_container"> 
 <div class="slide">
