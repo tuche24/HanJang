@@ -636,12 +636,12 @@ height:300px;
 <li><a href="">자기개발</a></li>
 <li><a href="">기타</a></li>
 </ul></li>
-<li class="menu2"><a href="">베스트셀러</a></li>
-<li class="menu3"><a href="">새로나온책</a></li>
+<li class="menu2"><a href="BestSellerList1.do">베스트셀러</a></li>
+<li class="menu3"><a href="NewBookList1.do">새로나온책</a></li>
 <li class="menu4"><a href="">커뮤니티</a>
 <ul class="dropdown">
-<li><a href="">책 추천 게시판</a></li>
-<li><a href="">없는책 요청게시판</a></li>
+<li><a href="recommendList.do">이 책 추천해요</a></li>
+<li><a href="requestList.do">없는 책 요청해요</a></li>
 </ul></li>
 </ul>
 </div>
