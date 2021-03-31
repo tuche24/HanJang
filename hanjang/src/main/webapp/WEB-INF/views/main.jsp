@@ -718,7 +718,7 @@ height:300px;
 </div>
 <div class="eventintro_event">
 <ul>
-<li><a href="event.jsp"><div>이벤트이름</div></a></li>
+<li><a href="event.do"><div>이벤트이름</div></a></li>
 <li><a href="">이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/><div>이벤트이름</div></a></li>
 <li><a href=""><div>이벤트이름</div></a></li>
 
