@@ -33,6 +33,11 @@ public class HomeController {
 		return "JoinForm";
 		
 	}
+	@RequestMapping(value="/event.do")
+	public String goToevent() {
+		return "event";
+		
+	}
 	@RequestMapping(value = "/testError.do")
 	public String goToError() {
 		return "error/1111";

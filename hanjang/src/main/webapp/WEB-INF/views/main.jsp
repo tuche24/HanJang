@@ -480,7 +480,7 @@ position:relative;
 .eventintro_event ul li{
 float:left;
 width:344px;
-height:420px;
+height:379px;
 margin:35px 11px;
 background:white;
 }
@@ -488,11 +488,18 @@ background:white;
 display:block;
 width:100%;
 height:380px;
-background:yellow;
+background:white;
 }
-.eventintro_event ul li div{
+
+.eventintro_event ul li a div{
+position:absolute;
 text-align:center;
 font-size:26px;
+bottom:-416px;
+background:rgb(95, 0, 128);
+width:344px;
+height:45px;
+opacity:0.6;
 }
 
 .smallprev, .smallnext{
@@ -572,22 +579,23 @@ height:300px;
 </style>
 </head>
 <body>
-<div id="p1"
-		style="position: absolute; left: 200px; top: 100px; visibility: visible; z-index:9999;">
-		<table border="1" width=300 height=300>
-<tr><td style="border: 2px #0000ff solod" bgcolor=white>
-팝 업 창 <br> 
-	</td></tr>
-						
-		</table>
-		<table style="border:0; background:gray; width:300px;height:5px;">
+<!-- 팝업창 시작 -->
+<div id="p1" style="position: absolute; left: 200px; top: 100px; visibility: visible; z-index:9999;">
+	<table style="width:300; height:300; background:#1c0f51; color:white; font-size:12px;">
+		<tr>
+			<td style="border:none; margin-bottom:auto;">
+			<img src="resources\img\main\popup.jpg">
+			</td>
+		</tr>		
 		<tr style="float:right;">
-		<td>24시간동안 이 창을 띄우지 않기<input type="checkbox" name="popcheckb" id="popcheckb"/></td>
-		<td><input type="button" value="닫기" onclick="closePop();"></td>
+			<td>24시간동안 이 창을 띄우지 않기 <input type="checkbox" name="popcheckb" id="popcheckb"/></td>
+			<td><input type="button" value="닫기" onclick="closePop();" style="color:white; background:transparent; border:none; font-size:12px; outline: none; cursor:pointer;'"></td>
 		</tr>
+
 		</table>
 	</div>
 <div id="header"></div>
+
 
 <div class="main">
 <div class="slide_container"> 
@@ -650,9 +658,9 @@ height:300px;
 </div>
 <div class="eventintro_event">
 <ul>
-<li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
-<li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
-<li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
+<li><a href="event.do"><div>이벤트이름</div></a></li>
+<li><a href="">이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/><div>이벤트이름</div></a></li>
+<li><a href=""><div>이벤트이름</div></a></li>
 
 </ul>
 </div>
