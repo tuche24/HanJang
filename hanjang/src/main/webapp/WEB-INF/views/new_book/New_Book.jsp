@@ -9,15 +9,20 @@
 <!-- jquery 링크-->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!-- 헤더연결 -->
 <script defer>
-	$(document).ready(function() {
-		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
-	})
+	$(document)
+			.ready(
+					function() {
+						$("#header")
+								.load(
+										"${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
+					})
 </script>
 <!-- 푸터연결 -->
 <script defer>
-	$(document).ready(function(){
+	$(document).ready(function() {
 		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
 	})
 </script>
@@ -52,12 +57,25 @@
 			}
 		});
 		// ajax-end
-		swal("성공", "장바구니에 상품을 담았습니다", "success");
+		swal.fire({
+			title : '장바구니',
+			text : '장바구니로 이동하시겠습니까?',
+			icon : 'info',
+			showCancelButton : true,
+			confirmButtonColor : '#3085d6',
+			cancelButtonColor : '#d33',
+			confirmButtonText : '이동',
+			cancelButtonText : '취소'
+		}).then((result) => {
+			if(result.value){
+				location.href="getOneCart.do";
+			}
+		})
 	}
 
 	$(document).ready(function() {
 		var categoryId = $(".genre").val();
-		
+
 		if (categoryId == 109) {
 			$("#genre1").css("display", "block");
 			$("#genre2").css("display", "none");
@@ -194,13 +212,15 @@
 #title {
 	margin-top: 100px;
 }
-.footer div{
-	float:left;
+
+.footer div {
+	float: left;
 }
-.footer{
-	margin:0 auto;
-	width:1050px;
-	height:300px;
+
+.footer {
+	margin: 0 auto;
+	width: 1050px;
+	height: 300px;
 }
 </style>
 
@@ -226,61 +246,45 @@
 				<ul>
 					<li><a id="baby" href="NewBookList1.do?categoryId=109"
 						onmouseover="this.style.color='#0000FF'"
-						onmouseout="this.style.color='#555'">유아/어린이</a>
-					</li>
+						onmouseout="this.style.color='#555'">유아/어린이</a></li>
 					<li><a href="NewBookList1.do?categoryId=101"
 						onmouseover="this.style.color='#0000FF'"
-						onmouseout="this.style.color='#555'">소설/시/희곡</a>
-					</li>
+						onmouseout="this.style.color='#555'">소설/시/희곡</a></li>
 					<li><a href="NewBookList1.do?categoryId=102"
 						onmouseover="this.style.color='#0000FF'"
-						onmouseout="this.style.color='#555'">에세이</a>
-					</li>
+						onmouseout="this.style.color='#555'">에세이</a></li>
 					<li><a href="NewBookList1.do?categoryId=103"
 						onmouseover="this.style.color='#0000FF'"
-						onmouseout="this.style.color='#555'">인문학</a>
-					</li>
+						onmouseout="this.style.color='#555'">인문학</a></li>
 					<li><a href="NewBookList1.do?categoryId=116"
 						onmouseover="this.style.color='#0000FF'"
-						onmouseout="this.style.color='#555'">과학/역사</a>
-					</li>
+						onmouseout="this.style.color='#555'">과학/역사</a></li>
 
 					<div id="bottomLine">
-						<span id="genre1"></span>
-						<span id="genre2"></span>
-						<span id="genre3"></span>
-						<span id="genre4"></span>
-						<span id="genre5"></span>
+						<span id="genre1"></span> <span id="genre2"></span> <span
+							id="genre3"></span> <span id="genre4"></span> <span id="genre5"></span>
 					</div>
 					<br>
 					<br>
 					<li><a href="NewBookList1.do?categoryId=114"
 						onmouseover="this.style.color='#0000FF'"
-						onmouseout="this.style.color='#555'">수험서/참고서</a>
-					</li>
+						onmouseout="this.style.color='#555'">수험서/참고서</a></li>
 					<li><a href="NewBookList1.do?categoryId=205"
 						onmouseover="this.style.color='#0000FF'"
-						onmouseout="this.style.color='#555'">영미소설</a>
-					</li>
+						onmouseout="this.style.color='#555'">영미소설</a></li>
 					<li><a href="NewBookList1.do?categoryId=117"
 						onmouseover="this.style.color='#0000FF'"
-						onmouseout="this.style.color='#555'">경제경영</a>
-					</li>
+						onmouseout="this.style.color='#555'">경제경영</a></li>
 					<li><a href="NewBookList1.do?categoryId=118"
 						onmouseover="this.style.color='#0000FF'"
-						onmouseout="this.style.color='#555'">자기계발</a>
-					</li>
+						onmouseout="this.style.color='#555'">자기계발</a></li>
 					<li><a href="NewBookList1.do?categoryId=128"
 						onmouseover="this.style.color='#0000FF'"
-						onmouseout="this.style.color='#555'">여행</a>
-					</li>
+						onmouseout="this.style.color='#555'">여행</a></li>
 
 					<div id="bottomLine">
-						<span id="genre6"></span>
-						<span id="genre7"></span>
-						<span id="genre8"></span>
-						<span id="genre9"></span>
-						<span id="genre10"></span>
+						<span id="genre6"></span> <span id="genre7"></span> <span
+							id="genre8"></span> <span id="genre9"></span> <span id="genre10"></span>
 					</div>
 				</ul>
 			</div>
@@ -334,7 +338,8 @@
 								<div class="buy_button">
 									<button style="cursor: pointer;" onclick="javascrpt:addCart()">장바구니</button>
 									<br>
-									<button style="cursor: pointer;" onclick="location='goToOrderList.do'">바로 구매</button>
+									<button style="cursor: pointer;"
+										onclick="location='goToOrderList.do'">바로 구매</button>
 								</div>
 							</div>
 						</li>
@@ -504,7 +509,7 @@
 			</div> -->
 		</div>
 	</div>
-<!-- footer부분 -->
-<div id="footer"></div>
+	<!-- footer부분 -->
+	<div id="footer"></div>
 </body>
 </html>
