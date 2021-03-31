@@ -480,7 +480,7 @@ position:relative;
 .eventintro_event ul li{
 float:left;
 width:344px;
-height:420px;
+height:379px;
 margin:35px 11px;
 background:white;
 }
@@ -488,11 +488,18 @@ background:white;
 display:block;
 width:100%;
 height:380px;
-background:yellow;
+background:white;
 }
-.eventintro_event ul li div{
+
+.eventintro_event ul li a div{
+position:absolute;
 text-align:center;
 font-size:26px;
+bottom:-416px;
+background:rgb(95, 0, 128);
+width:344px;
+height:45px;
+opacity:0.6;
 }
 
 .smallprev, .smallnext{
@@ -711,9 +718,9 @@ height:300px;
 </div>
 <div class="eventintro_event">
 <ul>
-<li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
-<li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
-<li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
+<li><a href="event.do"><div>이벤트이름</div></a></li>
+<li><a href="">이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/><div>이벤트이름</div></a></li>
+<li><a href=""><div>이벤트이름</div></a></li>
 
 </ul>
 </div>
