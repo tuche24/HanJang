@@ -8,6 +8,7 @@
 		<result property="itemId" column="ItemId" />
 		<result property="cartNo" column="CartNo" />
 		<result property="amount" column="Amount" />
+		<result property="regDate" column="RegDate" />
 	</resultMap>
 
 	<resultMap id="bookMap" type="com.mycompany.myapp.vo.BookVO">
@@ -41,7 +42,7 @@
 	<!-- Cart ItemId 중복값 방지 체크 -->
 	<select id="checkItemId" parameterType="cartVO" resultType="int">
 		SELECT count(ItemId) FROM Cart
-		WHERE ItemId = #{itemId} AND UserNo = #{userNo}
+		WHERE ItemId = #{itemId} AND CartNo = #{cartNo}
 	</select>
 
 	<!-- 카트 insert -->

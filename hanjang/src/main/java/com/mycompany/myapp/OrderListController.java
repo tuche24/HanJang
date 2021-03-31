@@ -27,15 +27,20 @@ public class OrderListController {
 		ModelAndView mav = new ModelAndView();
 		MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
 		
-		if(memberVO == null) { // 유저정보가 없을 시 main 페이지로 이동
+		/*if(memberVO == null) { // 유저정보가 없을 시 main 페이지로 이동 
 			System.out.println("memberVO 값이 없습니다");
 			mav.setViewName("main");
 			return mav;
-		}
-		
+		} // css 작업을 위해 주석처리
+*/		
 		int userNo = memberVO.getUserNo(); // 유저번호로 최근 OrderList DB 정보 불러오기
 		System.out.println("goToOrderList.do userNo = " + userNo); //test
-		OrderListVO orderListVO = service.getLatelyOrderList(userNo);
+		int cartNo = (int) session.getAttribute("sessionCartNo");
+		OrderListVO orderListVO1 = new OrderListVO();
+		orderListVO1.setCartNo(cartNo);
+		orderListVO1.setUserNo(userNo);
+		
+		List<OrderListVO> orderListVO = service.getLatelyOrderList(orderListVO1);
 		
 		mav.addObject("orderList", orderListVO);
 		mav.setViewName("cart/orderList");
@@ -55,10 +60,6 @@ public class OrderListController {
 		
 		orderListVO.setUserNo(userNo);
 
-		System.out.println("orderListVO = " + orderListVO.getOrderListNo());
-		System.out.println("orderListVO = " + orderListVO.getUserNo());
-		System.out.println("orderListVO = " + orderListVO.getCartNo());
-		System.out.println("orderListVO = " + orderListVO.getItemId());
 		service.insertOrderList(orderListVO);
 	}
 }

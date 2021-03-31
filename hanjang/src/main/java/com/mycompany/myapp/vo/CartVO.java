@@ -1,5 +1,7 @@
 package com.mycompany.myapp.vo;
 
+import java.sql.Timestamp;
+
 import org.springframework.stereotype.Component;
 
 // 장바구니 VO
@@ -10,6 +12,7 @@ public class CartVO {
 	private String itemId; // 상품번호
 	private int cartNo; // 장바구니 번호
 	private int amount; // 수량
+	private Timestamp regDate; // 등록된 시간
 	
 	public int getUserNo() {
 		return userNo;
@@ -34,6 +37,12 @@ public class CartVO {
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+	public Timestamp getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Timestamp regDate) {
+		this.regDate = regDate;
 	}
 		
 }

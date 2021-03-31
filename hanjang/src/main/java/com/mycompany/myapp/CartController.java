@@ -1,7 +1,6 @@
 package com.mycompany.myapp;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -9,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -17,13 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mycompany.myapp.service.CartService;
 import com.mycompany.myapp.vo.CartProductVO;
 import com.mycompany.myapp.vo.CartVO;
-import com.mycompany.myapp.vo.MemberVO;
-import com.mycompany.myapp.vo.OrderListVO;
 
 // 장바구니에 담기 버튼을 클릭시 작동하는 컨트롤러
 @Controller
@@ -50,7 +45,7 @@ public class CartController {
 		session.setAttribute("sessionCartNo", cartNo);
 
 		cartVO.setCartNo(cartNo);
-
+		
 		int checkItemId = service.checkItemId(cartVO);
 		
 		if (checkItemId < 1) {
@@ -82,11 +77,11 @@ public class CartController {
 
 			return mav;
 		} else {
-			// 장바구니 정보가 없을 때 LoginForm 으로 이동
-			mav.setViewName("LoginForm");
-			System.out.println("유저정보가 없습니다");
+			// 장바구니 정보가 없을 때 새 책 으로 이동 // OR 최근 장바구니 정보 가져오기
+			mav.setViewName("main");
+			System.out.println("장바구니 정보가 없습니다");
 			return mav;
-		}
+		} 
 	}
 
 	// 장바구니 수정 ajax

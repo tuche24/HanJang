@@ -1,5 +1,5 @@
 /* 주문서 */
-.tit_page{
+.tit_page {
 	display: block;
 	width: 1080px;
 	font-size: 30px;
@@ -10,50 +10,68 @@
 	margin-top: 40px;
 }
 /* 실선 */
-hr{
-
+hr {
+	
 }
-#main{
+
+#main {
 	display: block;
 	width: 1080px;
 	margin: 40px auto;
 }
 /* 컨텐츠담고있는박스 */
-#content{
+#content {
 	width: 1050px;
 }
 /* 글 주문상품 */
-#tit_section{
+#tit_section {
 	font-size: 20px;
 	font-weight: 500;
 	padding-top: 14px;
 	padding-bottom: 16px;
 }
 /* 글 상품정보 */
-.short_info{
-	height: 80px;
-	line-height: 80px;
-	border-top: 1px solid;
+.short_info {
+	margin: 10; border-top : 1px solid;
 	border-bottom: 1px dot #aaaaaa;
 	font-size: 15px;
 	font-weight: 500;
-	text-align: center;
 	vertical-align: center;
+	border-top: 1px solid;
+}
+/* 책이미지 */
+#bookimage {
+	width: 40px;
+	height: 40px;
+	transform: translateY(8px);
+	margin-right: 40px;
+	margin-left: 40px;
+}
+/* 주문상품 책 이름 */
+#bookname {
+	display: inline-block;
+	font-size: 20px;
+	width: 450px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-right: 170px;
 }
 /* 글 주문자 정보 */
-.tit_section{
+.tit_section {
 	font-size: 20px;
 	border-bottom: 1px solid;
 	padding-bottom: 10px;
+	margin-top: 80px;
 }
 /* 보내는 분 휴대폰 테이블 */
-table{
+table {
 	width: 1080px;
 	heigth: 198px;
 	border-top: 1px;
 }
 /* 테이블 보내는 분 */
-table th{
+table th {
 	height: 33px;
 	padding-top: 19px;
 	text-align: left;
@@ -61,11 +79,11 @@ table th{
 	padding-left: 8px;
 }
 
-table td{
-
+table td {
+	font-weight: bold;
 }
 /* 배송정보 */
-#divAddressWrapper{
+#divAddressWrapper {
 	height: 29px;
 	font-size: 20px;
 	font-weight: 500;
@@ -73,15 +91,14 @@ table td{
 	padding-bottom: 10px;
 }
 
-
 /* 배송 휴무일 */
-.tit_section1 .desc{
+.tit_section1 .desc {
 	font-size: 12px;
 	font-weight: 200;
 	padding-left: 33px;
 }
 /* 배송지 */
-.section_crux{
+.section_crux {
 	height: 121px;
 	font-size: 20px;
 	font-weight: 500;
@@ -89,51 +106,32 @@ table td{
 	border-bottom: 1px solid;
 }
 /* 기본배송지 */
-.default{
+.default {
 	float: left;
 	display: inline-block;
 	height: 22px;
 	font-size: 14px;
 	vertical-align: center;
-	background-color: #999999;
+	background-color: #dddddd;
 	border-radius: 4px;
 	margin-top: 1px;
 	margin-bottom: 7px;
 }
 /* 경기 의왕시 */
-.addr{
+.addr {
 	height: 24px;
 	font-size: 20px;
 	padding-left: 20px;
 }
 /* 결제하기버튼 */
-.btn_payment{
-	display:block;
-	margin:0 auto;
-	width:200px;
-	height:50px;
+.btn_payment {
+	display: block;
+	margin: 0 auto;
+	width: 200px;
+	height: 50px;
 	margin-top: 50px;
+	background-image: linear-gradient(rgba(255, 255, 255, 0),
+		rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff);
+	background-origin: border-box;
+	background-clip: content-box, border-box;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

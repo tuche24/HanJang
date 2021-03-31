@@ -29,9 +29,9 @@ public class OrderListServiceImpl implements OrderListService {
 	}
 
 	@Override
-	public OrderListVO getLatelyOrderList(int userNo) {
+	public List<OrderListVO> getLatelyOrderList(OrderListVO orderListVO1) {
 		
-		OrderListVO orderListVO = dao.getLatelyOrderList(userNo);
+		List<OrderListVO> orderListVO = dao.getLatelyOrderList(orderListVO1);
 		return orderListVO;
 	}
 
