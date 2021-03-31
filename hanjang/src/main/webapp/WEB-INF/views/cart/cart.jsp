@@ -198,9 +198,12 @@ Number.prototype.formatNumber = function(){
 			alert(cartNo); // test
 			let itemID = document.querySelector('#bookItemId' + idx).getAttribute('value');
 			alert(itemID); // test
+			let userNo = document.querySelector('#userNo').getAttribute('value');
+			alert(userNo); // test
 			var params = {
 					cartNo : cartNo,
-					itemId : itemID
+					itemId : itemID,
+					userNo : userNo
 			}
 			
 			$.ajax({
@@ -450,6 +453,7 @@ Number.prototype.formatNumber = function(){
 
 		</div>
 	</div>
+<input type="hidden" id="userNo" value="${sessionScope.memberVO.userNo}" />
 <!-- footer부분 -->
 <div id="footer"></div>
 </body>

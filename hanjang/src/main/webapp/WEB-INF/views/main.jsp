@@ -13,6 +13,7 @@
 
 <!-- 헤더연결 -->
 <script defer>
+
 	$(document).ready(function(){
 		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
 	})
@@ -22,20 +23,21 @@
 	$(document).ready(function(){
 		$("#footer").load("${pageContext.request.contextPath}/resources/jsp/footer/footer.jsp");
 	})
+
 </script>
 <script>
-	window.addEventListener("resize", homzzang);
-	function homzzang() {
-		var windowWidth = $(window).width();
-		if (windowWidth < 1100) {
-		  
-			$('.follow').css("display", "none");
-		} else {
-			$('.follow').css("display", "block");
-		}
+   window.addEventListener("resize", homzzang);
+   function homzzang() {
+      var windowWidth = $(window).width();
+      if (windowWidth < 1100) {
+        
+         $('.follow').css("display", "none");
+      } else {
+         $('.follow').css("display", "block");
+      }
 
-	}
-	
+   }
+   
 </script>
 
 
@@ -44,68 +46,68 @@
 
 
 $(document).ready(function(){
-	
-	$(window).scroll(function(){
-		var floatPosition = parseInt($(".follow").css('top'))
-		var rollit = $(this).scrollTop() >= 280;
-		var rollit2 = $(this).scrollTop() >= 450;
-		if(rollit){
-			$(".menubar").css("position","fixed");
-			$(".menubar").css("top",0);
-			$(".menubar").css("width","100%");
-			$(".menubar").css("text-align","center");
-			$(".search").css("position","absolute");
-			$(".search").css("rigth","88px");
-			$(".search").css("top","2px");
-			$(".menubar").css("z-index","9999");
-			$(".p1").css("z-index","9998");
-			$(".main_menu li").css("width","80px");	
-			$(".main_menu li a").css("width","80px");
-			$(".menu_container1").css("margin-left","-360px");
-			$(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 3px 0px");
-			$(".main_menu ").css("margin-top","10px");	
-		}else{
-			$(".menubar").css("position","static");
-			$(".search").css("position","static");
-			$(".menubar").css("text-align","center");
-			$(".main_menu li").css("position","relative");
-			$(".main_menu li").css("width","100px");	
-			$(".main_menu li a").css("width","100px");
-			$(".menu_container1").css("margin-left","0px");
-			$(".main_menu ").css("margin-top","0px");	
-		}
-		 var currentTop = $(window).scrollTop();
+   
+   $(window).scroll(function(){
+      var floatPosition = parseInt($(".follow").css('top'))
+      var rollit = $(this).scrollTop() >= 280;
+      var rollit2 = $(this).scrollTop() >= 450;
+      if(rollit){
+         $(".menubar").css("position","fixed");
+         $(".menubar").css("top",0);
+         $(".menubar").css("width","100%");
+         $(".menubar").css("text-align","center");
+         $(".search").css("position","absolute");
+         $(".search").css("rigth","88px");
+         $(".search").css("top","2px");
+         $(".menubar").css("z-index","9999");
+         $(".p1").css("z-index","9998");
+         $(".main_menu li").css("width","80px");   
+         $(".main_menu li a").css("width","80px");
+         $(".menu_container1").css("margin-left","-360px");
+         $(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 3px 0px");
+         $(".main_menu ").css("margin-top","10px");   
+      }else{
+         $(".menubar").css("position","static");
+         $(".search").css("position","static");
+         $(".menubar").css("text-align","center");
+         $(".main_menu li").css("position","relative");
+         $(".main_menu li").css("width","100px");   
+         $(".main_menu li a").css("width","100px");
+         $(".menu_container1").css("margin-left","0px");
+         $(".main_menu ").css("margin-top","0px");   
+      }
+       var currentTop = $(window).scrollTop();
 
-		 //이동 애니메이션
-		 if(rollit2){
-		 $(".follow").stop().animate({
-		   "top" : currentTop+250+"px"
-		 }, 570);
-		 }
-	});
-	
+       //이동 애니메이션
+       if(rollit2){
+       $(".follow").stop().animate({
+         "top" : currentTop+250+"px"
+       }, 570);
+       }
+   });
+   
 });
 </script> 
 
 
 <script>
 $(function(){
-	var widthh = $(".slide").outerWidth();
-	  var $panel = $(".slide_img").find("ul");
-	  var rolling;
+   var widthh = $(".slide").outerWidth();
+     var $panel = $(".slide_img").find("ul");
+     var rolling;
       var itemWidth = $panel.children().outerWidth(); // 아이템 가로 길이
       var itemLength = $panel.children().length;      // 아이템 수
       
       auto();
-	function auto(){
-    	  
-	rolling = setInterval(rollingStart,3000);
+   function auto(){
+         
+   rolling = setInterval(rollingStart,3000);
       }
-	
-	function stop(){
-		clearInterval(rolling);
-	}
-	 $panel.mouseover(function() {
+   
+   function stop(){
+      clearInterval(rolling);
+   }
+    $panel.mouseover(function() {
        stop();
      });
 
@@ -115,35 +117,35 @@ $(function(){
      });
      
      $(".prev input").on("click", function() {
-			stop();
-			backslide();
-			auto();
-		});
+         stop();
+         backslide();
+         auto();
+      });
 
       $(".next input").on("click", function() {
-    	  stop();
-    	  rollingStart();
-			auto();
-		});
+         stop();
+         rollingStart();
+         auto();
+      });
 
-	function rollingStart(){
+   function rollingStart(){
          $panel.animate({"left": - itemWidth}, function() {
              $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
             $(this).find("li").css("width","25%");
              $(this).find("li:first").remove();
 
              $(this).css("left", 0);
-	  });
-	  	
-	}
-	function backslide(){
-		 $panel.css("left", - itemWidth);
+     });
+        
+   }
+   function backslide(){
+       $panel.css("left", - itemWidth);
          $panel.prepend("<li>" + $panel.find("li:last").html() + "</li>");
          $panel.animate({"left": "0px"}, function() {
              $(this).find("li:last").remove();
-	  });
-		
-	}
+     });
+      
+   }
 });
 
 
@@ -151,25 +153,25 @@ $(function(){
 <script>
 
 function smallprevclick(){
-	var ml1 = $(".intro_book_slide ul").css("marginLeft");
-	if(ml1=="-2192px"){
-	$(".intro_book_slide ul").animate({marginLeft:"-1096px"},400);
-	$(".smallnext a").css("visibility","visible");
-	}else if(ml1=="-1096px"){
-		$(".intro_book_slide ul").animate({marginLeft:"0"},400);
-		$(".smallprev a").css("visibility","hidden");
-	}
+   var ml1 = $(".intro_book_slide ul").css("marginLeft");
+   if(ml1=="-2192px"){
+   $(".intro_book_slide ul").animate({marginLeft:"-1096px"},400);
+   $(".smallnext a").css("visibility","visible");
+   }else if(ml1=="-1096px"){
+      $(".intro_book_slide ul").animate({marginLeft:"0"},400);
+      $(".smallprev a").css("visibility","hidden");
+   }
 }
 
 function smallnextclick(){
-	var ml1 = $(".intro_book_slide ul").css("marginLeft");
-	if(ml1=="0px"){
-	$(".intro_book_slide ul").animate({marginLeft:"-1096px"},400);
-	$(".smallprev a").css("visibility","visible");
-	}else if(ml1=="-1096px"){
-		$(".intro_book_slide ul").animate({marginLeft:"-2192px"},400);
-	$(".smallnext a").css("visibility","hidden");
-	}
+   var ml1 = $(".intro_book_slide ul").css("marginLeft");
+   if(ml1=="0px"){
+   $(".intro_book_slide ul").animate({marginLeft:"-1096px"},400);
+   $(".smallprev a").css("visibility","visible");
+   }else if(ml1=="-1096px"){
+      $(".intro_book_slide ul").animate({marginLeft:"-2192px"},400);
+   $(".smallnext a").css("visibility","hidden");
+   }
 }
 
 
@@ -177,13 +179,13 @@ function smallnextclick(){
 
 <script>
 function search(){
-	var searchval = $("#keyword").val();
-	$.ajax({
-     		
-		
-		
-	});
-	
+   var searchval = $("#keyword").val();
+   $.ajax({
+           
+      
+      
+   });
+   
 }
 
 </script>
@@ -207,11 +209,11 @@ function search(){
 <style>
 
 * {
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-	text-decoration: none;
-	border-collapse: collapse;
+   margin: 0px;
+   padding: 0px;
+   list-style: none;
+   text-decoration: none;
+   border-collapse: collapse;
 }
 
 .headerwe{
@@ -272,7 +274,7 @@ height:45px;
 display:inline-block;
 width:100px;
 margin:0 15px;
-text-align:center;	
+text-align:center;   
 background:white;
 position:relative;
 z-index:9996;
@@ -281,7 +283,7 @@ z-index:9996;
 display:block;
 width:100px;
 padding:7px 3px;
-text-align:center;	
+text-align:center;   
 background:white;
 color:black;
 }
@@ -297,7 +299,7 @@ display:none;
 display:inline-block;
 font-size:12px;
 width:100px;
-text-align:left;	
+text-align:left;   
 background:white;
 }
 .main_menu li .dropdown li a:hover{
@@ -480,7 +482,7 @@ position:relative;
 .eventintro_event ul li{
 float:left;
 width:344px;
-height:420px;
+height:379px;
 margin:35px 11px;
 background:white;
 }
@@ -488,11 +490,18 @@ background:white;
 display:block;
 width:100%;
 height:380px;
-background:yellow;
+background:white;
 }
-.eventintro_event ul li div{
+
+.eventintro_event ul li a div{
+position:absolute;
 text-align:center;
 font-size:26px;
+bottom:-416px;
+background:rgb(95, 0, 128);
+width:344px;
+height:45px;
+opacity:0.6;
 }
 
 .smallprev, .smallnext{
@@ -506,8 +515,8 @@ width:30px;
 height:30px;
 border-radius:50%;
 background-image:
-		url(https://blog.kakaocdn.net/dn/kZSFX/btqXFf0GS1b/fe0W4EQPhkqikYLXgYzSG1/img.png);
-	background-size: cover;
+      url(https://blog.kakaocdn.net/dn/kZSFX/btqXFf0GS1b/fe0W4EQPhkqikYLXgYzSG1/img.png);
+   background-size: cover;
 
 }
 .smallprev a:hover, .smallnext a:hover{
@@ -519,8 +528,8 @@ width:30px;
 height:30px;
 border-radius:50%;
 background-image:
-		url(https://blog.kakaocdn.net/dn/bWA5Bu/btqXBWt30aI/dNTXn6JWhPtnJwi3tR8Lg0/img.png);
-	background-size: cover;
+      url(https://blog.kakaocdn.net/dn/bWA5Bu/btqXBWt30aI/dNTXn6JWhPtnJwi3tR8Lg0/img.png);
+   background-size: cover;
 }
 .smallnext{
 right:-1px;
@@ -569,42 +578,48 @@ margin:0 auto;
 width:1050px;
 height:300px;
 }
+/* footer 이미지 */
+.footerImg {
+	text-align:center;
+	margin-top:200px;
+	margin-bottom:-2px;
+}
 </style>
 </head>
 <body>
-<div id="p1"
-		style="position: absolute; left: 200px; top: 100px; visibility: visible; z-index:9999;">
-		<table border="1" width=300 height=300>
-<tr><td style="border: 2px #0000ff solod" bgcolor=white>
-팝 업 창 <br> 
-	</td></tr>
-						
-		</table>
-		<table style="border:0; background:gray; width:300px;height:5px;">
-		<tr style="float:right;">
-		<td>24시간동안 이 창을 띄우지 않기<input type="checkbox" name="popcheckb" id="popcheckb"/></td>
-		<td><input type="button" value="닫기" onclick="closePop();"></td>
-		</tr>
-		</table>
-	</div>
+<!-- 팝업창 시작 -->
+<div id="p1" style="position: absolute; left: 200px; top: 100px; visibility: visible; z-index:9999;">
+   <table style="width:300; height:300; background:#1c0f51; color:white; font-size:12px;">
+      <tr>
+         <td style="border:none; margin-bottom:auto;">
+         <img src="resources\img\main\popup.jpg">
+         </td>
+      </tr>      
+      <tr style="float:right;">
+         <td>24시간동안 이 창을 띄우지 않기 <input type="checkbox" name="popcheckb" id="popcheckb"/></td>
+         <td><input type="button" value="닫기" onclick="closePop();" style="color:white; background:transparent; border:none; font-size:12px; outline: none; cursor:pointer;'"></td>
+      </tr>
+   </table>
+</div>
+<!-- 팝업창 끝 -->
 <div class="headerwe"></div>
 <div class="header">
 <div class="usermenu" >
 <ul>
 <c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
-						<li><a href="loginform.do">장바구니</a></li>
-						<li><a href="">내정보</a></li>
-						<li><a href="Logout.do">로그아웃</a></li>
-						<li><a href="">카트</a></li>
-					</c:if>
-					<c:if test="${(loginVO=='ADMIN') ? true : false }">
-						<li><a href="">회원관리</a></li>
-						<li><a href="Logout.do">로그아웃</a></li>
-					</c:if>
-					<c:if test="${(loginVO==null) ? true : false}">
-						<li><a href="loginform.do">로그인</a></li>
+                  <li><a href="loginform.do">장바구니</a></li>
+                  <li><a href="">내정보</a></li>
+                  <li><a href="Logout.do">로그아웃</a></li>
+                  <li><a href="">카트</a></li>
+               </c:if>
+               <c:if test="${(loginVO=='ADMIN') ? true : false }">
+                  <li><a href="">회원관리</a></li>
+                  <li><a href="Logout.do">로그아웃</a></li>
+               </c:if>
+               <c:if test="${(loginVO==null) ? true : false}">
+                  <li><a href="loginform.do">로그인</a></li>
 <li><a href="joinform.do">회원가입</a></li>
-					</c:if>
+               </c:if>
 
 </ul>
 </div>
@@ -629,12 +644,12 @@ height:300px;
 <li><a href="">자기개발</a></li>
 <li><a href="">기타</a></li>
 </ul></li>
-<li class="menu2"><a href="">베스트셀러</a></li>
-<li class="menu3"><a href="">새로나온책</a></li>
+<li class="menu2"><a href="BestSellerList1.do">베스트셀러</a></li>
+<li class="menu3"><a href="NewBookList1.do">새로나온책</a></li>
 <li class="menu4"><a href="">커뮤니티</a>
 <ul class="dropdown">
-<li><a href="">책 추천 게시판</a></li>
-<li><a href="">없는책 요청게시판</a></li>
+<li><a href="recommendList.do">이 책 추천해요</a></li>
+<li><a href="requestList.do">없는 책 요청해요</a></li>
 </ul></li>
 </ul>
 </div>
@@ -656,10 +671,10 @@ height:300px;
 <div class="prev"><input type="button"  value="<"/></div>
 <div class="slide_img">
 <ul>
-	<li><a href="#"><img src="resources\img\main\mainslide1.jpg" /></a></li>
-	<li><a href="#"><img src="resources\img\main\mainslide2.jpg" /></a></li>
-	<li><a href="#"><img src="resources\img\main\mainslide3.jpg" /></a></li>
-	<li><a href="#"><img src="resources\img\main\mainslide2.jpg" /></a></li>
+   <li><a href="#"><img src="resources\img\main\mainslide1.jpg" /></a></li>
+   <li><a href="#"><img src="resources\img\main\mainslide2.jpg" /></a></li>
+   <li><a href="#"><img src="resources\img\main\mainslide3.jpg" /></a></li>
+   <li><a href="#"><img src="resources\img\main\mainslide2.jpg" /></a></li>
 </ul>
 </div>
 <div class="next"><input type="button" value=">" /></div>
@@ -700,8 +715,8 @@ height:300px;
  </div>
 <div class="today_book_bookimage"> 
 <c:forEach items="${bookList}" var="b" begin="0" end="0">
-						<a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a>
-						</c:forEach>
+                  <a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a>
+                  </c:forEach>
 
 </div>
 </div>
@@ -711,23 +726,26 @@ height:300px;
 </div>
 <div class="eventintro_event">
 <ul>
-<li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
-<li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
-<li><a href="">이미지들어올곳</a><div>이벤트이름</div></li>
+<li><a href="event.do"><div>이벤트이름</div></a></li>
+<li><a href="">이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/><div>이벤트이름</div></a></li>
+<li><a href=""><div>이벤트이름</div></a></li>
 
 </ul>
 </div>
 </div>
 <!-- footer부분 -->
+<div class="footerImg">
+<img src="resources\img\footer\footerimg.jpg" style="margin-bottom:-83px;">
+</div>
 <div id="footer"></div></div>
 </body>
 <script language="Javascript">
     cookiedata = document.cookie;   
     if ( cookiedata.indexOf("maindiv=done") < 0 ){     
-    	 document.getElementById("p1").style.visibility="visible";
+        document.getElementById("p1").style.visibility="visible";
     }
     else {
-    	 document.getElementById("p1").style.visibility="hidden";
+        document.getElementById("p1").style.visibility="hidden";
     }
 </script>
 

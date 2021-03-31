@@ -71,7 +71,6 @@
 </table>
 <input type="hidden" name="boardNo" value="${post.boardNo }" />
 </form>
-<div style="width:100%; height:150px;"></div>
 <!-- footer부분 -->
 <div id="footer"></div>
 </body>
