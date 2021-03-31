@@ -231,6 +231,7 @@ width:340px;
 height:49px;
 border-radius:4px;
 cursor:pointer;
+font-weight:bold;
  }
     
 </style>
@@ -323,7 +324,7 @@ cursor:pointer;
 			<div class="bar"></div>
 			<div><a href="">아이디 찾기</a></div>
 			</div>
-			<div style="margin-bottom:8px;"><input type="submit" value="로그인" class="logininbut" style="border:none; background-image:linear-gradient(61deg, #7effa8, #3fcbff); color:white;"/></div>
+			<div style="margin-bottom:8px;"><input type="submit" value="로그인" class="logininbut" style="border:none; background-image:linear-gradient(61deg, #7effa8, #3fcbff);"/></div>
 			<div><input type="button" value="회원가입" class="logininbut" style="background:white; border:1px solid; border-image:linear-gradient(61deg, #7effa8, #3fcbff); border-image-slice: 1;" onclick="location.href='joinform.do'"/></div> 
 			<!-- <input type="button" value="회원가입" onclick="goJoinForm()" />  -->
 			
