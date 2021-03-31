@@ -27,75 +27,67 @@
    text-decoration: none;
    border-collapse: collapse;
 }
-	.button{
-	
-	color:#5f0080;
+.button{
+	color:black;
 	width:130;height:43px;
 	background:white;
 	border-radius:3px;
-		font-weight:700;
-		border-radius:2px;
-		font-weight:700;
-  border: solid 3px transparent;
-  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff );
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-	}
-	#wrap{
+	border-radius:2px;
+	font-weight:bold;
+	border: solid 3px transparent;
+	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff );
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+}
+#wrap{
 	width:1050px;
 	margin: 0 auto;
-	}
-	
-	.member_join_field{
+	margin-top:100px;
+}
+.member_join_field{
 	width:640px;
-	margin:0 auto;}
-	
+	margin:0 auto;
+}
 	.member_join_field table{
-	font-weight:700;
+	font-weight:bold;
 	font-size:14px;
-	}
-	#startag{
+}
+#startag{
 	color:red;
 	font-size:14px;
-	}
-	
-	#title{
+}
+#title{
   width:130px;
   height:60px;
-	}
-.input_text_f{
-width:332px;
-height:44px;
-border: 1px solid #ccc;
 }
-
+.input_text_f{
+	width:332px;
+	height:44px;
+	border: 1px solid #ccc;
+}
 .butt{
-width:120px;
-height:44px;
-	
-	color:#5f0080;
+	width:120px;
+	height:44px;
+	color:black;
 	background:white;
 	border-radius:2px;
-		font-weight:700;
-  border: solid 3px transparent;
-  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff );
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  
+	font-weight:bold;
+	border: solid 3px transparent;
+	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff );
+	background-origin: border-box;
+	background-clip: content-box, border-box;
 }
-
 .two_1{
-   height: 2px;
-   border: none;
-   background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);}
-
+	height: 2px;
+	border: none;
+	background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);}
 .footer div{
-float:left;
+	float:left;
 }
 .footer{
-margin:0 auto;
-width:1050px;
-height:300px;
+	margin:0 auto;
+	width:1050px;
+	height:300px;
 }
 </style>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -241,7 +233,7 @@ $(document).ready(function(){
 	 <div class="member_join_field">
 		<br><br>
 		<div style="text-align:center;"><h2>회원가입</h2></div>
-		<br><div style="text-align:right; font-size:10px;"><span id="startag">*</span>필수입력사항</div>
+		<br><div style="text-align:right; font-size:12px; margin-bottom:5px;"><span id="startag">*</span>필수입력사항</div>
 		<hr class="two_1">
 		<br><br>
 		
@@ -255,7 +247,7 @@ $(document).ready(function(){
 					<td id="title">아이디<span id="startag">*</span></td>
 					<td>
 						<input type="text" name="id" maxlength="15" class="input_text_f" id="idt" pattern="^([a-z0-9]){6,12}$" placeholder="6~12자의 영문 혹은 영문과 숫자를 조합" onkeyup="idcheck()">
-						<input type="button" value="중복확인"class="button"  id="idcheck_But" onclick="check()" >	
+						<input type="button" value="중복확인" class="button" id="idcheck_But" onclick="check()" >	
 						<input type="hidden" name="idDuplication" value="idUncheck" />
 					</td>
 				</tr>
@@ -325,7 +317,7 @@ $(document).ready(function(){
 				<tr>
 					<td id="title">주소</td>
 					<td>
-						<input type="text" size="50" name="address" style="height:44px; border: 1px solid #ccc;"/>
+						<input type="text" size="45" name="address" style="height:44px; border: 1px solid #ccc;"/>
 					</td>
 				</tr>
 			</table>
