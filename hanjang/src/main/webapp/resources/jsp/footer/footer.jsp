@@ -8,9 +8,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/jsp/footer/footer.css" />
 </head>
 <body>
-<div class="footerImg">
-<img src="resources\img\footer\footerimg.jpg">
-</div>
+<div style="margin-top:80px;"></div>
 <hr class="line">
 <div class="footer">
 <div class="footer_left">
