@@ -10,6 +10,7 @@
 <!-- jquery 링크-->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!-- 헤더연결 -->
 <script defer>
 	$(document).ready(function(){
@@ -48,7 +49,20 @@
 			}
 		});
 		// ajax-end
-		swal("성공","장바구니에 상품을 담았습니다", "success");
+				swal.fire({
+			title : '장바구니',
+			text : '장바구니로 이동하시겠습니까?',
+			icon : 'info',
+			showCancelButton : true,
+			confirmButtonColor : '#3085d6',
+			cancelButtonColor : '#d33',
+			confirmButtonText : '이동',
+			cancelButtonText : '취소'
+		}).then((result) => {
+			if(result.value){
+				location.href="getOneCart.do";
+			}
+		})
 	}
 	
 	$(document).ready(function() {
@@ -180,18 +194,21 @@
 </script>
 <title>베스트셀러</title>
 <style>
-.footer div{
-	float:left;
+.footer div {
+	float: left;
 }
-.footer{
-	margin:0 auto;
-	width:1050px;
-	height:300px;
+
+.footer {
+	margin: 0 auto;
+	width: 1050px;
+	height: 300px;
 }
 </style>
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_list.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/reset.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/book_list.css" />
 
 <style>
 #title {
@@ -203,7 +220,7 @@
 	<div id="container">
 		<!-- header부분 -->
 		<div id="header"></div>
-		
+
 		<div id="title">
 			<ul>
 				<li class="title_wrap"><p>베스트셀러</p></li>
@@ -212,80 +229,55 @@
 
 		<div id="wrap">
 			<div id="category">
-				<button style="cursor: pointer;" onclick="location='BestSellerList1.do?categoryId=100'">베스트셀러
+				<button style="cursor: pointer;"
+					onclick="location='BestSellerList1.do?categoryId=100'">베스트셀러
 					종류</button>
 			</div>
 
 			<div id="genre">
-			<input type="hidden" class="genre" value="${categoryId}">
+				<input type="hidden" class="genre" value="${categoryId}">
 				<ul>
-					<li>
-						<a href="BestSellerList1.do?categoryId=109" 
+					<li><a href="BestSellerList1.do?categoryId=109"
 						onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'">유아/어린이</a>
-					</li>
-					<li>
-						<a href="BestSellerList1.do?categoryId=101" 
+						onmouseout="this.style.color='#555'">유아/어린이</a></li>
+					<li><a href="BestSellerList1.do?categoryId=101"
 						onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'">소설/시/희곡</a>
-					</li>
-					<li>
-						<a href="BestSellerList1.do?categoryId=102" 
+						onmouseout="this.style.color='#555'">소설/시/희곡</a></li>
+					<li><a href="BestSellerList1.do?categoryId=102"
 						onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'">에세이</a>
-					</li>
-					<li>
-						<a href="BestSellerList1.do?categoryId=103" 
+						onmouseout="this.style.color='#555'">에세이</a></li>
+					<li><a href="BestSellerList1.do?categoryId=103"
 						onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'">인문학</a>
-					</li>
-					<li>
-						<a href="BestSellerList1.do?categoryId=116" 
+						onmouseout="this.style.color='#555'">인문학</a></li>
+					<li><a href="BestSellerList1.do?categoryId=116"
 						onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'">과학/역사</a>
-					</li>
-					
+						onmouseout="this.style.color='#555'">과학/역사</a></li>
+
 					<div id="bottomLine">
-						<span id="genre1"></span>
-						<span id="genre2"></span>
-						<span id="genre3"></span>
-						<span id="genre4"></span>
-						<span id="genre5"></span>
+						<span id="genre1"></span> <span id="genre2"></span> <span
+							id="genre3"></span> <span id="genre4"></span> <span id="genre5"></span>
 					</div>
 					<br>
 					<br>
-					<li>
-						<a href="BestSellerList1.do?categoryId=114" 
+					<li><a href="BestSellerList1.do?categoryId=114"
 						onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'">수험서/참고서</a>
-					</li>
-					<li>
-						<a href="BestSellerList1.do?categoryId=205" 
+						onmouseout="this.style.color='#555'">수험서/참고서</a></li>
+					<li><a href="BestSellerList1.do?categoryId=205"
 						onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'">영미소설</a>
-					</li>
-					<li>
-						<a href="BestSellerList1.do?categoryId=117" 
+						onmouseout="this.style.color='#555'">영미소설</a></li>
+					<li><a href="BestSellerList1.do?categoryId=117"
 						onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'">경제경영</a>
-					</li>
-					<li>
-						<a href="BestSellerList1.do?categoryId=118" 
+						onmouseout="this.style.color='#555'">경제경영</a></li>
+					<li><a href="BestSellerList1.do?categoryId=118"
 						onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'">자기계발</a>
-					</li>
-					<li>
-						<a href="BestSellerList1.do?categoryId=128" 
+						onmouseout="this.style.color='#555'">자기계발</a></li>
+					<li><a href="BestSellerList1.do?categoryId=128"
 						onmouseover="this.style.color='#0000FF'"
-					 	onmouseout="this.style.color='#555'">여행</a>
-					</li>
-					
+						onmouseout="this.style.color='#555'">여행</a></li>
+
 					<div id="bottomLine">
-						<span id="genre6"></span>
-						<span id="genre7"></span>
-						<span id="genre8"></span>
-						<span id="genre9"></span>
-						<span id="genre10"></span>
+						<span id="genre6"></span> <span id="genre7"></span> <span
+							id="genre8"></span> <span id="genre9"></span> <span id="genre10"></span>
 					</div>
 				</ul>
 			</div>
@@ -297,13 +289,12 @@
 					<c:forEach items="${bookList}" var="b">
 						<li>
 							<div class="thumb_cont">
-							<input type="hidden" value="${sessionScope.memberVO.userNo}" />
-							<input type="hidden" value="${b.itemID}"/>
+								<input type="hidden" value="${sessionScope.memberVO.userNo}" />
+								<input type="hidden" value="${b.itemID}" />
 								<div class="info_area">
 									<div class="image">
-										<a href="goToBookDetail.do">
-										 <img src="${b.coverLargeUrl}" alt="" /> 
-										 <%-- <img src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg" 
+										<a href="goToBookDetail.do"> <img src="${b.coverLargeUrl}"
+											alt="" /> <%-- <img src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg" 
 								alt="우리는 안녕"/></a> --%></a>
 									</div>
 
@@ -313,13 +304,11 @@
 											<!-- <a href="#"><strong>우리는 안녕</strong></a> -->
 										</div>
 										<div class="pub_info">
-											<span class="author">${b.author}</span>
-											<span>|</span> 
-											<span class="publication">${b.publisher}</span>
-											<span>|</span>
-											<span class="publication_date">
-												<fmt:parseDate value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd"/>
-												<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" />
+											<span class="author">${b.author}</span> <span>|</span> <span
+												class="publication">${b.publisher}</span> <span>|</span> <span
+												class="publication_date"> <fmt:parseDate
+													value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd" /> <fmt:formatDate
+													pattern="yyyy년 MM월 dd일" value="${pubDate1}" />
 											</span>
 											<!-- <span class="author">박준</span>
 									<span>|</span> 
@@ -328,11 +317,15 @@
 									<span class="publication_date">2021년 03월 20일</span> -->
 										</div>
 										<div class="price">
-											<span class="sell_price"><fmt:formatNumber value="${b.priceStandard}" pattern="#,###"/>원</span>
+											<span class="sell_price"><fmt:formatNumber
+													value="${b.priceStandard}" pattern="#,###" />원</span>
 											<!-- <span class="sell_price">14,850원</span> -->
 										</div>
 										<div class="info">
-											<span> <c:if test="${empty b.description }">책 설명 업데이트 예정<br><br><br><br>
+											<span> <c:if test="${empty b.description }">책 설명 업데이트 예정<br>
+													<br>
+													<br>
+													<br>
 												</c:if> ${b.description} <!-- "안녕은 그리는 거야." 박준 시인의 첫 시 그림책<br> 안녕은 그리는 거야.<br>
 									그리고 그리고 또 그리는 것을 그리움이라고 하는 거야.<br> 시인 박준의 첫 시 그림책 '우리는
 									안녕' -->
@@ -341,11 +334,12 @@
 									</div>
 
 								</div>
-								
+
 								<div class="buy_button">
 									<button style="cursor: pointer;" onclick="javascript:addCart()">장바구니</button>
 									<br>
-									<button style="cursor: pointer;" onclick="location='goToOrderList.do'">바로 구매</button>
+									<button style="cursor: pointer;"
+										onclick="location='goToOrderList.do'">바로 구매</button>
 								</div>
 							</div>
 						</li>
@@ -515,7 +509,7 @@
 			</div> -->
 		</div>
 	</div>
-<!-- footer부분 -->
-<div id="footer"></div>
+	<!-- footer부분 -->
+	<div id="footer"></div>
 </body>
 </html>
