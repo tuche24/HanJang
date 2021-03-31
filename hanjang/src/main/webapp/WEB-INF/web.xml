@@ -86,4 +86,10 @@
 		<error-code>404</error-code>
 		<location>/WEB-INF/views/error/404.jsp</location>
 	</error-page> -->
+	
+	<!-- 세션 유지 시간 지정 (단위: 분) 시작 -->
+	<session-config>
+		<session-timeout>50</session-timeout>
+	</session-config>
+	
 </web-app>
