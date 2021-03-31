@@ -204,6 +204,22 @@ function search(){
 
 
 </script>
+<script>
+	function zoomIn(event) {
+		event.target.style.transform = "scale(1.1)";
+		event.target.style.zIndex = 1;
+
+		event.target.style.transition = "all 0.5s";
+	}
+
+	function zoomOut(event) {
+		event.target.style.transform = "scale(1)";
+		event.target.style.zIndex = 0;
+		event.target.style.transition = "all 0.5s";
+	}
+
+	
+</script>
 <style>
 
 * {
@@ -310,7 +326,9 @@ display:inline-block;
 
 }
 .main_menu li:hover .dropdown{
-display:block;}
+display:block;
+ transition-delay: 0.5s;
+}
 .main_menu li:hover{
 background:white;}
 
@@ -621,7 +639,7 @@ height:300px;
 <div class="menu_container1">
 <ul class="main_menu">
 <li class="menu1"><a href="">카테고리</a>
-<ul class="dropdown">
+<ul class="dropdown" ">
 <li><a href=""><h3>국내도서</h3></a></li>
 <li><a href="">유아/어린이</a></li>
 <li><a href="">소설/시/희곡</a></li>
@@ -639,7 +657,7 @@ height:300px;
 <li class="menu2"><a href="">베스트셀러</a></li>
 <li class="menu3"><a href="">새로나온책</a></li>
 <li class="menu4"><a href="">커뮤니티</a>
-<ul class="dropdown">
+<ul class="dropdown"   >
 <li><a href="">책 추천 게시판</a></li>
 <li><a href="">없는책 요청게시판</a></li>
 </ul></li>
@@ -692,7 +710,7 @@ height:300px;
 <div class="smallnext"><a href="#" onclick="smallnextclick(); return false;"></a></div>
 <ul>
 <c:forEach items="${bookList}" var="b" begin="0" end="11">
-<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a><div style="font-size:13px;font-weight:70;">${b.title }</div></li>
+<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)"/></a><div style="font-size:13px;font-weight:70;">${b.title }</div></li>
 </c:forEach>
 </ul>
 </div>
