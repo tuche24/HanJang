@@ -57,6 +57,15 @@ hr {
 	text-overflow: ellipsis;
 	margin-right: 170px;
 }
+/* 주문상품 책 수량 */
+#bookamount {
+	font-weight: bold;
+	margin-right: 30px;
+}
+/* 주문상품 책 가격 */
+#bookprice{
+	font-weight: bold;
+}
 /* 글 주문자 정보 */
 .tit_section {
 	font-size: 20px;
