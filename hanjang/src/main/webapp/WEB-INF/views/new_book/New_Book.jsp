@@ -18,7 +18,7 @@
 <!-- 푸터연결 -->
 <script defer>
 	$(document).ready(function(){
-		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
+		$("#footer").load("${pageContext.request.contextPath}/resources/jsp/footer/footer.jsp");
 	})
 </script>
 <script>

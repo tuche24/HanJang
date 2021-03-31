@@ -50,5 +50,9 @@
 <form action="gotofindpw.do">
 <input type="submit" value="비밀번호찾기" />
 </form>
+
+<form action="goToComplete.do">
+<input type="submit" value="결제완료" />
+</form>
 </body>
 </html>

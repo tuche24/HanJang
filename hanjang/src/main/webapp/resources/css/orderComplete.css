@@ -1,0 +1,263 @@
+#container {
+	margin: 0 auto;
+	width: 1080px;
+	overflow: hidden;
+}
+
+.content {
+	width: 100%;
+	padding-bottom: 100px;
+}
+
+/* 제목 */
+.title {
+	position: relative;
+    padding-top: 47px;
+    height: 83px;
+    width: 1080px;
+}
+
+h2.title_finish {
+	margin-left: 40px;
+	width: 300px;
+    height: 80px;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+/* 내용 */
+.content_main {
+	position: relative;
+    height: 100%;
+    width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 내용 제목 */
+.order_finish {
+	padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.finish_tit {
+	text-align: center;
+}
+
+h4.tit_finish_tit {
+	width: 350px;
+    height: 40px;
+    margin-bottom: 0;
+    margin-top: 0;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    font-size: 30px;
+	font-weight: bold;
+}
+
+.tit_finish_tit2 {
+	margin-top: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    text-align: center;
+}
+
+strong {
+	font-weight: bold;
+}
+
+/* 내용 상세 */
+.finish_info {
+	height: 300px;
+	position: relative;
+    margin-top: 70px;
+}
+
+.order_info {
+    float: left;
+    width: 716px;
+    position: relative;
+}
+
+/* 배송지 정보 */
+h4.deliver_info {
+	margin-left: 1px;
+    margin-bottom: 18px;
+    width: 200px;
+    height: 30px;
+    margin-top: 0;
+	display: inline-block;
+    overflow: hidden;
+    font-size: 25px;
+	font-weight: bold;
+}
+
+.table_info {
+	border-top: 1px solid #333;
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+}
+
+table {
+	border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 12px;
+}
+
+tbody {
+	display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+	display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+	padding: 23px 0 19px 20px;
+    width: 144px;
+    line-height: 16px;
+	vertical-align: top;
+	background: #f9f9f9;
+    color: #666;
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+	padding: 20px 20px 18px;
+    line-height: 20px;
+    vertical-align: top;
+    color: #666;   
+}
+
+/* 결제 정보 */
+.pay_info {
+	float: right;
+    width: 348px;
+}
+
+h4.pay_info_tit {
+	margin-top: 0;
+    margin-bottom: 0;
+    width: 200px;
+    height: 30px;
+	display: inline-block;
+    overflow: hidden;
+    font-size: 25px;
+	font-weight: bold;
+}
+
+.order_price_info {
+	position: absolute;
+    top: 42px;
+    right: 0;
+    bottom: 0;
+    width: 348px;
+    background-color: #f2f3f6;
+    border-top: 1px solid #333;
+}
+
+.price_inner {
+	padding: 6px 30px 0;
+}
+
+ul {
+	list-style: none;
+}
+
+.price_inner .price_list li {
+    padding-top: 16px;
+}
+
+.price_inner .price_list li span {
+	line-height: 28px;
+    font-weight: bold;
+}
+
+.price_title {
+	color: #333;
+	float: left;
+    font-size: 14px;
+    letter-spacing: -1px;
+}
+
+.price_desc {
+	font-size: 14px;
+    color: #e55;
+	position: relative;
+    top: -2px;
+    display: block;
+    overflow: hidden;
+    height: 28px;
+    text-align: right;
+}
+
+.pay_sum .price_desc .price {
+    display: inline-block;
+    padding-right: 1px;
+    font-family: tahoma,Dotum;
+    font-size: 14px;
+    color: #e55;
+}
+
+.order_finish .finish_info .pay_info .order_price_info .price_inner li.pay_sum .price  {
+	font-size: 26px;
+    vertical-align: -3px;
+}
+
+/* 버튼 부분 */
+.finish_btn {
+	margin-top: 50px;
+    font-size: 0;
+    text-align: center;
+    padding: 200px 0 0 220px;
+    margin: 0;
+    display: flex;
+}
+
+button {
+    width: 225px;
+    height: 70px;
+    line-height: 1.5;
+    display: block;
+    white-space: nowrap;
+    margin: 0;
+    padding: 15px 25px 15px 25px;
+	font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.go_main {
+	background: none;
+	color: #333;
+	border: 1px solid #c3c3c3;
+    border-radius: 3px;
+	margin-right: 40px;
+}
+
+.go_pay_list {
+    background-color: #e55;
+    color: #fff;
+    outline: 0;
+	border: 0;
+}
+
+/* footer */
+.footer div {
+	float:left;
+}
+.footer {
+	margin:0 auto;
+	width:1050px;
+	height:300px;
+}
