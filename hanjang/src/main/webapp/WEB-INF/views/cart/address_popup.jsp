@@ -1,33 +1,159 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>¹è¼ÛÁö º¯°æ</title>
+<meta charset="UTF-8">
+<title>ë°°ì†¡ì§€ ë³€ê²½</title>
 </head>
 
 <style>
-.basic {
-	width: 50px;
+#container {
+	margin: 0;
+	height: 100%;
 }
 
-.change {
-	width: 50px;
+/* ì œëª© */
+#container .title {
+	display: block;
+    height: 25px;
+    margin-bottom: 40px;
+    color: #04B404;
+}
+
+/* ì£¼ì†Œì°½ */
+#address {
+	margin: 0 10px;
+	width: 95%;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+	width: 95%;
+}
+
+colgroup {
+	display: table-column-group;
+}
+
+tr {
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+
+tr:first-child {
+	border-top: 1px solid #444;
+}
+
+
+th {
+	padding: 20px 20px 20px 5px;
+	line-height: 18px;
+	color: #777;
+	font-size: 15px;
+	text-align: left;
+	border-bottom: 1px solid #dedede;
+	border-right: 1px solid #dedede;
+	background: #f7f7f7;
+}
+
+th:first-child {
+	border-top: 1px solid #444;
+}
+
+td {
+	position: relative;
+	padding: 20px 0 20px 10px;
+	border-bottom: 1px solid #dedede;
+	color: #777;
+}
+
+input {
+	width: 430px;
+	height: 30px;
+	vertical-align: middle;
+}
+
+/* ë²„íŠ¼ */
+#button {
+	text-align: center;
+    padding-top: 40px;
+    padding: 200px 0 0 220px;
+    margin: 0;
+    display: flex;
+}
+
+button {
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+#complete {
+	text-align: center;
+    overflow: hidden;
+    background: #2E64FE;
+	outline: 0;
+	border: 0;
+    color: #FFF;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: malgun, "Malgun Gothic", Dotum, ë‹ì›€, sans-serif;
+    line-height: 1.5;
+    display: block;
+    white-space: nowrap;
+    margin: 0;
+    padding: 15px 25px 15px 25px;
+    margin-right: 50px;
+}
+
+#cancel {
+	text-align: center;
+    overflow: hidden;
+    background: #848484;
+	outline: 0;
+	border: 0;
+    color: #FFF;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: malgun, "Malgun Gothic", Dotum, ë‹ì›€, sans-serif;
+    line-height: 1.5;
+    display: block;
+    white-space: nowrap;
+    margin: 0;
+    padding: 15px 25px 15px 25px;
 }
 </style>
 
 <body>
-<h2>¹è¼ÛÁö º¯°æ</h2>
+	<div id="container">
+		<h2 class="title">ë°°ì†¡ì§€ ë³€ê²½</h2>
+		
+		<div id="address">
+			<table>
+				<colgroup>
+					<col style="width: 25%;" >
+					<col style="width: *;" >
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>ë³€ê²½ ì „ ì£¼ì†Œ</th>
+						<td><input type="text" id="basic" value="ì´ì „ ì£¼ì†Œ" readonly /></td>
+					</tr>
+					<tr>
+						<th>ë³€ê²½ í›„ ì£¼ì†Œ</th>
+						<td><input type="text" id="change" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
-<div id="address">
-	<input type="text" id="basic" readonly/> º¯°æ Àü ÁÖ¼Ò
-	<input type="text" id="change" /> º¯°æ ÈÄ ÁÖ¼Ò
-</div>
-
-<div id="button">
-	<button id="complete">º¯°æ</button>
-	<button id="cancel" onclick="self.close();">Ãë¼Ò</button>
-</div>
+		<div id="button">
+			<button id="complete">ë³€ê²½</button>
+			<button id="cancel" onclick="self.close();">ì·¨ì†Œ</button>
+		</div>
+	</div>
 </body>
 </html>

@@ -13,15 +13,17 @@
 
 <!-- 헤더연결 -->
 <script defer>
-   $(document).ready(function(){
-      $("#header").load("/myapp/resources/jsp/header/header.jsp");
-   })
+
+	$(document).ready(function(){
+		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
+	})
 </script>
 <!-- 푸터연결 -->
 <script defer>
-   $(document).ready(function(){
-      $("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
-   })
+	$(document).ready(function(){
+		$("#footer").load("${pageContext.request.contextPath}/resources/jsp/footer/footer.jsp");
+	})
+
 </script>
 <script>
    window.addEventListener("resize", homzzang);

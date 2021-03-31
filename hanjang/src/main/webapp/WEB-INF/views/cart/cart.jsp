@@ -21,7 +21,7 @@
 <!-- 푸터연결 -->
 <script defer>
 	$(document).ready(function(){
-		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
+		$("#footer").load("${pageContext.request.contextPath}/resources/jsp/footer/footer.jsp");
 	})
 </script>
 <script>
@@ -290,7 +290,7 @@ Number.prototype.formatNumber = function(){
 	
 	// 배송지 변경 팝업창
 	function showPopup() { 
-		window.open("goToPopUp.do", "배송지 변경", "width=400, height=300, left=100, top=50");
+		window.open("goToPopUp.do", "배송지 변경", "width=700, height=600, left=100, top=50");
 	}
 </script>
 
@@ -299,12 +299,14 @@ Number.prototype.formatNumber = function(){
 	position: relative;
 	margin: 0 auto;
 	width: 1080px;
+	height: 800px;
 }
 
 #content {
 	position: relative;
 	margin: 0 auto;
 	width: 1080px;
+	
 }
 
 #cartItemList {
@@ -348,13 +350,14 @@ Number.prototype.formatNumber = function(){
 #items {
 	padding: 50px 0px;
 }
-.footer div{
+#footer div {
 	float:left;
 }
-.footer{
+#footer {
 	margin:0 auto;
 	width:1050px;
 	height:300px;
+	clear: both;
 }
 </style>
 

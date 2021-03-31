@@ -19,6 +19,13 @@ two_1 {
 	position: relative;
 	margin: 0 auto;
 	width: 1080px;
+	height: 800px;
+}
+
+#content {
+	position: relative;
+	margin: 0 auto;
+	width: 1080px;
 }
 
 #title_wrap {
@@ -29,16 +36,40 @@ two_1 {
 }
 
 #cartItemList {
-	
+	position: relative;
+	width: 1080px;
+	margin: 0 auto;
+	z-index: 3;
 }
 
 .cart_item {
 	float:left;
 	font-size: 15px;
+	padding: 16px 0px 15px;
+    overflow: hidden;
+	border-bottom: 1px solid;
+	width: 100%;
+}
+
+.check {
+	margin-right: 10px;
+}
+
+.btn_delete {
+	padding: 6px 8px 6px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    color: #193b78;
+    box-shadow: none;
+    cursor: pointer;
 }
 
 #item {
 	margin-top: 30px;
+}
+
+#items {
+	padding: 50px 0px;
 }
 
 #category {
@@ -105,6 +136,10 @@ two_1 {
 	margin-right: 20px;
 	line-height: 30px;
 	border: 1px solid gray;
+	position: absolute;
+    right: 50%;
+    top: 430px;
+    margin-right: -850px;
 }
 
 .amount_view {
@@ -164,4 +199,15 @@ dl.amount {
 		rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff);
 	background-origin: border-box;
 	background-clip: content-box, border-box;
+	cursor: pointer;
+}
+
+.footer div {
+	float:left;
+}
+
+.footer {
+	margin:0 auto;
+	width:1050px;
+	height:300px;
 }
