@@ -589,7 +589,7 @@ height:300px;
 		</tr>		
 		<tr style="float:right;">
 			<td>24시간동안 이 창을 띄우지 않기 <input type="checkbox" name="popcheckb" id="popcheckb"/></td>
-			<td><input type="button" value="닫기" onclick="closePop();" style="color:white; background:transparent; border:none; font-size:12px;"></td>
+			<td><input type="button" value="닫기" onclick="closePop();" style="color:white; background:transparent; border:none; font-size:12px; outline: none; cursor:pointer;'"></td>
 		</tr>
 	</table>
 </div>
