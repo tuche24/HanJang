@@ -607,10 +607,10 @@ height:300px;
 <div class="usermenu" >
 <ul>
 <c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
-                  <li><a href="loginform.do">장바구니</a></li>
+                  <li><a href="getOneCart.do">장바구니</a></li>
                   <li><a href="">내정보</a></li>
                   <li><a href="Logout.do">로그아웃</a></li>
-                  <li><a href="">카트</a></li>
+                  <li><a href="getOneCart.do">카트</a></li>
                </c:if>
                <c:if test="${(loginVO=='ADMIN') ? true : false }">
                   <li><a href="">회원관리</a></li>
