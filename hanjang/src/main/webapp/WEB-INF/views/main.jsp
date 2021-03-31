@@ -587,68 +587,7 @@ height:300px;
 		</tr>
 		</table>
 	</div>
-<div class="headerwe"></div>
-<div class="header">
-<div class="usermenu" >
-<ul>
-<c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
-						<li><a href="loginform.do">장바구니</a></li>
-						<li><a href="">내정보</a></li>
-						<li><a href="Logout.do">로그아웃</a></li>
-						<li><a href="">카트</a></li>
-					</c:if>
-					<c:if test="${(loginVO=='ADMIN') ? true : false }">
-						<li><a href="">회원관리</a></li>
-						<li><a href="Logout.do">로그아웃</a></li>
-					</c:if>
-					<c:if test="${(loginVO==null) ? true : false}">
-						<li><a href="loginform.do">로그인</a></li>
-<li><a href="joinform.do">회원가입</a></li>
-					</c:if>
-
-</ul>
-</div>
-<div class="logo_place"><div class="logo"><a href="">
-<img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a></div></div>
-<div class="menubar" >
-<div class="menu_container1">
-<ul class="main_menu">
-<li class="menu1"><a href="">카테고리</a>
-<ul class="dropdown">
-<li><a href=""><h3>국내도서</h3></a></li>
-<li><a href="">유아/어린이</a></li>
-<li><a href="">소설/시/희곡</a></li>
-<li><a href="">에세이</a></li>
-<li><a href="">인문학</a></li>
-<li><a href="">과학/역사</a></li>
-<li><a href="">수험서/참고서</a></li>
-<li><a href="">기타</a></li>
-<li><a href=""><h3>국외도서</h3></a></li>
-<li><a href="">영미소설</a></li>
-<li><a href="">경제경영</a></li>
-<li><a href="">자기개발</a></li>
-<li><a href="">기타</a></li>
-</ul></li>
-<li class="menu2"><a href="">베스트셀러</a></li>
-<li class="menu3"><a href="">새로나온책</a></li>
-<li class="menu4"><a href="">커뮤니티</a>
-<ul class="dropdown">
-<li><a href="">책 추천 게시판</a></li>
-<li><a href="">없는책 요청게시판</a></li>
-</ul></li>
-</ul>
-</div>
-<div class="search" >
-<form id="idFrom" action="BookList.do">
-<input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" onkeyup="search()"/>
-<input type="submit" value="검색" class="search_sub"/>
-<ul id="searchList">
-
-</ul>
-</form>
-</div>
-</div>
-</div>
+<div id="header"></div>
 
 <div class="main">
 <div class="slide_container"> 
