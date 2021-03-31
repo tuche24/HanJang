@@ -591,28 +591,6 @@ height:300px;
 			<td>24시간동안 이 창을 띄우지 않기 <input type="checkbox" name="popcheckb" id="popcheckb"/></td>
 			<td><input type="button" value="닫기" onclick="closePop();" style="color:white; background:transparent; border:none; font-size:12px; outline: none; cursor:pointer;'"></td>
 		</tr>
-	</table>
-</div>
-<!-- 팝업창 끝 -->
-<div class="headerwe"></div>
-<div class="header">
-<div class="usermenu" >
-<ul>
-<c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
-						<li><a href="loginform.do">장바구니</a></li>
-						<li><a href="">내정보</a></li>
-						<li><a href="Logout.do">로그아웃</a></li>
-						<li><a href="">카트</a></li>
-					</c:if>
-					<c:if test="${(loginVO=='ADMIN') ? true : false }">
-						<li><a href="">회원관리</a></li>
-						<li><a href="Logout.do">로그아웃</a></li>
-					</c:if>
-					<c:if test="${(loginVO==null) ? true : false}">
-						<li><a href="loginform.do">로그인</a></li>
-<li><a href="joinform.do">회원가입</a></li>
-					</c:if>
-
 </ul>
 </div>
 <div class="logo_place"><div class="logo"><a href="">
@@ -650,13 +628,9 @@ height:300px;
 <input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" onkeyup="search()"/>
 <input type="submit" value="검색" class="search_sub"/>
 <ul id="searchList">
-
-</ul>
-</form>
-</div>
-</div>
-</div>
-
+		</table>
+	</div>
+<div id="header"></div>
 <div class="main">
 <div class="slide_container"> 
 <div class="slide">
