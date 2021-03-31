@@ -38,4 +38,10 @@ public class CartServiceImpl implements CartService {
 		dao.deleteCart(cartVO);		
 	}
 
+	@Override
+	public int checkItemId(CartVO cartVO) {
+		int result = dao.checkItemId(cartVO);
+		return result;
+	}
+
 }

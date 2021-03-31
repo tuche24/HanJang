@@ -20,4 +20,5 @@ public interface CartDAO {
 	// 장바구니 삭제
 	void deleteCart(CartVO cartVO);
 	
+	int checkItemId(CartVO cartVO);
 }

@@ -30,24 +30,32 @@
 		<collection property="bookVO" resultMap="bookMap" />
 	</resultMap>
 
-	<resultMap type="com.mycompany.myapp.vo.OrderListVO" id="orderListMap">
+	<resultMap type="com.mycompany.myapp.vo.OrderListVO"
+		id="orderListMap">
 		<result property="orderListNo" column="OrderListNo" />
 		<result property="userNo" column="UserNo" />
 		<result property="cartNo" column="CartNo" />
 		<result property="itemId" column="ItemId" />
 	</resultMap>
 
+	<!-- Cart ItemId 중복값 방지 체크 -->
+	<select id="checkItemId" parameterType="cartVO" resultType="int">
+		SELECT count(ItemId) FROM Cart
+		WHERE ItemId = #{itemId} AND UserNo = #{userNo}
+	</select>
+
 	<!-- 카트 insert -->
 	<insert id="insertCart" parameterType="cartVO">
 		INSERT INTO Cart(UserNo,
 		ItemId, Amount, CartNo)
-		VALUES(#{userNo}, #{itemId}, #{amount}, #{cartNo})
+		VALUES(#{userNo}, #{itemId}, #{amount},
+		#{cartNo})
 	</insert>
 
 	<!-- 카트 특정유저 장바구니 확인 -->
 	<select id="getOneCart" resultMap="cartProductMap">
 		SELECT * FROM Cart c, Book b
-		WHERE UserNo = #{userNo} AND c.ItemId = b.ItemId
+		WHERE CartNo = #{cartNo} AND c.ItemId = b.ItemId
 	</select>
 
 	<!-- 장바구니 수정 -->
@@ -61,7 +69,7 @@
 
 	<!-- 장바구니 삭제 -->
 	<delete id="deleteCart" parameterType="cartVO">
-		DELETE FROM Cart 
+		DELETE FROM Cart
 		WHERE CartNo = #{cartNo}
 	</delete>
 

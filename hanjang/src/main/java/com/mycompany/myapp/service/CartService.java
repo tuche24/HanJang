@@ -20,4 +20,6 @@ public interface CartService {
 	// 장바구니 삭제
 	void deleteCart(CartVO cartVO);
 
+	// 상품 중복값체크
+	int checkItemId(CartVO cartVO);
 }
