@@ -102,7 +102,7 @@
 	<c:forEach var="list" items="${list }">
 	<tr style="height:37px;">
 		<td>${list.boardNo }</td>
-		<td colspan="7">
+		<td colspan="7" style="width:250px;">
 		<a href="recommendPost.do?boardNo=${list.boardNo }">${list.title }</a>
 		<!-- 댓글 개수 표시 부분 -->
 		<c:if test="${list.reCnt > 0 }">
