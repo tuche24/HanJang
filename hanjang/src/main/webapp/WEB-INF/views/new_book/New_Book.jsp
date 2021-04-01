@@ -227,10 +227,9 @@
 </style>
 
 <body>
+<!-- header부분 -->
+<div id="header"></div>
 	<div id="container">
-		<!-- header부분 -->
-		<div id="header"></div>
-
 		<div id="title">
 			<ul>
 				<li class="title_wrap"><p>새로 나온 책</p></li>
