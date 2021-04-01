@@ -4,7 +4,7 @@
 <html>
 <head>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<%
 		// 인코딩 
 		request.setCharacterEncoding("UTF-8"); 
@@ -43,13 +43,21 @@
 			inputForm = eval("document.loginInfo");
 			if(!inputForm.id.value)
 			{
-				swal("아이디를 입력하세요");	
+				swal.fire({
+					icon:'warning',
+					title:'로그인 안내',
+					text:'아이디를 입력해주세요.'
+				});
 				inputForm.id.focus();
 				return false;
 			}
 			if(!inputForm.password.value)
 			{
-				swal("비밀번호를 입력하세요");	
+				swal.fire({
+					icon:'warning',
+					title:'로그인 안내',
+					text:'비밀번호를 입력해주세요.'
+				});
 				inputForm.password.focus();
 				return false;
 			}
