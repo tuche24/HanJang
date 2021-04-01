@@ -286,8 +286,7 @@ font-weight:bold;
 }
 .main_menu li a{
 display:block;
-width:100px;
-padding:7px 3px;
+padding:11px 3px;
 text-align:center;   
 background:white;
 color:black;
@@ -314,7 +313,9 @@ background:white;
 font-weight:normal;
 }
 .main_menu li .dropdown li a:hover{
-background:#f7f7f7;
+background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 .menubar div{
 display:inline-block;
