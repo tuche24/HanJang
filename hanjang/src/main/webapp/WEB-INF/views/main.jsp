@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" href="resources/css/reset.css">
 
 <!--  검색어  -->
 
@@ -64,7 +64,7 @@ $(document).ready(function(){
          $(".main_menu li").css("width","80px");   
          $(".main_menu li a").css("width","80px");
          $(".menu_container1").css("margin-left","-360px");
-         $(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 2px 0px");
+         $(".menubar").css("box-shadow","rgb(245 245 245) 0px 2px 1px 0px");
          $(".main_menu ").css("margin-top","5px");   
       }else{
          $(".menubar").css("position","static");
@@ -272,8 +272,8 @@ height:100%;
 text-align:center;
 background:white;
 height:45px;
+margin-bottom:7px;
 }
-
 .main_menu li{
 display:inline-block;
 width:100px;
@@ -282,6 +282,7 @@ text-align:center;
 background:white;
 position:relative;
 z-index:9996;
+font-weight:bold;
 }
 .main_menu li a{
 display:block;
@@ -290,6 +291,11 @@ padding:7px 3px;
 text-align:center;   
 background:white;
 color:black;
+}
+.main_menu li a:hover {
+background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 .main_menu li .dropdown{
 text-align:left;
@@ -305,21 +311,20 @@ font-size:12px;
 width:100px;
 text-align:left;   
 background:white;
+font-weight:normal;
 }
 .main_menu li .dropdown li a:hover{
-background:#f7f7f7;}
-
-
-
+background:#f7f7f7;
+}
 .menubar div{
 display:inline-block;
-
 }
 .main_menu li:hover .dropdown{
-display:block;}
-.main_menu li:hover{
-background:white;}
-
+display:block;
+}
+.main_menu li:hover {
+background:white;
+}
 .slide_container{
 height:400px;
 }
@@ -579,7 +584,9 @@ color:#333333;
 background:white;
 }
 .follow_menu li a:hover {
-color:#3fcbff;
+background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 .bookslide{
 margin-top:30px;
