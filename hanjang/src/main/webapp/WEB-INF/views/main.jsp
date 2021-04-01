@@ -326,9 +326,6 @@ display:block;
 .main_menu li:hover {
 background:white;
 }
-.slide_container{
-height:400px;
-}
 .search{
 line-height:45px;
 width:250px;
@@ -336,6 +333,53 @@ height:40px;
 margin-left:10px;
 background:#f7f7f7;
 border-radius: 30px;
+}
+.search_text{
+width:180px;
+height:30px;
+margin-bottom:5px;
+border:0;
+border-radius:5px;
+font-size:12px;
+background:transparent;
+outline:none;
+}
+.search_sub{
+height:25px;
+width:25px;
+cursor:pointer;
+outline:none;
+border:none;
+margin-bottom:-5px;
+}
+.follow {
+position:absolute;
+width:90px;
+height:180px;
+border:none;
+right:20px;
+}
+.follow img {
+border:1px solid #dddddd;
+}
+.follow_menu li {
+border:1px solid #dddddd;
+font-family:noto sans;
+font-size:12px;
+font-weight:bold;
+text-align:center;
+padding:3px;
+color:#333333;
+background:white;
+}
+.follow_menu li a:hover {
+background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.slide_container{
+height:400px;
 }
 .intro_book{
 height:500px;
@@ -381,24 +425,6 @@ margin:20px auto;
 height:640px;
 background:#f7f7f7;
 margin-top:50px;
-}
-.search_text{
-width:180px;
-height:30px;
-margin-bottom:5px;
-border:0;
-border-radius:5px;
-font-size:12px;
-background:transparent;
-outline:none;
-}
-.search_sub{
-height:25px;
-width:25px;
-cursor:pointer;
-outline:none;
-border:none;
-margin-bottom:-5px;
 }
 .slide_img ul{
 width:400%;
