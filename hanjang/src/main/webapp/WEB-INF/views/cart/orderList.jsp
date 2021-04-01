@@ -50,8 +50,8 @@
 							<c:forEach items="${orderList}" var="order" varStatus="status" begin="0">
 								<li><img src="${order.bookVO.coverLargeUrl}" id="bookimage" /><span
 									id="bookname">${order.bookVO.title}</span> <span
-									id="bookamount">${order.cartVO.amount}개</span> <span
-									id="bookprice">${order.bookVO.priceStandard}원</span></li>
+									id="bookamount">${order.amount}개</span> <span
+									id="bookprice">${order.amount * order.bookVO.priceStandard}원</span></li>
 							</c:forEach>
 						</ul>
 						<script>
