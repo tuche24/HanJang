@@ -56,19 +56,19 @@ $(document).ready(function(){
 <div class="usermenu" >
 <ul>
 <c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
-						<li><a href="getOneCart.do">장바구니</a></li>
-						<li><a href="#">내정보</a></li>
-						<li><a href="Logout.do">로그아웃</a></li>
-						<li><a href="getOneCart.do">카트</a></li>
-					</c:if>
-					<c:if test="${(loginVO=='ADMIN') ? true : false }">
-						<li><a href="#">회원관리</a></li>
-						<li><a href="Logout.do">로그아웃</a></li>
-					</c:if>
-					<c:if test="${(loginVO==null) ? true : false}">
-						<li><a href="loginform.do">로그인</a></li>
-
-					</c:if>
+	<li><a href="getOneCart.do">장바구니</a></li>
+	<li><a href="#">내정보</a></li>
+	<li><a href="Logout.do">로그아웃</a></li>
+	<li><a href="getOneCart.do">카트</a></li>
+</c:if>
+<c:if test="${(loginVO=='ADMIN') ? true : false }">
+	<li><a href="#">회원관리</a></li>
+	<li><a href="Logout.do">로그아웃</a></li>
+</c:if>
+<c:if test="${(loginVO==null) ? true : false}">
+	<li><a href="loginform.do">로그인</a></li>
+	<li><a href="joinform.do">회원가입</a></li>
+</c:if>
 
 </ul>
 </div>
@@ -105,7 +105,7 @@ $(document).ready(function(){
 <div class="search" >
 <form id="idFrom" action="BookList.do">
 <input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" onkeyup="search()"/>
-<input type="submit" value="검색" class="search_sub"/>
+<input type="image" src="resources\img\main\searchicon.png" alt="검색" class="search_sub"/>
 <ul id="searchList">
 
 </ul>
