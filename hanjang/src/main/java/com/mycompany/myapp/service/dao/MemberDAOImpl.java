@@ -32,6 +32,11 @@ public class MemberDAOImpl implements MemberDAO{
 		return result;
 	}
 	
+	@Override
+	public int kakaoidfind(String nickname) throws Exception{
+		int result = sql.selectOne(namespace+".kakaocheck",nickname);
+		return result;
+	}
 	//비밀번호찾기
 	public int updatePw(MemberVO vo) throws Exception {
 		return sql.update(namespace+".updatePw", vo);
@@ -39,6 +44,10 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public MemberVO readMember(MemberVO vo) {
 		return sql.selectOne(namespace+".readMember", vo);
+	}
+	@Override
+	public MemberVO findoneinfo(String nickname)throws Exception{
+		return sql.selectOne(namespace+".findonemem",nickname);
 	}
 
 }

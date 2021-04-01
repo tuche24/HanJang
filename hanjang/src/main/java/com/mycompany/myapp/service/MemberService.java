@@ -18,4 +18,7 @@ public interface MemberService {
 		public void findPw(HttpServletResponse resp, MemberVO vo) throws Exception;
 
 
+		//카카오회원가입여부
+	     public int kakaoidfind(String nickname) throws Exception;
+	     public MemberVO findoneinfo(String nickname)throws Exception;
 }
