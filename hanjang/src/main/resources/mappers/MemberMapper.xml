@@ -46,6 +46,14 @@
 		WHERE UserId
 		= #{id}
 	</select>
+	
+	<!--  닉넴으로 사람찾기 -->
+	<select id="findonemem" resultMap="MemberMap">
+		SELECT *
+		FROM User
+		WHERE UserNickName
+		= #{nickname}
+	</select>
 	<!-- 아디 중복체크 -->
 
 	<select id="IdCheck" resultType="int">
@@ -53,7 +61,12 @@
 		WHERE
 		UserId = #{id}
 	</select>
-
+<!-- 카카오 회원가입체크 -->
+<select id = "kakaocheck" resultType="int">
+SELECT COUNT(UserId) FROM User
+WHERE
+UserNickName = #{nickname}
+</select>
 	<!-- 비밀번호 변경 -->
 	<update id="updatePw">
 		update User set UserPassword = #{password} where UserId = #{id}

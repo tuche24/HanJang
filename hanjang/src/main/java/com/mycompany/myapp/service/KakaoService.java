@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.HashMap;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -110,7 +111,7 @@ public class KakaoService {
                 JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
 
                 String nickname = properties.getAsJsonObject().get("nickname").getAsString();
-
+  
                 userInfo.put("nickname", nickname);
 
             } catch (IOException e) {

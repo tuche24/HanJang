@@ -82,7 +82,6 @@ public class MemberController {
 	if(membervo2!=null) {
 		// memberVO 키에 MemberVO VO값을 넣음
 		session.setAttribute("memberVO", membervo2);
-		
 		session.setAttribute("loginVO", membervo2.getId());
 		session.setAttribute("loginNick", membervo2.getNickname());
 		
@@ -138,10 +137,23 @@ public class MemberController {
         System.out.println("#########" + code);
         String access_Token = kakaoService.getAccessToken(code);
         HashMap<String, Object> userInfo = kakaoService.getUserInfo(access_Token);
-        String nick= (String) userInfo.get("nickname");
-        session.setAttribute("loginVO",nick);
-		session.setAttribute("loginNick", nick);
-        return "redirect:mainAll.do";
+        String nickname= (String) userInfo.get("nickname");
+        
+       int result =  memberservice1.kakaoidfind(nickname);
+       System.out.println(result);
+        
+       if(result==1) {
+    	   MemberVO vo = memberservice1.findoneinfo(nickname);
+    	   session.setAttribute("memberVO", vo);
+    	   session.setAttribute("loginVO", vo.getId());
+   		session.setAttribute("loginNick", nickname);
+   		return "redirect:/mainAll.do";
+    	   
+       }else {
+		session.setAttribute("loginNick", nickname);
+        return "kakaojoin";
+       }
+        
     }
 
 	@RequestMapping (value = "findpw.do") 

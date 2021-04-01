@@ -17,5 +17,7 @@ public interface MemberDAO {
 	// readmember test
 	public MemberVO readMember(MemberVO vo);
 	
+	public int kakaoidfind(String nickname) throws Exception;
 	
+	public MemberVO findoneinfo(String nickname)throws Exception;
 }

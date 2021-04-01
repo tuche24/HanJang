@@ -34,11 +34,23 @@ public class MemberServiceImpl implements MemberService{
       //return dao.LoginCheck(membervo); 이것도해봄.
 	}
 	@Override
+	public MemberVO findoneinfo(String nickname)throws Exception{
+		MemberVO vo = dao.findoneinfo(nickname);
+		return vo;
+	}
+	@Override
 	public int IdCheck(String param) throws Exception{
 		int result = dao.IdCheck(param);
 		
 		return result;
 	}
+	@Override
+	  public int kakaoidfind(String nickname) throws Exception{
+		int result = dao.kakaoidfind(nickname);
+		return result;
+	}
+	
+	
     @Override
     public void logout(HttpServletResponse response) throws Exception{
     	response.setContentType("text/html;charset=utf-8");
