@@ -64,8 +64,8 @@ $(document).ready(function(){
          $(".main_menu li").css("width","80px");   
          $(".main_menu li a").css("width","80px");
          $(".menu_container1").css("margin-left","-360px");
-         $(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 3px 0px");
-         $(".main_menu ").css("margin-top","10px");   
+         $(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 2px 0px");
+         $(".main_menu ").css("margin-top","5px");   
       }else{
          $(".menubar").css("position","static");
          $(".search").css("position","static");
@@ -228,8 +228,12 @@ max-width:100%;
 .main{
 min-width:1050px;}
 .usermenu{
-margin:0 150px;
-height:30px;}
+margin:0 auto;
+width:1050px;
+height:30px;
+font-size:12px;
+font-weight:bold;
+}
 .usermenu ul{
 
 float:right;}
@@ -321,9 +325,12 @@ height:400px;
 }
 .search{
 line-height:45px;
-width:300px;
-margin-left:10px;}
-
+width:250px;
+height:40px;
+margin-left:10px;
+background:#f7f7f7;
+border-radius: 30px;
+}
 .intro_book{
 height:500px;
 background:white;}
@@ -370,15 +377,22 @@ background:#f7f7f7;
 margin-top:50px;
 }
 .search_text{
-width:200px;
+width:180px;
 height:30px;
 margin-bottom:5px;
 border:0;
 border-radius:5px;
+font-size:12px;
+background:transparent;
+outline:none;
 }
 .search_sub{
-height:28px;
-width:40px;
+height:25px;
+width:25px;
+cursor:pointer;
+outline:none;
+border:none;
+margin-bottom:-5px;
 }
 .slide_img ul{
 width:400%;
@@ -607,7 +621,6 @@ height:300px;
 <div class="usermenu" >
 <ul>
 <c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
-                  <li><a href="getOneCart.do">장바구니</a></li>
                   <li><a href="">내정보</a></li>
                   <li><a href="Logout.do">로그아웃</a></li>
                   <li><a href="getOneCart.do">카트</a></li>
@@ -656,9 +669,8 @@ height:300px;
 <div class="search" >
 <form id="idFrom" action="BookList.do">
 <input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" onkeyup="search()"/>
-<input type="submit" value="검색" class="search_sub"/>
+<input type="image" src="resources\img\main\searchicon.png" alt="검색" class="search_sub"/>
 <ul id="searchList">
-
 </ul>
 </form>
 </div>
