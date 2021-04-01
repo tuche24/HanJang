@@ -43,7 +43,7 @@
 			inputForm = eval("document.loginInfo");
 			if(!inputForm.id.value)
 			{
-				swal("아이디를 입력하세요");	
+				swal("아이디를 입력하세요.");	
 				inputForm.id.focus();
 				return false;
 			}
@@ -149,11 +149,11 @@ font-weight:bold;
 			<div style="margin-bottom:8px;"><input type="submit" value="로그인" class="logininbut" style="border:none; background-image:linear-gradient(61deg, #7effa8, #3fcbff);"/></div>
 			<div><input type="button" value="회원가입" class="logininbut" style="background:white; border:1px solid; border-image:linear-gradient(61deg, #7effa8, #3fcbff); border-image-slice: 1;" onclick="location.href='joinform.do'"/></div> 
 			<!-- <input type="button" value="회원가입" onclick="goJoinForm()" />  -->
+		<div class="logininbut" style="margin-top:7px;"><a style="border-radius:5px;display:block;width:100%; height:100%;" href="https://kauth.kakao.com/oauth/authorize?client_id=036ccf425c45c76afae938160b6e023e&redirect_uri=http://localhost:8081/myapp/kakaologin.do&response_type=code"><img style="width:340px;"src="resources\img\main\kakaobut2.png" /></a></div>
 			
 		</form>
 		
 	</div>	
-		<div style="width:30px; height:30px;"><a style="width:30px; height:30px; background:black;" href="https://kauth.kakao.com/oauth/authorize?client_id=036ccf425c45c76afae938160b6e023e&redirect_uri=http://localhost:8081/myapp/kakaologin.do&response_type=code">카카오</a></div>
 <!-- footer부분 -->
 <div id="footer"></div>
 </body>
