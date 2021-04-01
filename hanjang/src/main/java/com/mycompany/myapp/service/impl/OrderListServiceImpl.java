@@ -35,4 +35,10 @@ public class OrderListServiceImpl implements OrderListService {
 		return orderListVO;
 	}
 
+	@Override
+	public int checkOrderItemId(OrderListVO orderListVO) {
+		int result = dao.checkOrderItemId(orderListVO);
+		return result;
+	}
+
 }

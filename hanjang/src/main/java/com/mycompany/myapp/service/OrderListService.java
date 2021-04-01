@@ -15,4 +15,7 @@ public interface OrderListService {
 
 	// 주문확인서 최근 하나보기
 	List<OrderListVO> getLatelyOrderList(OrderListVO orderListVO);
+
+	// 인서트시 아이템아이디 체크
+	int checkOrderItemId(OrderListVO orderListVO);
 }

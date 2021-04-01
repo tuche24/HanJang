@@ -40,11 +40,16 @@
 		<collection property="bookVO" resultMap="bookMap" />
 	</resultMap>
 
-
+	<!-- Cart ItemId 중복값 방지 체크 -->
+	<select id="checkOrderItemId" parameterType="orderListVO" resultType="int">
+		SELECT count(ItemId) FROM OrderList
+		WHERE ItemId = #{itemId} AND CartNo = #{cartNo}
+	</select>
+	
 	<!-- 장바구니에서 주문리스트DB에 추가 -->
 	<insert id="insertOrderList" parameterType="orderListVO">
 		INSERT INTO OrderList(OrderListNo, UserNo, CartNo, ItemId)
-		VALUES(#{userNo}, #{userNo}, #{cartNo}, #{itemId})
+		VALUES(#{cartNo}, #{userNo}, #{cartNo}, #{itemId})
 	</insert>
 
 <!-- 	주문확인서 

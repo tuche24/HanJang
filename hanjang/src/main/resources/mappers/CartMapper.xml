@@ -63,15 +63,15 @@
 	<update id="updateCart" parameterType="cartVO">
 		UPDATE Cart
 		SET Amount = #{amount}
-		<if test="cartNo != null">
-			WHERE CartNo = #{cartNo}
+		<if test="itemId != null">
+			WHERE ItemId = #{itemId} AND CartNo = #{cartNo}
 		</if>
 	</update>
 
 	<!-- 장바구니 삭제 -->
 	<delete id="deleteCart" parameterType="cartVO">
 		DELETE FROM Cart
-		WHERE CartNo = #{cartNo}
+		WHERE CartNo = #{cartNo} AND ItemId = #{itemId}
 	</delete>
 
 </mapper>
