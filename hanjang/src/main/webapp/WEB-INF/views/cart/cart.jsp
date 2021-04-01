@@ -201,15 +201,18 @@ Number.prototype.formatNumber = function(){
 		// 선택상품 주문리스트로 이동
 		addOrderList2 : function(idx){
 			let cartNo = document.querySelector('#cartNo_hidden' + idx).getAttribute('value');
-			alert(cartNo); // test
+			/* alert(cartNo); // test */
 			let itemID = document.querySelector('#bookItemId' + idx).getAttribute('value');
-			alert(itemID); // test
+			/* alert(itemID); // test */
 			let userNo = document.querySelector('#userNo').getAttribute('value');
-			alert(userNo); // test
+			/* alert(userNo); // test */
+			let amount = document.querySelector('#p_num' + itemID).getAttribute('value');
+			/* alert(amount); // test */
 			var params = {
 					cartNo : cartNo,
 					itemId : itemID,
-					userNo : userNo
+					userNo : userNo,
+					amount : amount
 			}
 			
 			$.ajax({
@@ -239,9 +242,9 @@ Number.prototype.formatNumber = function(){
 		
 		delCheck: function(idx){
 			let cartNo = document.querySelector('#cartNo_hidden' + idx).getAttribute('value');
-			alert(cartNo); // test
+			/* alert(cartNo); // test */
 			let itemID = document.querySelector('#bookItemId' + idx).getAttribute('value');
-			alert(itemID);
+			/* alert(itemID); */
 			
 			var params = {
 					cartNo : cartNo,

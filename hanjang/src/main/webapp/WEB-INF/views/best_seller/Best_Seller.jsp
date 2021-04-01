@@ -9,7 +9,6 @@
 <meta charset="UTF-8">
 <!-- jquery 링크-->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!-- 헤더연결 -->
 <script defer>
@@ -27,42 +26,51 @@
 /* 장바구니 담기 버튼을 눌렀을 시 책 정보를 장바구니에 담음 */
 	function addCart(){
 		let UserNo = event.target.parentElement.parentElement.firstElementChild.getAttribute('value');
-		if(UserNo == null || UserNo == ""){swal("로그인","로그인이 필요합니다","error"); false}
-		/* else {swal(UserNo)} */
-		let itemID = event.target.parentElement.parentElement.firstElementChild.nextElementSibling.getAttribute('value');
-		/* alert(itemID);  */
-		var params = {
-			UserNo : UserNo,
-			ItemId : itemID,
-			Amount : 1
-		}
+		alert(UserNo);
+		if(!UserNo){
+			swal.fire({
+				title : 'Error!',
+				text : '로그인이 필요합니다',
+				icon : 'error',
+				confirmButtonText: '확인'
+			}) 
+		} else {
+			let itemID = event.target.parentElement.parentElement.firstElementChild.nextElementSibling.getAttribute('value');
+			/* alert(itemID);  */
+			var params = {
+				UserNo : UserNo,
+				ItemId : itemID,
+				Amount : 1
+			}
 
-		$.ajax({
-			type : "POST",
-			url : "addCart.do",
-			data : params,
-			success : function(res) {
-				console.log("동기화성공");
-			},
-			error : function() {
-				console.log("동기화실패");
-			}
-		});
-		// ajax-end
-				swal.fire({
-			title : '장바구니',
-			text : '장바구니로 이동하시겠습니까?',
-			icon : 'info',
-			showCancelButton : true,
-			confirmButtonColor : '#3085d6',
-			cancelButtonColor : '#d33',
-			confirmButtonText : '이동',
-			cancelButtonText : '취소'
-		}).then((result) => {
-			if(result.value){
-				location.href="getOneCart.do";
-			}
-		})
+			$.ajax({
+				type : "POST",
+				url : "addCart.do",
+				data : params,
+				success : function(res) {
+					console.log("동기화성공");
+				},
+				error : function() {
+					console.log("동기화실패");
+				}
+			});
+			// ajax-end
+					swal.fire({
+				title : '장바구니',
+				text : '장바구니로 이동하시겠습니까?',
+				icon : 'info',
+				showCancelButton : true,
+				confirmButtonColor : '#3085d6',
+				cancelButtonColor : '#d33',
+				confirmButtonText : '이동',
+				cancelButtonText : '취소'
+			}).then((result) => {
+				if(result.value){
+					location.href="getOneCart.do";
+				}
+			})
+		}
+		
 	}
 	
 	$(document).ready(function() {
