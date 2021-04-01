@@ -230,11 +230,7 @@
 <!-- header부분 -->
 <div id="header"></div>
 	<div id="container">
-		<div id="title">
-			<ul>
-				<li class="title_wrap"><p>새로 나온 책</p></li>
-			</ul>
-		</div>
+		<div id="title">새로 나온 책</div>
 
 		<div id="wrap">
 			<div id="category">
@@ -290,7 +286,7 @@
 				</ul>
 			</div>
 
-			<hr>
+			<hr class="line">
 
 			<div id="content">
 
