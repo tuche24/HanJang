@@ -27,7 +27,7 @@ $(document).ready(function(){
 			$(".main_menu li a").css("width","80px");
 			$(".menu_container1").css("margin-left","-360px");
 			$(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 3px 0px");
-			$(".main_menu ").css("margin-top","10px");	
+			$(".main_menu ").css("margin-top","5px");	
 		}else{
 			$(".menubar").css("position","static");
 			$(".search").css("position","static");
@@ -96,8 +96,8 @@ $(document).ready(function(){
 <li class="menu3"><a href="NewBookList1.do">새로나온책</a></li>
 <li class="menu4"><a href="#">커뮤니티</a>
 <ul class="dropdown">
-<li><a href="recommendList.do">책 추천 게시판</a></li>
-<li><a href="requestList.do">없는책 요청게시판</a></li>
+<li><a href="recommendList.do">이 책 추천해요</a></li>
+<li><a href="requestList.do">없는 책 요청해요</a></li>
 </ul></li>
 </ul>
 </div>
