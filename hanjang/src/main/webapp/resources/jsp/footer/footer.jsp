@@ -15,7 +15,7 @@
 <span class="customer_center">고객센터</span>
 <table class="left_table">
 	<tr>
-		<td rowspan="2" class="phone_nb"><h1>1677-0000</h1></td>
+		<td rowspan="2" class="phone_nb">1677-0000</td>
 		<td><b>365고객센터</b></td>
 	</tr>
 	<tr>
