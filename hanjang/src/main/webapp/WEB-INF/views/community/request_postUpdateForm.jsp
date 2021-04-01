@@ -45,7 +45,7 @@
 	</tr>
 	<tr>
 		<td style="height:35px;">제목</td>
-		<td colspan="4"><input type="text" name="title" value="${post.title }" style="width: 90%; text-align:center;" required></td>
+		<td colspan="4"><input type="text" name="title" value="${post.title }" style="width: 90%; text-align:center; border: 3px dotted #dddddd; border-radius: 10px;" required></td>
 	</tr>
 	<tr style="height:20px;">
 		<td colspan="5"><hr class="line"></td>

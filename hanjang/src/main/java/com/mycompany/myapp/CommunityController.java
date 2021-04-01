@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -81,7 +82,7 @@ public class CommunityController {
 	
 	// 게시물 등록 처리
 	@RequestMapping(value="/recommendInsert.do")
-	public String insertRecommendPost(CommunityVO post, MultipartFile file) throws Exception {
+	public String insertRecommendPost(CommunityVO post, MultipartFile file, RedirectAttributes ra) throws Exception {
 		String imgUploadPath = uploadPath+File.separator+"imgUpload";
 		String ymPath = UploadFileUtils.calcPath(imgUploadPath);
 		String fileName = null;
@@ -95,7 +96,7 @@ public class CommunityController {
 		post.setImgFile(File.separator+"imgUpload"+ymPath+File.separator+fileName);
 		System.out.println(post.getImgFile());
 		service1.insertPost(post);
-		
+		ra.addFlashAttribute("msg", "insertSuccess");
 		return "redirect:recommendList.do";
 	}
 	
@@ -182,7 +183,7 @@ public class CommunityController {
 	
 	// 게시물 등록 처리
 	@RequestMapping(value="/requestInsert.do")
-	public String insertRequestPost(CommunityVO post, MultipartFile file) throws Exception {
+	public String insertRequestPost(CommunityVO post, MultipartFile file, RedirectAttributes ra) throws Exception {
 		String imgUploadPath = uploadPath+File.separator+"imgUpload";
 		String ymPath = UploadFileUtils.calcPath(imgUploadPath);
 		String fileName = null;
@@ -197,6 +198,7 @@ public class CommunityController {
 		System.out.println(post.getImgFile());
 		
 		service2.insertPost(post);
+		ra.addFlashAttribute("msg", "insertSuccess");
 		return "redirect:requestList.do";
 	}
 	

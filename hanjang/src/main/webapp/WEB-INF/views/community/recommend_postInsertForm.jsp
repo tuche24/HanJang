@@ -45,7 +45,7 @@
 	</tr>
 	<tr>
 		<td style="height:35px;">제목</td>
-		<td colspan="4"><input type="text" name="title" style="width:75%; text-align:center;" required></td>
+		<td colspan="4"><input type="text" name="title" style="width:75%; text-align:center; border: 3px dotted #dddddd; border-radius: 10px;" required></td>
 	</tr>
 	<tr style="height:20px;">
 		<td colspan="5"><hr class="line"></td>
@@ -62,7 +62,7 @@
 	</tr>
 	<tr>
 		<td style="height:35px;">파일</td>
-		<td colspan="4" style="height:35px;"><input type="file" name="file" style="font-size:13px; width:75%; text-align:center;"></td>
+		<td colspan="4" style="height:35px;"><input type="file" name="file" style="font-size:13px; width:75%; text-align:center; border: 3px dotted #dddddd; border-radius: 10px;"></td>
 	</tr>
 	<tr>
 		<td colspan="5"><hr class="line"></td>
