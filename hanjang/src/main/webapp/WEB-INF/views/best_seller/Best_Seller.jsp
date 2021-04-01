@@ -26,7 +26,6 @@
 /* 장바구니 담기 버튼을 눌렀을 시 책 정보를 장바구니에 담음 */
 	function addCart(){
 		let UserNo = event.target.parentElement.parentElement.firstElementChild.getAttribute('value');
-		alert(UserNo);
 		if(!UserNo){
 			swal.fire({
 				title : 'Error!',
