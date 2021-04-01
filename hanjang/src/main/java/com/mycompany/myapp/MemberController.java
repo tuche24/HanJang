@@ -102,6 +102,7 @@ public class MemberController {
 		session.removeAttribute("memberVO"); // 
 		session.removeAttribute("loginVO");
 		session.removeAttribute("loginNick");
+		session.invalidate(); // 모두 초기화
 		memberservice1.logout(response);
 		
 	}

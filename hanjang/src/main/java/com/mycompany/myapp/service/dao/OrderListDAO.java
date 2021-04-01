@@ -13,4 +13,7 @@ public interface OrderListDAO {
 	List<OrderListVO> getOneOrderList(int orderListNo);
 	// 주문확인서 유저별 최근 하나 가져오기
 	List<OrderListVO> getLatelyOrderList(OrderListVO orderListVO);
+	// 인서트시 아이템아이디 체크
+	int checkOrderItemId(OrderListVO orderListVO);
+	
 }

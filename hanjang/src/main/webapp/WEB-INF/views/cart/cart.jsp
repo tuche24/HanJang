@@ -114,13 +114,15 @@ Number.prototype.formatNumber = function(){
 		// 개별 수량 변경
 		changePNum : function(idx) {
 			// 아이템 카트별 분류
-			let cartNo = document.querySelector('#cartNo_hidden' + idx)
-					.getAttribute('value');
-			let item = document.querySelector('#p_num' + cartNo);
+			let itemID = document.querySelector('#bookItemId' + idx).getAttribute('value');
+			let item = document.querySelector('#p_num' + itemID);
 			let p_num = parseInt(item.getAttribute('value'));
 			let newval = event.target.classList.contains('amount_inc') ? p_num + 1
 					: event.target.classList.contains('amount_dec') ? p_num - 1
 							: event.target.value;
+			let userNo = document.querySelector('#userNo').getAttribute('value');
+			let cartNo = document.querySelector('#cartNo_hidden' + idx)
+			.getAttribute('value');
 			if (parseInt(newval) < 1) {
 				swal("구매 횟수 제한", "책은 1권 이상 구매 할 수 있습니다.", "warning");
 				newval = 1;
@@ -137,8 +139,10 @@ Number.prototype.formatNumber = function(){
 					+ '원';
 			// ajax
 			let params = {
-				cartNo : cartNo,
-				amount : newval
+				itemId : itemID,
+				amount : newval,
+				userNo : userNo,
+				cartNo : cartNo
 			}
 			$.ajax({
 				type : "POST",
@@ -162,9 +166,11 @@ Number.prototype.formatNumber = function(){
 			// ajax
 			let cartNo = document.querySelector('#cartNo_hidden' + idx)
 					.getAttribute('value');
+			let itemID = document.querySelector('#bookItemId' + idx).getAttribute('value');
 			/* alert(cartNo); */
 
 			var params = {
+				itemId : itemID,
 				cartNo : cartNo
 			}
 
@@ -234,9 +240,12 @@ Number.prototype.formatNumber = function(){
 		delCheck: function(idx){
 			let cartNo = document.querySelector('#cartNo_hidden' + idx).getAttribute('value');
 			alert(cartNo); // test
+			let itemID = document.querySelector('#bookItemId' + idx).getAttribute('value');
+			alert(itemID);
 			
 			var params = {
-					cartNo : cartNo
+					cartNo : cartNo,
+					itemId : itemID
 				}
 
 				$.ajax({
@@ -436,8 +445,8 @@ Number.prototype.formatNumber = function(){
 									value="${cart.bookVO.priceStandard}" /></span> <span class="updown">
 									<button id="amount_dec" class="amount_dec"
 										style="cursor: pointer;">-</button> <input type="text"
-									name="p_num${cart.cartVO.cartNo}"
-									id="p_num${cart.cartVO.cartNo}" class="p_num" size="2"
+									name="p_num${cart.bookVO.itemID}"
+									id="p_num${cart.bookVO.itemID}" class="p_num" size="2"
 									maxlength="2" value="${cart.cartVO.amount}" readonly>
 									<button id="amount_inc" class="amount_inc"
 										style="cursor: pointer;">+</button>

@@ -1,6 +1,7 @@
 package com.mycompany.myapp;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -59,7 +61,7 @@ public class CartController {
 
 	// 특정 유저 장바구니 확인
 	@RequestMapping(value = "/getOneCart.do")
-	public ModelAndView getOneCart(HttpSession session) throws IOException {
+	public ModelAndView getOneCart(HttpSession session, HttpServletResponse res) throws IOException {
 		ModelAndView mav = new ModelAndView();
 		int cartNo = 0;
 
@@ -78,6 +80,7 @@ public class CartController {
 			return mav;
 		} else {
 			// 장바구니 정보가 없을 때 새 책 으로 이동 // OR 최근 장바구니 정보 가져오기
+			alertMessage("장바구니에 상품이 담기지 않았습니다", res);
 			mav.setViewName("main");
 			System.out.println("장바구니 정보가 없습니다");
 			return mav;
@@ -129,4 +132,15 @@ public class CartController {
 		System.out.println("장바구니번호가 생성되었습니다 = " + result);
 		return result;
 	}
+	
+	public void alertMessage(String msg, HttpServletResponse res) throws IOException {
+		res.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = res.getWriter();
+		
+		out.println("<script>alert(\"" + msg + "\")</script>");
+		out.flush();
+		
+	}
+	
+	
 }

@@ -60,6 +60,12 @@ public class OrderListController {
 		
 		orderListVO.setUserNo(userNo);
 
-		service.insertOrderList(orderListVO);
+		int checkOrderItemId = service.checkOrderItemId(orderListVO);
+		
+		if (checkOrderItemId < 1) {
+			service.insertOrderList(orderListVO);
+		} else {
+			System.out.println("ItemId값이 중복되었습니다");
+		}
 	}
 }
