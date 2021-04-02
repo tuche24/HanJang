@@ -1,0 +1,124 @@
+/* 전체 감싸는 div */
+.contentPane {
+	width:1100px;
+	margin:auto;
+	margin-top:80px;
+}
+
+/* 링크 색상, 밑줄 없애기 */
+a {text-decoration: none;}
+a:hover {text-decoration: none; color: black;}
+a:link {text-decoration: none; color: black;}
+a:visited {text-decoration: none; color: black;}
+a:active {text-decoration: none; color: black;}
+
+/* 좌측 세로 메뉴 */
+.title {
+	text-align:center;
+	font-size:30px;
+	font-weight:bold;
+	margin-bottom:20px;
+}
+.left_menu {
+	float:left;
+	width:20%;
+	height:100x;
+	text-align:center;
+	list-style:none;
+}
+.left_menu li {
+	font-family:noto sans;
+	font-size:18px;
+	font-weight:bold;
+	border:1px sold #dddddd;
+	padding-top:20px;
+	padding-bottom:10px;
+}
+.left_menu li a:hover {
+	background: linear-gradient(45deg,#7effa8,#3fcbff);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+.left_menu li a:active {
+	background: linear-gradient(45deg,#7effa8,#3fcbff);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+.left_menu li a:visited {
+	background: linear-gradient(45deg,#7effa8,#3fcbff);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+/* hr 관련 */
+.line {
+	height: 2px;
+	border: none;
+	background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);
+	margin-top:40px;
+	margin-bottom:40px;
+}
+
+/* 중간 내용 부분 - 주문내역 조회 */
+.contents {
+	float:left;
+	width:80%;
+}
+.subtitle {
+	font-size:24px;
+	font-weight:bold;
+	margin-top:30px;
+}
+.contents_fontsize {
+	font-family:noto sans;
+	font-size:14px;
+}
+.order_table {
+	border:3px dotted #dddddd;
+	border-radius:10px;
+	width:100%;
+	margin-top:10px;
+}
+.order_table td {
+	padding:5px;
+}
+/* 중간 내용 부분 - 개인정보 수정 */
+.info_table {
+	margin:auto;
+}
+.info_table td {
+	padding:15px;
+}
+.input_text_f{
+	width:332px;
+	height:44px;
+	border: 1px solid #ccc;
+	outline:none;
+}
+.butt{
+	width:120px;
+	height:44px;
+	color:black;
+	background:white;
+	border-radius:2px;
+	font-weight:bold;
+	border: solid 3px transparent;
+	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff );
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+	cursor:pointer;
+	outline:none;
+}
+#startag{
+	color:red;
+	font-size:14px;
+}
+
+/* footer 부분 */
+.footer div{
+	float:left;
+}
+.footer{
+	margin:0 auto;
+	width:1050px;
+	height:300px;
+}

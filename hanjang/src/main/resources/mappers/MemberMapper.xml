@@ -61,15 +61,23 @@
 		WHERE
 		UserId = #{id}
 	</select>
-<!-- 카카오 회원가입체크 -->
-<select id = "kakaocheck" resultType="int">
-SELECT COUNT(UserId) FROM User
-WHERE
-UserNickName = #{nickname}
-</select>
+	<!-- 카카오 회원가입체크 -->
+	<select id = "kakaocheck" resultType="int">
+	SELECT COUNT(UserId) FROM User
+	WHERE
+	UserNickName = #{nickname}
+	</select>
 	<!-- 비밀번호 변경 -->
 	<update id="updatePw">
 		update User set UserPassword = #{password} where UserId = #{id}
 	</update>
-
+	
+	<!-- 회원정보 수정 -->
+	<update id="MemberUpdate">
+		UPDATE User
+		SET UserPassword = #{password}, UserNickName = #{nickname}, UserName = #{name},
+		UserEmail = #{email}, UserPhone = #{phone}, UserAddress = #{address}
+		WHERE UserId = #{id}
+	</update>
+	
 </mapper>

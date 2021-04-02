@@ -10,9 +10,8 @@ import com.mycompany.myapp.vo.MemberVO;
 @Repository
 public class MemberDAOImpl implements MemberDAO{
 
-	 
-	    @Inject SqlSessionTemplate sql;
-	 public static String namespace = "com.mycompany.myapp.service.dao.MemberDAO";
+	@Inject SqlSessionTemplate sql;
+	public static String namespace = "com.mycompany.myapp.service.dao.MemberDAO";
 
 	@Override
 	public void MemberInsert(MemberVO membervo) throws Exception {
@@ -48,6 +47,10 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public MemberVO findoneinfo(String nickname)throws Exception{
 		return sql.selectOne(namespace+".findonemem",nickname);
+	}
+	@Override
+	public void MemberUpdate(MemberVO membervo) throws Exception {
+		sql.update(namespace+".MemberUpdate",membervo);
 	}
 
 }

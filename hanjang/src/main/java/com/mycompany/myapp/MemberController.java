@@ -1,8 +1,6 @@
 package com.mycompany.myapp;
 
-
 import java.io.PrintWriter;
-import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,26 +8,25 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mycompany.myapp.service.BestSellerService;
 import com.mycompany.myapp.service.KakaoService;
 import com.mycompany.myapp.service.MemberService;
-import com.mycompany.myapp.service.dao.MemberDAO;
+import com.mycompany.myapp.service.OrderListService;
 import com.mycompany.myapp.vo.BookVO;
 import com.mycompany.myapp.vo.MemberVO;
-
-
+import com.mycompany.myapp.vo.OrderListVO;
 
 @Controller
 public class MemberController {
@@ -44,6 +41,7 @@ public class MemberController {
 	private BookDBController dbcontroller;
 	@Autowired
     private KakaoService kakaoService;
+	
 	@RequestMapping("mainAll.do")
 	public ModelAndView bookList(@RequestParam(required=false) String categoryId) {
 		ModelAndView mav = new ModelAndView();
@@ -55,21 +53,17 @@ public class MemberController {
 		for(BookVO vo: bookList) {
 			dbcontroller.DBinsert(vo);
 		}
-		
-		
 		mav.addObject("bookList", bookList);
 		mav.setViewName("main");
 		return mav;
 	}
+	
 	//회원가입
 	@RequestMapping(value="/JoinPro.do")
 	public String InsertMember(MemberVO membervo) throws Exception {
-		
 		memberservice1.MemberInsert(membervo);
 		return "member/LoginForm";
-		
 	}
-	
 	
 	@RequestMapping(value="/login.do", method = RequestMethod.POST)
 	public String loginMember(MemberVO membervo,HttpSession session, HttpServletResponse res) throws Exception {
@@ -84,6 +78,11 @@ public class MemberController {
 		session.setAttribute("memberVO", membervo2);
 		session.setAttribute("loginVO", membervo2.getId());
 		session.setAttribute("loginNick", membervo2.getNickname());
+		session.setAttribute("loginPassword", membervo2.getPassword());
+		session.setAttribute("loginName", membervo2.getName());
+		session.setAttribute("loginEmail", membervo2.getEmail());
+		session.setAttribute("loginPhone", membervo2.getPhone());
+		session.setAttribute("loginAddress", membervo2.getAddress());
 		
 		return "redirect:mainAll.do";
 	} else {
@@ -91,11 +90,9 @@ public class MemberController {
 		out.flush();
 		return "member/LoginForm";
 			}
-	
 	}
 	
 	//로그아웃
-
 	@RequestMapping(value = "/Logout.do", method = RequestMethod.GET)
 	public void logout(HttpSession session,HttpServletResponse response)throws Exception{
 		session.removeAttribute("memberVO"); // 
@@ -109,13 +106,11 @@ public class MemberController {
 	@ResponseBody
 	@RequestMapping(value="/idcheck.do", method=RequestMethod.POST)
 	public int IdCheck(@RequestParam("id") String param) throws Exception{
-		
 		int result = memberservice1.IdCheck(param);
 		System.out.println(result);
-	
 		return result;
-		
 	}
+	
 	/*@ResponseBody
 	@RequestMapping(value="/idcheck.do",produces="text/plane")
 	public String IDCheck(@RequestBody String paramData) throws ParseException{=
@@ -124,8 +119,6 @@ public class MemberController {
 		MemberVO mvo = memberservice1.Id_Check(ID);
 	}*/
 	
-	
-
 	@RequestMapping("/kakaologin.do")
     public String home(@RequestParam(value = "code", required = false) String code,HttpSession session) throws Exception{
         System.out.println("#########" + code);
@@ -147,21 +140,44 @@ public class MemberController {
 		session.setAttribute("loginNick", nickname);
         return "member/kakaojoin";
        }
-        
     }
 
-	@RequestMapping (value = "findpw.do") 
-	public  void  findPwPOST (@ModelAttribute MemberVO member, HttpServletResponse response)  throws Exception { 
-		memberservice1.findPw (response, member); 
-	}
-	
-	@RequestMapping (value = "/gotofindpw.do")
+	// 아이디 찾기
+	@RequestMapping(value = "/gotofindpw.do")
 	public String goToFindPw() {
-		
 		return "test/findpw";
 	}
 	
+	// 비밀번호 찾기
+	@RequestMapping(value = "findpw.do") 
+	public void findPwPOST (@ModelAttribute MemberVO member, HttpServletResponse response)  throws Exception { 
+		memberservice1.findPw (response, member); 
+	}
 	
+	/* *** 마이페이지 관련 컨트롤러 *** */
 	
+	@Resource(name = "orderListService")
+	private OrderListService orderlistservice;
 	
+	// 마이페이지 주문내역 페이지
+	@RequestMapping(value="mypageOrderList.do")
+	public String getMyOrderList(OrderListVO ov, Model model) {
+		List<OrderListVO> list = orderlistservice.getLatelyOrderList(ov);
+		model.addAttribute("orderlist", list);
+		return "member/mypage_orderlist";
+	}
+	
+	// 마이페이지 회원정보수정 페이지
+	@RequestMapping(value="mypageMyInfo.do")
+	public String getMyInfo() {
+		return "member/mypage_myinfo";
+	}
+	
+	// 마이페이지 회원정보수정 처리
+	@RequestMapping(value="updateMyInfo.do")
+	public String updateMyInfo(MemberVO membervo, RedirectAttributes ra) throws Exception {
+		memberservice1.MemberUpdate(membervo);
+		ra.addFlashAttribute("msg", "updateSuccess");
+		return "redirect:mypageMyInfo.do";
+	}
 }

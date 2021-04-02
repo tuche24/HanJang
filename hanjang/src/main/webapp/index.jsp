@@ -47,9 +47,13 @@
 <input type="submit" value="결제완료" />
 </form>
 
+<form action="mypageOrderList.do">
+<input type="submit" value="마이페이지" />
+
 <form action="goToBookDetailTest.do">
 <input type="hidden" name="title" value="java" />
 <input type="submit" value="크롤링test" />
+
 </form>
 </body>
 </html>
