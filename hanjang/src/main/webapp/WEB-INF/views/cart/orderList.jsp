@@ -47,20 +47,20 @@
 					<div class="short_info">
 						<!-- forEach해서 상품 목록 가져오기 -->
 						<ul>
-							<c:forEach items="${orderList}" var="order" varStatus="status" begin="0">
+							<c:forEach items="${orderList}" var="order" varStatus="status"
+								begin="0">
 								<li><img src="${order.bookVO.coverLargeUrl}" id="bookimage" /><span
 									id="bookname">${order.bookVO.title}</span> <span
-									id="bookamount">${order.amount}개</span> <span
-									id="bookprice">${order.amount * order.bookVO.priceStandard}원</span></li>
+									id="bookamount">${order.amount}개</span> <span id="bookprice">${order.amount * order.bookVO.priceStandard}원</span></li>
 							</c:forEach>
 						</ul>
 						<script>
-						if(self.name != 'reload'){
-							self.name='reload';
-							self.location.reload(true);
-						}
-						else self.name = '';
-						/* c:forEach 구문에서 첫번째 리스트가 안 보이는 오류 해결하기 위해 */
+							if (self.name != 'reload') {
+								self.name = 'reload';
+								self.location.reload(true);
+							} else
+								self.name = '';
+							/* c:forEach 구문에서 첫번째 리스트가 안 보이는 오류 해결하기 위해 */
 						</script>
 					</div>
 				</div>
@@ -94,7 +94,8 @@
 						</span>
 					</div>
 					<div id="paymentMethodResult">
-						<input type="submit" value="결제하기" class="btn_payment" />
+							<input type="hidden" value="${orderList.orderListNo}" id="title"/>
+							<input type="submit" value="결제하기" class="btn_payment" />
 					</div>
 				</form>
 			</div>
