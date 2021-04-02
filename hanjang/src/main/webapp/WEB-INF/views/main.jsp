@@ -387,7 +387,7 @@ background:white;}
 
 .prev input, .next input{
 width:30px;
-height:400px;
+height:370px;
 background:#ffffff00;
 border:0;
 outline:0;
@@ -406,6 +406,7 @@ float:left;
 }
 .prev input:hover, .next input:hover{
 background:#333;
+opacity:0.2;
 }
 .slide{
 overflow:hidden;
@@ -585,7 +586,7 @@ width:550px;
 }
 .today_book_bookimage a{
 display:block;
-width:400px;
+width:330px;
 height:450px;
 background:black;
 margin-top:20px;
@@ -631,6 +632,16 @@ height:300px;
 	text-align:center;
 	margin-top:200px;
 	margin-bottom:-2px;
+}
+.todayintrodiv{
+height:38px;
+}
+.todayintrodiv span{
+float:left;
+font-size:18px;
+width:70px;
+height:50px;
+display:block;
 }
 </style>
 </head>
@@ -753,19 +764,28 @@ height:300px;
 </div>
 
 </div>
+<c:forEach items="${bookList}" var="b" begin="0" end="0">
 <div class="today_book">
 <div class="today_book_bookintro">
 <span>오늘의 책 소개</span>
- <hr><br><br>
-<div style="margin-left:220px;"> 책간단설명</div>
+ <hr><br>
+ <br />
+ <strong style="margin-right:108px; font-size:26px;">${b.title}</strong>
+ <br>
+ <br />
+ <br />
+ <br />
+ 
+<div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">글쓴이</span><span style="font-size:14px;">${b.author}</span></div>
+<div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">출판사</span><span style="font-size:14px;">${b.publisher}</span></div>
+<div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">출간일</span><span style="font-size:14px;">${b.pubDate}</span></div>
  </div>
 <div class="today_book_bookimage"> 
-<c:forEach items="${bookList}" var="b" begin="0" end="0">
-                  <a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a>
+                  <a href="goToBookDetail.do"><img style="width:100%;height:100%;"src="${b.coverLargeUrl}" alt="" /></a>
+	
+</div>
+</div>
                   </c:forEach>
-
-</div>
-</div>
 <div class="eventintro">
 <div class="eventintro_tit">
 <h2>이벤트 안내></h2>

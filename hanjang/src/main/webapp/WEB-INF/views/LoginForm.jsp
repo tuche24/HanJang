@@ -43,11 +43,13 @@
 			inputForm = eval("document.loginInfo");
 			if(!inputForm.id.value)
 			{
+
 				swal.fire({
 					icon:'warning',
 					title:'로그인 안내',
 					text:'아이디를 입력해주세요.'
 				});
+
 				inputForm.id.focus();
 				return false;
 			}
@@ -150,7 +152,7 @@ font-weight:bold;
 				</tr> 
 			</table>
 			<div class="loginbuga">
-			<div><a href="">비밀번호 찾기</a></div>
+			<div><a href="gotofindpw.do">비밀번호 찾기</a></div>
 			<div class="bar"></div>
 			<div><a href="">아이디 찾기</a></div>
 			</div>

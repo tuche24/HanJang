@@ -16,7 +16,7 @@
 				type : "POST",
 				data : {
 					id : $("#id").val(),
-					mail1 : $("#email").val()
+					email : $("#email").val()
 				},
 				success : function(result) {
 					alert(result);
