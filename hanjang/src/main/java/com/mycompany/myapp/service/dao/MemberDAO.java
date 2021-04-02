@@ -20,4 +20,7 @@ public interface MemberDAO {
 	public int kakaoidfind(String nickname) throws Exception;
 	
 	public MemberVO findoneinfo(String nickname)throws Exception;
+	
+	//회원정보 수정
+	void MemberUpdate(MemberVO membervo) throws Exception;
 }

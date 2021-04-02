@@ -139,5 +139,10 @@ public class MemberServiceImpl implements MemberService{
 		}
 	}
 
+	@Override
+	public void MemberUpdate(MemberVO membervo) throws Exception {
+		dao.MemberUpdate(membervo);
+	}
+
 
 }

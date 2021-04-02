@@ -46,5 +46,9 @@
 <form action="goToComplete.do">
 <input type="submit" value="결제완료" />
 </form>
+
+<form action="mypageOrderList.do">
+<input type="submit" value="마이페이지" />
+</form>
 </body>
 </html>
