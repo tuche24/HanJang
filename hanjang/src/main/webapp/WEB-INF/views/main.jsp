@@ -387,7 +387,7 @@ background:white;}
 
 .prev input, .next input{
 width:30px;
-height:400px;
+height:370px;
 background:#ffffff00;
 border:0;
 outline:0;
@@ -406,6 +406,7 @@ float:left;
 }
 .prev input:hover, .next input:hover{
 background:#333;
+opacity:0.2;
 }
 .slide{
 overflow:hidden;
@@ -633,7 +634,7 @@ height:300px;
 	margin-bottom:-2px;
 }
 .todayintrodiv{
-height:60px;
+height:38px;
 }
 .todayintrodiv span{
 float:left;
@@ -767,13 +768,21 @@ display:block;
 <div class="today_book">
 <div class="today_book_bookintro">
 <span>오늘의 책 소개</span>
- <hr><br><br>
+ <hr><br>
+ <br />
+ <strong style="margin-right:108px; font-size:26px;">${b.title}</strong>
+ <br>
+ <br />
+ <br />
+ <br />
  
-<div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:40px; font-weight:550;">글쓴이</span><span style="font-size:14px;">${b.author}</span></div>
+<div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">글쓴이</span><span style="font-size:14px;">${b.author}</span></div>
+<div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">출판사</span><span style="font-size:14px;">${b.publisher}</span></div>
+<div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">출간일</span><span style="font-size:14px;">${b.pubDate}</span></div>
  </div>
 <div class="today_book_bookimage"> 
                   <a href="goToBookDetail.do"><img style="width:100%;height:100%;"src="${b.coverLargeUrl}" alt="" /></a>
-
+	
 </div>
 </div>
                   </c:forEach>
