@@ -26,11 +26,11 @@ public class HomeController {
 	
 	@RequestMapping(value="/loginform.do")
 	public String goToLogin() {
-		return "LoginForm";
+		return "member/LoginForm";
 	}
 	@RequestMapping(value="/joinform.do")
 	public String goToJoinform() {
-		return "JoinForm";
+		return "member/JoinForm";
 		
 	}
 	@RequestMapping(value="/event.do")

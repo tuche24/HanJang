@@ -66,7 +66,7 @@ public class MemberController {
 	public String InsertMember(MemberVO membervo) throws Exception {
 		
 		memberservice1.MemberInsert(membervo);
-		return "LoginForm";
+		return "member/LoginForm";
 		
 	}
 	
@@ -89,7 +89,7 @@ public class MemberController {
 	} else {
 		out.println("<script>alert(\"아이디나 비밀번호가 틀렸습니다.\")</script>");
 		out.flush();
-		return "LoginForm";
+		return "member/LoginForm";
 			}
 	
 	}
@@ -125,12 +125,6 @@ public class MemberController {
 	}*/
 	
 	
-	
-	
-	
-	/* *** 여기서부터 이 책 추천해요 게시판 컨트롤러 *** */
-	
-	// 게시물 목록 조회 + 페이징
 
 	@RequestMapping("/kakaologin.do")
     public String home(@RequestParam(value = "code", required = false) String code,HttpSession session) throws Exception{
@@ -151,7 +145,7 @@ public class MemberController {
     	   
        }else {
 		session.setAttribute("loginNick", nickname);
-        return "kakaojoin";
+        return "member/kakaojoin";
        }
         
     }
