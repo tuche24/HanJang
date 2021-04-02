@@ -310,66 +310,8 @@ Number.prototype.formatNumber = function(){
 #container {
 	position: relative;
 	margin: 0 auto;
-	width: 1080px;
-	height: 800px;
-}
-
-#content {
-	position: relative;
-	margin: 0 auto;
-	width: 1080px;
-	
-}
-
-#cartItemList {
-	position: relative;
-	width: 1080px;
-	margin: 0 auto;
-	z-index: 3;
-}
-
-.inner_result {
-	position: absolute;
-    right: 50%;
-    top: 430px;
-    margin-right: -850px;
-}
-
-.active {
-	cursor: pointer;
-}
-
-.check {
-	margin-right: 10px;
-}
-
-.btn_delete {
-	padding: 6px 8px 6px;
-    background-color: #fff;
-    border: 1px solid #aaa;
-    color: #193b78;
-    box-shadow: none;
-    cursor: pointer;
-}
-
-.cart_item {
-	padding: 16px 0px 15px;
-    overflow: hidden;
-	border-bottom: 1px solid;
 	width: 100%;
-}
-
-#items {
-	padding: 50px 0px;
-}
-#footer div {
-	float:left;
-}
-#footer {
-	margin:0 auto;
-	width:1050px;
-	height:300px;
-	clear: both;
+	overflow: hidden;
 }
 </style>
 

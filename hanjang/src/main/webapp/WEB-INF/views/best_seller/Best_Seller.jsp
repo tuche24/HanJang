@@ -206,9 +206,95 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/book_list.css" />
 <style>
-#title {
-	margin-top: 100px;
+#bottomLine #genre1 {
+   display: none;
+   margin-top: 10px;
+   width: 85px;
+   height: 2px;
+   background: black;
 }
+
+#bottomLine #genre2 {
+   display: none;
+   margin-top: 10px;
+   margin-left: 145px;
+   width: 95px;
+   height: 2px;
+   background: black;
+}
+
+#bottomLine #genre3 {
+   display: none;
+   margin-top: 10px;
+   margin-left: 300px;
+   width: 50px;
+   height: 2px;
+   background: black;
+}
+
+#bottomLine #genre4 {
+   display: none;
+   margin-top: 10px;
+   margin-left: 410px;
+   width: 50px;
+   height: 2px;
+   background: black;
+}
+
+#bottomLine #genre5 {
+   display: none;
+   margin-top: 10px;
+   margin-left: 520px;
+   width: 75px;
+   height: 2px;
+   background: black;
+}
+
+#bottomLine #genre6 {
+   display: none;
+   margin-top: 10px;
+   width: 100px;
+   height: 2px;
+   background: black;
+}
+
+#bottomLine #genre7 {
+   display: none;
+   margin-top: 10px;
+   margin-left: 160px;
+   width: 65px;
+   height: 2px;
+   background: black;
+}
+
+#bottomLine #genre8 {
+   display: none;
+   margin-top: 10px;
+   margin-left: 290px;
+   width: 60px;
+   height: 2px;
+   background: black;
+}
+
+#bottomLine #genre9 {
+   display: none;
+   margin-top: 10px;
+   margin-left: 415px;
+   width: 60px;
+   height: 2px;
+   background: black;
+}
+
+#bottomLine #genre10 {
+   display: none;
+   margin-top: 10px;
+   margin-left: 540px;
+   width: 30px;
+   height: 2px;
+   background: black;
+}
+
+
 .footer div {
 	float: left;
 }
