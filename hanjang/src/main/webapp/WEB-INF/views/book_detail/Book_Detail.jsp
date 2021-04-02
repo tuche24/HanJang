@@ -62,6 +62,15 @@ $(function only_number(){
 #detail_title {
 	margin-top: 100px;
 }
+.footer div {
+	float: left;
+}
+
+.footer {
+	margin: 0 auto;
+	width: 1050px;
+	height: 300px;
+}
 </style>
 
 <body>

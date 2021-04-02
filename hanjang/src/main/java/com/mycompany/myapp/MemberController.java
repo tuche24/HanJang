@@ -103,7 +103,6 @@ public class MemberController {
 		session.removeAttribute("loginNick");
 		session.invalidate(); // 모두 초기화
 		memberservice1.logout(response);
-		
 	}
 	
 	//회원가입 아이디 중복확인

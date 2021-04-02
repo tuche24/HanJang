@@ -27,7 +27,7 @@ $(document).ready(function(){
 			$(".main_menu li a").css("width","80px");
 			$(".menu_container1").css("margin-left","-360px");
 			$(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 3px 0px");
-			$(".main_menu ").css("margin-top","10px");	
+			$(".main_menu ").css("margin-top","5px");	
 		}else{
 			$(".menubar").css("position","static");
 			$(".search").css("position","static");
@@ -56,19 +56,18 @@ $(document).ready(function(){
 <div class="usermenu" >
 <ul>
 <c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
-						<li><a href="getOneCart.do">장바구니</a></li>
-						<li><a href="#">내정보</a></li>
-						<li><a href="Logout.do">로그아웃</a></li>
-						<li><a href="getOneCart.do">카트</a></li>
-					</c:if>
-					<c:if test="${(loginVO=='ADMIN') ? true : false }">
-						<li><a href="#">회원관리</a></li>
-						<li><a href="Logout.do">로그아웃</a></li>
-					</c:if>
-					<c:if test="${(loginVO==null) ? true : false}">
-						<li><a href="loginform.do">로그인</a></li>
-
-					</c:if>
+	<li><a href="#">내정보</a></li>
+	<li><a href="Logout.do">로그아웃</a></li>
+	<li><a href="getOneCart.do">장바구니</a></li>
+</c:if>
+<c:if test="${(loginVO=='ADMIN') ? true : false }">
+	<li><a href="#">회원관리</a></li>
+	<li><a href="Logout.do">로그아웃</a></li>
+</c:if>
+<c:if test="${(loginVO==null) ? true : false}">
+	<li><a href="loginform.do">로그인</a></li>
+	<li><a href="joinform.do">회원가입</a></li>
+</c:if>
 
 </ul>
 </div>
@@ -97,15 +96,15 @@ $(document).ready(function(){
 <li class="menu3"><a href="NewBookList1.do">새로나온책</a></li>
 <li class="menu4"><a href="#">커뮤니티</a>
 <ul class="dropdown">
-<li><a href="recommendList.do">책 추천 게시판</a></li>
-<li><a href="requestList.do">없는책 요청게시판</a></li>
+<li><a href="recommendList.do">이 책 추천해요</a></li>
+<li><a href="requestList.do">없는 책 요청해요</a></li>
 </ul></li>
 </ul>
 </div>
 <div class="search" >
 <form id="idFrom" action="BookList.do">
 <input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" onkeyup="search()"/>
-<input type="submit" value="검색" class="search_sub"/>
+<input type="image" src="resources\img\main\searchicon.png" alt="검색" class="search_sub"/>
 <ul id="searchList">
 
 </ul>

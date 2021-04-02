@@ -15,15 +15,15 @@
 <span class="customer_center">고객센터</span>
 <table class="left_table">
 	<tr>
-		<td rowspan="2" class="phone_nb"><h1>1677-0000</h1></td>
-		<td><b>365고객센터</b></td>
+		<td rowspan="2" class="phone_nb">1677-0000</td>
+		<td style="font-weight:bold;">365고객센터</td>
 	</tr>
 	<tr>
 		<td>오전 9시 ~ 오후 6시</td>
 	</tr>
 	<tr>
 		<td rowspan="2"><input type="button" class="talkBtn" value="카카오톡 문의" /></td>
-		<td><b>카카오톡 문의</b></td>
+		<td style="font-weight:bold;">카카오톡 문의</td>
 	</tr>
 	<tr>
 		<td>오전 10시 ~ 오후 6시</td>

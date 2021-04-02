@@ -59,6 +59,9 @@ a:active {text-decoration: none; color: black;}
 	font-size:14px;
 }
 .phone_nb {
+	font-size:28px;
+	font-weight:bold;
+	vertical-align:middle;
 	background: linear-gradient(45deg,#7effa8,#3fcbff);
   	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
@@ -71,6 +74,7 @@ a:active {text-decoration: none; color: black;}
 	cursor:pointer;
 	width:140px;
 	font-size:15px;
+	outline:none;
 }
 
 /* footer 오른쪽 */

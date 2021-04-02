@@ -1,6 +1,5 @@
 body {
 	font-family: noto sans, malgun gothic, AppleGothic, dotum;
-	font-size: 14px;
 }
 
 /* 링크 색상, 밑줄 없애기 */
@@ -50,6 +49,7 @@ hr {
 	background-color: white;
 	text-align: center;
 	margin-bottom: 20px;
+	font-size:14px;
 }
 .MainBoardLayout a:hover {
 	background-color:#f7f7f7
@@ -183,7 +183,7 @@ textarea:focus {
 	margin: 0px;
 	line-height: 1;
 	letter-spacing: -.05em;
-	font-size: 13px;
+	font-size: 12px;
 	font-weight: bold;
 }
 
