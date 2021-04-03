@@ -72,7 +72,7 @@
 		SELECT * FROM OrderList o, Book b, User u, Cart c
 		WHERE o.OrderListNo = #{orderListNo} AND o.CartNo = c.CartNo AND o.ItemId = b.ItemId AND o.UserNo = u.UserNo
 		GROUP BY o.ItemId, o.UserNo, o.CartNo 
-		ORDER BY o.RegDate DESC
+		ORDER BY o.RegDate DESC, o.ItemId DESC
 	</select>
 
 	
