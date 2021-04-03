@@ -66,6 +66,12 @@
 		GROUP BY o.ItemId, o.UserNo, o.CartNo 
 		ORDER BY o.RegDate DESC
 	</select>
-
+	
+	<!-- 주묵 내역 데이터 가져오기 -->
+	<select id="getOrderedList" resultMap="orderListMap">
+		SELECT * FROM OrderList o, Book b
+		WHERE o.UserNo = #{userNo} AND b.ItemId = o.ItemId
+		ORDER BY o.RegDate DESC
+	</select>
 	
 </mapper>

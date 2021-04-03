@@ -41,4 +41,9 @@ public class OrderListServiceImpl implements OrderListService {
 		return result;
 	}
 
+	@Override
+	public List<OrderListVO> getOrderedList(OrderListVO orderListVO) {
+		return dao.getOrderedList(orderListVO);
+	}
+
 }

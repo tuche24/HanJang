@@ -18,4 +18,7 @@ public interface OrderListService {
 
 	// 인서트시 아이템아이디 체크
 	int checkOrderItemId(OrderListVO orderListVO);
+	
+	// 주분내역 가져오기
+	List<OrderListVO> getOrderedList(OrderListVO orderListVO);
 }

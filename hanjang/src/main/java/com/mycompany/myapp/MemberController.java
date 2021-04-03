@@ -161,8 +161,14 @@ public class MemberController {
 	
 	// 마이페이지 주문내역 페이지
 	@RequestMapping(value="mypageOrderList.do")
-	public String getMyOrderList(OrderListVO ov, Model model) {
-		List<OrderListVO> list = orderlistservice.getLatelyOrderList(ov);
+	public String getMyOrderList(HttpSession session, Model model) {
+		MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
+		int userNo = memberVO.getUserNo();
+		OrderListVO orderListVO = new OrderListVO();
+		orderListVO.setUserNo(userNo);
+		System.out.println("현재 접속한 사용자 번호 : "+orderListVO.getUserNo());
+		
+		List<OrderListVO> list = orderlistservice.getOrderedList(orderListVO);
 		model.addAttribute("orderlist", list);
 		return "member/mypage_orderlist";
 	}

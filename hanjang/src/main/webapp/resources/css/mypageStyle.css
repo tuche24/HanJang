@@ -81,6 +81,11 @@ a:active {text-decoration: none; color: black;}
 .order_table td {
 	padding:5px;
 }
+.order_table img {
+	width:70px;
+	height:100px;
+}
+
 /* 중간 내용 부분 - 개인정보 수정 */
 .info_table {
 	margin:auto;
