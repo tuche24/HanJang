@@ -21,21 +21,21 @@ public class PaymentController {
 	@Resource(name = "orderListService")
 	private OrderListService service;
 	
-	@RequestMapping(value="/addPayment.do")
+	// 결제에 필요한 정보를 가지고 payment로 이동
+	@RequestMapping(value="/goToPayment.do")
 	public ModelAndView insertPayment(@RequestParam(required=false) int orderListNo, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println(orderListNo);
+		
 		List<OrderListVO> orderListVO = service.getOrderList_No(orderListNo);
 		PaymentVO paymentVO = transformToPayment(session, orderListVO);
 		
-		/*mav.addObject("payment", paymentVO);*/
 		session.setAttribute("payment", paymentVO);
 		mav.setViewName("payment/Payment");
 		return mav;
 	}
 	
+	// orderList와 session 값을 paymentVO로 변환
 	public PaymentVO transformToPayment(HttpSession session, List<OrderListVO> orderListVO) {
-		
 		String title = orderListVO.get(0).getBookVO().getTitle(); // 상품명
 		int orderAmount = orderListVO.size();
 		title = title + " 외 " + orderAmount + "의 상품";

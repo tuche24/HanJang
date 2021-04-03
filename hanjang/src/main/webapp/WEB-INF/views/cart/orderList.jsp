@@ -47,11 +47,13 @@
 					<div class="short_info">
 						<!-- forEach해서 상품 목록 가져오기 -->
 						<ul>
+						<c:set var="col_sum" value="0"/>
 							<c:forEach items="${orderList}" var="order" varStatus="status"
 								begin="0">
 								<li><img src="${order.bookVO.coverLargeUrl}" id="bookimage" /><span
 									id="bookname">${order.bookVO.title}</span> <span
 									id="bookamount">${order.amount}개</span> <span id="bookprice">${order.amount * order.bookVO.priceStandard}원</span></li>
+									<c:set var="col_sum" value="${col_sum+ order.amount * order.bookVO.priceStandard}"/>
 							</c:forEach>
 						</ul>
 						<script>
@@ -63,6 +65,7 @@
 							/* c:forEach 구문에서 첫번째 리스트가 안 보이는 오류 해결하기 위해 */
 						</script>
 					</div>
+					<div id="totalPrice">총 결제금액 : <c:out value="${col_sum}"/>원</div>
 				</div>
 
 				<h2 class="tit_section" id="titFocusOrderer">주문자 정보</h2>
@@ -93,10 +96,9 @@
 						class="default">기본배송지</span> <span class="addr">${sessionScope.memberVO.address}</span>
 					</span>
 				</div>
-				<form action="addPayment.do">
+				<form action="goToPayment.do">
 					<div id="paymentMethodResult">
 						<input type="hidden" value="${orderList[0].orderListNo}" name="orderListNo" />
-						<%-- <input type="text" value="${orderList[0].orderListNo}" /> <!-- test --> --%>
 						<input type="submit" value="결제하기" class="btn_payment" />
 					</div>
 				</form>

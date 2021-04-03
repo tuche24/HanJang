@@ -394,7 +394,7 @@ Number.prototype.formatNumber = function(){
 										style="cursor: pointer;">+</button>
 								</span> <span id="bookprice"><fmt:formatNumber
 										value="${cart.bookVO.priceStandard * cart.cartVO.amount}"
-										pattern="#,###" />원</span> <span id="cancel_btn"><button>X</button></span>
+										pattern="#,###" />원</span> <span><button id="cancel_btn">X</button></span>
 								<hr>
 							</div>
 						</c:forEach>
