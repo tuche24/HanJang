@@ -1,9 +1,11 @@
 package com.mycompany.myapp.service;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
@@ -23,16 +25,23 @@ public class BookDetailService {
 		return result;
 	}
 	
-	public String executeCrawling(String url) throws IOException {
+	public void executeCrawling(String url) throws IOException {
 		
 		Document doc = Jsoup.connect(url).get();
-		Elements elem = doc.select(".Ere_prod_mconts_R");
+		Elements elem = doc.select("div_TOC_Short");
 		
 		System.out.println(elem.size());
-		String result = elem.get(1).text(); // 책 설명 부분이 안 들어옴
-		System.out.println(result);
+		String[] strs = elem.text().split(" ");
+		for(String str : strs) {
+			System.out.println(str);
+		}
 		
-		return result;
+		
+		
+		/*String result = elem.get(1).text(); // 책 설명 부분이 안 들어옴
+		System.out.println(result);*/
+		
+		
 	}
 	
 }

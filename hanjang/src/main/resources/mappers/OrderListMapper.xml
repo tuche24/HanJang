@@ -66,6 +66,14 @@
 		GROUP BY o.ItemId, o.UserNo, o.CartNo 
 		ORDER BY o.RegDate DESC
 	</select>
+	
+	<!-- 주문확인서 No 값으로 데이터 가져오기 -->
+	<select id="getOrderList_No" resultMap="orderListMap">
+		SELECT * FROM OrderList o, Book b, User u, Cart c
+		WHERE o.OrderListNo = #{orderListNo} AND o.CartNo = c.CartNo AND o.ItemId = b.ItemId AND o.UserNo = u.UserNo
+		GROUP BY o.ItemId, o.UserNo, o.CartNo 
+		ORDER BY o.RegDate DESC
+	</select>
 
 	
 </mapper>

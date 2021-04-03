@@ -64,38 +64,39 @@
 						</script>
 					</div>
 				</div>
-				<form id="form">
-					<h2 class="tit_section" id="titFocusOrderer">주문자 정보</h2>
-					<div class="order_section">
-						<table class="goodsinfo_table">
-							<tr>
-								<th>보내는 분</th>
-								<td>${sessionScope.memberVO.id}</td>
-							</tr>
-							<tr>
-								<th>휴대폰</th>
-								<td>${sessionScope.memberVO.phone}</td>
-							</tr>
-							<tr>
-								<th>이메일</th>
-								<td>${sessionScope.memberVO.email}</td>
-							</tr>
-						</table>
-					</div>
-					<h2 class="tit_section1" id="divAddressWrapper">
-						배송정보 <span class="desc">배송 휴무일: 샛별배송(휴무없음), 택배배송(일요일)</span>
-					</h2>
-					<!-- 					<div class="order_section">
+
+				<h2 class="tit_section" id="titFocusOrderer">주문자 정보</h2>
+				<div class="order_section">
+					<table class="goodsinfo_table">
+						<tr>
+							<th>보내는 분</th>
+							<td>${sessionScope.memberVO.id}</td>
+						</tr>
+						<tr>
+							<th>휴대폰</th>
+							<td>${sessionScope.memberVO.phone}</td>
+						</tr>
+						<tr>
+							<th>이메일</th>
+							<td>${sessionScope.memberVO.email}</td>
+						</tr>
+					</table>
+				</div>
+				<h2 class="tit_section1" id="divAddressWrapper">
+					배송정보 <span class="desc">배송 휴무일: 샛별배송(휴무없음), 택배배송(일요일)</span>
+				</h2>
+				<!-- 					<div class="order_section">
 						<h3 class="section_crux">배송지</h3>
 					</div> -->
-					<div class="section_full">
-						<span class="address" id="divDestination"> <span
-							class="default">기본배송지</span> <span class="addr">${sessionScope.memberVO.address}</span>
-						</span>
-					</div>
+				<div class="section_full">
+					<span class="address" id="divDestination"> <span
+						class="default">기본배송지</span> <span class="addr">${sessionScope.memberVO.address}</span>
+					</span>
+				</div>
+				<form id="addPayment.do">
 					<div id="paymentMethodResult">
-							<input type="hidden" value="${orderList.orderListNo}" id="title"/>
-							<input type="submit" value="결제하기" class="btn_payment" />
+						<input type="hidden" value="${orderList.orderListNo}" id="title" />
+						<input type="submit" value="결제하기" class="btn_payment" />
 					</div>
 				</form>
 			</div>
