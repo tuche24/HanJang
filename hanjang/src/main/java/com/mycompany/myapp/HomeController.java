@@ -2,6 +2,8 @@ package com.mycompany.myapp;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.mycompany.myapp.vo.PaymentVO;
 
 /**
  * Handles requests for the application home page.
@@ -66,7 +71,13 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/goToComplete.do")
-	public String goToComplete() {
-		return "payment/Complete";
+	public ModelAndView goToComplete(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		PaymentVO paymentVO = (PaymentVO) session.getAttribute("payment");
+		session.removeAttribute("payment"); // 주문내역서 paymentVO에 옮기고 세션에서 지우기
+		
+		mav.addObject("payment", paymentVO);
+		mav.setViewName("payment/Complete");
+		return mav;
 	}
 }
