@@ -64,7 +64,7 @@
 		SELECT * FROM OrderList o, Book b, User u, Cart c
 		WHERE o.CartNo = #{cartNo} AND o.UserNo = #{userNo} AND o.CartNo = c.CartNo AND o.ItemId = b.ItemId AND o.UserNo = u.UserNo
 		GROUP BY o.ItemId, o.UserNo, o.CartNo 
-		ORDER BY o.RegDate DESC
+		ORDER BY o.RegDate DESC, oItemId DESC
 	</select>
 	
 	<!-- 주문확인서 No 값으로 데이터 가져오기 -->

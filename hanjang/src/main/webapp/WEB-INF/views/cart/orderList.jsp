@@ -93,9 +93,10 @@
 						class="default">기본배송지</span> <span class="addr">${sessionScope.memberVO.address}</span>
 					</span>
 				</div>
-				<form id="addPayment.do">
+				<form action="addPayment.do">
 					<div id="paymentMethodResult">
-						<input type="hidden" value="${orderList.orderListNo}" id="title" />
+						<input type="hidden" value="${orderList[0].orderListNo}" name="orderListNo" />
+						<%-- <input type="text" value="${orderList[0].orderListNo}" /> <!-- test --> --%>
 						<input type="submit" value="결제하기" class="btn_payment" />
 					</div>
 				</form>

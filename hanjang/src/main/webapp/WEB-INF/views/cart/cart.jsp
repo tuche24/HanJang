@@ -308,10 +308,7 @@ Number.prototype.formatNumber = function(){
 
 <style>
 #container {
-	position: relative;
-	margin: 0 auto;
-	width: 100%;
-	overflow: hidden;
+	
 }
 </style>
 
@@ -331,7 +328,7 @@ Number.prototype.formatNumber = function(){
 						<div class="address">
 							<p class="addr">
 								<c:if test="${empty sessionScope.memberVO}">
-								LoginVO session이 필요합니다
+								Login session이 필요합니다
 								<!-- 주소 출력 -->
 								</c:if>
 								<c:if test="${not empty sessionScope.memberVO}">
