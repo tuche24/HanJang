@@ -34,7 +34,9 @@ public class OrderListController {
 		} // css 작업을 위해 주석처리
 */		
 		int userNo = memberVO.getUserNo(); // 유저번호로 최근 OrderList DB 정보 불러오기
+		
 		System.out.println("goToOrderList.do userNo = " + userNo); //test
+		
 		int cartNo = (int) session.getAttribute("sessionCartNo");
 		OrderListVO orderListVO1 = new OrderListVO();
 		orderListVO1.setCartNo(cartNo);

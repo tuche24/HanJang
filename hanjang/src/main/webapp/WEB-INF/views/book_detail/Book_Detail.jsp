@@ -59,6 +59,10 @@ $(function only_number(){
 </script>
 
 <style>
+#container {
+	overflow: hidden;
+}
+
 #detail_title {
 	margin-top: 100px;
 }
@@ -74,10 +78,10 @@ $(function only_number(){
 </style>
 
 <body>
+	<div id="header"></div>
+	
 	<div id="container">
-		<div id="header"></div>
 
-		<div id="wrap">
 			<div id="detail_title">
 				<ul>
 					<li><span class="title"> <strong>우리는 안녕</strong>
@@ -226,7 +230,6 @@ $(function only_number(){
 				</div>
 			</div>
 		</div>
-	</div>
 <!-- footer부분 -->
 <div id="footer"></div>
 </body>

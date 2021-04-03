@@ -308,68 +308,7 @@ Number.prototype.formatNumber = function(){
 
 <style>
 #container {
-	position: relative;
-	margin: 0 auto;
-	width: 1080px;
-	height: 800px;
-}
-
-#content {
-	position: relative;
-	margin: 0 auto;
-	width: 1080px;
 	
-}
-
-#cartItemList {
-	position: relative;
-	width: 1080px;
-	margin: 0 auto;
-	z-index: 3;
-}
-
-.inner_result {
-	position: absolute;
-    right: 50%;
-    top: 430px;
-    margin-right: -850px;
-}
-
-.active {
-	cursor: pointer;
-}
-
-.check {
-	margin-right: 10px;
-}
-
-.btn_delete {
-	padding: 6px 8px 6px;
-    background-color: #fff;
-    border: 1px solid #aaa;
-    color: #193b78;
-    box-shadow: none;
-    cursor: pointer;
-}
-
-.cart_item {
-	padding: 16px 0px 15px;
-    overflow: hidden;
-	border-bottom: 1px solid;
-	width: 100%;
-}
-
-#items {
-	padding: 50px 0px;
-}
-#footer div {
-	float:left;
-}
-#footer {
-	margin:0 auto;
-	width:1050px;
-	height:300px;
-	clear: both;
 }
 </style>
 
@@ -389,7 +328,7 @@ Number.prototype.formatNumber = function(){
 						<div class="address">
 							<p class="addr">
 								<c:if test="${empty sessionScope.memberVO}">
-								LoginVO session이 필요합니다
+								Login session이 필요합니다
 								<!-- 주소 출력 -->
 								</c:if>
 								<c:if test="${not empty sessionScope.memberVO}">
@@ -455,7 +394,7 @@ Number.prototype.formatNumber = function(){
 										style="cursor: pointer;">+</button>
 								</span> <span id="bookprice"><fmt:formatNumber
 										value="${cart.bookVO.priceStandard * cart.cartVO.amount}"
-										pattern="#,###" />원</span> <span id="cancel_btn"><button>X</button></span>
+										pattern="#,###" />원</span> <span><button id="cancel_btn">X</button></span>
 								<hr>
 							</div>
 						</c:forEach>
