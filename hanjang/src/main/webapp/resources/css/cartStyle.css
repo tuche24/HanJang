@@ -42,10 +42,10 @@ two_1 {
 }
 
 .cart_item {
-	float:left;
+	float: left;
 	font-size: 15px;
 	padding: 16px 0px 15px;
-    overflow: hidden;
+	overflow: hidden;
 	border-bottom: 1px solid;
 	width: 100%;
 }
@@ -56,11 +56,11 @@ two_1 {
 
 .btn_delete {
 	padding: 6px 8px 6px;
-    background-color: #fff;
-    border: 1px solid #aaa;
-    color: #193b78;
-    box-shadow: none;
-    cursor: pointer;
+	background-color: #fff;
+	border: 1px solid #aaa;
+	color: #193b78;
+	box-shadow: none;
+	cursor: pointer;
 }
 
 #item {
@@ -101,29 +101,41 @@ two_1 {
 .updown {
 	width: 100px;
 }
+
 .p_num {
 	text-align: center;
 	width: 22px;
+	border:0;
+	outline:0;
 }
 
-.amount_dec{
-	width : 22px;
+.amount_dec {
+	width: 22px;
 	text-align: center;
+	border:0;
+	outline:0;
+	background-color: white;
 }
 
-.amount_inc{
-	width : 22px;
+.amount_inc {
+	width: 22px;
 	text-align: center;
+	border:0;
+	outline:0;
+	background-color: white;
 }
 
 #bookprice {
 	margin-left: 100px;
-	width : 80px;
+	width: 80px;
 }
 
 #cancel_btn {
 	margin-left: 10px;
 	width: 32px;
+	border:0;
+	outline:0;
+	background-color: white;
 }
 
 .inner_result {
@@ -136,9 +148,9 @@ two_1 {
 	line-height: 30px;
 	border: 1px solid gray;
 	position: absolute;
-    right: 50%;
-    top: 430px;
-    margin-right: -850px;
+	right: 50%;
+	top: 240px;
+	margin-right: -780px;
 }
 
 .amount_view {
@@ -202,11 +214,11 @@ dl.amount {
 }
 
 .footer div {
-	float:left;
+	float: left;
 }
 
 .footer {
-	margin:0 auto;
-	width:1050px;
-	height:300px;
+	margin: 0 auto;
+	width: 1050px;
+	height: 300px;
 }
