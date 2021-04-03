@@ -48,14 +48,14 @@
 				 https://docs.iamport.kr/implementation/payment
 				 위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
 				 */
-				name : '${payment.email}',
+				name : '${sessionScope.payment.email}',
 				//결제창에서 보여질 이름
-				amount : ${payment.priceTotal},
+				amount : ${sessionScope.payment.priceTotal},
 				//가격
-				buyer_email : '${payment.email}',
-				buyer_name : '${payment.name}',
-				buyer_tel : '${payment.phone}',
-				buyer_addr : '${payment.address}',
+				buyer_email : '${sessionScope.payment.email}',
+				buyer_name : '${sessionScope.payment.name}',
+				buyer_tel : '${sessionScope.payment.phone}',
+				buyer_addr : '${sessionScope.payment.address}',
 				buyer_postcode : '123-456',
 				m_redirect_url : 'goToComplete.do'
 			/*

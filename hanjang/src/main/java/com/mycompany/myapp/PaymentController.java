@@ -28,7 +28,8 @@ public class PaymentController {
 		List<OrderListVO> orderListVO = service.getOrderList_No(orderListNo);
 		PaymentVO paymentVO = transformToPayment(session, orderListVO);
 		
-		mav.addObject("payment", paymentVO);
+		/*mav.addObject("payment", paymentVO);*/
+		session.setAttribute("payment", paymentVO);
 		mav.setViewName("payment/Payment");
 		return mav;
 	}
