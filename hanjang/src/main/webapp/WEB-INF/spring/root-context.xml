@@ -17,7 +17,7 @@
 	<!-- MariaDB JDBC DataSource -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.mariadb.jdbc.Driver" />
-		<property name="url" value="jdbc:mariadb://hanjang.csxnhhpcigbn.ap-northeast-2.rds.amazonaws.com:3306/hanjang?characterEncoding=UTF-8" />
+		<property name="url" value="jdbc:mariadb://hanjang1.csxnhhpcigbn.ap-northeast-2.rds.amazonaws.com:3306/hanjang?characterEncoding=UTF-8" />
 		<property name="username" value="Collaborator" />
 		<property name="password" value="hanjang1" />
 	</bean>

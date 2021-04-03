@@ -24,7 +24,18 @@ public class PaymentController {
 		ModelAndView mav = new ModelAndView();
 		
 		List<OrderListVO> orderListVO = service.getOrderList_No(orderListNo);
-		orderListVO.get(0).getBookVO().getTitle();
+		String test = orderListVO.get(0).getBookVO().getTitle(); // 상품명
+		orderListVO.get(0).getBookVO().getPriceStandard();
+		orderListVO.get(0).getCartVO().getAmount();
+		
+		int sum = 0;
+		for(OrderListVO orderList : orderListVO) {
+			String sPrice = orderList.getBookVO().getPriceStandard();
+			int price = Integer.parseInt(sPrice);
+			int amount = orderList.getCartVO().getAmount();
+			sum += price * amount;
+		}
+		int priceTotal = sum;
 		
 		mav.setViewName("payment/Payment");
 		return mav;
