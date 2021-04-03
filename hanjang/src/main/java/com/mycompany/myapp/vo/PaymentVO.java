@@ -10,6 +10,16 @@ public class PaymentVO {
 	private String phone; // 전화번호
 	private String address; // 주소
 	
+	public PaymentVO(String title, int priceTotal, String email, String name, String phone,
+			String address) {
+		this.title = title;
+		this.priceTotal = priceTotal;
+		this.email = email;
+		this.name = name;
+		this.phone = phone;
+		this.address = address;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
