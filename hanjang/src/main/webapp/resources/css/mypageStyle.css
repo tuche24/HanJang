@@ -77,13 +77,14 @@ a:active {text-decoration: none; color: black;}
 	border-radius:10px;
 	width:100%;
 	margin-top:10px;
+	margin-bottom:20px;
 }
 .order_table td {
 	padding:5px;
 }
 .order_table img {
-	width:70px;
-	height:100px;
+	width:80px;
+	height:110px;
 }
 
 /* 중간 내용 부분 - 개인정보 수정 */
@@ -116,6 +117,33 @@ a:active {text-decoration: none; color: black;}
 #startag{
 	color:red;
 	font-size:14px;
+}
+
+
+/* 페이징 부분 */
+.pagingSection {
+	text-align: center;
+	font-family: noto sans;
+	margin-bottom: 250px;
+	height: 40px;
+	border: 0px solid gray;
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	line-height: 1;
+	letter-spacing: -.05em;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/* 페이징 부분 - 각각의 버튼 */
+.pagingBtn {
+	display: inline-block;
+	border: 1.5px solid #dddddd;
+	padding:8px;
+	padding-left: 13px;
+	padding-right: 13px;
+	margin: -2px;
 }
 
 /* footer 부분 */

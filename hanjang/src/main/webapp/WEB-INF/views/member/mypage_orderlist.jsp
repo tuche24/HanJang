@@ -48,7 +48,7 @@
 	</tr>
 	<tr>
 		<td style="width:100px;">결제금액</td>
-		<td style="color:#ee5555; font-weight:bold;">결제금액 들어올 곳</td>
+		<td style="color:#ee5555; font-weight:bold;">${list.bookVO.priceStandard * list.cartVO.amount }</td>
 	</tr>
 	<tr>
 		<td style="width:100px;">주문상태</td>
@@ -57,8 +57,36 @@
 </table>
 </c:forEach>
 </c:if>
-<!-- 페이징 섹션 -->
-
+<div class="pagingSection">	<!-- 페이징 부분 -->
+	<!-- 이전 버튼 -->
+	<c:if test="${po.prev }">
+	<div class="pagingBtn">
+		<a href="<c:url value='mypageOrderList.do?page=${po.firstPage-1 }&countPerPage=${po.paging.countPerPage }'/>">prev</a>
+	</div>
+	</c:if>
+	<!-- 페이지 버튼 -->
+	<c:forEach var="pageNum" begin="${po.firstPage }" end="${po.lastPage }">
+	<!-- 현재 선택된 페이지 배경색 바꾸기 -->
+	<c:choose>
+	<c:when test="${po.paging.page == pageNum }">
+	<div class="pagingBtn" style="background-color: #f7f7f7;">
+		<a href="<c:url value='mypageOrderList.do?page=${pageNum }&countPerPage=${po.paging.countPerPage }'/>">${pageNum }</a>
+	</div>
+	</c:when>
+	<c:otherwise>
+	<div class="pagingBtn">
+		<a href="<c:url value='mypageOrderList.do?page=${pageNum }&countPerPage=${po.paging.countPerPage }'/>">${pageNum }</a>
+	</div>
+	</c:otherwise>
+	</c:choose>
+	</c:forEach>
+	<!-- 다음 버튼 -->
+	<c:if test="${po.next }">
+	<div class="pagingBtn">
+		<a href="<c:url value='recommendList.do?page=${po.lastPage +1 }&countPerPage=${po.paging.countPerPage }'/>">next</a>
+	</div>
+	</c:if>
+</div>
 </div>
 </div>
 </div>
