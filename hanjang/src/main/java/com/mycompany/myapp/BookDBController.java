@@ -18,5 +18,9 @@ public class BookDBController {
 	public void DBinsert(BookVO newBookVO) {
 		service.insertBook(newBookVO);
 	}
-	
+	// 책 정보를 반환하는 메소드입니다.
+	public BookVO selectDetail(String title) {
+		BookVO bookVO1 = service.selectDetail(title);
+		return bookVO1;
+	}
 }

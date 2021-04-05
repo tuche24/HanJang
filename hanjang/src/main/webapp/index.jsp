@@ -51,10 +51,5 @@
 <input type="submit" value="마이페이지" />
 </form>
 
-<form action="goToBookDetailTest.do">
-<input type="hidden" name="title" value="java" />
-<input type="submit" value="크롤링test" />
-</form>
-
 </body>
 </html>
