@@ -163,7 +163,7 @@ font-weight:bold;
 		</form>
 		
 	</div>	
-		<div style="width:30px; height:30px;"><a style="width:30px; height:30px; background:black;" href="https://kauth.kakao.com/oauth/authorize?client_id=036ccf425c45c76afae938160b6e023e&redirect_uri=http://localhost:8081/myapp/kakaologin.do&response_type=code">카카오</a></div>
+		<div class="logininbut" style="margin-top:7px; margin:0 auto;"><a style="border-radius:5px;display:block;width:100%; height:100%;"" href="https://kauth.kakao.com/oauth/authorize?client_id=036ccf425c45c76afae938160b6e023e&redirect_uri=http://localhost:8081/myapp/kakaologin.do&response_type=code"><img style="width:340px;"src="resources\img\main\kakaobut2.png" /></a></div>
 <!-- footer부분 -->
 <div id="footer"></div>
 </body>
