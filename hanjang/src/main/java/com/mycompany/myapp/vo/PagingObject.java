@@ -10,7 +10,7 @@ public class PagingObject {
 	private boolean next;
 	
 	// 한번에 보여질 페이지 버튼 수
-	private final int pageBtnNum = 10;
+	private final int pageBtnNum = 5;
 	
 	private void calcPageData() {
 		

@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +26,8 @@ import com.mycompany.myapp.service.OrderListService;
 import com.mycompany.myapp.vo.BookVO;
 import com.mycompany.myapp.vo.MemberVO;
 import com.mycompany.myapp.vo.OrderListVO;
+import com.mycompany.myapp.vo.PageVO;
+import com.mycompany.myapp.vo.PagingObject;
 
 @Controller
 public class MemberController {
@@ -159,17 +160,27 @@ public class MemberController {
 	@Resource(name = "orderListService")
 	private OrderListService orderlistservice;
 	
-	// 마이페이지 주문내역 페이지
+	// 마이페이지 주문내역 페이지 조회 + 페이징
 	@RequestMapping(value="mypageOrderList.do")
-	public String getMyOrderList(HttpSession session, Model model) {
+	public String getMyOrderList(HttpSession session, Model model, PageVO pv) {
 		MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
 		int userNo = memberVO.getUserNo();
-		OrderListVO orderListVO = new OrderListVO();
-		orderListVO.setUserNo(userNo);
-		System.out.println("현재 접속한 사용자 번호 : "+orderListVO.getUserNo());
+		System.out.println("현재 접속한 사용자 번호 : "+userNo);
+		System.out.println("현재 페이지 정보 : "+pv);
 		
-		List<OrderListVO> list = orderlistservice.getOrderedList(orderListVO);
+		List<OrderListVO> list = orderlistservice.getOrderedList(userNo, pv);
+		System.out.println("리스트 사이즈 : "+list.size());
+		
 		model.addAttribute("orderlist", list);
+		
+		PagingObject po = new PagingObject();
+		po.setPaging(pv);
+		po.setPostTotalCount(orderlistservice.countPosts(userNo));
+		System.out.println("총 주문 개수 : "+orderlistservice.countPosts(userNo));
+		System.out.println("현재 페이징 정보 :"+po);
+		
+		model.addAttribute("po", po);
+		
 		return "member/mypage_orderlist";
 	}
 	
