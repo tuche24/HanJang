@@ -78,10 +78,10 @@ public class CartController {
 			mav.setViewName("cart/cart");
 
 			return mav;
-		} else {
+		} else {				
 			// 장바구니 정보가 없을 때 새 책 으로 이동 // OR 최근 장바구니 정보 가져오기
-			alertMessage("장바구니에 상품이 담기지 않았습니다", res);
-			mav.setViewName("main");
+			/*alertMessage("장바구니에 상품이 담기지 않았습니다", res);*/
+			mav.setViewName("gomain");
 			System.out.println("장바구니 정보가 없습니다");
 			return mav;
 		} 
