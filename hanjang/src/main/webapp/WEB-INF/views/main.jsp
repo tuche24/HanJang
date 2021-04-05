@@ -550,7 +550,8 @@ background:white;
 display:block;
 width:100%;
 height:380px;
-background:white;
+background-image:
+      url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);
 }
 
 .eventintro_event ul li a div{
@@ -699,7 +700,7 @@ display:block;
 <div class="menubar" >
 <div class="menu_container1">
 <ul class="main_menu">
-<li class="menu1" onmouseenter="fade()" onmouseleave="fadeo()"><a href="">카테고리</a>
+<li class="menu1" onmouseenter="fade()" onmouseleave="fadeo()"><a href="#none">카테고리</a>
 <ul class="dropdown">
 <li><a href="BestSellerList1.do?categoryId=100"><h3 style="font-weight:bold;">국내도서</h3></a></li>
 <li><a href="BestSellerList1.do?categoryId=109">유아/어린이</a></li>
@@ -715,7 +716,7 @@ display:block;
 </ul></li>
 <li class="menu2"><a href="BestSellerList1.do">베스트셀러</a></li>
 <li class="menu3"><a href="NewBookList1.do">새로나온책</a></li>
-<li class="menu4" onmouseenter="fade1()" onmouseleave="fadeo1()"><a href="">커뮤니티</a>
+<li class="menu4" onmouseenter="fade1()" onmouseleave="fadeo1()"><a href="#none">커뮤니티</a>
 <ul class="dropdown">
 <li><a href="recommendList.do">이 책 추천해요</a></li>
 <li><a href="requestList.do">없는 책 요청해요</a></li>
@@ -803,9 +804,9 @@ display:block;
 </div>
 <div class="eventintro_event">
 <ul>
+<li><a href="event.do" ><div>이벤트이름</div></a></li>
 <li><a href="event.do"><div>이벤트이름</div></a></li>
-<li><a href="">이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/><div>이벤트이름</div></a></li>
-<li><a href=""><div>이벤트이름</div></a></li>
+<li><a href="event.do"><div>이벤트이름</div></a></li>
 
 </ul>
 </div>
