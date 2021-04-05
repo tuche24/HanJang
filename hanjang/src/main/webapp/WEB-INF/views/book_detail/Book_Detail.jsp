@@ -59,6 +59,10 @@ $(function only_number(){
 </script>
 
 <style>
+#container {
+	overflow: hidden;
+}
+
 #detail_title {
 	margin-top: 100px;
 }
@@ -74,23 +78,23 @@ $(function only_number(){
 </style>
 
 <body>
+	<div id="header"></div>
+	
 	<div id="container">
-		<div id="header"></div>
 
-		<div id="wrap">
 			<div id="detail_title">
 				<ul>
-					<li><span class="title"> <strong>우리는 안녕</strong>
+					<li><span class="title"> <strong>${bookList.title}</strong>
 					</span></li>
 
 					<li>
 						<div id="info">
-							<span id="author">박준 지음</span> 
+							<span id="author">${bookList.author} 지음</span> 
 							<span>|</span> <span id="draw">김한나 그림</span>
 							<span>|</span>
-							<span id="publication">난다</span>
+							<span id="publication">${bookList.publisher}</span>
 							<span>|</span>
-							<span id="publication_date">2021년 03월 20일</span>
+							<span id="publication_date">${bookList.pubDate}</span>
 						</div>
 					</li>
 				</ul>
@@ -102,8 +106,8 @@ $(function only_number(){
 				<div class="prod_bookwrap">
 					<div class="detail_picture">
 						<img
-							src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg"
-							alt="우리는 안녕" />
+							src="${bookList.coverLargeUrl}"
+							alt="" />
 					</div>
 
 					<div class="detail_order">
@@ -111,7 +115,7 @@ $(function only_number(){
 							<ul>
 								<li>
 									<div class="Litem">판매가</div>
-									<div class="Ritem">14,850원</div>
+									<div class="Ritem">${bookList.priceStandard}</div>
 								</li>
 							</ul>
 						</div>
@@ -124,7 +128,7 @@ $(function only_number(){
 								</li>
 								<li>
 									<div class="Litem">배송위치</div>
-									<div class="Ritem">서울특별시 종로구 세종대로</div>
+									<div class="Ritem">${sessionScope.memberVO.address}</div>
 								</li>
 							</ul>
 						</div>
@@ -165,7 +169,7 @@ $(function only_number(){
 				<div class="detail_info">
 					<div class="book_introduce">
 						<div class="intro_title">책소개</div>
-						<div class="intro_content">안녕은 그리는 거야. 그리고 그리고 또 그리는 것을
+						<div class="intro_content">${textList[2]}<!-- 안녕은 그리는 거야. 그리고 그리고 또 그리는 것을
 							그리움이라고 하는 거야. 시인 박준의 첫 시 그림책 『우리는 안녕』 첫 시집 『당신의 이름을 지어다가 며칠은
 							먹었다』와 첫 산문집 『운다고 달라지는 일은 아무것도 없겠지만』을 쓴 시인 박준의 첫 시 그림책이다. 『우리는
 							안녕』이라는 제목의 시 그림책이다. 시인의 아버지가 키우는 개 ‘단비’를 주인공으로 하는 시 그림책이다. 「단비」라는
@@ -174,7 +178,7 @@ $(function only_number(){
 							/단비는 집 안 곳곳을/쉬지 않고 뛰어다녔다//밤이면/마당에서 길게 울었고//새벽이면/올해 예순아홉 된 아버지와/
 							/멀리 방죽까지 나가/함께 울고 돌아왔다)도 시인의 두번째 시집 『우리가 함께 장마를 볼 수도 있겠습니다』를 통해
 							발표한 적 있거니와, 어느 날 단비에게 날아든 새가 있어 그 새와 친구가 되어가는 과정 속에 저마다의 ‘안녕’을
-							되새겨보게 하는 시 그림책이다.</div>
+							되새겨보게 하는 시 그림책이다. --></div>
 					</div>
 
 					<hr>
@@ -183,11 +187,11 @@ $(function only_number(){
 						<div class="author_title">저자 및 역자 소개</div>
 						<div class="author_content">
 							<div class="author_name">
-								박준 <span>(지은이)</span>
+								${bookList.author} <span>(지은이)</span>
 							</div>
 							<div class="author_detail">
-								시집 『당신의 이름을 지어다가 며칠은 먹었다』 『우리가 함께 장마를 볼 수도 있겠습니다』,<br>
-								산문집『운다고 달라지는 일은 아무것도 없겠지만』. 늘 개와 함께 살고 있다.
+								${textList[4]}<!-- 시집 『당신의 이름을 지어다가 며칠은 먹었다』 『우리가 함께 장마를 볼 수도 있겠습니다』,<br>
+								산문집『운다고 달라지는 일은 아무것도 없겠지만』. 늘 개와 함께 살고 있다. -->
 							</div>
 							<div class="drawer_name">
 								김한나 <span>(그린이)</span>
@@ -204,7 +208,7 @@ $(function only_number(){
 					<div class="book_preview">
 						<div class="preview_title">출판사 서평</div>
 						<div class="preview_content">
-							만남이라는 안녕의 기쁨에 설레게 하는 시 그림책이다.<br> 이별이라는 안녕의 슬픔에 시무룩하게도 만드는 시
+							${textList[8]}<!-- 만남이라는 안녕의 기쁨에 설레게 하는 시 그림책이다.<br> 이별이라는 안녕의 슬픔에 시무룩하게도 만드는 시
 							그림책이다. 시작이라는 안녕에서 ‘삶’이라는 단어를 발음하게 하고 끝이라는 안녕에서 ‘죽음’이라는
 							단어에 눈뜨게 하고 싶어 준비한 시 그림책이다. “만나지 못한 이를 그리워할 때,
 							눈은 먼 곳으로 가닿습니다. 보고 싶은 이를 보고 싶어할 때, 마음은 가까이 있고요.” 우리가 안녕을
@@ -220,13 +224,12 @@ $(function only_number(){
 							시인과 화가가 서로의 글과 그림을 주고받으면서 하나의 책으로 한 데 꾸려지기까지 고치고 또 고치고
 							그리고 다시 그리기를 쉴새없이 반복해온 시 그림책이다. “안녕, 안녕은 말하고 싶을 때 말하고 안녕,
 							안녕은 말하기 싫을 때에도 해야 하는 말이야.” 헤어지며 놓아주는 순간의 안녕, 기다리며 기약하는
-							순간의 안녕, 이 사이를 사는 우리는 안녕이라 우리를 안녕하게 하는 시 그림책이다.
+							순간의 안녕, 이 사이를 사는 우리는 안녕이라 우리를 안녕하게 하는 시 그림책이다. -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 <!-- footer부분 -->
 <div id="footer"></div>
 </body>

@@ -135,7 +135,10 @@
 				alert("아이디 중복체크를 해주세요.");
 				return false;
 			}    
-			
+			if(!document.userInfo.address.value){
+				alert("주소를 입력해주세요.")
+				return false;
+			}
 		
 			
 		} 
@@ -323,7 +326,7 @@ $(document).ready(function(){
 			</table>
 			<br><div style="text-align:center;">
 			<input type="submit" value="가입" class="butt">  
-			<input type="button" value="취소" onclick= location.href="loginform.do" class="butt">
+			<input type="button" value="취소" onclick=location.href='loginform.do'  class="butt">
 			</div>
 		</form>
 		</div>

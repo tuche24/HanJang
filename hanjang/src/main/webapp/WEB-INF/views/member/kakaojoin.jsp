@@ -108,6 +108,9 @@ height:300px;
 		{
 			var dateva = $('#birthdate').val();
 		var datepattern = /^([0-9]){8}$/;
+		var emailval = $('#email').val();
+		var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
 
 			//생년월일 유효성검사 추가해야됨.
 		 
@@ -132,13 +135,21 @@ height:300px;
 			  alert("생년월일 8자리를 정확히 입력하세요");
 			  return false;
 		  }
+			if(!regExp.test(emailval)){
+				  alert("이메일을 형식에 맞게 입력해주세요");
+				  return false;
+			  }
 
 			
 			//아이디 중복체크했는지 확인
 			if(document.userInfo.idDuplication.value != "idCheck"){
 				alert("아이디 중복체크를 해주세요.");
 				return false;
-			}    
+			}   
+			if(!document.userInfo.address.value){
+				alert("주소를 입력해주세요.")
+				return false;
+			}
 			
 		
 			
@@ -298,7 +309,14 @@ $(document).ready(function(){
 							<div class="check_font" id="birth_check"></div>
 					</td>
 				</tr>
-				
+					<tr>
+					<td id="title">이메일</td>
+					<td>
+						<input type="text" name="email" maxlength="50" class="input_text_f" id="email"placeholder="ex)ggggg@gmail.com">
+						
+					
+					</td>
+				</tr>
 					
 				<tr>
 					<td id="title">휴대전화</td>

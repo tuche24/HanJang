@@ -47,53 +47,58 @@
 					<div class="short_info">
 						<!-- forEach해서 상품 목록 가져오기 -->
 						<ul>
-							<c:forEach items="${orderList}" var="order" varStatus="status" begin="0">
+						<c:set var="col_sum" value="0"/>
+							<c:forEach items="${orderList}" var="order" varStatus="status"
+								begin="0">
 								<li><img src="${order.bookVO.coverLargeUrl}" id="bookimage" /><span
 									id="bookname">${order.bookVO.title}</span> <span
-									id="bookamount">${order.amount}개</span> <span
-									id="bookprice">${order.amount * order.bookVO.priceStandard}원</span></li>
+									id="bookamount">${order.amount}개</span> <span id="bookprice">${order.amount * order.bookVO.priceStandard}원</span></li>
+									<c:set var="col_sum" value="${col_sum+ order.amount * order.bookVO.priceStandard}"/>
 							</c:forEach>
 						</ul>
 						<script>
-						if(self.name != 'reload'){
-							self.name='reload';
-							self.location.reload(true);
-						}
-						else self.name = '';
-						/* c:forEach 구문에서 첫번째 리스트가 안 보이는 오류 해결하기 위해 */
+							if (self.name != 'reload') {
+								self.name = 'reload';
+								self.location.reload(true);
+							} else
+								self.name = '';
+							/* c:forEach 구문에서 첫번째 리스트가 안 보이는 오류 해결하기 위해 */
 						</script>
 					</div>
+					<div id="totalPrice">총 결제금액 : <c:out value="${col_sum}"/>원</div>
 				</div>
-				<form id="form">
-					<h2 class="tit_section" id="titFocusOrderer">주문자 정보</h2>
-					<div class="order_section">
-						<table class="goodsinfo_table">
-							<tr>
-								<th>보내는 분</th>
-								<td>${sessionScope.memberVO.id}</td>
-							</tr>
-							<tr>
-								<th>휴대폰</th>
-								<td>${sessionScope.memberVO.phone}</td>
-							</tr>
-							<tr>
-								<th>이메일</th>
-								<td>${sessionScope.memberVO.email}</td>
-							</tr>
-						</table>
-					</div>
-					<h2 class="tit_section1" id="divAddressWrapper">
-						배송정보 <span class="desc">배송 휴무일: 샛별배송(휴무없음), 택배배송(일요일)</span>
-					</h2>
-					<!-- 					<div class="order_section">
+
+				<h2 class="tit_section" id="titFocusOrderer">주문자 정보</h2>
+				<div class="order_section">
+					<table class="goodsinfo_table">
+						<tr>
+							<th>보내는 분</th>
+							<td>${sessionScope.memberVO.id}</td>
+						</tr>
+						<tr>
+							<th>휴대폰</th>
+							<td>${sessionScope.memberVO.phone}</td>
+						</tr>
+						<tr>
+							<th>이메일</th>
+							<td>${sessionScope.memberVO.email}</td>
+						</tr>
+					</table>
+				</div>
+				<h2 class="tit_section1" id="divAddressWrapper">
+					배송정보 <span class="desc">배송 휴무일: 샛별배송(휴무없음), 택배배송(일요일)</span>
+				</h2>
+				<!-- 					<div class="order_section">
 						<h3 class="section_crux">배송지</h3>
 					</div> -->
-					<div class="section_full">
-						<span class="address" id="divDestination"> <span
-							class="default">기본배송지</span> <span class="addr">${sessionScope.memberVO.address}</span>
-						</span>
-					</div>
+				<div class="section_full">
+					<span class="address" id="divDestination"> <span
+						class="default">기본배송지</span> <span class="addr">${sessionScope.memberVO.address}</span>
+					</span>
+				</div>
+				<form action="goToPayment.do">
 					<div id="paymentMethodResult">
+						<input type="hidden" value="${orderList[0].orderListNo}" name="orderListNo" />
 						<input type="submit" value="결제하기" class="btn_payment" />
 					</div>
 				</form>

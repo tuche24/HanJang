@@ -48,15 +48,15 @@
 							<tbody>
 								<tr>
 									<th>받는사람 이름</th>
-									<td>홍길동</td>
+									<td>${payment.name}</td>
 								</tr>
 								<tr>
 									<th>연락처</th>
-									<td>010-0000-0000</td>
+									<td>${payment.phone}</td>
 								</tr>
 								<tr>
 									<th>배송지</th>
-									<td>서울특별시 종로구</td>
+									<td>${payment.address}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -71,7 +71,7 @@
 										<li class="pay_sum">
 											<span class="price_title">결제금액</span>
 											<span class="price_desc">
-												<strong class="price">10000</strong>원
+												<strong class="price">${payment.priceTotal}</strong>원
 											</span>
 										</li>
 									</ul>

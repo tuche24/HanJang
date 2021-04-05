@@ -23,12 +23,12 @@ public class OrderListServiceImpl implements OrderListService {
 		dao.insertOrderList(orderListVO);
 	}
 
-	@Override
+  /*	@Override
 	public List<OrderListVO> getOneOrderList(int orderListNo) {
 		
 		List<OrderListVO> list = dao.getOneOrderList(orderListNo);
 		return list;
-	}
+	}*/
 
 	@Override
 	public List<OrderListVO> getLatelyOrderList(OrderListVO orderListVO1) {
@@ -52,5 +52,9 @@ public class OrderListServiceImpl implements OrderListService {
 	public int countPosts(int userNo) {
 		return dao.countPosts(userNo);
 	}
-
+  
+  public List<OrderListVO> getOrderList_No(int orderListNo) {
+	List<OrderListVO> orderListVO = dao.getOrderList_No(orderListNo);
+	return orderListVO;
+	}
 }
