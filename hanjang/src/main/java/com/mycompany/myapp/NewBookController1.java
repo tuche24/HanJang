@@ -1,7 +1,11 @@
 package com.mycompany.myapp;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +25,7 @@ public class NewBookController1 {
 	private NewBookService service;
 	@Autowired
 	private BookDBController dbcontroller;
-	@Autowired
+	@Resource(name = "bookDetailService")
 	private BookDetailService detailService;
 
 	@RequestMapping("NewBookList1.do")
@@ -45,15 +49,18 @@ public class NewBookController1 {
 
 	// 책 제목 인자로 받아 크롤링 컨트롤러
 	@RequestMapping("goToBookDetailTest.do")
-	public ModelAndView goToBookDetail(@RequestParam(required = false) String title) throws IOException {
+	public ModelAndView goToBookDetail(@RequestParam(required = false) String title, HttpServletRequest req) throws IOException, InterruptedException {
 		ModelAndView mav = new ModelAndView();
 		// 서비스 클래스에서 책 소개, 저자 및 역자 소개, 출판사 서평
 		System.out.println("goToBookDetail title = " + title);
 		// 검색할 url 받아오기
 		String url = detailService.getCrawlingUrl(title);
-		detailService.executeCrawling(url);
-		
+		ArrayList<String> textList = detailService.seleniumExample(url, req);
+		mav.addObject("textList", textList);
 		mav.setViewName("book_detail/Book_Detail");
 		return mav;
 	}
+	
+
+	
 }
