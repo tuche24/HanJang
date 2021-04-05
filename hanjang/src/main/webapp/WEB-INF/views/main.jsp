@@ -206,6 +206,21 @@ function search(){
 
 
 </script>
+<script>
+function fade() {
+	$('.menu1 .dropdown').show(300);
+}
+function fadeo() {
+	$('.menu1 .dropdown').hide(300);
+}
+function fade1() {
+	$('.menu4 .dropdown').show(300);
+}
+function fadeo1() {
+	$('.menu4 .dropdown').hide(300);
+}
+
+</script>
 <style>
 
 * {
@@ -320,9 +335,7 @@ background-image: -webkit-linear-gradient(45deg,#7effa8,#3fcbff);
 .menubar div{
 display:inline-block;
 }
-.main_menu li:hover .dropdown{
-display:block;
-}
+
 .main_menu li:hover {
 background:white;
 }
@@ -666,7 +679,7 @@ display:block;
 <div class="usermenu" >
 <ul>
 <c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
-                  <li><a href="">내정보</a></li>
+                  <li><a href="mypageOrderList.do">마이페이지</a></li>
                   <li><a href="Logout.do">로그아웃</a></li>
                   <li><a href="getOneCart.do">카트</a></li>
                </c:if>
@@ -686,25 +699,23 @@ display:block;
 <div class="menubar" >
 <div class="menu_container1">
 <ul class="main_menu">
-<li class="menu1"><a href="">카테고리</a>
+<li class="menu1" onmouseenter="fade()" onmouseleave="fadeo()"><a href="">카테고리</a>
 <ul class="dropdown">
-<li><a href=""><h3>국내도서</h3></a></li>
-<li><a href="">유아/어린이</a></li>
-<li><a href="">소설/시/희곡</a></li>
-<li><a href="">에세이</a></li>
-<li><a href="">인문학</a></li>
-<li><a href="">과학/역사</a></li>
-<li><a href="">수험서/참고서</a></li>
-<li><a href="">기타</a></li>
-<li><a href=""><h3>국외도서</h3></a></li>
-<li><a href="">영미소설</a></li>
-<li><a href="">경제경영</a></li>
-<li><a href="">자기개발</a></li>
-<li><a href="">기타</a></li>
+<li><a href="BestSellerList1.do?categoryId=100"><h3 style="font-weight:bold;">국내도서</h3></a></li>
+<li><a href="BestSellerList1.do?categoryId=109">유아/어린이</a></li>
+<li><a href="BestSellerList1.do?categoryId=101">소설/시/희곡</a></li>
+<li><a href="BestSellerList1.do?categoryId=102">에세이</a></li>
+<li><a href="BestSellerList1.do?categoryId=103">인문학</a></li>
+<li><a href="BestSellerList1.do?categoryId=116">과학/역사</a></li>
+<li><a href="BestSellerList1.do?categoryId=114">수험서/참고서</a></li>
+<li><a href="BestSellerList1.do?categoryId=200"><h3 style="font-weight:bold;">국외도서</h3></a></li>
+<li><a href="BestSellerList1.do?categoryId=205">영미소설</a></li>
+<li><a href="BestSellerList1.do?categoryId=117">경제경영</a></li>
+<li><a href="BestSellerList1.do?categoryId=118">자기개발</a></li>
 </ul></li>
 <li class="menu2"><a href="BestSellerList1.do">베스트셀러</a></li>
 <li class="menu3"><a href="NewBookList1.do">새로나온책</a></li>
-<li class="menu4"><a href="">커뮤니티</a>
+<li class="menu4" onmouseenter="fade1()" onmouseleave="fadeo1()"><a href="">커뮤니티</a>
 <ul class="dropdown">
 <li><a href="recommendList.do">이 책 추천해요</a></li>
 <li><a href="requestList.do">없는 책 요청해요</a></li>
