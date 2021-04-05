@@ -6,4 +6,6 @@ import com.mycompany.myapp.vo.BookVO;
 public interface BookDBDAO {
 
 	void insertBook(BookVO bookVO);
+	// 책 정보를 출력하는 메소드입니다
+	BookVO selectDetail(String title);
 }

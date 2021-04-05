@@ -48,15 +48,20 @@ public class NewBookController1 {
 	}
 
 	// 책 제목 인자로 받아 크롤링 컨트롤러
-	@RequestMapping("goToBookDetailTest.do")
+	@RequestMapping("goToBookDetailCrawl.do")
 	public ModelAndView goToBookDetail(@RequestParam(required = false) String title, HttpServletRequest req) throws IOException, InterruptedException {
 		ModelAndView mav = new ModelAndView();
 		// 서비스 클래스에서 책 소개, 저자 및 역자 소개, 출판사 서평
 		System.out.println("goToBookDetail title = " + title);
+		
+		// DB에서 받아온 책 정보
+		BookVO bookVO = dbcontroller.selectDetail(title);
+		
 		// 검색할 url 받아오기
 		String url = detailService.getCrawlingUrl(title);
 		ArrayList<String> textList = detailService.seleniumExample(url, req);
 		mav.addObject("textList", textList);
+		mav.addObject("bookList", bookVO);
 		mav.setViewName("book_detail/Book_Detail");
 		return mav;
 	}
