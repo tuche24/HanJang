@@ -327,12 +327,12 @@ Number.prototype.formatNumber = function(){
 						<h3 class="tit">배송지</h3>
 						<div class="address">
 							<p class="addr">
-								<c:if test="${empty sessionScope.memberVO}">
+								<c:if test="${empty sessionScope.loginAddress}">
 								Login session이 필요합니다
 								<!-- 주소 출력 -->
 								</c:if>
-								<c:if test="${not empty sessionScope.memberVO}">
-								${sessionScope.memberVO.address}
+								<c:if test="${not empty sessionScope.loginAddress}">
+								${sessionScope.loginAddress}
 								<!-- 나중에 주소 넣을 것 -->
 								</c:if>
 							</p>
