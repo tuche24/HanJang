@@ -5,6 +5,43 @@
 <head>
 <meta charset="UTF-8">
 <title>배송지 변경</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+	document.querySelector('#complete').addEventListener('click', function() {
+		address_popup_let.changeAddr();
+	})
+})
+
+let address_popup_let = {
+		changeAddr : function(){
+			let userNo = document.querySelector('#val_userNo').getAttribute("value");
+			let address = document.getElementById('change').value;
+		
+			var params = {
+					userNo : userNo,
+					address : address
+			}
+			
+			$.ajax({
+				type : "POST",
+				url : "updateAddress.do",
+				data : params,
+				success : function(){
+					console.log("동기화성공");
+					/* 자식창 닫고 부모창 새로고침 */
+					opener.document.location.reload();
+					self.close();
+				},
+				error : function() {
+					console.log("동기화실패");
+				}
+			});
+			
+		}
+}
+</script>
 </head>
 
 <style>
@@ -140,7 +177,7 @@ button {
 				<tbody>
 					<tr>
 						<th>변경 전 주소</th>
-						<td><input type="text" id="basic" value="이전 주소" readonly /></td>
+						<td><input type="text" id="basic" value="${sessionScope.memberVO.address}" readonly /></td>
 					</tr>
 					<tr>
 						<th>변경 후 주소</th>
@@ -155,5 +192,6 @@ button {
 			<button id="cancel" onclick="self.close();">취소</button>
 		</div>
 	</div>
+	<input type="hidden" id="val_userNo" value="${sessionScope.memberVO.userNo}" />
 </body>
 </html>

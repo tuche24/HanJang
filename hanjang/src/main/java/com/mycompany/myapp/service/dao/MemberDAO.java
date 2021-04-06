@@ -23,4 +23,7 @@ public interface MemberDAO {
 	
 	//회원정보 수정
 	void MemberUpdate(MemberVO membervo) throws Exception;
+	
+	// 회원주소 수정
+	void updateAddress(MemberVO memberVO);
 }

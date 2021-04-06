@@ -3,8 +3,10 @@ package com.mycompany.myapp;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.mail.Session;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -194,5 +196,16 @@ public class MemberController {
 		memberservice1.MemberUpdate(membervo);
 		ra.addFlashAttribute("msg", "updateSuccess");
 		return "redirect:mypageMyInfo.do";
+	}
+	
+	// 장바구니에서 배송지변경 popup 수정 처리
+	@RequestMapping(value="/updateAddress.do")
+	@ResponseBody
+	public Map<String,Object> updateAddress(MemberVO memberVO, HttpSession session) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		memberservice1.updateAddress(memberVO);
+		session.setAttribute("loginAddress", memberVO.getAddress());
+		result.put("code", "서버동기화");
+		return result;
 	}
 }
