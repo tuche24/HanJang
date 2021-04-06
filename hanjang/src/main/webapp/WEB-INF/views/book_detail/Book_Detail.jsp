@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -135,25 +137,6 @@
 			}
 	}
 </script>
-<style>
-#container {
-	overflow: hidden;
-}
-
-#detail_title {
-	margin-top: 100px;
-}
-
-.footer div {
-	float: left;
-}
-
-.footer {
-	margin: 0 auto;
-	width: 1050px;
-	height: 300px;
-}
-</style>
 
 <body>
 	<div id="header"></div>
@@ -167,9 +150,27 @@
 
 				<li>
 					<div id="info">
-						<span id="author">${bookList.author} 지음</span> <span>|</span> <span
-							id="draw">김한나 그림</span> <span>|</span> <span id="publication">${bookList.publisher}</span>
-						<span>|</span> <span id="publication_date">${bookList.pubDate}</span>
+						<span id="author">
+							${bookList.author} 
+							<c:choose>
+								<c:when test="${empty bookList.author}"></c:when>
+								<c:otherwise>지음</c:otherwise>
+							</c:choose>
+						</span>
+						<span>
+							<c:choose>
+								<c:when test="${empty bookList.author}"></c:when>
+								<c:otherwise>|</c:otherwise>
+							</c:choose>
+						</span>
+						<!-- <span id="draw">김한나 그림</span>
+						<span>|</span> -->
+						<span id="publication">${bookList.publisher}</span>
+						<span>|</span>
+						<span id="publication_date">
+							<fmt:parseDate value="${bookList.pubDate}" var="pubDate1" pattern="yyyyMMdd" />
+							<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" />
+						</span>
 					</div>
 				</li>
 			</ul>
@@ -188,7 +189,9 @@
 						<ul>
 							<li>
 								<div class="Litem">판매가</div>
-								<div class="Ritem">${bookList.priceStandard}</div>
+								<div class="Ritem">
+									<fmt:formatNumber value="${bookList.priceStandard}" pattern="#,###" />원
+								</div>
 							</li>
 						</ul>
 					</div>
@@ -201,7 +204,10 @@
 							</li>
 							<li>
 								<div class="Litem">배송위치</div>
-								<div class="Ritem">${sessionScope.memberVO.address}</div>
+								<div class="Ritem">
+									<c:if test="${empty sessionScope.memberVO}">로그인 되어 있지 않습니다</c:if>
+									${sessionScope.memberVO.address}
+								</div>
 							</li>
 						</ul>
 					</div>
@@ -263,20 +269,26 @@
 					<div class="author_title">저자 및 역자 소개</div>
 					<div class="author_content">
 						<div class="author_name">
-							${bookList.author} <span>(지은이)</span>
+							${bookList.author} 
+							<span>
+								<c:choose>
+									<c:when test="${empty bookList.author}">없음 </c:when>
+									<c:otherwise>(지은이)</c:otherwise>
+								</c:choose>
+							</span>
 						</div>
 						<div class="author_detail">
 							${textList[1]}
 							<!-- 시집 『당신의 이름을 지어다가 며칠은 먹었다』 『우리가 함께 장마를 볼 수도 있겠습니다』,<br>
 								산문집『운다고 달라지는 일은 아무것도 없겠지만』. 늘 개와 함께 살고 있다. -->
 						</div>
-						<div class="drawer_name">
+						<!-- <div class="drawer_name">
 							김한나 <span>(그린이)</span>
 						</div>
 						<div class="drawer_detail">
 							일상생활의 승리〉 〈미세한 기쁨의 격려〉 〈먼지가 방귀 뀌는 소리〉 등의 전시를 했다.<br> 항상 토끼와
 							붙어다니고 있다.
-						</div>
+						</div> -->
 					</div>
 				</div>
 
@@ -285,6 +297,7 @@
 				<div class="book_preview">
 					<div class="preview_title">출판사 서평</div>
 					<div class="preview_content">
+						<c:if test="${empty textList[2]}">출판사 서평 업데이트 예정</c:if>
 						${textList[2]}
 						<!-- 만남이라는 안녕의 기쁨에 설레게 하는 시 그림책이다.<br> 이별이라는 안녕의 슬픔에 시무룩하게도 만드는 시
 							그림책이다. 시작이라는 안녕에서 ‘삶’이라는 단어를 발음하게 하고 끝이라는 안녕에서 ‘죽음’이라는
