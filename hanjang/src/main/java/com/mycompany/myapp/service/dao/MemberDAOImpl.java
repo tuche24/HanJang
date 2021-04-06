@@ -46,7 +46,7 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	@Override
 	public MemberVO findoneinfo(String nickname)throws Exception{
-		return sql.selectOne(namespace+".findonemem",nickname);
+		return sql.selectOne(namespace+".findoneinfo",nickname);
 	}
 	@Override
 	public void MemberUpdate(MemberVO membervo) throws Exception {

@@ -135,9 +135,16 @@ public class MemberController {
         
        if(result==1) {
     	   MemberVO vo = memberservice1.findoneinfo(nickname);
+    		System.out.println(vo.getId());
+    		System.out.println(vo.getAddress());
     	   session.setAttribute("memberVO", vo);
-    	   session.setAttribute("loginVO", vo.getId());
-   		session.setAttribute("loginNick", nickname);
+   		session.setAttribute("loginVO", vo.getId());
+   		session.setAttribute("loginNick", vo.getNickname());
+   		session.setAttribute("loginPassword", vo.getPassword());
+   		session.setAttribute("loginName", vo.getName());
+   		session.setAttribute("loginEmail", vo.getEmail());
+   		session.setAttribute("loginPhone", vo.getPhone());
+   		session.setAttribute("loginAddress", vo.getAddress());
    		return "redirect:/mainAll.do";
     	   
        }else {
@@ -167,6 +174,9 @@ public class MemberController {
 	@RequestMapping(value="mypageOrderList.do")
 	public String getMyOrderList(HttpSession session, Model model, PageVO pv) {
 		MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
+	
+		
+		
 		int userNo = memberVO.getUserNo();
 		System.out.println("현재 접속한 사용자 번호 : "+userNo);
 		System.out.println("현재 페이지 정보 : "+pv);

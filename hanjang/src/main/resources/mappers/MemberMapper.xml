@@ -48,7 +48,7 @@
 	</select>
 	
 	<!--  닉넴으로 사람찾기 -->
-	<select id="findonemem" resultMap="MemberMap">
+	<select id="findoneinfo" resultMap="MemberMap">
 		SELECT *
 		FROM User
 		WHERE UserNickName
