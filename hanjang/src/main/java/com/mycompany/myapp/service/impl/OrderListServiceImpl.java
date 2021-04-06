@@ -1,6 +1,7 @@
 package com.mycompany.myapp.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class OrderListServiceImpl implements OrderListService {
 	}
 
 	@Override
-	public	List<OrderListVO> getOrderedList(@Param("userNo") int userNo, @Param("pv") PageVO pv) {
+	public List<OrderListVO> getOrderedList(@Param("userNo") int userNo, @Param("pv") PageVO pv) {
 		return dao.getOrderedList(userNo, pv);
 	}
 

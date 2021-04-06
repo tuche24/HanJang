@@ -171,16 +171,14 @@ public class MemberController {
 		List<OrderListVO> list = orderlistservice.getOrderedList(userNo, pv);
 		System.out.println("리스트 사이즈 : "+list.size());
 		
-		model.addAttribute("orderlist", list);
-		
 		PagingObject po = new PagingObject();
 		po.setPaging(pv);
 		po.setPostTotalCount(orderlistservice.countPosts(userNo));
 		System.out.println("총 주문 개수 : "+orderlistservice.countPosts(userNo));
-		System.out.println("현재 페이징 정보 :"+po);
+		System.out.println("현재 페이징 정보 :"+po);		
 		
+		model.addAttribute("orderlist", list);
 		model.addAttribute("po", po);
-		
 		return "member/mypage_orderlist";
 	}
 	
