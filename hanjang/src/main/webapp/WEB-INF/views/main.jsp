@@ -61,9 +61,7 @@ $(document).ready(function(){
          $(".search").css("top","2px");
          $(".menubar").css("z-index","9999");
          $(".p1").css("z-index","9998");
-         $(".main_menu li").css("width","80px");   
-         $(".main_menu li a").css("width","80px");
-         $(".menu_container1").css("margin-left","-360px");
+         $(".menu_container1").css("margin-left","-268px");
          $(".menubar").css("box-shadow","rgb(245 245 245) 0px 2px 1px 0px");
          $(".main_menu ").css("margin-top","5px");   
       }else{
@@ -701,14 +699,14 @@ display:block;
 <ul class="main_menu">
 <li class="menu1" onmouseenter="fade()" onmouseleave="fadeo()"><a href="">카테고리</a>
 <ul class="dropdown">
-<li><a href="BestSellerList1.do?categoryId=100"><h3 style="font-weight:bold;">국내도서</h3></a></li>
+<li><a href="BestSellerList1.do?categoryId=100"><h3 style="font-weight:bold;font-size:14px;">국내도서</h3></a></li>
 <li><a href="BestSellerList1.do?categoryId=109">유아/어린이</a></li>
 <li><a href="BestSellerList1.do?categoryId=101">소설/시/희곡</a></li>
 <li><a href="BestSellerList1.do?categoryId=102">에세이</a></li>
 <li><a href="BestSellerList1.do?categoryId=103">인문학</a></li>
 <li><a href="BestSellerList1.do?categoryId=116">과학/역사</a></li>
 <li><a href="BestSellerList1.do?categoryId=114">수험서/참고서</a></li>
-<li><a href="BestSellerList1.do?categoryId=200"><h3 style="font-weight:bold;">국외도서</h3></a></li>
+<li><a href="BestSellerList1.do?categoryId=200"><h3 style="font-weight:bold;font-size:14px;">국외도서</h3></a></li>
 <li><a href="BestSellerList1.do?categoryId=205">영미소설</a></li>
 <li><a href="BestSellerList1.do?categoryId=117">경제경영</a></li>
 <li><a href="BestSellerList1.do?categoryId=118">자기개발</a></li>
