@@ -47,16 +47,32 @@ public class CartController {
 		session.setAttribute("sessionCartNo", cartNo);
 
 		cartVO.setCartNo(cartNo);
-		
+
 		int checkItemId = service.checkItemId(cartVO);
-		
+
 		if (checkItemId < 1) {
 			service.insertCart(cartVO);
 		} else {
 			System.out.println("ItemId값이 중복되었습니다");
 		}
-		
+
 		return "cart/cart"; // 다른 string으로 바꾸면 오류
+	}
+
+	// 즉시구매시 컨트롤러
+	@RequestMapping(value = "/addCartToOrderList.do")
+	@ResponseBody
+	public Map<String, Object> addOrderList(CartVO cartVO, HttpSession session) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		int cartNo = 0;
+		cartNo = Integer.parseInt(generateCartNo());
+		session.setAttribute("sessionCartNo", cartNo);
+		cartVO.setCartNo(cartNo);
+		
+		service.insertCart(cartVO);
+		result.put("cartNo", cartNo);
+
+		return result;
 	}
 
 	// 특정 유저 장바구니 확인
@@ -78,13 +94,13 @@ public class CartController {
 			mav.setViewName("cart/cart");
 
 			return mav;
-		} else {				
+		} else {
 			// 장바구니 정보가 없을 때 새 책 으로 이동 // OR 최근 장바구니 정보 가져오기
-			/*alertMessage("장바구니에 상품이 담기지 않았습니다", res);*/
+			/* alertMessage("장바구니에 상품이 담기지 않았습니다", res); */
 			mav.setViewName("gomain");
 			System.out.println("장바구니 정보가 없습니다");
 			return mav;
-		} 
+		}
 	}
 
 	// 장바구니 수정 ajax
@@ -132,15 +148,14 @@ public class CartController {
 		System.out.println("장바구니번호가 생성되었습니다 = " + result);
 		return result;
 	}
-	
+
 	public void alertMessage(String msg, HttpServletResponse res) throws IOException {
 		res.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = res.getWriter();
-		
+
 		out.println("<script>alert(\"" + msg + "\")</script>");
 		out.flush();
-		
+
 	}
-	
-	
+
 }

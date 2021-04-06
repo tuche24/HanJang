@@ -144,5 +144,11 @@ public class MemberServiceImpl implements MemberService{
 		dao.MemberUpdate(membervo);
 	}
 
+	// 회원주소수정
+	@Override
+	public void updateAddress(MemberVO memberVO) {
+		dao.updateAddress(memberVO);
+	}
+
 
 }

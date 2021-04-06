@@ -80,4 +80,10 @@
 		WHERE UserId = #{id}
 	</update>
 	
+	<!-- 회원주소 수정 -->
+	<update id="updateAddress">
+		UPDATE User
+		SET UserAddress = #{address}
+		WHERE UserNo = #{userNo}
+	</update>
 </mapper>

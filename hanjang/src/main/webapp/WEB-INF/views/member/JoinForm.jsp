@@ -89,6 +89,9 @@
 	width:1050px;
 	height:300px;
 }
+#idcheck_But{
+background:gray;
+}
 </style>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script>
@@ -149,13 +152,22 @@
 	
 	<script>
 	function idcheck(){
+		
 		document.userInfo.idDuplication.value="idUncheck";
 		$('#IdChecked').css("color","red");
 		var userID = $('#idt').val();
 		var idpatten = /^([a-z0-9]){6,12}$/;
 		if(!idpatten.test($('#idt').val())){
+			$('#idcheck_But').attr("disabled",true);
+			$('#idcheck_But').css("cursor","default")
+			$('#idcheck_But').css("background","gray")
 			$('#IdChecked').html('<p class="IdChecked">영문소문자 숫자포함 6~12자를 입력하세요</p>');
 		}else{
+			$('#idcheck_But').attr("disabled",false);
+			$('#idcheck_But').css("background-image","linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff )");
+			$('#idcheck_But').css("background-origin","border-box");
+			$('#idcheck_But').css("background-clip","content-box, border-box");
+			$('#idcheck_But').css("cursor","pointer")
 			$('#IdChecked').html('<p class="IdChecked">아이디 중복체크를 해주세요</p>');
 		}
 	}
@@ -177,9 +189,11 @@
 					if(data ==0){
 						$('#IdChecked').css("color","red");
 						$('#IdChecked').html('<p class="IdChecked">사용하실수 있는 아이디입니다</p>');
+						$('#idcheck_But').attr("disabled",false);
 						document.userInfo.idDuplication.value="idCheck";
 					}else{
 						$('#IdChecked').css("color","red");
+						$('#idcheck_But').attr("disabled",true);
 						$('#IdChecked').html('<p class="IdChecked">중복된 아이디가 존재합니다.다시입력해주세요</p>');
 					}	
 				}
@@ -250,7 +264,7 @@ $(document).ready(function(){
 					<td id="title">아이디<span id="startag">*</span></td>
 					<td>
 						<input type="text" name="id" maxlength="15" class="input_text_f" id="idt" pattern="^([a-z0-9]){6,12}$" placeholder="6~12자의 영문 혹은 영문과 숫자를 조합" onkeyup="idcheck()">
-						<input type="button" value="중복확인" class="button" id="idcheck_But" onclick="check()" >	
+						<input type="button" value="중복확인" class="button" id="idcheck_But" onclick="check()" disabled="disabled">	
 						<input type="hidden" name="idDuplication" value="idUncheck" />
 					</td>
 				</tr>
