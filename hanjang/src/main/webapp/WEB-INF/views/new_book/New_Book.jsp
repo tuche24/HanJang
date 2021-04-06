@@ -24,6 +24,76 @@
 	})
 </script>
 <script>
+/* 즉시구매 버튼을 눌렀을 시 책 정보를 장바구니에 담고 주문리스트 페이지로 이동 */
+function addOrderList() {
+	let UserNo = event.target.parentElement.parentElement.firstElementChild
+			.getAttribute('value');
+	if (!UserNo) {
+		swal.fire({
+			title : 'Error!',
+			text : '로그인이 필요합니다',
+			icon : 'error',
+			confirmButtonText: '확인'
+		})
+	} else {
+		/* else {swal(UserNo)} */
+		let itemID = event.target.parentElement.parentElement.firstElementChild.nextElementSibling
+				.getAttribute('value');
+		/* alert(itemID); */
+		let cartNo = 15;
+		var params = {
+			UserNo : UserNo,
+			ItemId : itemID,
+			Amount : 1
+		}
+
+		$.ajax({
+			type : "POST",
+			url : "addCartToOrderList.do",
+			data : params,
+			success : function(res) {
+				console.log("동기화성공");
+			},
+			error : function() {
+				console.log("동기화실패");
+			}
+		});
+		let params1 = {
+			UserNo : UserNo,
+			ItemId : itemID,
+			Amount : 1,
+			CartNo : cartNo
+		}
+		$.ajax({
+			type : "POST",
+			url : "insertOrderListDirect.do",
+			data : params1,
+			success : function(res) {
+				console.log("동기화성공");
+			},
+			error : function() {
+				console.log("동기화실패");
+			}
+		});
+		// ajax-end
+		swal.fire({
+			title : '주문확인서',
+			text : '주문확인서로 이동하시겠습니까?',
+			icon : 'info',
+			showCancelButton : true,
+			confirmButtonColor : '#3085d6',
+			cancelButtonColor : '#d33',
+			confirmButtonText : '이동',
+			cancelButtonText : '취소'
+		}).then((result) => {
+			if(result.value){
+				location.href="goToOrderList.do";
+			}
+		}) 
+	}
+	
+}
+
 	/* 장바구니 담기 버튼을 눌렀을 시 책 정보를 장바구니에 담음 */
 	function addCart() {
 		let UserNo = event.target.parentElement.parentElement.firstElementChild
@@ -231,8 +301,8 @@
 	href="${pageContext.request.contextPath}/resources/css/book_list.css" />
 
 <body>
-<!-- header부분 -->
-<div id="header"></div>
+	<!-- header부분 -->
+	<div id="header"></div>
 	<div id="container">
 		<div id="title">새로 나온 책</div>
 
@@ -262,11 +332,8 @@
 						onmouseout="this.style.color='#555'">과학/역사</a></li>
 
 					<div id="bottomLine">
-						<span id="genre1"></span>
-						<span id="genre2"></span>
-						<span id="genre3"></span>
-						<span id="genre4"></span>
-						<span id="genre5"></span>
+						<span id="genre1"></span> <span id="genre2"></span> <span
+							id="genre3"></span> <span id="genre4"></span> <span id="genre5"></span>
 					</div>
 					<br>
 					<br>
@@ -287,11 +354,8 @@
 						onmouseout="this.style.color='#555'">여행</a></li>
 
 					<div id="bottomLine">
-						<span id="genre6"></span>
-						<span id="genre7"></span>
-						 <span id="genre8"></span>
-						 <span id="genre9"></span>
-						 <span id="genre10"></span>
+						<span id="genre6"></span> <span id="genre7"></span> <span
+							id="genre8"></span> <span id="genre9"></span> <span id="genre10"></span>
 					</div>
 				</ul>
 			</div>
@@ -307,8 +371,8 @@
 								<input type="hidden" value="${b.itemID}" />
 								<div class="info_area">
 									<div class="image">
-										<a href="goToBookDetailCrawl.do?title=${b.title}">
-											<img src="${b.coverLargeUrl}" alt="" />
+										<a href="goToBookDetailCrawl.do?title=${b.title}"> <img
+											src="${b.coverLargeUrl}" alt="" />
 										</a>
 									</div>
 
@@ -317,28 +381,23 @@
 											<a href="goToBookDetailCrawl.do?title=${b.title}"><strong>${b.title}</strong></a>
 										</div>
 										<div class="pub_info">
-											<span class="author">${b.author}</span>
-											<span>
-												<c:choose>
+											<span class="author">${b.author}</span> <span> <c:choose>
 													<c:when test="${empty b.author}"></c:when>
 													<c:otherwise>|</c:otherwise>
 												</c:choose>
-											</span>
-											<span class="publication">${b.publisher}</span>
-											<span>|</span>
-											<span class="publication_date">
-												<fmt:parseDate value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd"/>
-												<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" />
+											</span> <span class="publication">${b.publisher}</span> <span>|</span>
+											<span class="publication_date"> <fmt:parseDate
+													value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd" /> <fmt:formatDate
+													pattern="yyyy년 MM월 dd일" value="${pubDate1}" />
 											</span>
 										</div>
 										<div class="price">
-											<span class="sell_price">
-												<fmt:formatNumber value="${b.priceStandard}" pattern="#,###" />원
+											<span class="sell_price"> <fmt:formatNumber
+													value="${b.priceStandard}" pattern="#,###" />원
 											</span>
 										</div>
 										<div class="info">
-											<span> 
-												<c:if test="${empty b.description }">책 설명 업데이트 예정</c:if>
+											<span> <c:if test="${empty b.description }">책 설명 업데이트 예정</c:if>
 												${b.description}
 											</span>
 										</div>
@@ -352,12 +411,13 @@
 									<button style="cursor: pointer;" onclick="javascrpt:testAddCart1()">테스트10원</button> -->
 									<br>
 									<button style="cursor: pointer;"
-										onclick="location='goToOrderList.do'">바로 구매</button>
+										onclick="javascript:addOrderList()">바로 구매</button>
 								</div>
 							</div>
 						</li>
 					</c:forEach>
 				</ul>
+
 			</div>
 
 			<!-- 			<div class="paging">
@@ -373,7 +433,7 @@
 			</div> -->
 		</div>
 	</div>
-<!-- 	테스트코드
+	<!-- 	테스트코드
 	<script>
 	function testAddCart() {
 		let UserNo = event.target.parentElement.parentElement.firstElementChild
