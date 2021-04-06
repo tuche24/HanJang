@@ -137,7 +137,75 @@
 			}
 	}
 </script>
+<script>
+/* 즉시구매 버튼을 눌렀을 시 책 정보를 장바구니에 담고 주문리스트 페이지로 이동 */
+function addOrderList() {
+	let UserNo = document.querySelector("#val_userNo").getAttribute("value");
+	if (!UserNo) {
+		swal.fire({
+			title : 'Error!',
+			text : '로그인이 필요합니다',
+			icon : 'error',
+			confirmButtonText: '확인'
+		})
+	} else {
+		/* else {swal(UserNo)} */
+		let itemID = document.querySelector("#val_itemId").getAttribute("value");
+		/* alert(itemID); */
+		let cartNo = 15;
+		let amount = document.querySelector('#val_amount').getAttribute("value");
+		var params = {
+			UserNo : UserNo,
+			ItemId : itemID,
+			Amount : amount
+		}
 
+		$.ajax({
+			type : "POST",
+			url : "addCartToOrderList.do",
+			data : params,
+			success : function(res) {
+				console.log("동기화성공");
+			},
+			error : function() {
+				console.log("동기화실패");
+			}
+		});
+		let params1 = {
+			UserNo : UserNo,
+			ItemId : itemID,
+			Amount : amount,
+			CartNo : cartNo
+		}
+		$.ajax({
+			type : "POST",
+			url : "insertOrderListDirect.do",
+			data : params1,
+			success : function(res) {
+				console.log("동기화성공");
+			},
+			error : function() {
+				console.log("동기화실패");
+			}
+		});
+		// ajax-end
+		swal.fire({
+			title : '주문확인서',
+			text : '주문확인서로 이동하시겠습니까?',
+			icon : 'info',
+			showCancelButton : true,
+			confirmButtonColor : '#3085d6',
+			cancelButtonColor : '#d33',
+			confirmButtonText : '이동',
+			cancelButtonText : '취소'
+		}).then((result) => {
+			if(result.value){
+				location.href="goToOrderList.do";
+			}
+		}) 
+	}
+}
+</script>
 <body>
 	<div id="header"></div>
 
@@ -238,7 +306,7 @@
 						</div>
 
 						<div class="buynow">
-							<button style="cursor: pointer;" onclick="location='goToPay.do'">바로
+							<button style="cursor: pointer;" onclick="javascript:addOrderList()">바로
 								구매하기</button>
 						</div>
 					</div>
