@@ -53,24 +53,38 @@
 </c:if>
 <c:if test="${orderlist.size() > 0 }">
 <c:forEach var="list" items="${orderlist }">
+주문번호 <span style="font-weight:bold;">[${list.orderListNo }]</span>
 <table class="order_table">
-	<tr>	<!-- 책 이미지 들어오는 곳 -->
-		<td rowspan="4" style="width:70px; height:100px;"><img src="${list.bookVO.coverLargeUrl }"></td>
+	<tbody>
+	<tr>
+		<td>
+		<!-- 책 이미지 들어오는 곳 -->
+			<span class="image"><img src="${list.bookVO.coverLargeUrl }"></span>
+			<div class="prd_info">
 			<!-- 책 제목 들어오는 곳 -->
-		<td colspan="2" style="font-weight:bold;">${list.bookVO.title }</td>
+			<div class="title_info">${list.bookVO.title }</div>
+				<ul>
+					<li>
+						<div class="Litem">결제권수</div>
+						<div class="Ritem"><span style="font-weight:bold;">${list.cartVO.amount }</span>권</div>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<div class="Litem">결제금액</div>
+						<div class="Ritem"><span style="color:#ee5555; font-weight:bold;">${list.bookVO.priceStandard * list.cartVO.amount }</span>원</div>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<div class="Litem">주문상태</div>
+						<div class="Ritem">주문 완료</div>
+					</li>
+				</ul>
+			</div>
+		</td>
 	</tr>
-	<tr>	
-		<td style="width:100px;">주문번호</td>
-		<td>[${list.orderListNo }]</td>
-	</tr>
-	<tr>
-		<td style="width:100px;">결제금액</td>
-		<td><span style="color:#ee5555; font-weight:bold;">${list.bookVO.priceStandard * list.cartVO.amount }</span>원</td>
-	</tr>
-	<tr>
-		<td style="width:100px;">주문상태</td>
-		<td>주문 완료</td>
-	</tr>
+	</tbody>
 </table>
 </c:forEach>
 </c:if>
