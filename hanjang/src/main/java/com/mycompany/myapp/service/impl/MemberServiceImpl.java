@@ -50,8 +50,8 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 	
-	
-    @Override
+	//로그아웃후 원래 있던페이지로드
+    /*@Override
     public void logout(HttpServletResponse response) throws Exception{
     	response.setContentType("text/html;charset=utf-8");
     	PrintWriter out = response.getWriter();
@@ -59,7 +59,7 @@ public class MemberServiceImpl implements MemberService{
     	out.println("location.href=document.referrer;");
     	out.println("</script>");
     	out.close();
-    }
+    }*/
     
     
 	

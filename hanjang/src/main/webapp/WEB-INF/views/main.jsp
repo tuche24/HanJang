@@ -429,13 +429,13 @@ height:400px;
 width:1100px;
 margin:auto;
 height:500px;
-background:white;
+background:#f7f7f7;
 }
 .eventintro{
 min-width:1100px;
 margin:20px auto;
 height:640px;
-background:#f7f7f7;
+background:white;
 margin-top:50px;
 }
 .slide_img ul{
@@ -505,7 +505,11 @@ height:100%;
 float:left;
 
 }
-
+.backgray{
+min-width:1100px;
+height:500px;
+background:#f7f7f7;
+}
 .eventintro_tit{
 height:100px;
 text-align:center;
@@ -528,7 +532,7 @@ margin-left:214px;
 width:222px;
 }
 .eventintro_event{
-background:#f7f7f7;
+background:white;
 height:520px;
 max-width:1098px;
 margin:auto;
@@ -754,9 +758,9 @@ display:block;
 <div class="follow"><img src="resources\img\main\quick.jpg">
 <div class="follow_menu">
 <ul>
-<li><a href="#">장바구니</a></li>
-<li><a href="#">베스트셀러</a></li>
-<li><a href="#">이 책 추천해요</a></li>
+<li><a href="getOneCart.do">장바구니</a></li>
+<li><a href="BestSellerList1.do">베스트셀러</a></li>
+<li><a href="recommendList.do">이 책 추천해요</a></li>
 </ul>
 </div></div>
 <!-- 따라다니는 퀵메뉴 끝 -->
@@ -774,6 +778,7 @@ display:block;
 
 </div>
 <c:forEach items="${bookList}" var="b" begin="0" end="0">
+<div class="backgray">
 <div class="today_book">
 <div class="today_book_bookintro">
 <span>오늘의 책 소개</span>
@@ -794,6 +799,7 @@ display:block;
 	
 </div>
 </div>
+</div>
                   </c:forEach>
 <div class="eventintro">
 <div class="eventintro_tit">
@@ -801,9 +807,9 @@ display:block;
 </div>
 <div class="eventintro_event">
 <ul>
-<li><a href="event.do"><div>이벤트이름</div></a></li>
-<li><a href="">이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/>이미지들어올곳<br/><div>이벤트이름</div></a></li>
-<li><a href=""><div>이벤트이름</div></a></li>
+<li><a href="event.do" style="background-image:url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);"><div>이벤트이름</div></a></li>
+<li><a href="event.do"style="background-image:url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);"><div>이벤트이름</div></a></li>
+<li><a href="event.do"style="background-image:url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);"><div>이벤트이름</div></a></li>
 
 </ul>
 </div>
