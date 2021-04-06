@@ -9,7 +9,7 @@
 </head>
 <body>
 <div style="margin-top:80px;"></div>
-<hr class="line">
+<hr class="line" style="display:block;">
 <div class="footer">
 <div class="footer_left">
 <span class="customer_center">고객센터</span>
