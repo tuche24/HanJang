@@ -71,6 +71,7 @@ function fadeo1() {
 <div class="usermenu" >
 <ul>
 <c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
+
                   <li><a href="mypageOrderList.do">마이페이지</a></li>
                   <li><a href="Logout.do">로그아웃</a></li>
                   <li><a href="getOneCart.do">카트</a></li>
@@ -83,6 +84,7 @@ function fadeo1() {
                   <li><a href="loginform.do">로그인</a></li>
 <li><a href="joinform.do">회원가입</a></li>
                </c:if>
+
 
 </ul>
 </div>

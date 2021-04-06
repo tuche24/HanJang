@@ -44,7 +44,7 @@ public class OrderListServiceImpl implements OrderListService {
 	}
 
 	@Override
-	public	List<OrderListVO> getOrderedList(@Param("userNo") int userNo, @Param("pv") PageVO pv) {
+	public List<OrderListVO> getOrderedList(@Param("userNo") int userNo, @Param("pv") PageVO pv) {
 		return dao.getOrderedList(userNo, pv);
 	}
 

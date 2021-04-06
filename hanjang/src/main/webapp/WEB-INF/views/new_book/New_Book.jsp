@@ -11,13 +11,9 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!-- 헤더연결 -->
 <script defer>
-	$(document)
-			.ready(
-					function() {
-						$("#header")
-								.load(
-										"${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
-					})
+	$(document).ready(function() {
+		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
+	})
 </script>
 <!-- 푸터연결 -->
 <script defer>
@@ -79,7 +75,7 @@
 		}
 		
 	}
-
+	
 	$(document).ready(function() {
 		var categoryId = $(".genre").val();
 
@@ -208,7 +204,26 @@
 	})
 </script>
 
+<style>
+#container #wrap #content .info_area .detail .author {
+	display: inline-block;
+	padding-right: 0px;
+}
+
+#container #wrap #content .info_area .detail .publication {
+	display: inline-block;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#container #wrap #content .info_area .detail .publication_date {
+	display: inline-block;
+	padding-left: 0px;
+}
+</style>
 <title>새로 나온 책</title>
+
+
 </head>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/reset.css" />
@@ -247,8 +262,11 @@
 						onmouseout="this.style.color='#555'">과학/역사</a></li>
 
 					<div id="bottomLine">
-						<span id="genre1"></span> <span id="genre2"></span> <span
-							id="genre3"></span> <span id="genre4"></span> <span id="genre5"></span>
+						<span id="genre1"></span>
+						<span id="genre2"></span>
+						<span id="genre3"></span>
+						<span id="genre4"></span>
+						<span id="genre5"></span>
 					</div>
 					<br>
 					<br>
@@ -269,8 +287,11 @@
 						onmouseout="this.style.color='#555'">여행</a></li>
 
 					<div id="bottomLine">
-						<span id="genre6"></span> <span id="genre7"></span> <span
-							id="genre8"></span> <span id="genre9"></span> <span id="genre10"></span>
+						<span id="genre6"></span>
+						<span id="genre7"></span>
+						 <span id="genre8"></span>
+						 <span id="genre9"></span>
+						 <span id="genre10"></span>
 					</div>
 				</ul>
 			</div>
@@ -278,7 +299,6 @@
 			<hr class="line">
 
 			<div id="content">
-
 				<ul>
 					<c:forEach items="${bookList}" var="b">
 						<li>
@@ -287,9 +307,9 @@
 								<input type="hidden" value="${b.itemID}" />
 								<div class="info_area">
 									<div class="image">
-										<a href="goToBookDetailCrawl.do?title=${b.title}"> <img src="${b.coverLargeUrl}"
-											alt="" /> <%-- <img src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg" 
-									alt="우리는 안녕"/> --%></a>
+										<a href="goToBookDetailCrawl.do?title=${b.title}">
+											<img src="${b.coverLargeUrl}" alt="" />
+										</a>
 									</div>
 
 									<div class="detail">
@@ -297,25 +317,29 @@
 											<a href="goToBookDetailCrawl.do?title=${b.title}"><strong>${b.title}</strong></a>
 										</div>
 										<div class="pub_info">
-											<span class="author">${b.author}</span> <span>|</span> <span
-												class="publication">${b.publisher}</span> <span>|</span> <span
-												class="publication_date"> <fmt:parseDate
-													value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd" />
+											<span class="author">${b.author}</span>
+											<span>
+												<c:choose>
+													<c:when test="${empty b.author}"></c:when>
+													<c:otherwise>|</c:otherwise>
+												</c:choose>
+											</span>
+											<span class="publication">${b.publisher}</span>
+											<span>|</span>
+											<span class="publication_date">
+												<fmt:parseDate value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd"/>
 												<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" />
 											</span>
 										</div>
 										<div class="price">
-											<span class="sell_price"><fmt:formatNumber
-													value="${b.priceStandard}" pattern="#,###" />원</span>
+											<span class="sell_price">
+												<fmt:formatNumber value="${b.priceStandard}" pattern="#,###" />원
+											</span>
 										</div>
 										<div class="info">
-											<span> <c:if test="${empty b.description }">책 설명 업데이트 예정<br>
-													<br>
-													<br>
-													<br>
-												</c:if> ${b.description} <!-- "안녕은 그리는 거야." 박준 시인의 첫 시 그림책<br> 안녕은 그리는 거야.<br>
-											그리고 그리고 또 그리는 것을 그리움이라고 하는 거야.<br> 시인 박준의 첫 시 그림책 '우리는
-											안녕' -->
+											<span> 
+												<c:if test="${empty b.description }">책 설명 업데이트 예정</c:if>
+												${b.description}
 											</span>
 										</div>
 									</div>
@@ -323,6 +347,9 @@
 
 								<div class="buy_button">
 									<button style="cursor: pointer;" onclick="javascrpt:addCart()">장바구니</button>
+									<!-- test코드 -->
+									<!-- <button style="cursor: pointer;" onclick="javascrpt:testAddCart()">테스트100원</button>
+									<button style="cursor: pointer;" onclick="javascrpt:testAddCart1()">테스트10원</button> -->
 									<br>
 									<button style="cursor: pointer;"
 										onclick="location='goToOrderList.do'">바로 구매</button>
@@ -330,155 +357,6 @@
 							</div>
 						</li>
 					</c:forEach>
-					<%-- 
-					<li>
-						<div class="info_area">
-							<div class="image">
-								<a href="#"><img src="${pageContext.request.contextPath}/resources/img/new/baby/baby2.jpg"
-									alt="수상한 기차역" /></a>
-							</div>
-
-							<div class="detail">
-								<div class="title">
-									<a href="#"><strong>수상한 기차역</strong></a>
-								</div>
-								<div class="pub_info">
-									<span class="author">박현숙</span>
-									<span>|</span>
-									<span class="publication">북멘토</span>
-									<span>|</span>
-									<span class="publication_date">2021년 03월 30일</span>
-								</div>
-								<div class="price">
-									<span class="sell_price">10,350원</span>
-								</div>
-								<div class="info">
-									<span>북멘토 가치동화 42권. 여진이네 역사 동아리는 박물관으로 견학을 떠나게 된다.<br>
-										그런데 견학을 마치고 돌아오는 버스 안에서 폭우와 만나게 되고, <br>
-										쏟아지는 비로 인해 산사태가 나서 산중에 갇히는 일이 벌어지고 마는데...
-									</span>
-								</div>
-							</div>
-
-							<div class="buy_button">
-								<button style="cursor: pointer;" onclick="location='#'">장바구니</button>
-								<br>
-								<button style="cursor: pointer;" onclick="location='#'">바로 구매</button>
-							</div>
-						</div>
-					</li>
-
-					<li>
-						<div class="info_area">
-							<div class="image">
-								<a href="#"><img src="${pageContext.request.contextPath}/resources/img/new/baby/baby3.jpg"
-									alt="눈보라" /></a>
-							</div>
-
-							<div class="detail">
-								<div class="title">
-									<a href="#"><strong>눈보라</strong></a>
-								</div>
-								<div class="pub_info">
-									<span class="author">강경수</span>
-									<span>|</span>
-									<span class="publication">창비</span>
-									<span>|</span>
-									<span class="publication_date">2021년 01월 29일</span>
-								</div>
-								<div class="price">
-									<span class="sell_price">12,600원</span>
-								</div>
-								<div class="info">
-									<span>얼어붙은 마음을 녹이는 강력한 목소리<br> 
-									볼로냐 라가치 상 수상 작가 강경수 신작
-									</span>
-								</div>
-							</div>
-
-							<div class="buy_button">
-								<button style="cursor: pointer;" onclick="location='#'">장바구니</button>
-								<br>
-								<button style="cursor: pointer;" onclick="location='#'">바로 구매</button>
-							</div>
-						</div>
-					</li>
-
-					<li>
-						<div class="info_area">
-							<div class="image">
-								<a href="#"><img src="${pageContext.request.contextPath}/resources/img/new/baby/baby4.jpg"
-									alt="모두 웃는 장례식" /></a>
-							</div>
-
-							<div class="detail">
-								<div class="title">
-									<a href="#"><strong>모두 웃는 장례식</strong></a>
-								</div>
-								<div class="pub_info">
-									<span class="author">홍민정</span>
-									<span>|</span>
-									<span class="publication">별숲</span>
-									<span>|</span>
-									<span class="publication_date">2021년 03월 19일</span>
-								</div>
-								<div class="price">
-									<span class="sell_price">10,800원</span>
-								</div>
-								<div class="info">
-									<span>별숲 동화 마을 33권. 동화책 《고양이 해결사 깜냥》으로 어린이에게<br>
-									 많은 사랑을 받고있는 홍민정 동화작가의 첫 고학년 장편동화다.<br>
-									 암에 걸려 곧 죽음을 맞게 될 할머니가 ‘생전장례식’을<br>
-									 치르면서 일어나는 일을 다루고 있다.
-									</span>
-								</div>
-							</div>
-
-							<div class="buy_button">
-								<button style="cursor: pointer;" onclick="location='#'">장바구니</button>
-								<br>
-								<button style="cursor: pointer;" onclick="location='#'">바로 구매</button>
-							</div>
-						</div>
-					</li>
-
-					<li>
-						<div class="info_area">
-							<div class="image">
-								<a href="#"><img src="${pageContext.request.contextPath}/resources/img/new/baby/baby5.jpg"
-									alt="행복책" /></a>
-							</div>
-
-							<div class="detail">
-								<div class="title">
-									<a href="#"><strong>행복책</strong></a>
-								</div>
-								<div class="pub_info">
-									<span class="author">GO스마일연구소</span>
-									<span>|</span>
-									<span class="publication">큰웃음</span>
-									<span>|</span>
-									<span class="publication_date">2021년 02월 15일</span>
-								</div>
-								<div class="price">
-									<span class="sell_price">16,200원</span>
-								</div>
-								<div class="info">
-									<span>세상에서 가장 쉬운 15가지 행복 찾기 나를 위한 행복을 찾고 싶다면<br> 
-									나를 위한 행복을 갖고 싶다면 행복책을 읽어보세요.
-									</span>
-								</div>
-							</div>
-
-							<div class="buy_button">
-								<button style="cursor: pointer;" onclick="location='#'">장바구니</button>
-								<br>
-								<button style="cursor: pointer;" onclick="location='#'">바로 구매</button>
-							</div>
-						</div>
-					</li>
-
- --%>
 				</ul>
 			</div>
 
@@ -495,6 +373,107 @@
 			</div> -->
 		</div>
 	</div>
+<!-- 	테스트코드
+	<script>
+	function testAddCart() {
+		let UserNo = event.target.parentElement.parentElement.firstElementChild
+				.getAttribute('value');
+		if (!UserNo) {
+			swal.fire({
+				title : 'Error!',
+				text : '로그인이 필요합니다',
+				icon : 'error',
+				confirmButtonText: '확인'
+			})
+		} else {
+			/* else {swal(UserNo)} */
+			let itemID = 999999;
+			/* alert(itemID); */
+			var params = {
+				UserNo : UserNo,
+				ItemId : itemID,
+				Amount : 1
+			}
+
+			$.ajax({
+				type : "POST",
+				url : "addCart.do",
+				data : params,
+				success : function(res) {
+					console.log("동기화성공");
+				},
+				error : function() {
+					console.log("동기화실패");
+				}
+			});
+			// ajax-end
+			swal.fire({
+				title : '장바구니',
+				text : '장바구니로 이동하시겠습니까?',
+				icon : 'info',
+				showCancelButton : true,
+				confirmButtonColor : '#3085d6',
+				cancelButtonColor : '#d33',
+				confirmButtonText : '이동',
+				cancelButtonText : '취소'
+			}).then((result) => {
+				if(result.value){
+					location.href="getOneCart.do";
+				}
+			})
+		}
+		
+	}
+	function testAddCart1() {
+		let UserNo = event.target.parentElement.parentElement.firstElementChild
+				.getAttribute('value');
+		if (!UserNo) {
+			swal.fire({
+				title : 'Error!',
+				text : '로그인이 필요합니다',
+				icon : 'error',
+				confirmButtonText: '확인'
+			})
+		} else {
+			/* else {swal(UserNo)} */
+			let itemID = 999998;
+			/* alert(itemID); */
+			var params = {
+				UserNo : UserNo,
+				ItemId : itemID,
+				Amount : 1
+			}
+
+			$.ajax({
+				type : "POST",
+				url : "addCart.do",
+				data : params,
+				success : function(res) {
+					console.log("동기화성공");
+				},
+				error : function() {
+					console.log("동기화실패");
+				}
+			});
+			// ajax-end
+			swal.fire({
+				title : '장바구니',
+				text : '장바구니로 이동하시겠습니까?',
+				icon : 'info',
+				showCancelButton : true,
+				confirmButtonColor : '#3085d6',
+				cancelButtonColor : '#d33',
+				confirmButtonText : '이동',
+				cancelButtonText : '취소'
+			}).then((result) => {
+				if(result.value){
+					location.href="getOneCart.do";
+				}
+			})
+		}
+		
+	}
+	</script> -->
 	<!-- footer부분 -->
 	<div id="footer"></div>
 </body>

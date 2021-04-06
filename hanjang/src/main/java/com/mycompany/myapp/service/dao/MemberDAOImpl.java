@@ -52,5 +52,10 @@ public class MemberDAOImpl implements MemberDAO{
 	public void MemberUpdate(MemberVO membervo) throws Exception {
 		sql.update(namespace+".MemberUpdate",membervo);
 	}
+	// 회원주소수정
+	@Override
+	public void updateAddress(MemberVO memberVO) {
+		sql.update(namespace+".updateAddress",memberVO);
+	}
 
 }
