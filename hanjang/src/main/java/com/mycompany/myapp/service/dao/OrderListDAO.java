@@ -1,7 +1,6 @@
 package com.mycompany.myapp.service.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -14,8 +13,8 @@ public interface OrderListDAO {
 	// 주문확인서 인서트
 	void insertOrderList(OrderListVO orderListVO);
 	
-	// 주문확인서 하나보기
-	List<OrderListVO> getOneOrderList(int orderListNo);
+	/*// 주문확인서 하나보기
+	List<OrderListVO> getOneOrderList(int orderListNo);*/
 	
 	// 주문확인서 유저별 최근 하나 가져오기
 	List<OrderListVO> getLatelyOrderList(OrderListVO orderListVO);
@@ -28,4 +27,7 @@ public interface OrderListDAO {
 	
 	// 총 주문 개수 조회
 	int countPosts(int userNo);
+  
+  // 주문확인서 No 값으로 가져오기
+	List<OrderListVO> getOrderList_No(int orderListNo);
 }

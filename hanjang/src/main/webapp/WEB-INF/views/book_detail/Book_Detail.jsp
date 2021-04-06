@@ -9,59 +9,141 @@
 
 <!-- 헤더연결 -->
 <script defer>
-	$(document).ready(function(){
-		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
-	})
+	$(document)
+			.ready(
+					function() {
+						$("#header")
+								.load(
+										"${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
+					})
 </script>
 <!-- 푸터연결 -->
 <script defer>
-	$(document).ready(function(){
-		$("#footer").load("${pageContext.request.contextPath}/resources/jsp/footer/footer.jsp");
-	})
+	$(document)
+			.ready(
+					function() {
+						$("#footer")
+								.load(
+										"${pageContext.request.contextPath}/resources/jsp/footer/footer.jsp");
+					})
 </script>
 <title>책 상세내용</title>
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_detail.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/reset.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/book_detail.css" />
 
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
-$(function only_number(){
-	$('#decreaseQuantity').click(function(e){
-	e.preventDefault();
-	var stat = $('#count_form_input').text();
-	var num = parseInt(stat,10);
-	num--;
-	if (num <= 0) {
-		swal("구매 횟수 제한","책은 1권 이상 구매 할 수 있습니다.","warning");
-		num = 1;
-	}
-	
-	$('#count_form_input').text(num);
-	});
-	
-	$('#increaseQuantity').click(function(e){
-	e.preventDefault();
-	var stat = $('#count_form_input').text();
-	var num = parseInt(stat,10);
-	num++;
+	$(function only_number() {
+		$('#decreaseQuantity').click(function(e) {
+			e.preventDefault();
+			var stat = $('#count_form_input').text();
+			var num = parseInt(stat, 10);
+			num--;
+			if (num <= 0) {
+				swal.fire({
+					title : '구매 횟수 제한',
+					text : '책은 1권 이상 구매 할 수 있습니다.',
+					icon : 'error',
+					confirmButtonText: '확인'
+				}) 
+				num = 1;
+			}
 
-	if (num > 5) {
-		swal("구매 횟수 제한","구매 제한은 5권입니다.","warning");
-		num = 5;
-	}
-	
-	$('#count_form_input').text(num);
+			$('#count_form_input').text(num);
+		});
+
+		$('#increaseQuantity').click(function(e) {
+			e.preventDefault();
+			var stat = $('#count_form_input').text();
+			var num = parseInt(stat, 10);
+			num++;
+
+			if (num > 5) {
+				swal.fire({
+					title : '구매 횟수 제한',
+					text : '구매 제한은 5권입니다.',
+					icon : 'error',
+					confirmButtonText: '확인'
+				}) 
+				num = 5;
+			}
+
+			$('#count_form_input').text(num);
+			$('#val_amount').val(num);
+		});
+
 	});
-});
 </script>
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		document.querySelector('#addCart').addEventListener('click', function() {
+			bookDetail.addOrderList();
+		})
+	})
+	
+	let bookDetail = {
+			addOrderList : function(){
+				let userNo = document.querySelector('#val_userNo').getAttribute("value");
+				if(!userNo){
+					swal.fire({
+						title : 'Error!',
+						text : '로그인이 필요합니다',
+						icon : 'error',
+						confirmButtonText: '확인'
+					}) 
+				} else {
+					let itemID = document.querySelector('#val_itemId').getAttribute("value");
+					let amount = document.querySelector('#val_amount').getAttribute("value");
+					var params = {
+						UserNo : userNo,
+						ItemId : itemID,
+						Amount : amount
+					}
 
+					$.ajax({
+						type : "POST",
+						url : "addCart.do",
+						data : params,
+						success : function(res) {
+							console.log("동기화성공");
+						},
+						error : function() {
+							console.log("동기화실패");
+						}
+					});
+					// ajax-end
+							swal.fire({
+						title : '장바구니',
+						text : '장바구니로 이동하시겠습니까?',
+						icon : 'info',
+						showCancelButton : true,
+						confirmButtonColor : '#3085d6',
+						cancelButtonColor : '#d33',
+						confirmButtonText : '이동',
+						cancelButtonText : '취소'
+					}).then((result) => {
+						if(result.value){
+							location.href="getOneCart.do";
+						}
+					})
+				}
+			}
+	}
+</script>
 <style>
+#container {
+	overflow: hidden;
+}
+
 #detail_title {
 	margin-top: 100px;
 }
+
 .footer div {
 	float: left;
 }
@@ -74,98 +156,95 @@ $(function only_number(){
 </style>
 
 <body>
+	<div id="header"></div>
+
 	<div id="container">
-		<div id="header"></div>
 
-		<div id="wrap">
-			<div id="detail_title">
-				<ul>
-					<li><span class="title"> <strong>우리는 안녕</strong>
-					</span></li>
+		<div id="detail_title">
+			<ul>
+				<li><span class="title"> <strong>${bookList.title}</strong>
+				</span></li>
 
-					<li>
-						<div id="info">
-							<span id="author">박준 지음</span> 
-							<span>|</span> <span id="draw">김한나 그림</span>
-							<span>|</span>
-							<span id="publication">난다</span>
-							<span>|</span>
-							<span id="publication_date">2021년 03월 20일</span>
+				<li>
+					<div id="info">
+						<span id="author">${bookList.author} 지음</span> <span>|</span> <span
+							id="draw">김한나 그림</span> <span>|</span> <span id="publication">${bookList.publisher}</span>
+						<span>|</span> <span id="publication_date">${bookList.pubDate}</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<hr>
+
+		<div id="bookwrap">
+			<div class="prod_bookwrap">
+				<div class="detail_picture">
+					<img src="${bookList.coverLargeUrl}" alt="" />
+				</div>
+
+				<div class="detail_order">
+					<div class="price">
+						<ul>
+							<li>
+								<div class="Litem">판매가</div>
+								<div class="Ritem">${bookList.priceStandard}</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="delivery">
+						<ul>
+							<li>
+								<div class="Litem">배송비</div>
+								<div class="Ritem">무료</div>
+							</li>
+							<li>
+								<div class="Litem">배송위치</div>
+								<div class="Ritem">${sessionScope.memberVO.address}</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="quantity">
+						<ul>
+							<li>
+								<div class="Litem">수량</div>
+								<div class="Ritem">
+									<div class="count_input_box">
+										<button style="cursor: pointer;"
+											onclick="javascript:only_number();" id="decreaseQuantity">-</button>
+										<!-- <input type="text" id="count_form_input" value="1" maxlength="3" 
+											onkeyup="javascript:only_number();"/> -->
+										<span id="count_form_input">1</span>
+										<button style="cursor: pointer;"
+											onclick="javascript:only_number();" id="increaseQuantity">+</button>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="buy_btn">
+						<div class="cart">
+							<button style="cursor: pointer;" id="addCart">장바구니
+								담기</button>
 						</div>
-					</li>
-				</ul>
+
+						<div class="buynow">
+							<button style="cursor: pointer;" onclick="location='goToPay.do'">바로
+								구매하기</button>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<hr>
 
-			<div id="bookwrap">
-				<div class="prod_bookwrap">
-					<div class="detail_picture">
-						<img
-							src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg"
-							alt="우리는 안녕" />
-					</div>
-
-					<div class="detail_order">
-						<div class="price">
-							<ul>
-								<li>
-									<div class="Litem">판매가</div>
-									<div class="Ritem">14,850원</div>
-								</li>
-							</ul>
-						</div>
-
-						<div class="delivery">
-							<ul>
-								<li>
-									<div class="Litem">배송비</div>
-									<div class="Ritem">무료</div>
-								</li>
-								<li>
-									<div class="Litem">배송위치</div>
-									<div class="Ritem">서울특별시 종로구 세종대로</div>
-								</li>
-							</ul>
-						</div>
-
-						<div class="quantity">
-							<ul>
-								<li>
-									<div class="Litem">수량</div>
-									<div class="Ritem">
-										<div class="count_input_box">
-											<button style="cursor: pointer;" onclick="javascript:only_number();"
-											id="decreaseQuantity">-</button>
-											<!-- <input type="text" id="count_form_input" value="1" maxlength="3" 
-											onkeyup="javascript:only_number();"/> -->
-											<span id="count_form_input">1</span>
-											<button style="cursor: pointer;" onclick="javascript:only_number();"
-											id="increaseQuantity">+</button>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-
-						<div class="buy_btn">						
-							<div class="cart">
-								<button style="cursor: pointer;" onclick="location='#'">장바구니 담기</button>
-							</div>
-
-							<div class="buynow">
-								<button style="cursor: pointer;" onclick="location='goToPay.do'">바로 구매하기</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<hr>
-
-				<div class="detail_info">
-					<div class="book_introduce">
-						<div class="intro_title">책소개</div>
-						<div class="intro_content">안녕은 그리는 거야. 그리고 그리고 또 그리는 것을
+			<div class="detail_info">
+				<div class="book_introduce">
+					<div class="intro_title">책소개</div>
+					<div class="intro_content">${textList[0]}<!-- 안녕은 그리는 거야. 그리고 그리고 또 그리는 것을
 							그리움이라고 하는 거야. 시인 박준의 첫 시 그림책 『우리는 안녕』 첫 시집 『당신의 이름을 지어다가 며칠은
 							먹었다』와 첫 산문집 『운다고 달라지는 일은 아무것도 없겠지만』을 쓴 시인 박준의 첫 시 그림책이다. 『우리는
 							안녕』이라는 제목의 시 그림책이다. 시인의 아버지가 키우는 개 ‘단비’를 주인공으로 하는 시 그림책이다. 「단비」라는
@@ -174,37 +253,40 @@ $(function only_number(){
 							/단비는 집 안 곳곳을/쉬지 않고 뛰어다녔다//밤이면/마당에서 길게 울었고//새벽이면/올해 예순아홉 된 아버지와/
 							/멀리 방죽까지 나가/함께 울고 돌아왔다)도 시인의 두번째 시집 『우리가 함께 장마를 볼 수도 있겠습니다』를 통해
 							발표한 적 있거니와, 어느 날 단비에게 날아든 새가 있어 그 새와 친구가 되어가는 과정 속에 저마다의 ‘안녕’을
-							되새겨보게 하는 시 그림책이다.</div>
+							되새겨보게 하는 시 그림책이다. -->
 					</div>
+				</div>
 
-					<hr>
+				<hr>
 
-					<div class="book_author">
-						<div class="author_title">저자 및 역자 소개</div>
-						<div class="author_content">
-							<div class="author_name">
-								박준 <span>(지은이)</span>
-							</div>
-							<div class="author_detail">
-								시집 『당신의 이름을 지어다가 며칠은 먹었다』 『우리가 함께 장마를 볼 수도 있겠습니다』,<br>
-								산문집『운다고 달라지는 일은 아무것도 없겠지만』. 늘 개와 함께 살고 있다.
-							</div>
-							<div class="drawer_name">
-								김한나 <span>(그린이)</span>
-							</div>
-							<div class="drawer_detail">
-								일상생활의 승리〉 〈미세한 기쁨의 격려〉 〈먼지가 방귀 뀌는 소리〉 등의 전시를 했다.<br> 항상 토끼와
-								붙어다니고 있다.
-							</div>
+				<div class="book_author">
+					<div class="author_title">저자 및 역자 소개</div>
+					<div class="author_content">
+						<div class="author_name">
+							${bookList.author} <span>(지은이)</span>
+						</div>
+						<div class="author_detail">
+							${textList[1]}
+							<!-- 시집 『당신의 이름을 지어다가 며칠은 먹었다』 『우리가 함께 장마를 볼 수도 있겠습니다』,<br>
+								산문집『운다고 달라지는 일은 아무것도 없겠지만』. 늘 개와 함께 살고 있다. -->
+						</div>
+						<div class="drawer_name">
+							김한나 <span>(그린이)</span>
+						</div>
+						<div class="drawer_detail">
+							일상생활의 승리〉 〈미세한 기쁨의 격려〉 〈먼지가 방귀 뀌는 소리〉 등의 전시를 했다.<br> 항상 토끼와
+							붙어다니고 있다.
 						</div>
 					</div>
+				</div>
 
-					<hr>
+				<hr>
 
-					<div class="book_preview">
-						<div class="preview_title">출판사 서평</div>
-						<div class="preview_content">
-							만남이라는 안녕의 기쁨에 설레게 하는 시 그림책이다.<br> 이별이라는 안녕의 슬픔에 시무룩하게도 만드는 시
+				<div class="book_preview">
+					<div class="preview_title">출판사 서평</div>
+					<div class="preview_content">
+						${textList[2]}
+						<!-- 만남이라는 안녕의 기쁨에 설레게 하는 시 그림책이다.<br> 이별이라는 안녕의 슬픔에 시무룩하게도 만드는 시
 							그림책이다. 시작이라는 안녕에서 ‘삶’이라는 단어를 발음하게 하고 끝이라는 안녕에서 ‘죽음’이라는
 							단어에 눈뜨게 하고 싶어 준비한 시 그림책이다. “만나지 못한 이를 그리워할 때,
 							눈은 먼 곳으로 가닿습니다. 보고 싶은 이를 보고 싶어할 때, 마음은 가까이 있고요.” 우리가 안녕을
@@ -220,14 +302,16 @@ $(function only_number(){
 							시인과 화가가 서로의 글과 그림을 주고받으면서 하나의 책으로 한 데 꾸려지기까지 고치고 또 고치고
 							그리고 다시 그리기를 쉴새없이 반복해온 시 그림책이다. “안녕, 안녕은 말하고 싶을 때 말하고 안녕,
 							안녕은 말하기 싫을 때에도 해야 하는 말이야.” 헤어지며 놓아주는 순간의 안녕, 기다리며 기약하는
-							순간의 안녕, 이 사이를 사는 우리는 안녕이라 우리를 안녕하게 하는 시 그림책이다.
-						</div>
+							순간의 안녕, 이 사이를 사는 우리는 안녕이라 우리를 안녕하게 하는 시 그림책이다. -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-<!-- footer부분 -->
-<div id="footer"></div>
+	<input type="hidden" id="val_itemId" value="${bookList.itemID}"/>
+	<input type="hidden" id="val_userNo" value="${sessionScope.memberVO.userNo}"/>
+	<input type="hidden" id="val_amount" value="1" />
+	<!-- footer부분 -->
+	<div id="footer"></div>
 </body>
 </html>

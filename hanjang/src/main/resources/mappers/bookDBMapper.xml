@@ -2,13 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mycompany.myapp.service.dao.BookDBDAO">
-	
+
+	<resultMap id="bookMap" type="com.mycompany.myapp.vo.BookVO">
+		<result property="itemID" column="ItemId" />
+		<result property="title" column="Title" />
+		<result property="isbn" column="Isbn" />
+		<result property="author" column="Author" />
+		<result property="description" column="Description" />
+		<result property="priceStandard" column="PriceStandard" />
+		<result property="coverLargeUrl" column="CoverLargeUrl" />
+		<result property="categoryId" column="CategoryId" />
+		<result property="categoryName" column="CategoryName" />
+		<result property="publisher" column="Publisher" />
+		<result property="pubDate" column="PubDate" />
+	</resultMap>
 	<!-- Book 정보 DB insert -->
 	<!-- insert 중복처리 -->
 	<insert id="insertBook" parameterType="bookVO">
-	INSERT IGNORE INTO Book
-	VALUES(#{itemID}, #{title}, #{isbn}, #{author}, #{description}, #{priceStandard}, #{coverLargeUrl},
-		#{categoryId}, #{categoryName}, #{publisher}, #{pubDate})
+		INSERT IGNORE INTO Book
+		VALUES(#{itemID}, #{title}, #{isbn}, #{author}, #{description}, #{priceStandard},
+		#{coverLargeUrl},
+		#{categoryId}, #{categoryName}, #{publisher},
+		#{pubDate})
 	</insert>
-	
+	<!-- 책 정보 select -->
+	<select id="selectDetail" parameterType="String" resultType="bookVO">
+		SELECT * FROM Book
+		WHERE Title = #{title}
+	</select>
 </mapper>

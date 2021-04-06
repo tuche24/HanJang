@@ -205,20 +205,6 @@
 	href="${pageContext.request.contextPath}/resources/css/reset.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/book_list.css" />
-<style>
-#title {
-	margin-top: 100px;
-}
-.footer div {
-	float: left;
-}
-
-.footer {
-	margin: 0 auto;
-	width: 1050px;
-	height: 300px;
-}
-</style>
 
 <body>
 <!-- header부분 -->
@@ -292,14 +278,14 @@
 								<input type="hidden" value="${b.itemID}" />
 								<div class="info_area">
 									<div class="image">
-										<a href="goToBookDetail.do"> <img src="${b.coverLargeUrl}"
+										<a href="goToBookDetailCrawl.do?title=${b.title}"> <img src="${b.coverLargeUrl}"
 											alt="" /> <%-- <img src="${pageContext.request.contextPath}/resources/img/new/baby/baby1.jpg" 
 								alt="우리는 안녕"/></a> --%></a>
 									</div>
 
 									<div class="detail">
 										<div class="title">
-											<a href="goToBookDetail.do"><strong>${b.title}</strong></a>
+											<a href="goToBookDetailCrawl.do?title=${b.title}"><strong>${b.title}</strong></a>
 											<!-- <a href="#"><strong>우리는 안녕</strong></a> -->
 										</div>
 										<div class="pub_info">

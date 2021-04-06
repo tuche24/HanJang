@@ -20,4 +20,10 @@ public class BookDBServiceImpl implements BookDBService{
 		dao.insertBook(bookVO);
 	}
 
+	@Override
+	public BookVO selectDetail(String title) {
+		// TODO Auto-generated method stub
+		return dao.selectDetail(title);
+	}
+
 }

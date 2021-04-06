@@ -7,4 +7,6 @@ public interface BookDBService {
 
 	// 책 정보 입력 메소드
 	void insertBook(BookVO newBookVO);
+	// 책 정보를 출력하는 메소드입니다
+	BookVO selectDetail(String title);
 }
