@@ -111,7 +111,7 @@ a:active {text-decoration: none; color: black;}
 .title_info {
 	display: inline-block;
 	font-weight:bold;
-	margin:0px 0px 0px -10px;
+	margin:0px 0px 3px -10px;
 	text-align:left;
 	font-size:15px;
 }
@@ -139,7 +139,6 @@ a:active {text-decoration: none; color: black;}
 	overflow: hidden;
 	margin: 0 0 25px 0;
 }
-
 .order_state {
 	overflow: hidden;
 	margin: 0 0 25px 0;
