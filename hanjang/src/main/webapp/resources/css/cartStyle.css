@@ -25,6 +25,7 @@ two_1 {
 	position: relative;
 	margin: 0 auto;
 	width: 1080px;
+	min-height: 400px;
 }
 
 #title_wrap {
@@ -170,7 +171,9 @@ two_1 {
 
 a.btn {
 	padding: 0.5rem 2rem;
-	border: 2px solid #7effa8;
+	border: 2px solid;
+	border-image:linear-gradient(61deg, #7effa8, #3fcbff); 
+	border-image-slice: 1;
 	text-decoration: none;
 	color: black;
 	font-family: "Noto Sans KR", sans-serif;
