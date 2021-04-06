@@ -347,8 +347,9 @@
 
 								<div class="buy_button">
 									<button style="cursor: pointer;" onclick="javascrpt:addCart()">장바구니</button>
-									<button style="cursor: pointer;" onclick="javascrpt:testAddCart()">테스트100원</button>
-									<button style="cursor: pointer;" onclick="javascrpt:testAddCart1()">테스트10원</button>
+									<!-- test코드 -->
+									<!-- <button style="cursor: pointer;" onclick="javascrpt:testAddCart()">테스트100원</button>
+									<button style="cursor: pointer;" onclick="javascrpt:testAddCart1()">테스트10원</button> -->
 									<br>
 									<button style="cursor: pointer;"
 										onclick="location='goToOrderList.do'">바로 구매</button>
@@ -372,7 +373,7 @@
 			</div> -->
 		</div>
 	</div>
-	<!-- 테스트코드 -->
+<!-- 	테스트코드
 	<script>
 	function testAddCart() {
 		let UserNo = event.target.parentElement.parentElement.firstElementChild
@@ -472,7 +473,7 @@
 		}
 		
 	}
-	</script>
+	</script> -->
 	<!-- footer부분 -->
 	<div id="footer"></div>
 </body>

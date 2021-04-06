@@ -76,6 +76,7 @@
 					msg += '에러내용 : ' + rsp.error_msg;
 				}
 				alert(msg);
+				document.location.href="goToComplete.do"; //alert창 확인 후 이동할 url 설정
 			});
 		});
 	/* }); */
