@@ -99,9 +99,10 @@
 	</tr>
 	</c:if>
 	<c:if test="${list.size() > 0 }">
+	<c:set var="num" value="${po.postTotalCount - ((po.paging.page-1) * 10) }"/>	<!-- 글번호 jstl로 인위부여 -->
 	<c:forEach var="list" items="${list }">
 	<tr style="height:37px;">
-		<td>${list.boardNo }</td>
+		<td>${num }</td>
 		<td colspan="7" style="width:250px;">
 		<a href="requestPost.do?boardNo=${list.boardNo }">${list.title }</a>
 		<!-- 댓글 개수 표시 부분 -->
@@ -111,6 +112,7 @@
 		<td>${list.regDate }</td>
 		<td>${list.viewCnt }</td>
 	</tr>
+	<c:set var="num" value="${num-1 }"></c:set>
 	</c:forEach>
 	</c:if>
 	<tr>

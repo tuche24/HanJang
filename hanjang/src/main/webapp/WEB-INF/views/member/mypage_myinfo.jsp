@@ -86,7 +86,7 @@
 </table>
 <br><div style="text-align:center;">
 <input type="submit" value="수정" class="butt" style="margin-right:10px;">  
-<input type="button" value="탈퇴" class="butt">
+<input type="button" value="탈퇴" style="background:white; border:1px solid; border-image:linear-gradient(61deg, #7effa8, #3fcbff); border-image-slice: 1;" class="butt">
 </div>
 </form>
 </div>
