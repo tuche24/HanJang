@@ -61,9 +61,7 @@ $(document).ready(function(){
          $(".search").css("top","2px");
          $(".menubar").css("z-index","9999");
          $(".p1").css("z-index","9998");
-         $(".main_menu li").css("width","80px");   
-         $(".main_menu li a").css("width","80px");
-         $(".menu_container1").css("margin-left","-360px");
+         $(".menu_container1").css("margin-left","-268px");
          $(".menubar").css("box-shadow","rgb(245 245 245) 0px 2px 1px 0px");
          $(".main_menu ").css("margin-top","5px");   
       }else{
@@ -431,13 +429,13 @@ height:400px;
 width:1100px;
 margin:auto;
 height:500px;
-background:white;
+background:#f7f7f7;
 }
 .eventintro{
 min-width:1100px;
 margin:20px auto;
 height:640px;
-background:#f7f7f7;
+background:white;
 margin-top:50px;
 }
 .slide_img ul{
@@ -507,7 +505,11 @@ height:100%;
 float:left;
 
 }
-
+.backgray{
+min-width:1100px;
+height:500px;
+background:#f7f7f7;
+}
 .eventintro_tit{
 height:100px;
 text-align:center;
@@ -530,7 +532,7 @@ margin-left:214px;
 width:222px;
 }
 .eventintro_event{
-background:#f7f7f7;
+background:white;
 height:520px;
 max-width:1098px;
 margin:auto;
@@ -682,7 +684,7 @@ display:block;
 <c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
                   <li><a href="mypageOrderList.do">마이페이지</a></li>
                   <li><a href="Logout.do">로그아웃</a></li>
-                  <li><a href="getOneCart.do">카트</a></li>
+                  <li><a href="getOneCart.do">장바구니</a></li>
                </c:if>
                <c:if test="${(loginVO=='ADMIN') ? true : false }">
                   <li><a href="">회원관리</a></li>
@@ -702,14 +704,14 @@ display:block;
 <ul class="main_menu">
 <li class="menu1" onmouseenter="fade()" onmouseleave="fadeo()"><a href="#none">카테고리</a>
 <ul class="dropdown">
-<li><a href="BestSellerList1.do?categoryId=100"><h3 style="font-weight:bold;">국내도서</h3></a></li>
+<li><a href="BestSellerList1.do?categoryId=100"><h3 style="font-weight:bold;font-size:14px;">국내도서</h3></a></li>
 <li><a href="BestSellerList1.do?categoryId=109">유아/어린이</a></li>
 <li><a href="BestSellerList1.do?categoryId=101">소설/시/희곡</a></li>
 <li><a href="BestSellerList1.do?categoryId=102">에세이</a></li>
 <li><a href="BestSellerList1.do?categoryId=103">인문학</a></li>
 <li><a href="BestSellerList1.do?categoryId=116">과학/역사</a></li>
 <li><a href="BestSellerList1.do?categoryId=114">수험서/참고서</a></li>
-<li><a href="BestSellerList1.do?categoryId=200"><h3 style="font-weight:bold;">국외도서</h3></a></li>
+<li><a href="BestSellerList1.do?categoryId=200"><h3 style="font-weight:bold;font-size:14px;">국외도서</h3></a></li>
 <li><a href="BestSellerList1.do?categoryId=205">영미소설</a></li>
 <li><a href="BestSellerList1.do?categoryId=117">경제경영</a></li>
 <li><a href="BestSellerList1.do?categoryId=118">자기개발</a></li>
@@ -757,9 +759,9 @@ display:block;
 <div class="follow"><img src="resources\img\main\quick.jpg">
 <div class="follow_menu">
 <ul>
-<li><a href="#">장바구니</a></li>
-<li><a href="#">베스트셀러</a></li>
-<li><a href="#">이 책 추천해요</a></li>
+<li><a href="getOneCart.do">장바구니</a></li>
+<li><a href="BestSellerList1.do">베스트셀러</a></li>
+<li><a href="recommendList.do">이 책 추천해요</a></li>
 </ul>
 </div></div>
 <!-- 따라다니는 퀵메뉴 끝 -->
@@ -777,6 +779,7 @@ display:block;
 
 </div>
 <c:forEach items="${bookList}" var="b" begin="0" end="0">
+<div class="backgray">
 <div class="today_book">
 <div class="today_book_bookintro">
 <span>오늘의 책 소개</span>
@@ -797,6 +800,7 @@ display:block;
 	
 </div>
 </div>
+</div>
                   </c:forEach>
 <div class="eventintro">
 <div class="eventintro_tit">
@@ -804,9 +808,11 @@ display:block;
 </div>
 <div class="eventintro_event">
 <ul>
-<li><a href="event.do" ><div>이벤트이름</div></a></li>
-<li><a href="event.do"><div>이벤트이름</div></a></li>
-<li><a href="event.do"><div>이벤트이름</div></a></li>
+
+<li><a href="event.do" style="background-image:url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);"><div>이벤트이름</div></a></li>
+<li><a href="event.do"style="background-image:url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);"><div>이벤트이름</div></a></li>
+<li><a href="event.do"style="background-image:url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);"><div>이벤트이름</div></a></li>
+
 
 </ul>
 </div>

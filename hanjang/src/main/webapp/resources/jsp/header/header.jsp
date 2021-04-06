@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/jsp/header/header.css" />
 <script>
 $(document).ready(function(){
@@ -15,19 +16,18 @@ $(document).ready(function(){
 		var rollit = $(this).scrollTop() >= 280;
 		var rollit2 = $(this).scrollTop() >= 450;
 		if(rollit){
-			$(".menubar").css("position","fixed");
-			$(".menubar").css("top",0);
-			$(".menubar").css("width","100%");
-			$(".menubar").css("text-align","center");
-			$(".search").css("position","absolute");
-			$(".search").css("rigth","88px");
-			$(".search").css("top","2px");
-			$(".menubar").css("z-index","9999");
-			$(".main_menu li").css("width","80px");	
-			$(".main_menu li a").css("width","80px");
-			$(".menu_container1").css("margin-left","-360px");
-			$(".menubar").css("box-shadow","rgb(245 245 245) 0px 4px 3px 0px");
-			$(".main_menu ").css("margin-top","5px");	
+			   $(".menubar").css("position","fixed");
+		         $(".menubar").css("top",0);
+		         $(".menubar").css("width","100%");
+		         $(".menubar").css("text-align","center");
+		         $(".search").css("position","absolute");
+		         $(".search").css("rigth","88px");
+		         $(".search").css("top","2px");
+		         $(".menubar").css("z-index","9999");
+		         $(".p1").css("z-index","9998");
+		         $(".menu_container1").css("margin-left","-268px");
+		         $(".menubar").css("box-shadow","rgb(245 245 245) 0px 2px 1px 0px");
+		         $(".main_menu ").css("margin-top","5px");   
 		}else{
 			$(".menubar").css("position","static");
 			$(".search").css("position","static");
@@ -74,7 +74,7 @@ function fadeo1() {
 
                   <li><a href="mypageOrderList.do">마이페이지</a></li>
                   <li><a href="Logout.do">로그아웃</a></li>
-                  <li><a href="getOneCart.do">카트</a></li>
+                  <li><a href="getOneCart.do">장바구니</a></li>
                </c:if>
                <c:if test="${(loginVO=='ADMIN') ? true : false }">
                   <li><a href="">회원관리</a></li>
@@ -95,14 +95,14 @@ function fadeo1() {
 <ul class="main_menu">
 <li class="menu1" onmouseenter="fade()" onmouseleave="fadeo()"><a href="">카테고리</a>
 <ul class="dropdown">
-<li><a href="BestSellerList1.do?categoryId=100"><h3 style="font-weight:bold;">국내도서</h3></a></li>
+<li><a href="BestSellerList1.do?categoryId=100"><h3 style="font-weight:bold;font-size:14px;">국내도서</h3></a></li>
 <li><a href="BestSellerList1.do?categoryId=109">유아/어린이</a></li>
 <li><a href="BestSellerList1.do?categoryId=101">소설/시/희곡</a></li>
 <li><a href="BestSellerList1.do?categoryId=102">에세이</a></li>
 <li><a href="BestSellerList1.do?categoryId=103">인문학</a></li>
 <li><a href="BestSellerList1.do?categoryId=116">과학/역사</a></li>
 <li><a href="BestSellerList1.do?categoryId=114">수험서/참고서</a></li>
-<li><a href="BestSellerList1.do?categoryId=200"><h3 style="font-weight:bold;">국외도서</h3></a></li>
+<li><a href="BestSellerList1.do?categoryId=200"><h3 style="font-weight:bold;font-size:14px;">국외도서</h3></a></li>
 <li><a href="BestSellerList1.do?categoryId=205">영미소설</a></li>
 <li><a href="BestSellerList1.do?categoryId=117">경제경영</a></li>
 <li><a href="BestSellerList1.do?categoryId=118">자기개발</a></li>

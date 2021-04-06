@@ -9,7 +9,7 @@ public interface MemberService {
 	void MemberInsert(MemberVO membervo) throws Exception;
 	public MemberVO LoginCheck(MemberVO membervo) throws Exception;
 	public int IdCheck(String param) throws Exception;
-	void logout(HttpServletResponse response) throws Exception;
+/*	void logout(HttpServletResponse response) throws Exception;*/
 	
 	//이메일발송
 	public void sendEmail(MemberVO vo, String div) throws Exception;

@@ -97,12 +97,13 @@ public class MemberController {
 	
 	//로그아웃
 	@RequestMapping(value = "/Logout.do", method = RequestMethod.GET)
-	public void logout(HttpSession session,HttpServletResponse response)throws Exception{
+	public String logout(HttpSession session,HttpServletResponse response)throws Exception{
 		session.removeAttribute("memberVO"); // 
 		session.removeAttribute("loginVO");
 		session.removeAttribute("loginNick");
 		session.invalidate(); // 모두 초기화
-		memberservice1.logout(response);
+		/*memberservice1.logout(response);*/
+		return "redirect:/mainAll.do";
 	}
 	
 	//회원가입 아이디 중복확인
