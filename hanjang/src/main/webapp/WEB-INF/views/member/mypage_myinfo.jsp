@@ -5,6 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- jquery 링크-->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<!-- 헤더연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
+<!-- 푸터연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
+	})
+</script>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/mypageStyle.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -22,6 +36,8 @@
 </script>
 </head>
 <body>
+<!-- header부분 -->
+<div id="header"></div>
 <div class="contentPane">
 <!-- 좌측 세로 메뉴 시작 -->
 <div class="left_menu">
@@ -35,7 +51,7 @@
 <!-- 내용 부분 -->
 <div class="contents">
 <span class="subtitle">회원정보 수정</span>
-<hr class="line">
+<hr class="headline">
 <div class="contents_fontsize">
 <form action="updateMyInfo.do">
 <table class="info_table">
@@ -73,10 +89,10 @@
 <input type="button" value="탈퇴" class="butt">
 </div>
 </form>
-<!-- 페이징 섹션 -->
-
 </div>
 </div>
 </div>
+<!-- footer부분 -->
+<div id="footer"></div>
 </body>
 </html>

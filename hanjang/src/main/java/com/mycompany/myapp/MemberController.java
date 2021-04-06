@@ -179,6 +179,7 @@ public class MemberController {
 		
 		model.addAttribute("orderlist", list);
 		model.addAttribute("po", po);
+		model.addAttribute("cnt", orderlistservice.countPosts(userNo));
 		return "member/mypage_orderlist";
 	}
 	

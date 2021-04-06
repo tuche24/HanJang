@@ -6,10 +6,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- jquery 링크-->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<!-- 헤더연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#header").load("/myapp/resources/jsp/header/header.jsp");
+	})
+</script>
+<!-- 푸터연결 -->
+<script defer>
+	$(document).ready(function(){
+		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
+	})
+</script>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/mypageStyle.css">
 </head>
 <body>
+<!-- header부분 -->
+<div id="header"></div>
 <div class="contentPane">
 <!-- 좌측 세로 메뉴 시작 -->
 <div class="left_menu">
@@ -23,7 +39,8 @@
 <!-- 내용 부분 -->
 <div class="contents">
 <span class="subtitle">주문내역 조회</span>
-<hr class="line">
+<span class="cnt_ordered">총 주문 건수 (<span style="display:inline-block; color:red;">${cnt }</span>)</span>
+<hr class="headline">
 <div class="contents_fontsize">
 <c:if test="${list.size() > 0 }">
 <span style="font-weight:bold;">주문번호 [${orderlist.orderListNo }]</span></c:if>
@@ -38,9 +55,9 @@
 <c:forEach var="list" items="${orderlist }">
 <table class="order_table">
 	<tr>	<!-- 책 이미지 들어오는 곳 -->
-		<td rowspan="4" style="width:70px;"><img src="${list.bookVO.coverLargeUrl }"></td>
+		<td rowspan="4" style="width:70px; height:100px;"><img src="${list.bookVO.coverLargeUrl }"></td>
 			<!-- 책 제목 들어오는 곳 -->
-		<td colspan="2" style="font-weight:bold;">${list.bookVO.title }</td>	
+		<td colspan="2" style="font-weight:bold;">${list.bookVO.title }</td>
 	</tr>
 	<tr>	
 		<td style="width:100px;">주문번호</td>
@@ -48,7 +65,7 @@
 	</tr>
 	<tr>
 		<td style="width:100px;">결제금액</td>
-		<td style="color:#ee5555; font-weight:bold;">${list.bookVO.priceStandard * list.cartVO.amount }</td>
+		<td><span style="color:#ee5555; font-weight:bold;">${list.bookVO.priceStandard * list.cartVO.amount }</span>원</td>
 	</tr>
 	<tr>
 		<td style="width:100px;">주문상태</td>
@@ -90,5 +107,7 @@
 </div>
 </div>
 </div>
+<!-- footer부분 -->
+<div id="footer"></div>
 </body>
 </html>

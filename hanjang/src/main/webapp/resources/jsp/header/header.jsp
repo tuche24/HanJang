@@ -56,7 +56,7 @@ $(document).ready(function(){
 <div class="usermenu" >
 <ul>
 <c:if test="${(loginVO!=null&&loginVO!='ADMIN') ? true : false}">
-	<li><a href="#">내정보</a></li>
+	<li><a href="mypageOrderList.do">마이페이지</a></li>
 	<li><a href="Logout.do">로그아웃</a></li>
 	<li><a href="getOneCart.do">장바구니</a></li>
 </c:if>
