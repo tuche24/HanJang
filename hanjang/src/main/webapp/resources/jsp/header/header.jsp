@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/jsp/header/header.css" />
 <script>
 $(document).ready(function(){
