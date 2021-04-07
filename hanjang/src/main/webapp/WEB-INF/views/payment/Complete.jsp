@@ -22,7 +22,7 @@
 	})
 </script>
 
-<title>결제 완료</title>
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 </head>
 
 <body>

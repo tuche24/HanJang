@@ -4,21 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- jquery 링크-->
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<!-- 헤더연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#header").load("/myapp/resources/jsp/header/header.jsp");
-	})
-</script>
-<!-- 푸터연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
-	})
-</script>
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/mypageStyle.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -37,7 +23,7 @@
 </head>
 <body>
 <!-- header부분 -->
-<div id="header"></div>
+<%@ include file="/resources/jsp/header/header.jsp" %>
 <div class="contentPane">
 <!-- 좌측 세로 메뉴 시작 -->
 <div class="left_menu">
@@ -86,13 +72,33 @@
 </table>
 <br><div style="text-align:center;">
 <input type="submit" value="수정" class="butt" style="margin-right:10px;">  
-<input type="button" value="탈퇴" style="background:white; border:1px solid; border-image:linear-gradient(61deg, #7effa8, #3fcbff); border-image-slice: 1;" class="butt">
+<input type="button" value="탈퇴" onclick="memberDeleteConfirm()" style="background:white; border:1px solid; border-image:linear-gradient(61deg, #7effa8, #3fcbff); border-image-slice: 1;" class="butt">
+	<script>
+		// 탈퇴 확인창
+		function memberDeleteConfirm() {
+			swal.fire({
+				icon:'warning',
+				title:'회원 관련 안내',
+				text:'정말로 탈퇴하시겠습니까?',
+				showCancelButton: true,
+				confirmButtonColor: '#d90000',
+				confirmButtonText: '탈퇴',
+				cancelButtonText: '취소'
+			}).then((result) => {
+				if(result.isConfirmed) {
+					var id = "<%= session.getAttribute("loginVO") %>";
+					console.log(id);
+					location.href = "deleteMyInfo.do?id="+id;
+				}
+			})
+		}
+	</script>
 </div>
 </form>
 </div>
 </div>
 </div>
 <!-- footer부분 -->
-<div id="footer"></div>
+<%@ include file="/resources/jsp/footer/footer.jsp" %> 
 </body>
 </html>

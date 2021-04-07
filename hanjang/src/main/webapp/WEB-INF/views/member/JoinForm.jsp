@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>회원가입 화면</title>
+	<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 	
 	<!-- css 파일 분리 -->
 <!-- 	<link href="../resouces/css/join_style.css" rel="stylesheet"/> -->

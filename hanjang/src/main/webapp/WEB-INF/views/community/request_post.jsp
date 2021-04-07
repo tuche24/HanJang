@@ -21,7 +21,7 @@
 		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
 	})
 </script>
-<title>Insert title here</title>
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <style>
 .footer div{
 	float:left;

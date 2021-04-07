@@ -36,23 +36,35 @@ public class MemberDAOImpl implements MemberDAO{
 		int result = sql.selectOne(namespace+".kakaocheck",nickname);
 		return result;
 	}
+	
 	//비밀번호찾기
 	public int updatePw(MemberVO vo) throws Exception {
 		return sql.update(namespace+".updatePw", vo);
 	}
+	
 	@Override
 	public MemberVO readMember(MemberVO vo) {
 		return sql.selectOne(namespace+".readMember", vo);
 	}
+	
 	@Override
 	public MemberVO findoneinfo(String nickname)throws Exception{
 		return sql.selectOne(namespace+".findoneinfo",nickname);
 	}
+	
+	// 회원정보 수정
 	@Override
 	public void MemberUpdate(MemberVO membervo) throws Exception {
 		sql.update(namespace+".MemberUpdate",membervo);
 	}
-	// 회원주소수정
+	
+	// 회원 탈퇴
+	@Override
+	public void MemberDelete(MemberVO membervo) throws Exception {
+		sql.delete(namespace+".MemberDelete",membervo);
+	}
+	
+	// 회원주소 수정
 	@Override
 	public void updateAddress(MemberVO memberVO) {
 		sql.update(namespace+".updateAddress",memberVO);

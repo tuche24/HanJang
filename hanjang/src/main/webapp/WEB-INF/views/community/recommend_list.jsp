@@ -5,22 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- jquery 링크-->
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-
-<!-- 헤더연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#header").load("/myapp/resources/jsp/header/header.jsp");
-	})
-</script>
-<!-- 푸터연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
-	})
-</script>
-<title>Insert title here</title>
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <style>
 .footer div{
 	float:left;
@@ -76,7 +61,7 @@
 </head>
 <body>
 <!-- header부분 -->
-<div id="header"></div>
+<%@ include file="/resources/jsp/header/header.jsp" %>
 <div class="boardTitle">이 책 추천해요</div>
 <div class="boardSubTitle">인상 깊게 읽었던 책을 공유하는 커뮤니티입니다.</div>
 <table class="MainBoardLayout">
@@ -154,6 +139,6 @@
 	</c:if>
 </div>
 <!-- footer부분 -->
-<div id="footer"></div>
+<%@ include file="/resources/jsp/footer/footer.jsp" %> 
 </body>
 </html>

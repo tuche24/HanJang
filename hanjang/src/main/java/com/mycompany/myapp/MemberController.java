@@ -58,6 +58,7 @@ public class MemberController {
 		}
 		mav.addObject("bookList", bookList);
 		mav.setViewName("main");
+
 		return mav;
 	}
 	
@@ -174,9 +175,6 @@ public class MemberController {
 	@RequestMapping(value="mypageOrderList.do")
 	public String getMyOrderList(HttpSession session, Model model, PageVO pv) {
 		MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
-	
-		
-		
 		int userNo = memberVO.getUserNo();
 		System.out.println("현재 접속한 사용자 번호 : "+userNo);
 		System.out.println("현재 페이지 정보 : "+pv);
@@ -210,6 +208,15 @@ public class MemberController {
 		return "redirect:mypageMyInfo.do";
 	}
 	
+	// 마이페이지 회원 탈퇴 처리
+	@RequestMapping(value="deleteMyInfo.do")
+	public String deleteMyInfo(MemberVO membervo, RedirectAttributes ra) throws Exception {
+		System.out.println(membervo.getId());
+		memberservice1.MemberDelete(membervo);
+		ra.addFlashAttribute("msg", "withdrawalSuccess");
+		return "redirect:mainAll.do";
+	}
+	
 	// 장바구니에서 배송지변경 popup 수정 처리
 	@RequestMapping(value="/updateAddress.do")
 	@ResponseBody
@@ -220,4 +227,5 @@ public class MemberController {
 		result.put("code", "서버동기화");
 		return result;
 	}
+	
 }

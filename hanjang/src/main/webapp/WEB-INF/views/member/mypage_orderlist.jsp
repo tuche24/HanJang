@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <!-- jquery 링크-->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <!-- 헤더연결 -->

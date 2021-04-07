@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mycompany.myapp.service.CartService;
 import com.mycompany.myapp.vo.CartProductVO;
@@ -77,7 +78,7 @@ public class CartController {
 
 	// 특정 유저 장바구니 확인
 	@RequestMapping(value = "/getOneCart.do")
-	public ModelAndView getOneCart(HttpSession session, HttpServletResponse res) throws IOException {
+	public ModelAndView getOneCart(HttpSession session, HttpServletResponse res, RedirectAttributes ra) throws IOException {
 		ModelAndView mav = new ModelAndView();
 		int cartNo = 0;
 
@@ -97,7 +98,8 @@ public class CartController {
 		} else {
 			// 장바구니 정보가 없을 때 새 책 으로 이동 // OR 최근 장바구니 정보 가져오기
 			/* alertMessage("장바구니에 상품이 담기지 않았습니다", res); */
-			mav.setViewName("gomain");
+			mav.setViewName("redirect:mainAll.do");
+			ra.addFlashAttribute("msg", "cartError");
 			System.out.println("장바구니 정보가 없습니다");
 			return mav;
 		}
