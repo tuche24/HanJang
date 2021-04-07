@@ -3,6 +3,7 @@
 	width:1300px;
 	margin:auto;
 	margin-top:80px;
+	overflow:hidden
 }
 
 /* 링크 색상, 밑줄 없애기 */
