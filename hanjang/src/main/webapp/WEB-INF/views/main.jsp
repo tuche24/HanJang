@@ -8,14 +8,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <link rel="stylesheet" href="resources/css/reset.css">
 
 <!--  검색어  -->
 
 <!-- 헤더연결 -->
 
+<script>
+	window.onload = function() {
+		const result = "${msg}";
+		console.log(result)
+		if(result == 'cartError') {
+			swal.fire({
+				icon:'error',
+				title:'장바구니 관련 안내',
+				text:'장바구니에 상품이 담기지 않았습니다.'
+			});
+		} else if(result == 'withdrawalSuccess') {
+			swal.fire({
+				icon:'success',
+				title:'회원 관련 안내',
+				text:'정상적으로 탈퇴되었습니다.',
+				showCancelButton: false,
+				confirmButtonText: '확인'
+			}).then((result) => {
+				if(result.isConfirmed) {
+					location.href="Logout.do";
+				}
+			})
+		}
+	}
+</script>
 <script>
    window.addEventListener("resize", homzzang);
    function homzzang() {

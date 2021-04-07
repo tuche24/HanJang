@@ -22,9 +22,7 @@
 		$("#footer").load("${pageContext.request.contextPath}/resources/jsp/footer/footer.jsp");
 	})
 </script>
-
-<title>결제 완료</title>
-
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <style>
 .go_pay_list {
 	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), 

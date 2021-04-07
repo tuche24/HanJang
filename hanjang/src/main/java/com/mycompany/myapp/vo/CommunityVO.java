@@ -69,7 +69,6 @@ public class CommunityVO {
 		this.imgFile = imgFile;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "CommunityVO [boardNo=" + boardNo + ", title=" + title + ", content=" + content + ", writerId="

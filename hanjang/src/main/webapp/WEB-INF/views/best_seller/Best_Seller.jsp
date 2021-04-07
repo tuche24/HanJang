@@ -268,7 +268,25 @@ function addOrderList() {
 		}
 	})
 </script>
-<title>베스트셀러</title>
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
+
+<style>
+#container #wrap #content .info_area .detail .author {
+	display: inline-block;
+	padding-right: 0px;
+}
+
+#container #wrap #content .info_area .detail .publication {
+	display: inline-block;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#container #wrap #content .info_area .detail .publication_date {
+	display: inline-block;
+	padding-left: 0px;
+}
+</style>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_list.css" />

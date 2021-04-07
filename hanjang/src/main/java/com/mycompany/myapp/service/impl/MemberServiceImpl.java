@@ -138,17 +138,23 @@ public class MemberServiceImpl implements MemberService{
 			out.close();
 		}
 	}
-
+	
+	// 회원정보 수정
 	@Override
 	public void MemberUpdate(MemberVO membervo) throws Exception {
 		dao.MemberUpdate(membervo);
 	}
-
-	// 회원주소수정
+	
+	// 회원 탈퇴
+	@Override
+	public void MemberDelete(MemberVO membervo) throws Exception {
+		dao.MemberDelete(membervo);
+	}
+	
+	// 회원주소 수정
 	@Override
 	public void updateAddress(MemberVO memberVO) {
 		dao.updateAddress(memberVO);
 	}
-
 
 }

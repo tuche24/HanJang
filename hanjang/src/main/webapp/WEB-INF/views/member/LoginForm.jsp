@@ -21,6 +21,7 @@
 		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
 	})
 </script>
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <script>
 	window.onload = function() {
 		const result = "${msg}";
@@ -33,7 +34,6 @@
 		}
 	}
 </script>
-<title>로그인 화면</title>
 <style>
 .footer div{
 	float:left;
