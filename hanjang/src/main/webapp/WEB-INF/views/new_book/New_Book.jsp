@@ -273,36 +273,13 @@ function addOrderList() {
 		}
 	})
 </script>
-
-<style>
-#container #wrap #content .info_area .detail .author {
-	display: inline-block;
-	padding-right: 0px;
-}
-
-#container #wrap #content .info_area .detail .publication {
-	display: inline-block;
-	padding-left: 0px;
-	padding-right: 0px;
-}
-
-#container #wrap #content .info_area .detail .publication_date {
-	display: inline-block;
-	padding-left: 0px;
-}
-</style>
 <title>새로 나온 책</title>
-
-
 </head>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/reset.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/book_list.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_list.css" />
 
 <body>
 	<!-- header부분 -->
-	<!-- <div id="header"></div> -->
 	<%@ include file="/resources/jsp/header/header.jsp" %>
 	<div id="container">
 		<div id="title">새로 나온 책</div>
@@ -393,8 +370,8 @@ function addOrderList() {
 											</span>
 										</div>
 										<div class="price">
-											<span class="sell_price"> <fmt:formatNumber
-													value="${b.priceStandard}" pattern="#,###" />원
+											<span class="sell_price">
+												<fmt:formatNumber value="${b.priceStandard}" pattern="#,###" />원
 											</span>
 										</div>
 										<div class="info">

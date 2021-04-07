@@ -88,7 +88,7 @@ function fadeo1() {
 
 </ul>
 </div>
-<div class="logo_place"><div class="logo"><a href="">
+<div class="logo_place"><div class="logo"><a href="mainAll.do">
 <img src="https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg" /></a></div></div>
 <div class="menubar" >
 <div class="menu_container1">

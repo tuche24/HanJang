@@ -38,6 +38,7 @@
 	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff );
 	background-origin: border-box;
 	background-clip: content-box, border-box;
+	cursor: pointer;
 }
 #wrap{
 	width:1050px;
@@ -339,8 +340,8 @@ $(document).ready(function(){
 				</tr>
 			</table>
 			<br><div style="text-align:center;">
-			<input type="submit" value="가입" class="butt">  
-			<input type="button" value="취소" onclick=location.href='loginform.do'  class="butt">
+			<input type="submit" value="가입" class="butt" style="cursor: pointer;">  
+			<input type="button" value="취소" onclick=location.href='loginform.do'  class="butt" style="cursor: pointer;">
 			</div>
 		</form>
 		</div>

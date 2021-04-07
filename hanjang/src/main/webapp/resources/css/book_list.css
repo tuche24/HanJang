@@ -228,18 +228,14 @@
 
 #content .info_area .detail .author {
 	display: inline-block;
-	/* padding-right: 3px; */
 }
 
 #content .info_area .detail .publication {
 	display: inline-block;
-	/* padding-left: 6px;
-	padding-right: 6px; */
 }
 
 #content .info_area .detail .publication_date {
 	display: inline-block;
-	/* padding-left: 6px; */
 }
 
 #content .info_area .detail .price {

@@ -48,7 +48,7 @@
 				 https://docs.iamport.kr/implementation/payment
 				 위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
 				 */
-				name : '${sessionScope.payment.email}',
+				name : '${sessionScope.payment.title}',
 				//결제창에서 보여질 이름
 				amount : ${sessionScope.payment.priceTotal},
 				//가격

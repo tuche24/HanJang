@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,7 +73,9 @@
 				<ul>
 					<li>
 						<div class="Litem">결제금액</div>
-						<div class="Ritem"><span style="color:#ee5555; font-weight:bold;">${list.bookVO.priceStandard * list.cartVO.amount }</span>원</div>
+						<div class="Ritem"><span style="color:#ee5555; font-weight:bold;">
+							<fmt:formatNumber value="${list.bookVO.priceStandard * list.cartVO.amount }" pattern="#,###" /></span>원
+						</div>
 					</li>
 				</ul>
 				<ul>

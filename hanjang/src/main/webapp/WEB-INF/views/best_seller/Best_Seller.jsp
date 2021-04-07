@@ -269,33 +269,13 @@ function addOrderList() {
 	})
 </script>
 <title>베스트셀러</title>
-
-<style>
-#container #wrap #content .info_area .detail .author {
-	display: inline-block;
-	padding-right: 0px;
-}
-
-#container #wrap #content .info_area .detail .publication {
-	display: inline-block;
-	padding-left: 0px;
-	padding-right: 0px;
-}
-
-#container #wrap #content .info_area .detail .publication_date {
-	display: inline-block;
-	padding-left: 0px;
-}
-</style>
 </head>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/reset.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/book_list.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_list.css" />
 
 <body>
-<!-- header부분 -->
-<div id="header"></div>
+	<!-- header부분 -->
+	<%@ include file="/resources/jsp/header/header.jsp" %>
 	<div id="container">
 		<div id="title">베스트셀러</div>
 
@@ -434,6 +414,6 @@ function addOrderList() {
 		</div>
 	</div>
 	<!-- footer부분 -->
-	<div id="footer"></div>
+	<%@ include file="/resources/jsp/footer/footer.jsp" %>
 </body>
 </html>
