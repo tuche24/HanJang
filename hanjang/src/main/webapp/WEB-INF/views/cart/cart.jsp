@@ -188,6 +188,10 @@ Number.prototype.formatNumber = function(){
 			// ajax-end
 			// event.target 이란 이벤트가 일어날 객체
 			event.target.parentElement.parentElement.remove();
+			
+			basket.reCalc();
+			basket.updateUI();
+			
 		},
 		
 		// 선택상품 주문리스트로 이동
