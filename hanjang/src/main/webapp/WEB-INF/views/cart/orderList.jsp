@@ -40,9 +40,15 @@
 						<c:set var="col_sum" value="0"/>
 							<c:forEach items="${orderList}" var="order" varStatus="status"
 								begin="0">
-								<li><img src="${order.bookVO.coverLargeUrl}" id="bookimage" /><span
-									id="bookname">${order.bookVO.title}</span> <span
-									id="bookamount">${order.cartVO.amount}개</span> <span id="bookprice"><fmt:formatNumber value="${order.cartVO.amount * order.bookVO.priceStandard}" pattern="#,###" />원</span></li>
+
+								<li><img src="${order.bookVO.coverLargeUrl}" id="bookimage" />
+									<span id="bookname">${order.bookVO.title}</span> 
+									<span id="bookamount">${order.cartVO.amount}개</span>
+									<span id="bookprice">
+										<fmt:formatNumber value="${order.cartVO.amount * order.bookVO.priceStandard}" pattern="#,###" />원
+									</span>
+								</li>
+
 									<c:set var="col_sum" value="${col_sum+ order.cartVO.amount * order.bookVO.priceStandard}"/>
 							</c:forEach>
 						</ul>
@@ -89,7 +95,9 @@
 				<form action="goToPayment.do">
 					<div id="paymentMethodResult">
 						<input type="hidden" value="${orderList[0].orderListNo}" name="orderListNo" />
+
 						<input type="submit" style="cursor: pointer;" value="결제하기" class="btn_payment" />
+
 					</div>
 				</form>
 			</div>

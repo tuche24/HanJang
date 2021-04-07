@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,16 @@
 </script>
 
 <title>결제 완료</title>
+
+<style>
+.go_pay_list {
+	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), 
+	linear-gradient(61deg, #7effa8, #3fcbff);
+    color: #fff;
+    outline: 0;
+	border: 0;
+}
+</style>
 </head>
 
 <body>
@@ -71,7 +82,7 @@
 										<li class="pay_sum">
 											<span class="price_title">결제금액</span>
 											<span class="price_desc">
-												<strong class="price">${payment.priceTotal}</strong>원
+												<strong class="price"><fmt:formatNumber value="${payment.priceTotal}" pattern="#,###" /></strong>원
 											</span>
 										</li>
 									</ul>
@@ -83,7 +94,7 @@
 				
 				<div class="finish_btn">
 					<button class="go_main" onclick="location='mainAll.do'">메인으로</button>
-					<button class="go_pay_list" onclick="location='#'">구매내역 확인</button>
+					<button class="go_pay_list" onclick="location='mypageOrderList.do'">구매내역 확인</button>
 				</div>
 			</div>
 		</div>

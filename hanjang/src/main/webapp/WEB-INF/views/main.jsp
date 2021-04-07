@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -651,6 +653,12 @@ font-size:18px;
 width:70px;
 height:50px;
 display:block;
+text-align: left;
+}
+
+.backgray .today_book .today_book_bookintro .todayintrodiv .pub_date {
+	width: 120px;
+	margin-right: 80px;
 }
 .price{
 color:red;
@@ -796,7 +804,9 @@ color:red;
  
 <div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">글쓴이</span><span style="font-size:14px;">${b.author}</span></div>
 <div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">출판사</span><span style="font-size:14px;">${b.publisher}</span></div>
-<div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">출간일</span><span style="font-size:14px;">${b.pubDate}</span></div>
+<div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">출간일</span><span class="pub_date" style="font-size:14px;">
+	<fmt:parseDate value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd" />
+	<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" /></span></div>
  </div>
 <div class="today_book_bookimage"> 
                   <a href="goToBookDetailCrawl.do?title=${b.title}"><img style="width:100%;height:100%;"src="${b.coverLargeUrl}" alt="" /></a>

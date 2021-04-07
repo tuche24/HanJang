@@ -246,7 +246,8 @@ button {
 }
 
 .go_pay_list {
-    background-color: #e55;
+	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), 
+	linear-gradient(61deg, #7effa8, #3fcbff);
     color: #fff;
     outline: 0;
 	border: 0;
