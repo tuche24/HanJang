@@ -17,7 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.stereotype.Service;
 
-@Service("bookDetailService") // Detail 요소 크롤링 서비스@Service
+@Service("bookDetailService") // Detail 요소 크롤링 서비스
 public class BookDetailService {
 
 	public String getCrawlingUrl(String title) throws IOException {

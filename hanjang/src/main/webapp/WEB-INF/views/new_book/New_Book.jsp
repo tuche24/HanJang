@@ -302,7 +302,8 @@ function addOrderList() {
 
 <body>
 	<!-- header부분 -->
-	<div id="header"></div>
+	<!-- <div id="header"></div> -->
+	<%@ include file="/resources/jsp/header/header.jsp" %>
 	<div id="container">
 		<div id="title">새로 나온 책</div>
 
@@ -534,7 +535,8 @@ function addOrderList() {
 		
 	}
 	</script> -->
-	<!-- footer부분 -->
-	<div id="footer"></div>
+<!--
+	<div id="footer"></div> -->
+	<%@ include file="/resources/jsp/footer/footer.jsp" %>
 </body>
 </html>
