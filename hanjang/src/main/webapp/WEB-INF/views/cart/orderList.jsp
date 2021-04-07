@@ -89,7 +89,7 @@
 				<form action="goToPayment.do">
 					<div id="paymentMethodResult">
 						<input type="hidden" value="${orderList[0].orderListNo}" name="orderListNo" />
-						<input type="submit" value="결제하기" class="btn_payment" />
+						<input type="submit" style="cursor: pointer;" value="결제하기" class="btn_payment" />
 					</div>
 				</form>
 			</div>
