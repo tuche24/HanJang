@@ -60,12 +60,16 @@ public class MemberController {
 		mav.setViewName("main");
 		return mav;
 	}
-	
+	@RequestMapping(value="/loginform.do")
+	public String goToLogin() {
+		return "member/LoginForm";
+	}
 	//회원가입
 	@RequestMapping(value="/JoinPro.do")
-	public String InsertMember(MemberVO membervo) throws Exception {
+	public String InsertMember(MemberVO membervo,RedirectAttributes ra) throws Exception {
 		memberservice1.MemberInsert(membervo);
-		return "member/LoginForm";
+		ra.addFlashAttribute("msg", "signupSuccess");
+		return "redirect:/loginform.do";
 	}
 	
 	@RequestMapping(value="/login.do", method = RequestMethod.POST)

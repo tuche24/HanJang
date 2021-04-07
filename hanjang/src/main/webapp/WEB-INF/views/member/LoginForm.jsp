@@ -21,6 +21,18 @@
 		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
 	})
 </script>
+<script>
+	window.onload = function() {
+		const result = "${msg}";
+		if(result == 'signupSuccess') {
+			swal.fire({
+				icon:'success',
+				title:'회원 관련 안내',
+				text:'회원 가입이 완료되었습니다..'
+			});
+		}
+	}
+</script>
 <title>로그인 화면</title>
 <style>
 .footer div{

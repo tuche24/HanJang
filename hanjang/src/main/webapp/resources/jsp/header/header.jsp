@@ -28,6 +28,7 @@ $(document).ready(function(){
 		         $(".menu_container1").css("margin-left","-268px");
 		         $(".menubar").css("box-shadow","rgb(245 245 245) 0px 2px 1px 0px");
 		         $(".main_menu ").css("margin-top","5px");   
+		         $(".main_menu li").css("z-index","9996");
 		}else{
 			$(".menubar").css("position","static");
 			$(".search").css("position","static");
@@ -36,7 +37,8 @@ $(document).ready(function(){
 			$(".main_menu li").css("width","100px");	
 			$(".main_menu li a").css("width","100px");
 			$(".menu_container1").css("margin-left","0px");
-			$(".main_menu ").css("margin-top","0px");	
+			$(".main_menu ").css("margin-top","0px");
+			 $(".menubar").css("box-shadow","none");
 		}
 		 var currentTop = $(window).scrollTop();
 

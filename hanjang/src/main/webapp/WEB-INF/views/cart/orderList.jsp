@@ -10,18 +10,7 @@
 <link rel="stylesheet" href="resources/css/orderList.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!-- 헤더연결 -->
-<script defer>
-	$(document).ready(function() {
-		$("#header").load("/myapp/resources/jsp/header/header.jsp");
-	})
-</script>
-<!-- 푸터연결 -->
-<script defer>
-	$(document).ready(function() {
-		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
-	})
-</script>
+
 <title>주문리스트</title>
 <style>
 .footer div {
@@ -37,7 +26,7 @@
 </head>
 <body>
 	<!-- header부분 -->
-	<div id="header"></div>
+<%@ include file="/resources/jsp/header/header.jsp" %>
 
 	<div class="tit_page">주문서</div>
 	<div id="main">
@@ -51,6 +40,7 @@
 						<c:set var="col_sum" value="0"/>
 							<c:forEach items="${orderList}" var="order" varStatus="status"
 								begin="0">
+
 								<li><img src="${order.bookVO.coverLargeUrl}" id="bookimage" />
 									<span id="bookname">${order.bookVO.title}</span> 
 									<span id="bookamount">${order.cartVO.amount}개</span>
@@ -58,6 +48,7 @@
 										<fmt:formatNumber value="${order.cartVO.amount * order.bookVO.priceStandard}" pattern="#,###" />원
 									</span>
 								</li>
+
 									<c:set var="col_sum" value="${col_sum+ order.cartVO.amount * order.bookVO.priceStandard}"/>
 							</c:forEach>
 						</ul>
@@ -70,7 +61,7 @@
 							/* c:forEach 구문에서 첫번째 리스트가 안 보이는 오류 해결하기 위해 */
 						</script>
 					</div>
-					<div id="totalPrice">총 결제금액 : <c:out value="${col_sum}"/>원</div>
+					<div id="totalPrice">총 결제금액 : <fmt:formatNumber value="${col_sum}" pattern="#,###" /><%-- <c:out value="${col_sum}"/> --%>원</div>
 				</div>
 
 				<h2 class="tit_section" id="titFocusOrderer">주문자 정보</h2>
@@ -104,13 +95,16 @@
 				<form action="goToPayment.do">
 					<div id="paymentMethodResult">
 						<input type="hidden" value="${orderList[0].orderListNo}" name="orderListNo" />
-						<input type="submit" value="결제하기" class="btn_payment" style="cursor: pointer;"/>
+
+						<input type="submit" style="cursor: pointer;" value="결제하기" class="btn_payment" />
+
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 	<!-- footer부분 -->
-	<div id="footer"></div>
+	<%@ include file="/resources/jsp/footer/footer.jsp" %>
+ 
 </body>
 </html>

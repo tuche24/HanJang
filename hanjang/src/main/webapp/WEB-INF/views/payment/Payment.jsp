@@ -56,8 +56,8 @@
 				buyer_name : '${sessionScope.payment.name}',
 				buyer_tel : '${sessionScope.payment.phone}',
 				buyer_addr : '${sessionScope.payment.address}',
-				buyer_postcode : '123-456',
-				m_redirect_url : 'goToComplete.do'
+				buyer_postcode : '123-456', 
+				/* m_redirect_url : 'mainAll.do' */ 
 			/*
 			 모바일 결제시,
 			 결제가 끝나고 랜딩되는 URL을 지정
@@ -71,12 +71,14 @@
 					msg += '상점 거래ID : ' + rsp.merchant_uid;
 					msg += '결제 금액 : ' + rsp.paid_amount;
 					msg += '카드 승인번호 : ' + rsp.apply_num;
+					alert(msg);
+					document.location.href="goToComplete.do"; //alert창 확인 후 이동할 url 설정
 				} else {
 					var msg = '결제에 실패하였습니다.';
 					msg += '에러내용 : ' + rsp.error_msg;
+					alert(msg);
+					document.location.href="mainAll.do"; //alert창 확인 후 이동할 url 설정
 				}
-				alert(msg);
-				document.location.href="goToComplete.do"; //alert창 확인 후 이동할 url 설정
 			});
 		});
 	/* }); */

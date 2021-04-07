@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,19 +15,7 @@
 <!--  검색어  -->
 
 <!-- 헤더연결 -->
-<script defer>
 
-	$(document).ready(function(){
-		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
-	})
-</script>
-<!-- 푸터연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#footer").load("${pageContext.request.contextPath}/resources/jsp/footer/footer.jsp");
-	})
-
-</script>
 <script>
    window.addEventListener("resize", homzzang);
    function homzzang() {
@@ -74,6 +64,7 @@ $(document).ready(function(){
          $(".main_menu li a").css("width","100px");
          $(".menu_container1").css("margin-left","0px");
          $(".main_menu ").css("margin-top","0px");   
+         $(".menubar").css("box-shadow","none");
       }
        var currentTop = $(window).scrollTop();
 
@@ -341,14 +332,14 @@ background:white;
 .search{
 line-height:45px;
 width:250px;
-height:40px;
+height:47px;
 margin-left:10px;
 background:#f7f7f7;
 border-radius: 30px;
 }
 .search_text{
 width:180px;
-height:30px;
+height:40px;
 margin-bottom:5px;
 border:0;
 border-radius:5px;
@@ -468,6 +459,9 @@ height:100%;
 height:90px;
 background:white;
 line-height:90px;
+}
+.intro_book{
+margin-top:40px;
 }
 .intro_book_slide{
 max-width:1096px;
@@ -666,6 +660,9 @@ text-align: left;
 	width: 120px;
 	margin-right: 80px;
 }
+.price{
+color:red;
+}
 </style>
 </head>
 <body>
@@ -760,7 +757,7 @@ text-align: left;
 </div>
 </div>
 <div class="bookslide">
-<div style="text-align:center" class="bookslide_title"><h1>이 책 어떠세요 ?</h1></div>
+<div style="text-align:center" class="bookslide_title"><h1 style="font-size:34px; font-weight:bold;">이 책 어떠세요 ?</h1></div>
 <div class="intro_book">
 <!-- 따라다니는 퀵메뉴 시작 -->
 <div class="follow"><img src="resources\img\main\quick.jpg">
@@ -778,7 +775,14 @@ text-align: left;
 <div class="smallnext"><a href="#" onclick="smallnextclick(); return false;"></a></div>
 <ul>
 <c:forEach items="${bookList}" var="b" begin="0" end="11">
-<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a><div style="font-size:13px;font-weight:70;">${b.title }</div></li>
+<li><a href="goToBookDetailCrawl.do?title=${b.title}"><img src="${b.coverLargeUrl}" alt="" /></a><div style="font-size:13px;font-weight:bold;">${b.title }
+<div class="price">
+											<span class="sell_price">
+												<fmt:formatNumber value="${b.priceStandard}" pattern="#,###" />원
+											</span>
+										</div>
+										</div>
+</li>
 </c:forEach>
 </ul>
 </div>
@@ -805,7 +809,7 @@ text-align: left;
 	<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" /></span></div>
  </div>
 <div class="today_book_bookimage"> 
-                  <a href="goToBookDetail.do"><img style="width:100%;height:100%;"src="${b.coverLargeUrl}" alt="" /></a>
+                  <a href="goToBookDetailCrawl.do?title=${b.title}"><img style="width:100%;height:100%;"src="${b.coverLargeUrl}" alt="" /></a>
 	
 </div>
 </div>
@@ -813,7 +817,7 @@ text-align: left;
                   </c:forEach>
 <div class="eventintro">
 <div class="eventintro_tit">
-<h2>이벤트 안내></h2>
+<h2 style="font-size:34px; font-weight:bold;">이벤트 안내</h2>
 </div>
 <div class="eventintro_event">
 <ul>
