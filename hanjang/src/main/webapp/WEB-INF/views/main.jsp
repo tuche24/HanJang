@@ -866,7 +866,7 @@ color:red;
 <div class="footerImg">
 <img src="resources\img\footer\footerimg.jpg" style="margin-bottom:-83px;">
 </div>
-<div id="footer"></div></div>
+<%@ include file="/resources/jsp/footer/footer.jsp" %></div>
 </body>
 <script language="Javascript">
     cookiedata = document.cookie;   
