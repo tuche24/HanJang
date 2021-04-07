@@ -484,6 +484,7 @@ float:left;
 .intro_book_slide ul li div{
 width:258px;
 height:120px;
+margin-top: 20px;
 }
 .intro_book_slide ul li a{
 display:block;
@@ -496,6 +497,11 @@ height:380px;
 width:100%;
 height:100%;
 }
+
+.intro_book_slide .price {
+	font-size: 15px;
+}
+
 .today_book div{
 float:left;
 
