@@ -36,7 +36,6 @@
 		<result property="cartNo" column="CartNo" />
 		<result property="itemId" column="ItemId" />
 		<result property="regDate" column="RegDate" />
-		<result property="amount" column="Amount" />
 		<collection property="cartVO" resultMap="cartMap" />
 		<collection property="bookVO" resultMap="bookMap" />
 	</resultMap>
@@ -49,8 +48,8 @@
 	
 	<!-- 장바구니에서 주문리스트DB에 추가 -->
 	<insert id="insertOrderList" parameterType="orderListVO">
-		INSERT INTO OrderList(OrderListNo, UserNo, CartNo, ItemId, Amount)
-		VALUES(#{cartNo}, #{userNo}, #{cartNo}, #{itemId}, #{amount})
+		INSERT INTO OrderList(OrderListNo, UserNo, CartNo, ItemId)
+		VALUES(#{cartNo}, #{userNo}, #{cartNo}, #{itemId})
 	</insert>
 
 <!-- 	주문확인서 
