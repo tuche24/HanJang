@@ -767,7 +767,7 @@ color:red;
 <div class="smallnext"><a href="#" onclick="smallnextclick(); return false;"></a></div>
 <ul>
 <c:forEach items="${bookList}" var="b" begin="0" end="11">
-<li><a href="goToBookDetail.do"><img src="${b.coverLargeUrl}" alt="" /></a><div style="font-size:13px;font-weight:bold;">${b.title }
+<li><a href="goToBookDetailCrawl.do?title=${b.title}"><img src="${b.coverLargeUrl}" alt="" /></a><div style="font-size:13px;font-weight:bold;">${b.title }
 <div class="price">
 											<span class="sell_price">
 												<fmt:formatNumber value="${b.priceStandard}" pattern="#,###" />원
@@ -799,7 +799,7 @@ color:red;
 <div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">출간일</span><span style="font-size:14px;">${b.pubDate}</span></div>
  </div>
 <div class="today_book_bookimage"> 
-                  <a href="goToBookDetail.do"><img style="width:100%;height:100%;"src="${b.coverLargeUrl}" alt="" /></a>
+                  <a href="goToBookDetailCrawl.do?title=${b.title}"><img style="width:100%;height:100%;"src="${b.coverLargeUrl}" alt="" /></a>
 	
 </div>
 </div>
