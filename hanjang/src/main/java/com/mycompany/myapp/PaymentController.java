@@ -37,8 +37,10 @@ public class PaymentController {
 	// orderList와 session 값을 paymentVO로 변환
 	public PaymentVO transformToPayment(HttpSession session, List<OrderListVO> orderListVO) {
 		String title = orderListVO.get(0).getBookVO().getTitle(); // 상품명
-		int orderAmount = orderListVO.size();
-		title = title + " 외 " + orderAmount + "의 상품";
+		int orderAmount = orderListVO.size() - 1;
+		if(orderAmount >= 1) {
+			title = title + " 외 " + orderAmount + "개의 상품";
+		}
 		
 		int priceTotal = 0; // 총 금액
 		for(OrderListVO orderList : orderListVO) {
