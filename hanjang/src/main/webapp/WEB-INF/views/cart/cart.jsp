@@ -12,18 +12,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- 헤더연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
-	})
-</script>
-<!-- 푸터연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#footer").load("${pageContext.request.contextPath}/resources/jsp/footer/footer.jsp");
-	})
-</script>
+
 <script>
 //숫자 3자리 콤마찍기
 
@@ -39,10 +28,16 @@ Number.prototype.formatNumber = function(){
 		
 		/* 주문확인버튼 클릭시 주문확인서로 이동 */
 		document.querySelector('.active').addEventListener('click', function(){
+			// 장바구니에 상품이 없을 때 분기
+			let checkzerocount = document.getElementById('totalCheckbox').innerHTML;
+			if(checkzerocount < 1){
+				swal("Error!","상품을 1개 이상 선택하셔야합니다.","warning");
+			} else {
 			// swal로 분기처리해야함
 			basket.addOrderList();
 			// 주문하고 페이지이동하는 분기처리
 			location.href="goToOrderList.do";
+			}
 		})
 		/* 선택삭제 버튼을 눌렀을 시 완료*/
 		document.querySelectorAll('#cancel_btn').forEach(function(item, idx) {
@@ -320,7 +315,7 @@ Number.prototype.formatNumber = function(){
 </head>
 <body>
 	<!-- header부분 -->
-	<div id="header"></div>
+	<%@ include file="/resources/jsp/header/header.jsp"%>
 	<div id="container">
 		<div id="title_wrap">장바구니</div>
 
@@ -332,7 +327,7 @@ Number.prototype.formatNumber = function(){
 						<div class="address">
 							<p class="addr">
 								<c:if test="${empty sessionScope.loginAddress}">
-								Login session이 필요합니다
+								로그인 되어있지 않습니다
 								<!-- 주소 출력 -->
 								</c:if>
 								<c:if test="${not empty sessionScope.loginAddress}">
@@ -340,26 +335,27 @@ Number.prototype.formatNumber = function(){
 								<!-- 나중에 주소 넣을 것 -->
 								</c:if>
 							</p>
-							
+
 							<div class="delivery">택배배송</div>
-							
-							<a href="#" class="btn" onclick="javascript:showPopup();">배송지 변경</a>
-						</div>						
+
+							<a href="#" class="btn" onclick="javascript:showPopup();">배송지
+								변경</a>
+						</div>
 					</div>
-					
+
 					<div class="amount_view">
 						<dl class="amount">
 							<dt class="tit">상품금액</dt>
 							<dd class="price"></dd>
 						</dl>
 					</div>
-					
+
 					<div class="btn_submit">
 						<button class="btn active">주문하기</button>
 					</div>
 				</div>
 
-				
+
 				<div class="cart_item">
 					<label class="check"> <input type="checkbox"
 						name="checkAll" onclick="selectAll(this)" checked /> 전체선택 (&nbsp<span
@@ -367,13 +363,13 @@ Number.prototype.formatNumber = function(){
 					</label>
 					<button class="btn_delete">선택삭제</button>
 				</div>
-				
+
 				<!-- <hr id="two_1"> -->
-				
+
 				<div id="items">
 					<!-- 카트에 저장되어있는 상품들 출력 -->
 					<c:if test="${empty cartList}">
-						<h1>장바구니에 담긴 상품이 없습니다</h1>
+						<div id="emptyCart">장바구니에 담긴 상품이 없습니다.</div>
 					</c:if>
 
 					<c:if test="${not empty cartList}">
@@ -398,7 +394,8 @@ Number.prototype.formatNumber = function(){
 										style="cursor: pointer;">+</button>
 								</span> <span id="bookprice"><fmt:formatNumber
 										value="${cart.bookVO.priceStandard * cart.cartVO.amount}"
-										pattern="#,###" />원</span> <span><button id="cancel_btn">X</button></span>
+										pattern="#,###" />원</span> <span><button id="cancel_btn"
+										style="cursor: pointer;">X</button></span>
 								<hr>
 							</div>
 						</c:forEach>
@@ -408,8 +405,9 @@ Number.prototype.formatNumber = function(){
 
 		</div>
 	</div>
-<input type="hidden" id="userNo" value="${sessionScope.memberVO.userNo}" />
-<!-- footer부분 -->
-<div id="footer"></div>
+	<input type="hidden" id="userNo"
+		value="${sessionScope.memberVO.userNo}" />
+	<!-- footer부분 -->
+	<%@ include file="/resources/jsp/footer/footer.jsp"%>
 </body>
 </html>

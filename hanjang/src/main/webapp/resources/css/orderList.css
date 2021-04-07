@@ -149,9 +149,26 @@ table td {
 	margin: 0 auto;
 	width: 200px;
 	height: 50px;
+	font-size: 1rem;
+	font-weight: 400;
 	margin-top: 50px;
 	background-image: linear-gradient(rgba(255, 255, 255, 0),
 		rgba(255, 255, 255, 0)), linear-gradient(61deg, #7effa8, #3fcbff);
 	background-origin: border-box;
 	background-clip: content-box, border-box;
+	border: none;
+	outline: none;
+}
+
+.footer div {
+	float: left;
+}
+
+.footer {
+	margin: 0 auto;
+	width: 1050px;
+	height: 300px;
+}
+.left_table{
+	width: 330px;
 }

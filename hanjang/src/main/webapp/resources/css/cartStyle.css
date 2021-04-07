@@ -72,6 +72,12 @@ two_1 {
 	padding: 50px 0px;
 }
 
+#emptyCart{
+	font-size: 20px;
+	text-align: center;
+	margin-top: 40px;
+}
+
 #category {
 	margin: 20px 0;
 	font-weight: bold;
@@ -171,7 +177,7 @@ two_1 {
 
 a.btn {
 	padding: 0.5rem 2rem;
-	border: 2px solid;
+	border: 1px solid;
 	border-image:linear-gradient(61deg, #7effa8, #3fcbff); 
 	border-image-slice: 1;
 	text-decoration: none;
@@ -184,6 +190,7 @@ a.btn {
 	display: inline-block;
 	width: 110px;
 	border-radius: 4px;
+	outline: none;
 }
 
 dl.amount {
@@ -214,6 +221,7 @@ dl.amount {
 	background-origin: border-box;
 	background-clip: content-box, border-box;
 	cursor: pointer;
+	outline: none;
 }
 
 .footer div {
