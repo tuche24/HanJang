@@ -52,8 +52,8 @@
 								begin="0">
 								<li><img src="${order.bookVO.coverLargeUrl}" id="bookimage" /><span
 									id="bookname">${order.bookVO.title}</span> <span
-									id="bookamount">${order.amount}개</span> <span id="bookprice">${order.amount * order.bookVO.priceStandard}원</span></li>
-									<c:set var="col_sum" value="${col_sum+ order.amount * order.bookVO.priceStandard}"/>
+									id="bookamount">${order.cartVO.amount}개</span> <span id="bookprice">${order.cartVO.amount * order.bookVO.priceStandard}원</span></li>
+									<c:set var="col_sum" value="${col_sum+ order.cartVO.amount * order.bookVO.priceStandard}"/>
 							</c:forEach>
 						</ul>
 						<script>

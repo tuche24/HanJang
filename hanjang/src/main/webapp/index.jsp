@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%-- <% RequestDispatcher rd = request.getRequestDispatcher("mainAll.do");
+rd.forward(request,response);%> --%>
+<% response.sendRedirect("mainAll.do"); %>
+<!-- 
 <form action="mainAll.do">
 
 <input type="submit" value="메인페이지이동" /></form>
@@ -50,6 +53,6 @@
 <form action="mypageOrderList.do">
 <input type="submit" value="마이페이지" />
 </form>
-
+ -->
 </body>
 </html>

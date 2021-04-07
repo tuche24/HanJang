@@ -16,7 +16,6 @@ public class OrderListVO {
 	private int cartNo; // 카트번호
 	private String itemId; // 아이템 아이디
 	private Timestamp regDate; // 등록일자
-	private int amount; // 책 수량
 	
 	public int getOrderListNo() {
 		return orderListNo;
@@ -59,12 +58,6 @@ public class OrderListVO {
 	}
 	public void setBookVO(BookVO bookVO) {
 		this.bookVO = bookVO;
-	}
-	public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
 	}
 	
 }
