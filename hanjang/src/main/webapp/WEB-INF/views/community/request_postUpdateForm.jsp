@@ -4,21 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- jquery 링크-->
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-
-<!-- 헤더연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#header").load("/myapp/resources/jsp/header/header.jsp");
-	})
-</script>
-<!-- 푸터연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
-	})
-</script>
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <style>
 .footer div{
@@ -35,7 +20,7 @@
 </head>
 <body>
 <!-- header부분 -->
-<div id="header"></div>
+<%@ include file="/resources/jsp/header/header.jsp" %>
 <div class="boardTitle">없는 책 요청해요</div>
 <div class="boardSubTitle">한장두장에 없는 도서를 입고요청하는 게시판입니다.</div>
 <form action="requestUpdate.do">
@@ -72,6 +57,6 @@
 <input type="hidden" name="boardNo" value="${post.boardNo }" />
 </form>
 <!-- footer부분 -->
-<div id="footer"></div>
+<%@ include file="/resources/jsp/footer/footer.jsp" %> 
 </body>
 </html>
