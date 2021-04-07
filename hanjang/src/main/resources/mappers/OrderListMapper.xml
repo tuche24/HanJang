@@ -77,8 +77,8 @@
 	<!-- 주문 내역 데이터 가져오기 + 페이징 -->
 	<select id="getOrderedList" resultMap="orderListMap" parameterType="map">
 		<![CDATA[
-		SELECT * FROM OrderList o NATURAL JOIN Book b
-		WHERE o.UserNo = #{userNo} AND b.ItemId = o.ItemId
+		SELECT * FROM OrderList o , Book b, Cart c
+		WHERE o.UserNo = #{userNo} AND b.ItemId = o.ItemId AND o.cartNo = c.cartNo
 		ORDER BY o.RegDate DESC
 		LIMIT #{pv.skip}, #{pv.countPerPage}
 		]]>

@@ -288,14 +288,12 @@ function addOrderList() {
 }
 </style>
 </head>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/reset.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/book_list.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_list.css" />
 
 <body>
-<!-- header부분 -->
-<div id="header"></div>
+	<!-- header부분 -->
+	<%@ include file="/resources/jsp/header/header.jsp" %>
 	<div id="container">
 		<div id="title">베스트셀러</div>
 
@@ -434,6 +432,6 @@ function addOrderList() {
 		</div>
 	</div>
 	<!-- footer부분 -->
-	<div id="footer"></div>
+	<%@ include file="/resources/jsp/footer/footer.jsp" %>
 </body>
 </html>

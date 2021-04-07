@@ -22,6 +22,18 @@
 	})
 </script>
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
+<script>
+	window.onload = function() {
+		const result = "${msg}";
+		if(result == 'signupSuccess') {
+			swal.fire({
+				icon:'success',
+				title:'회원 관련 안내',
+				text:'회원 가입이 완료되었습니다..'
+			});
+		}
+	}
+</script>
 <style>
 .footer div{
 	float:left;
