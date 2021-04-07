@@ -78,7 +78,7 @@
 				<ul>
 					<li>
 						<div class="Litem">주문상태</div>
-						<div class="Ritem">주문 완료</div>
+						<div class="Ritem">주문완료</div>
 					</li>
 				</ul>
 			</div>
