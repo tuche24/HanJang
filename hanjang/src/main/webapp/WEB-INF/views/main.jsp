@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
@@ -20,14 +19,7 @@
 <script>
 	window.onload = function() {
 		const result = "${msg}";
-		console.log(result)
-		if(result == 'cartError') {
-			swal.fire({
-				icon:'error',
-				title:'장바구니 관련 안내',
-				text:'장바구니에 상품이 담기지 않았습니다.'
-			});
-		} else if(result == 'withdrawalSuccess') {
+		if(result == 'withdrawalSuccess') {
 			swal.fire({
 				icon:'success',
 				title:'회원 관련 안내',

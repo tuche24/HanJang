@@ -17,6 +17,7 @@
 </style>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 </head>
 <body>
 <!-- header부분 -->

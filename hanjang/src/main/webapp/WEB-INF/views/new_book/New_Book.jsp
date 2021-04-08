@@ -299,6 +299,7 @@ function addOrderList() {
 		}
 	})
 </script>
+
 <style>
 #Progress_Loading
 {
@@ -307,10 +308,12 @@ function addOrderList() {
 } 
 </style>
 
-<title>새로 나온 책</title>
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
+
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_list.css" />
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 
 <body>
 	<!-- header부분 -->
