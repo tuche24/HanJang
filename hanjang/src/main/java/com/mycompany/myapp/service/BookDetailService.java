@@ -52,9 +52,7 @@ public class BookDetailService {
 		options.addArguments("headless");
 		options.setCapability("ignoreProtectedModeSettings", true); 
 		options.addArguments("no-sandbox"); 
-		options.addArguments("disable-dev-shm-usage"); 
-		options.addArguments("lang=ko"); 
-
+        options.addArguments("disable-gpu");// GPU를 사용하지 않음, Linux에서 headless를 사용하는 경우 필요함.
 
 		driver = new ChromeDriver(options);
 
