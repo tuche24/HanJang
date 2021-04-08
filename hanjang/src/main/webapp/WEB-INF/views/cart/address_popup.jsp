@@ -4,6 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
+
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
