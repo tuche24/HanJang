@@ -12,6 +12,7 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <link rel="stylesheet" href="resources/css/reset.css">
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 
 <!--  검색어  -->
 
@@ -38,7 +39,7 @@
 				if(result.isConfirmed) {
 					location.href="Logout.do";
 				}
-			})
+			});
 		}
 	}
 </script>
@@ -72,6 +73,7 @@ $(document).ready(function(){
          $(".menubar").css("position","fixed");
          $(".menubar").css("top",0);
          $(".menubar").css("width","100%");
+         $(".menubar").css("height","52px");
          $(".menubar").css("text-align","center");
          $(".search").css("position","absolute");
          $(".search").css("rigth","88px");
@@ -91,6 +93,7 @@ $(document).ready(function(){
          $(".menu_container1").css("margin-left","0px");
          $(".main_menu ").css("margin-top","0px");   
          $(".menubar").css("box-shadow","none");
+         $(".menubar").css("height","45px");
       }
        var currentTop = $(window).scrollTop();
 
@@ -194,16 +197,31 @@ function smallnextclick(){
 </script>
 
 <script>
-function search(){
-   var searchval = $("#keyword").val();
-   $.ajax({
-           
-      
-      
-   });
-   
-}
 
+
+$(document).ready(function() {
+	$(".search_text").autocomplete({
+		source : function(request, response) {
+
+			$.ajax({
+
+				url:'search.do',
+				type : "post",
+				dataType: "json",
+				data:request,
+				success : function(data) {
+				      console.log(data);
+					var result = data;
+					response(result);
+				},
+
+				error : function(data) {
+					alert("에러가 발생하였습니다.")
+				}
+			});
+		}
+	});
+});
 </script>
 <script>
 
@@ -317,7 +335,7 @@ font-weight:bold;
 }
 .main_menu li a{
 display:block;
-padding:11px 3px;
+padding:14px 3px;
 text-align:center;   
 background:white;
 color:black;
@@ -763,7 +781,7 @@ color:red;
 </div>
 <div class="search" >
 <form id="idFrom" action="BookList.do">
-<input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" onkeyup="search()"/>
+<input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" />
 <input type="image" src="resources\img\main\searchicon.png" alt="검색" class="search_sub"/>
 <ul id="searchList">
 </ul>

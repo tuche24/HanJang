@@ -12,13 +12,14 @@
 $(document).ready(function(){
 	
 	$(window).scroll(function(){
-		var floatPosition = parseInt($(".follow").css('top'))
-		var rollit = $(this).scrollTop() >= 280;
-		var rollit2 = $(this).scrollTop() >= 450;
-		if(rollit){
-			   $(".menubar").css("position","fixed");
+		   var floatPosition = parseInt($(".follow").css('top'))
+		      var rollit = $(this).scrollTop() >= 280;
+		      var rollit2 = $(this).scrollTop() >= 450;
+		      if(rollit){
+		         $(".menubar").css("position","fixed");
 		         $(".menubar").css("top",0);
 		         $(".menubar").css("width","100%");
+		         $(".menubar").css("height","52px");
 		         $(".menubar").css("text-align","center");
 		         $(".search").css("position","absolute");
 		         $(".search").css("rigth","88px");
@@ -28,18 +29,18 @@ $(document).ready(function(){
 		         $(".menu_container1").css("margin-left","-268px");
 		         $(".menubar").css("box-shadow","rgb(245 245 245) 0px 2px 1px 0px");
 		         $(".main_menu ").css("margin-top","5px");   
-		         $(".main_menu li").css("z-index","9996");
-		}else{
-			$(".menubar").css("position","static");
-			$(".search").css("position","static");
-			$(".menubar").css("text-align","center");
-			$(".main_menu li").css("position","relative");
-			$(".main_menu li").css("width","100px");	
-			$(".main_menu li a").css("width","100px");
-			$(".menu_container1").css("margin-left","0px");
-			$(".main_menu ").css("margin-top","0px");
-			 $(".menubar").css("box-shadow","none");
-		}
+		      }else{
+		         $(".menubar").css("position","static");
+		         $(".search").css("position","static");
+		         $(".menubar").css("text-align","center");
+		         $(".main_menu li").css("position","relative");
+		         $(".main_menu li").css("width","100px");   
+		         $(".main_menu li a").css("width","100px");
+		         $(".menu_container1").css("margin-left","0px");
+		         $(".main_menu ").css("margin-top","0px");   
+		         $(".menubar").css("box-shadow","none");
+		         $(".menubar").css("height","45px");
+		      }
 		 var currentTop = $(window).scrollTop();
 
 		 //이동 애니메이션
