@@ -42,7 +42,7 @@ public class BookDetailService {
 
 		String rootPath = req.getSession().getServletContext().getRealPath("");
 		String WEB_DRIVER_ID = "webdriver.chrome.driver";
-		String WEB_DRIVER_PATH = rootPath + "resources/driver/chromedriver.exe";
+		String WEB_DRIVER_PATH = rootPath + "resources/driver/chromedriver";
 		System.out.println(WEB_DRIVER_PATH);
 		String TEST_URL = inputUrl;
 
