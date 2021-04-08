@@ -12,6 +12,7 @@ public class UploadFileUtils {
        
     	String uploadedFileUrl = null;
         String rootPath = request.getSession().getServletContext().getRealPath("/");
+        System.out.println(rootPath);
         String realUploadPath = rootPath + "resources/imgUpload";
         int hashcode = multipartFile.hashCode();
         
