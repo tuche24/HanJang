@@ -19,6 +19,7 @@
 </style>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
 //댓글 등록 버튼 클릭 시 로그인 체크
