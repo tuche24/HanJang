@@ -40,6 +40,7 @@ function bookDetail(){
 		url : "goToBookDetailCrawl.do",
 		data : param,
 		error : function(){
+			ajaxStop();
 			alert("통신실패");
 		},
 		success : function(res){
