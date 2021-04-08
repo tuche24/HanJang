@@ -27,6 +27,7 @@
 	background-origin: border-box;
 	background-clip: content-box, border-box;
 	outline:none;
+	cursor: pointer;
 }
 #wrap{
 	width:1050px;
