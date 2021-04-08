@@ -11,11 +11,11 @@ public class UploadFileUtils {
     public static String upload(MultipartFile multipartFile, HttpServletRequest request) {
        
     	String uploadedFileUrl = null;
-        //String rootPath = request.getSession().getServletContext().getRealPath("/");
-        //String realUploadPath = rootPath + "resources/imgUpload";
+        String rootPath = request.getSession().getServletContext().getRealPath("/");
+        String realUploadPath = rootPath + "resources/imgUpload";
         int hashcode = multipartFile.hashCode();
         
-        String realUploadPath = "http://13.124.60.145:8080/SpringProject/resources/imgUpload";
+        //String realUploadPath = "http://13.124.60.145:8080/SpringProject/resources/imgUpload";
         
         File dir = new File(realUploadPath);
     
