@@ -50,7 +50,11 @@ public class BookDetailService {
 
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
-		options.setCapability("ignoreProtectedModeSettings", true);
+		options.setCapability("ignoreProtectedModeSettings", true); 
+		options.addArguments("no-sandbox"); 
+		options.addArguments("disable-dev-shm-usage"); 
+		options.addArguments("lang=ko"); 
+
 
 		driver = new ChromeDriver(options);
 
