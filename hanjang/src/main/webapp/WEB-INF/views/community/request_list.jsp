@@ -18,6 +18,7 @@
 </style>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
 	window.onload = function() {
