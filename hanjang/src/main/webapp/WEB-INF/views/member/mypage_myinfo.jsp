@@ -7,6 +7,7 @@
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/mypageStyle.css">
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
 	window.onload = function() {

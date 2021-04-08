@@ -62,6 +62,7 @@ two_1 {
 	color: #193b78;
 	box-shadow: none;
 	cursor: pointer;
+	outline: none;
 }
 
 #item {

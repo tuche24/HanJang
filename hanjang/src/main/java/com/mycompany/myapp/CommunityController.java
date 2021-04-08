@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -82,18 +84,9 @@ public class CommunityController {
 	
 	// 게시물 등록 처리
 	@RequestMapping(value="/recommendInsert.do")
-	public String insertRecommendPost(CommunityVO post, MultipartFile file, RedirectAttributes ra) throws Exception {
-		String imgUploadPath = uploadPath+File.separator+"imgUpload";
-		String ymPath = UploadFileUtils.calcPath(imgUploadPath);
-		String fileName = null;
-		
-		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-			fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymPath);
-		} else {
-			fileName = uploadPath+File.separator+"images"+File.separator+"none.png";
-		}
-		
-		post.setImgFile(File.separator+"imgUpload"+ymPath+File.separator+fileName);
+	public String insertRecommendPost(CommunityVO post, MultipartFile file, HttpServletRequest req, RedirectAttributes ra) throws Exception {
+		String fileUrl = UploadFileUtils.upload(file, req);
+		post.setImgFile(fileUrl);
 		System.out.println(post.getImgFile());
 		service1.insertPost(post);
 		ra.addFlashAttribute("msg", "insertSuccess");
@@ -183,21 +176,11 @@ public class CommunityController {
 	
 	// 게시물 등록 처리
 	@RequestMapping(value="/requestInsert.do")
-	public String insertRequestPost(CommunityVO post, MultipartFile file, RedirectAttributes ra) throws Exception {
-		String imgUploadPath = uploadPath+File.separator+"imgUpload";
-		String ymPath = UploadFileUtils.calcPath(imgUploadPath);
-		String fileName = null;
-		
-		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-			fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymPath);
-		} else {
-			fileName = uploadPath+File.separator+"images"+File.separator+"none.png";
-		}
-		
-		post.setImgFile(File.separator+"imgUpload"+ymPath+File.separator+fileName);
+	public String insertRequestPost(CommunityVO post, MultipartFile file, HttpServletRequest req, RedirectAttributes ra) throws Exception {
+		String fileUrl = UploadFileUtils.upload(file, req);
+		post.setImgFile(fileUrl);
 		System.out.println(post.getImgFile());
-		
-		service2.insertPost(post);
+		service1.insertPost(post);
 		ra.addFlashAttribute("msg", "insertSuccess");
 		return "redirect:requestList.do";
 	}
