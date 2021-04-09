@@ -35,7 +35,6 @@ public class SearchService {
 		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}
-			  System.out.println(query);
 
 		try {
 			URL url;
