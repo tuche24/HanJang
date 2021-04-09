@@ -6,6 +6,10 @@
 <link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 <!-- css 파일 분리 -->
 <!-- 	<link href="../resouces/css/join_style.css" rel="stylesheet"/> -->
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
+
 	<style>
 	
 * {
@@ -27,7 +31,9 @@
 	background-origin: border-box;
 	background-clip: content-box, border-box;
 	outline:none;
+
 	cursor: pointer;
+
 }
 #wrap{
 	width:1050px;
@@ -340,5 +346,5 @@ $(document).ready(function(){
 <!-- footer부분 -->
 <%@ include file="/resources/jsp/footer/footer.jsp" %> 
 </body>
-</body>
+
 </html>

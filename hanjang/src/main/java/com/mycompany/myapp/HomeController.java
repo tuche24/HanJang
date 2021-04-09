@@ -1,18 +1,26 @@
 package com.mycompany.myapp;
 
+import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+import com.mycompany.myapp.service.SearchService;
+import com.mycompany.myapp.vo.BookVO;
 import com.mycompany.myapp.vo.PaymentVO;
 
 /**
@@ -20,7 +28,10 @@ import com.mycompany.myapp.vo.PaymentVO;
  */
 @Controller
 public class HomeController {
-	
+	@Autowired
+	private BookDBController dbcontroller;
+	@Autowired
+	private SearchService sservice1;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -45,15 +56,14 @@ public class HomeController {
 		return "error/1111";
 	}
 	
-	@RequestMapping(value="/search.do", method=RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	@RequestMapping(value = "/search.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
 	@ResponseBody
-	public String json(Locale locale, Model model) {
-		String[] array= {"엽기떡볶이","신전떡볶이","걸작떡볶이","신당동떡볶이"};
+	public String json(@RequestParam("searchValue") String searchValue,Locale locale, Model model) {    
 		
-		
-		return null;
-		
-		
+		List<BookVO> bookList = sservice1.searchBook(searchValue);
+		String[] array = {searchValue,searchValue};
+	        Gson gson = new Gson();
+	    return gson.toJson(array);
 	}
 	
 	/*@RequestMapping(value = "/goToNewBook.do")

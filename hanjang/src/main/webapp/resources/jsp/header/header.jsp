@@ -8,17 +8,20 @@
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/jsp/header/header.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 $(document).ready(function(){
 	
 	$(window).scroll(function(){
-		var floatPosition = parseInt($(".follow").css('top'))
-		var rollit = $(this).scrollTop() >= 280;
-		var rollit2 = $(this).scrollTop() >= 450;
-		if(rollit){
-			   $(".menubar").css("position","fixed");
+		   var floatPosition = parseInt($(".follow").css('top'))
+		      var rollit = $(this).scrollTop() >= 280;
+		      var rollit2 = $(this).scrollTop() >= 450;
+		      if(rollit){
+		         $(".menubar").css("position","fixed");
 		         $(".menubar").css("top",0);
 		         $(".menubar").css("width","100%");
+		         $(".menubar").css("height","52px");
 		         $(".menubar").css("text-align","center");
 		         $(".search").css("position","absolute");
 		         $(".search").css("rigth","88px");
@@ -28,18 +31,18 @@ $(document).ready(function(){
 		         $(".menu_container1").css("margin-left","-268px");
 		         $(".menubar").css("box-shadow","rgb(245 245 245) 0px 2px 1px 0px");
 		         $(".main_menu ").css("margin-top","5px");   
-		         $(".main_menu li").css("z-index","9996");
-		}else{
-			$(".menubar").css("position","static");
-			$(".search").css("position","static");
-			$(".menubar").css("text-align","center");
-			$(".main_menu li").css("position","relative");
-			$(".main_menu li").css("width","100px");	
-			$(".main_menu li a").css("width","100px");
-			$(".menu_container1").css("margin-left","0px");
-			$(".main_menu ").css("margin-top","0px");
-			 $(".menubar").css("box-shadow","none");
-		}
+		      }else{
+		         $(".menubar").css("position","static");
+		         $(".search").css("position","static");
+		         $(".menubar").css("text-align","center");
+		         $(".main_menu li").css("position","relative");
+		         $(".main_menu li").css("width","100px");   
+		         $(".main_menu li a").css("width","100px");
+		         $(".menu_container1").css("margin-left","0px");
+		         $(".main_menu ").css("margin-top","0px");   
+		         $(".menubar").css("box-shadow","none");
+		         $(".menubar").css("height","45px");
+		      }
 		 var currentTop = $(window).scrollTop();
 
 		 //이동 애니메이션
@@ -64,6 +67,57 @@ function fade1() {
 function fadeo1() {
 	$('.menu4 .dropdown').hide(300);
 }
+
+</script>
+<script>
+      $(function() {    //화면 다 뜨면 시작
+        $("#keyword").autocomplete({
+            source : function( request, response ) {
+                 $.ajax({
+                        type: 'get',
+                        url: "search.do",
+                        dataType: "json",
+                        data:  {searchValue: request.term},
+                        success: function(data) {
+                            response(
+                                $.map(data, function(item) {    //json[i] 번째 에 있는게 item 임.
+                                    return {
+                                        label: item+"label",   
+                                        value: item,   
+                                        test : item+"test"  
+                                    }
+                                })
+                            );
+                        }
+                   });
+                },    // source 는 자동 완성 대상
+            select : function(event, ui) {    //아이템 선택시
+                console.log(ui);
+                console.log(ui.item.label); 
+                console.log(ui.item.value);  
+                console.log(ui.item.test); 
+                
+            },
+            focus : function(event, ui) {    //포커스 가면
+                return false;
+            },
+            minLength: 1,// 최소 글자수
+            autoFocus: true,
+            classes: {    
+                "ui-autocomplete": "highlight"
+            },
+            delay: 500, 
+            position: { my : "right top", at: "right bottom" },  
+            close : function(event){   
+                console.log(event);
+            }
+        }).autocomplete( "instance" )._renderItem = function( ul, item ) {    //요 부분이 UI를 마음대로 변경하는 부분
+            return $( "<li>" )    
+            .append( "<div>" + item.value + "</div>" )    //여기에다가 원하는 모양의 HTML을 만들면 UI가 원하는 모양으로 변함.
+            .appendTo( ul );
+     };
+        
+    });
 
 </script>
 </head>

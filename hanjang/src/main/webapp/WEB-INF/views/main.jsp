@@ -10,7 +10,11 @@
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="resources/css/reset.css">
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 
 <!--  검색어  -->
 
@@ -30,7 +34,7 @@
 				if(result.isConfirmed) {
 					location.href="Logout.do";
 				}
-			})
+			});
 		}
 	}
 </script>
@@ -64,6 +68,7 @@ $(document).ready(function(){
          $(".menubar").css("position","fixed");
          $(".menubar").css("top",0);
          $(".menubar").css("width","100%");
+         $(".menubar").css("height","52px");
          $(".menubar").css("text-align","center");
          $(".search").css("position","absolute");
          $(".search").css("rigth","88px");
@@ -83,6 +88,7 @@ $(document).ready(function(){
          $(".menu_container1").css("margin-left","0px");
          $(".main_menu ").css("margin-top","0px");   
          $(".menubar").css("box-shadow","none");
+         $(".menubar").css("height","45px");
       }
        var currentTop = $(window).scrollTop();
 
@@ -186,15 +192,54 @@ function smallnextclick(){
 </script>
 
 <script>
-function search(){
-   var searchval = $("#keyword").val();
-   $.ajax({
-           
-      
-      
-   });
-   
-}
+      $(function() {    //화면 다 뜨면 시작
+        $("#keyword").autocomplete({
+            source : function( request, response ) {
+                 $.ajax({
+                        type: 'get',
+                        url: "search.do",
+                        dataType: "json",
+                        data:  {searchValue: request.term},
+                        success: function(data) {
+                            response(
+                                $.map(data, function(item) {    //json[i] 번째 에 있는게 item 임.
+                                    return {
+                                        label: item+"label",   
+                                        value: item,   
+                                        test : item+"test"  
+                                    }
+                                })
+                            );
+                        }
+                   });
+                },    // source 는 자동 완성 대상
+            select : function(event, ui) {    //아이템 선택시
+                console.log(ui);
+                console.log(ui.item.label); 
+                console.log(ui.item.value);  
+                console.log(ui.item.test); 
+                
+            },
+            focus : function(event, ui) {    //포커스 가면
+                return false;
+            },
+            minLength: 1,// 최소 글자수
+            autoFocus: true,
+            classes: {    
+                "ui-autocomplete": "highlight"
+            },
+            delay: 500, 
+            position: { my : "right top", at: "right bottom" },  
+            close : function(event){   
+                console.log(event);
+            }
+        }).autocomplete( "instance" )._renderItem = function( ul, item ) {    //요 부분이 UI를 마음대로 변경하는 부분
+            return $( "<li>" )    
+            .append( "<div>" + item.value + "</div>" )    //여기에다가 원하는 모양의 HTML을 만들면 UI가 원하는 모양으로 변함.
+            .appendTo( ul );
+     };
+        
+    });
 
 </script>
 <script>
@@ -309,7 +354,7 @@ font-weight:bold;
 }
 .main_menu li a{
 display:block;
-padding:11px 3px;
+padding:14px 3px;
 text-align:center;   
 background:white;
 color:black;
@@ -755,8 +800,8 @@ color:red;
 </div>
 <div class="search" >
 <form id="idFrom" action="BookList.do">
-<input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" onkeyup="search()"/>
-<input type="image" src="resources\img\main\searchicon.png" alt="검색" class="search_sub"/>
+<input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요"/>
+<input type="image" src="resources\img\main\searchicon.png" alt="검색" class="search_sub" />
 <ul id="searchList">
 </ul>
 </form>

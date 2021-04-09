@@ -5,6 +5,7 @@
 <head>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 	<%
 		// 인코딩 
 		request.setCharacterEncoding("UTF-8"); 
@@ -136,6 +137,7 @@ height:49px;
 border-radius:4px;
 cursor:pointer;
 font-weight:bold;
+outline:none;
  }
     
 </style>
