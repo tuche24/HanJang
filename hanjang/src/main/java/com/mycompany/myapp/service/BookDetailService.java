@@ -38,6 +38,11 @@ public class BookDetailService {
 		ArrayList<String> arr_result = new ArrayList<String>(); // 크롤링 해올 리스트
 		ArrayList<String> arr_index = new ArrayList<String>(); // 크롤링 대상 인덱스
 		ArrayList<String> arr_final = new ArrayList<String>(); // 최종 결과물
+		// arrayList 
+		arr_final.add(" ");
+		arr_final.add(" ");
+		arr_final.add(" ");
+		
 		WebDriver driver;
 
 		String rootPath = req.getSession().getServletContext().getRealPath("");
@@ -52,6 +57,7 @@ public class BookDetailService {
 		options.addArguments("headless");
 		options.setCapability("ignoreProtectedModeSettings", true); 
 		options.addArguments("no-sandbox"); 
+		options.addArguments("disable-dev-shm-usage");
         options.addArguments("disable-gpu");// GPU를 사용하지 않음, Linux에서 headless를 사용하는 경우 필요함.
 
 		driver = new ChromeDriver(options);
@@ -87,18 +93,18 @@ public class BookDetailService {
 			// 책소개, 저자 및 역자 소개, 출판사 제공 책소개 분류
 			for(int i = 0 ; i < arr_index.size(); i++) {
 				if(arr_index.get(i).equals("책소개")) {
-					arr_final.add(arr_result.get(i));
+					arr_final.set(0, arr_result.get(i));
 				}
 				if(arr_index.get(i).equals("저자 및 역자소개")) {
-					arr_final.add(arr_result.get(i));
+					arr_final.set(1, arr_result.get(i));
 				}
 				if(arr_index.get(i).equals("출판사 제공 책소개")) {
-					arr_final.add(arr_result.get(i));
+					arr_final.set(2, arr_result.get(i));
 				}
 			}
 			for(String test : arr_final) {
 				System.out.println(test);
-				System.out.println("test=================");
+				System.out.println("=========test==========");
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
