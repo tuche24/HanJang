@@ -15,11 +15,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.mycompany.myapp.utils.ProfileCls;
 
 @Service("bookDetailService") // Detail 요소 크롤링 서비스
 public class BookDetailService {
-
+	@Autowired
+	private ProfileCls profileCls;
+	
 	public String getCrawlingUrl(String title) throws IOException {
 
 		String crawlingUrl = "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=All&SearchWord=" + title
@@ -47,7 +52,8 @@ public class BookDetailService {
 
 		String rootPath = req.getSession().getServletContext().getRealPath("");
 		String WEB_DRIVER_ID = "webdriver.chrome.driver";
-		String WEB_DRIVER_PATH = rootPath + "resources/driver/chromedriver";
+		String profile_DRIVER = profileCls.getProfile_DRIVER();
+		String WEB_DRIVER_PATH = rootPath + profile_DRIVER;
 		System.out.println(WEB_DRIVER_PATH);
 		String TEST_URL = inputUrl;
 
