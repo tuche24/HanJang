@@ -616,8 +616,7 @@ background:white;
 display:block;
 width:100%;
 height:380px;
-background-image:
-      url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);
+background-image:url(https://blog.kakaocdn.net/dn/Ns4Hk/btq2h2aUdhW/XDLzM4XSDKfIXILsVveYJK/img.jpg);
 }
 
 .eventintro_event ul li a div{
@@ -629,6 +628,8 @@ background:rgb(95, 0, 128);
 width:344px;
 height:45px;
 opacity:0.6;
+color:white;
+padding-top:10px;
 }
 
 .smallprev, .smallnext{
@@ -711,7 +712,6 @@ height:300px;
 .footerImg {
 	text-align:center;
 	margin-top:200px;
-	margin-bottom:-2px;
 }
 .todayintrodiv{
 height:38px;
@@ -890,12 +890,9 @@ color:red;
 </div>
 <div class="eventintro_event">
 <ul>
-
-<li><a href="event.do" style="background-image:url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);"><div>이벤트이름</div></a></li>
-<li><a href="event.do"style="background-image:url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);"><div>이벤트이름</div></a></li>
-<li><a href="event.do"style="background-image:url(https://blog.kakaocdn.net/dn/bz7Ch1/btqZ2bP8Cfb/cpxTpJl934jOAN6dRyZxLK/img.jpg);"><div>이벤트이름</div></a></li>
-
-
+<li><a href="event.do" style="background-image:url(https://blog.kakaocdn.net/dn/Ns4Hk/btq2h2aUdhW/XDLzM4XSDKfIXILsVveYJK/img.jpg);"><div>4월 혜택모음 바로가기</div></a></li>
+<li><a href="event.do" style="background-image:url(https://blog.kakaocdn.net/dn/Ns4Hk/btq2h2aUdhW/XDLzM4XSDKfIXILsVveYJK/img.jpg);"><div>4월 혜택모음 바로가기</div></a></li>
+<li><a href="event.do" style="background-image:url(https://blog.kakaocdn.net/dn/Ns4Hk/btq2h2aUdhW/XDLzM4XSDKfIXILsVveYJK/img.jpg);"><div>4월 혜택모음 바로가기</div></a></li>
 </ul>
 </div>
 </div>
