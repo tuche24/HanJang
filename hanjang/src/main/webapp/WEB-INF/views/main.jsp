@@ -11,6 +11,9 @@
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 
@@ -197,31 +200,55 @@ function smallnextclick(){
 </script>
 
 <script>
+      $(function() {    //화면 다 뜨면 시작
+        $("#keyword").autocomplete({
+            source : function( request, response ) {
+                 $.ajax({
+                        type: 'get',
+                        url: "search.do",
+                        dataType: "json",
+                        data:  {searchValue: request.term},
+                        success: function(data) {
+                            response(
+                                $.map(data, function(item) {    //json[i] 번째 에 있는게 item 임.
+                                    return {
+                                        label: item+"label",   
+                                        value: item,   
+                                        test : item+"test"  
+                                    }
+                                })
+                            );
+                        }
+                   });
+                },    // source 는 자동 완성 대상
+            select : function(event, ui) {    //아이템 선택시
+                console.log(ui);
+                console.log(ui.item.label); 
+                console.log(ui.item.value);  
+                console.log(ui.item.test); 
+                
+            },
+            focus : function(event, ui) {    //포커스 가면
+                return false;
+            },
+            minLength: 1,// 최소 글자수
+            autoFocus: true,
+            classes: {    
+                "ui-autocomplete": "highlight"
+            },
+            delay: 500, 
+            position: { my : "right top", at: "right bottom" },  
+            close : function(event){   
+                console.log(event);
+            }
+        }).autocomplete( "instance" )._renderItem = function( ul, item ) {    //요 부분이 UI를 마음대로 변경하는 부분
+            return $( "<li>" )    
+            .append( "<div>" + item.value + "</div>" )    //여기에다가 원하는 모양의 HTML을 만들면 UI가 원하는 모양으로 변함.
+            .appendTo( ul );
+     };
+        
+    });
 
-
-$(document).ready(function() {
-	$(".search_text").autocomplete({
-		source : function(request, response) {
-
-			$.ajax({
-
-				url:'search.do',
-				type : "post",
-				dataType: "json",
-				data:request,
-				success : function(data) {
-				      console.log(data);
-					var result = data;
-					response(result);
-				},
-
-				error : function(data) {
-					alert("에러가 발생하였습니다.")
-				}
-			});
-		}
-	});
-});
 </script>
 <script>
 
@@ -781,8 +808,8 @@ color:red;
 </div>
 <div class="search" >
 <form id="idFrom" action="BookList.do">
-<input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" />
-<input type="image" src="resources\img\main\searchicon.png" alt="검색" class="search_sub"/>
+<input type="text" class="search_text" name="keyword" id="keyword" placeholder="검색어를 입력하세요"/>
+<input type="image" src="resources\img\main\searchicon.png" alt="검색" class="search_sub" />
 <ul id="searchList">
 </ul>
 </form>

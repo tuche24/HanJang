@@ -37,7 +37,6 @@ public class SearchService {
 		}
 			  System.out.println(query);
 
-		출처: https://kkoseul.tistory.com/84 [꼬슬꼬슬 Convergence !!]
 		try {
 			URL url;
 			url = new URL("http://book.interpark.com/api/search.api?key="+interKey+"&query="+query);
