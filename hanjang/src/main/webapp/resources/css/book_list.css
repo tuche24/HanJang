@@ -328,3 +328,10 @@
 	width: 1050px;
 	height: 300px;
 }
+
+/* 로딩바 css */
+#Progress_Loading
+{
+ position: absolute;
+ background: #ffffff;
+} 

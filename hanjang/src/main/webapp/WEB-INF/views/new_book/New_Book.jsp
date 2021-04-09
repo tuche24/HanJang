@@ -301,13 +301,7 @@ function addOrderList() {
 	})
 </script>
 
-<style>
-#Progress_Loading
-{
- position: absolute;
- background: #ffffff;
-} 
-</style>
+
 
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 
