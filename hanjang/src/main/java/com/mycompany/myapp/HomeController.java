@@ -1,5 +1,6 @@
 package com.mycompany.myapp;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -61,9 +62,14 @@ public class HomeController {
 	public String json(@RequestParam("searchValue") String searchValue,Locale locale, Model model) {    
 		
 		List<BookVO> bookList = sservice1.searchBook(searchValue);
-		String[] array = {searchValue,searchValue};
+		ArrayList<String> bbb =new ArrayList<String>();
+		for(BookVO vo: bookList) {
+		bbb.add(vo.getTitle());
+		}
+
+		
 	        Gson gson = new Gson();
-	    return gson.toJson(array);
+	    return gson.toJson(bbb);
 	}
 	
 	/*@RequestMapping(value = "/goToNewBook.do")
