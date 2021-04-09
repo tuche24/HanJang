@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="resources/css/cartStyle.css">
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

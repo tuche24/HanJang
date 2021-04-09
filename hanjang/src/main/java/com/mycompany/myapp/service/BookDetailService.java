@@ -15,11 +15,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.mycompany.myapp.utils.ProfileCls;
 
 @Service("bookDetailService") // Detail 요소 크롤링 서비스
 public class BookDetailService {
-
+	@Autowired
+	private ProfileCls profileCls;
+	
 	public String getCrawlingUrl(String title) throws IOException {
 
 		String crawlingUrl = "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=All&SearchWord=" + title
@@ -38,11 +43,17 @@ public class BookDetailService {
 		ArrayList<String> arr_result = new ArrayList<String>(); // 크롤링 해올 리스트
 		ArrayList<String> arr_index = new ArrayList<String>(); // 크롤링 대상 인덱스
 		ArrayList<String> arr_final = new ArrayList<String>(); // 최종 결과물
+		// arrayList 
+		arr_final.add(" ");
+		arr_final.add(" ");
+		arr_final.add(" ");
+		
 		WebDriver driver;
 
 		String rootPath = req.getSession().getServletContext().getRealPath("");
 		String WEB_DRIVER_ID = "webdriver.chrome.driver";
-		String WEB_DRIVER_PATH = rootPath + "resources/driver/chromedriver.exe";
+		String profile_DRIVER = profileCls.getProfile_DRIVER();
+		String WEB_DRIVER_PATH = rootPath + profile_DRIVER;
 		System.out.println(WEB_DRIVER_PATH);
 		String TEST_URL = inputUrl;
 
@@ -50,7 +61,10 @@ public class BookDetailService {
 
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
-		options.setCapability("ignoreProtectedModeSettings", true);
+		options.setCapability("ignoreProtectedModeSettings", true); 
+		options.addArguments("no-sandbox"); 
+		options.addArguments("disable-dev-shm-usage");
+        options.addArguments("disable-gpu");// GPU를 사용하지 않음, Linux에서 headless를 사용하는 경우 필요함.
 
 		driver = new ChromeDriver(options);
 
@@ -85,18 +99,18 @@ public class BookDetailService {
 			// 책소개, 저자 및 역자 소개, 출판사 제공 책소개 분류
 			for(int i = 0 ; i < arr_index.size(); i++) {
 				if(arr_index.get(i).equals("책소개")) {
-					arr_final.add(arr_result.get(i));
+					arr_final.set(0, arr_result.get(i));
 				}
 				if(arr_index.get(i).equals("저자 및 역자소개")) {
-					arr_final.add(arr_result.get(i));
+					arr_final.set(1, arr_result.get(i));
 				}
 				if(arr_index.get(i).equals("출판사 제공 책소개")) {
-					arr_final.add(arr_result.get(i));
+					arr_final.set(2, arr_result.get(i));
 				}
 			}
 			for(String test : arr_final) {
 				System.out.println(test);
-				System.out.println("test=================");
+				System.out.println("=========test==========");
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

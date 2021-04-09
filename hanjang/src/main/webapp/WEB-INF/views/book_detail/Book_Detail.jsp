@@ -25,6 +25,7 @@
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_detail.css" />
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

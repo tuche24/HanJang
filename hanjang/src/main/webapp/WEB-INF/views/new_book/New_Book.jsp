@@ -9,20 +9,47 @@
 <!-- jquery 링크-->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<!-- 헤더연결 -->
-<script defer>
-	$(document).ready(function() {
-		$("#header").load("${pageContext.request.contextPath}/resources/jsp/header/header.jsp");
-	})
-</script>
-<!-- 푸터연결 -->
-<script defer>
+<script>
+$(document).ready(function(){
+	$('#Progress_Loading').hide(); // 첫 시작시 로딩바를 숨김
+})
 
-	$(document).ready(function(){
-		$("#footer").load("${pageContext.request.contextPath}/resources/jsp/footer/footer.jsp");
+function ajaxStart(){
+	$('#Progress_Loading').show(); // ajax 실행시 로딩바를 나타내게 함
+}
+function ajaxStop(){
+	$('#Progress_Loading').hide(); // ajax 종료시 로딩바 숨김
+}
 
+$(window).scroll(function(){
+    $("#Progress_Loading").css({
+        top: $(document).scrollTop()+ ($(window).height() )/2.6 - 120  + 'px',
+        left: ($(window).width() )/2.6 + 'px'
+    });
+});
+
+function bookDetail(){
+	ajaxStart();
+	let title = event.target.nextElementSibling.getAttribute("name");
+	let param = {
+			title : title
+	}
+	$.ajax({
+		type : "POST",
+		url : "goToBookDetailCrawl.do",
+		data : param,
+		error : function(){
+			ajaxStop();
+			alert("통신실패");
+		},
+		success : function(res){
+			ajaxStop();
+			location.href="goToBookDetailFin.do";
+		}
 	})
+}
 </script>
+
 <script>
 /* 즉시구매 버튼을 눌렀을 시 책 정보를 장바구니에 담고 주문리스트 페이지로 이동 */
 function addOrderList() {
@@ -273,14 +300,21 @@ function addOrderList() {
 		}
 	})
 </script>
-<title>새로 나온 책</title>
+
+
+
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
+
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/book_list.css" />
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 
 <body>
 	<!-- header부분 -->
 	<%@ include file="/resources/jsp/header/header.jsp" %>
+	<div id ="Progress_Loading"><img src="${pageContext.request.contextPath}/resources/img/loading/loadBar.gif" /></div>
+	
 	<div id="container">
 		<div id="title">새로 나온 책</div>
 
@@ -349,14 +383,15 @@ function addOrderList() {
 								<input type="hidden" value="${b.itemID}" />
 								<div class="info_area">
 									<div class="image">
-										<a href="goToBookDetailCrawl.do?title=${b.title}"> <img
-											src="${b.coverLargeUrl}" alt="" />
-										</a>
+										<%-- <a href="goToBookDetailCrawl.do?title=${b.title}"> --%> <img
+											src="${b.coverLargeUrl}" alt="" onclick="javascript:bookDetail()" style="cursor: pointer;"/>
+										<input type="hidden" name="${b.title}" />
 									</div>
 
 									<div class="detail">
 										<div class="title">
-											<a href="goToBookDetailCrawl.do?title=${b.title}"><strong>${b.title}</strong></a>
+											<%-- <a href="goToBookDetailCrawl.do?title=${b.title}"> --%><a id="strong1" onclick="javascript:bookDetail()" style="cursor:pointer;">${b.title}</a>
+											<input type="hidden" name="${b.title}" />
 										</div>
 										<div class="pub_info">
 											<span class="author">${b.author}</span> <span> <c:choose>

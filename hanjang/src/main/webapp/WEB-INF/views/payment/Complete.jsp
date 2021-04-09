@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/orderComplete.css" />
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 
 <script defer>
 	$(document).ready(function() {
@@ -23,15 +24,6 @@
 	})
 </script>
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
-<style>
-.go_pay_list {
-	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), 
-	linear-gradient(61deg, #7effa8, #3fcbff);
-    color: #fff;
-    outline: 0;
-	border: 0;
-}
-</style>
 </head>
 
 <body>

@@ -2,23 +2,14 @@
     pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
-	
-	<!-- css 파일 분리 -->
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
+<!-- css 파일 분리 -->
 <!-- 	<link href="../resouces/css/join_style.css" rel="stylesheet"/> -->
+
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <link rel="shortcut icon" href="resources\img\etc\favicon.ico">
-<script defer>
-	$(document).ready(function(){
-		$("#header").load("/myapp/resources/jsp/header/header.jsp");
-	})
-</script>
-<!-- 푸터연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
-	})
-</script>
+
 	<style>
 	
 * {
@@ -40,6 +31,9 @@
 	background-origin: border-box;
 	background-clip: content-box, border-box;
 	outline:none;
+
+	cursor: pointer;
+
 }
 #wrap{
 	width:1050px;
@@ -248,7 +242,7 @@ $(document).ready(function(){
 	
 </head>
 <body>
-<div id="header"></div>
+<%@ include file="/resources/jsp/header/header.jsp" %>
 	<!-- div 왼쪽, 오른쪽 바깥여백을 auto로 주면 중앙정렬된다.  -->
 	<div id="wrap">
 	 <div class="member_join_field">
@@ -350,5 +344,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 <!-- footer부분 -->
-<div id="footer"></div>
+<%@ include file="/resources/jsp/footer/footer.jsp" %> 
 </body>
+
+</html>

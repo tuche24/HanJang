@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,7 @@
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/mypageStyle.css">
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 </head>
 <body>
 <!-- header부분 -->
@@ -58,7 +60,8 @@
 				<ul>
 					<li>
 						<div class="Litem">결제금액</div>
-						<div class="Ritem"><span style="color:#ee5555; font-weight:bold;">${list.bookVO.priceStandard * list.cartVO.amount }</span>원</div>
+						<div class="Ritem"><span style="color:#ee5555; font-weight:bold;">
+						<fmt:formatNumber value="${list.bookVO.priceStandard * list.cartVO.amount }" pattern="#,###" /></span>원</div>
 					</li>
 				</ul>
 				<ul>

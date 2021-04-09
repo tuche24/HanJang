@@ -19,6 +19,7 @@
 </style>
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/communityStyle.css">
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
 //댓글 등록 버튼 클릭 시 로그인 체크
@@ -94,7 +95,7 @@ function clickReplyInsertConfirm() {
 			<c:set var="length" value="${fn:length(str)}" />
 			<c:if test="${fn:substring(str, length-8, length) != 'none.png'}">
 			<tr>
-				<td class="imgSection"><img src="${pageContext.request.contextPath}${post.imgFile }" class="postSection_img"></td>
+				<td class="imgSection"><img src="\resources${post.imgFile }" class="postSection_img"></td>
 			</tr></c:if>
 			<tr>	<!-- 글 내용 부분 -->
 				<td><textarea class="postSection_txt" readonly>${post.content }</textarea></td>
