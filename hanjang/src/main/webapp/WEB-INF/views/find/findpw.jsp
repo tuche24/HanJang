@@ -7,6 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="resources\img\etc\favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 	$(function(){
@@ -47,7 +49,7 @@
   text-decoration: none;
 }
 </style>
-<title>비밀번호 찾기</title>
+<title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 </head>
 <body>
 	<div class="w3-content w3-container w3-margin-top">

@@ -115,12 +115,12 @@ public class MemberServiceImpl implements MemberService{
 		PrintWriter out = response.getWriter();
 		// 가입된 아이디가 없으면
 		if(dao.IdCheck(vo.getId()) == 0 || vo.getId() == "") {
-			out.print("test1");
+			out.print("가입된 아이디가 없습니다");
 			out.close();
 		}
 		// 가입된 이메일이 아니면
 		else if(!vo.getEmail().equals(ck.getEmail())) {
-			out.print("test2");
+			out.print("가입된 이메일이 없습니다");
 			out.close();
 		}else {
 			// 임시 비밀번호 생성
