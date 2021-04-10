@@ -69,5 +69,9 @@ public class MemberDAOImpl implements MemberDAO{
 	public void updateAddress(MemberVO memberVO) {
 		sql.update(namespace+".updateAddress",memberVO);
 	}
+	@Override
+	public String findId(MemberVO memberVO) {
+		return sql.selectOne(namespace+".findId", memberVO);
+	}
 
 }
