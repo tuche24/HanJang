@@ -38,8 +38,9 @@ function bookDetail(){
 		type : "POST",
 		url : "goToBookDetailCrawl.do",
 		data : param,
-		error : function(){
+		error : function(res){
 			ajaxStop();
+			alert(res.key);
 			alert("통신실패");
 		},
 		success : function(res){

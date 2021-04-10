@@ -66,19 +66,20 @@ public class NewBookController1 {
 		String url = null;
 		try {
 			url = detailService.getCrawlingUrl(title);
+			ArrayList<String> textList = null;
+			textList = detailService.seleniumExample(url, req);
+			
+			result.put("key", "동기화성공");
+			
+			session.setAttribute("textList", textList);
+			session.setAttribute("bookList", bookVO);
+			return result;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			result.put("key", "detailService.getCrwalingUrl Problem");
+			return result;
 		}
-		
-		ArrayList<String> textList = null;
-		textList = detailService.seleniumExample(url, req);
-		
-		result.put("key", "동기화성공");
-		
-		session.setAttribute("textList", textList);
-		session.setAttribute("bookList", bookVO);
-		return result;
 	}
 	
 	@RequestMapping("goToBookDetailFin.do")
