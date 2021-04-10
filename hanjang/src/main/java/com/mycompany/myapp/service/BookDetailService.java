@@ -39,7 +39,7 @@ public class BookDetailService {
 		return result;
 	}
 
-	public ArrayList<String> seleniumExample(String inputUrl, HttpServletRequest req) throws InterruptedException {
+	public ArrayList<String> seleniumExample(String inputUrl, HttpServletRequest req) {
 		ArrayList<String> arr_result = new ArrayList<String>(); // 크롤링 해올 리스트
 		ArrayList<String> arr_index = new ArrayList<String>(); // 크롤링 대상 인덱스
 		ArrayList<String> arr_final = new ArrayList<String>(); // 최종 결과물
@@ -114,7 +114,6 @@ public class BookDetailService {
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			driver.quit();
 		} finally {
 			driver.quit();
 		}

@@ -72,11 +72,7 @@ public class NewBookController1 {
 		}
 		
 		ArrayList<String> textList = null;
-		try {
-			textList = detailService.seleniumExample(url, req);
-		} catch(InterruptedException e2) {
-			e2.printStackTrace();
-		}
+		textList = detailService.seleniumExample(url, req);
 		
 		result.put("key", "동기화성공");
 		
