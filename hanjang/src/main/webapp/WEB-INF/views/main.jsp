@@ -274,6 +274,46 @@ function fadeo1() {
 }
 
 </script>
+<!-- 로딩바 script -->
+<script>
+$(document).ready(function(){
+	$('#Progress_Loading').hide(); // 첫 시작시 로딩바를 숨김
+})
+
+function ajaxStart(){
+	$('#Progress_Loading').show(); // ajax 실행시 로딩바를 나타내게 함
+}
+function ajaxStop(){
+	$('#Progress_Loading').hide(); // ajax 종료시 로딩바 숨김
+}
+
+$(window).scroll(function(){
+    $("#Progress_Loading").css({
+        top: $(document).scrollTop()+ ($(window).height() )/2.6 - 120  + 'px',
+        left: ($(window).width() )/2.6 + 'px'
+    });
+});
+
+function bookDetail(){
+	ajaxStart();
+	let title = event.target.parentElement.nextElementSibling.getAttribute("value");
+	let param = {
+			title : title
+	}
+	$.ajax({
+		type : "POST",
+		url : "goToBookDetailCrawl.do",
+		data : param,
+		error : function(){
+			alert("통신실패");
+		},
+		success : function(res){
+			ajaxStop();
+			location.href="goToBookDetailFin.do";
+		}
+	})
+}
+</script>
 <style>
 
 * {
@@ -732,6 +772,12 @@ text-align: left;
 .price{
 color:red;
 }
+/* 로딩바 css */
+#Progress_Loading
+{
+ position: absolute;
+ background: #ffffff;
+} 
 </style>
 </head>
 <body>
@@ -844,7 +890,8 @@ color:red;
 <div class="smallnext"><a href="#" onclick="smallnextclick(); return false;"></a></div>
 <ul>
 <c:forEach items="${bookList}" var="b" begin="0" end="11">
-<li><a href="goToBookDetailCrawl.do?title=${b.title}"><img src="${b.coverLargeUrl}" alt="" /></a><div style="font-size:13px;font-weight:bold;">${b.title }
+<li><a><img src="${b.coverLargeUrl}" alt="" onclick="javascript:bookDetail()" style="cursor: pointer"/></a><input type="hidden" value="${b.title}"/><div style="font-size:13px;font-weight:bold;">${b.title }
+
 <div class="price">
 											<span class="sell_price">
 												<fmt:formatNumber value="${b.priceStandard}" pattern="#,###" />원
@@ -878,7 +925,8 @@ color:red;
 	<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" /></span></div>
  </div>
 <div class="today_book_bookimage"> 
-                  <a href="goToBookDetailCrawl.do?title=${b.title}"><img style="width:100%;height:100%;"src="${b.coverLargeUrl}" alt="" /></a>
+                  <a style="cursor: pointer;" onclick="javascript:bookDetail()"><img style="width:100%;height:100%;"src="${b.coverLargeUrl}" alt="" onclick="javascript:bookDetail()"/></a>
+                  <input type="hidden" value="${b.title}"/>
 	
 </div>
 </div>
@@ -911,6 +959,7 @@ color:red;
         document.getElementById("p1").style.visibility="hidden";
     }
 </script>
-
+<!-- 로딩바 -->
+<div id="Progress_Loading"><img src="${pageContext.request.contextPath}/resources/img/loading/loadBar.gif" /></div>
 
 </html>
