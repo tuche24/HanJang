@@ -164,7 +164,7 @@ public class MemberController {
 	// 아이디 찾기 폼으로 이동
 	@RequestMapping(value = "/goToFindId.do")
 	public String goToFindId() {
-		return "test/findId_form";
+		return "find/findId_form";
 	}
 
 	// 아이디 찾기
@@ -172,13 +172,13 @@ public class MemberController {
 	public String findIdPOST(@ModelAttribute MemberVO member, HttpServletResponse response, Model md) throws Exception {
 		String id = memberservice1.findId(response, member);
 		md.addAttribute("id", id);
-		return "test/findId";
+		return "find/findId";
 	}
 
 	// 비밀번호 찾기 폼으로 이동
 	@RequestMapping(value = "/gotofindpw.do")
 	public String goToFindPw() {
-		return "test/findpw";
+		return "find/findpw";
 	}
 
 	// 비밀번호 찾기
