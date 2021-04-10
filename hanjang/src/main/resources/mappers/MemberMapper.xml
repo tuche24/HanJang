@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mycompany.myapp.service.dao.MemberDAO">
 
-	<resultMap id="MemberMap" type="com.mycompany.myapp.vo.MemberVO">
+	<resultMap id="MemberMap"
+		type="com.mycompany.myapp.vo.MemberVO">
 		<result property="userNo" column="UserNo" />
 		<result property="id" column="UserId" />
 		<result property="password" column="UserPassword" />
@@ -26,7 +27,7 @@
 		#{gender}, #{birthdate},
 		#{email}, #{phone}, #{address})
 	</insert>
-	
+
 	<!-- 로그인체크 -->
 	<select id="LoginCheck" resultMap="MemberMap">
 		SELECT * <!-- MemberVO 전체를 가져오게끔 수정함 -->
@@ -42,52 +43,64 @@
 		WHERE UserId
 		= #{id}
 	</select>
-	
-	<!--  닉넴으로 사람찾기 -->
+
+	<!-- 아이디 찾기 -->
+	<select id="findId" parameterType="String" resultType="String">
+		select UserId
+		from User where UserEmail = #{email} LIMIT 1
+	</select>
+
+	<!-- 닉넴으로 사람찾기 -->
 	<select id="findoneinfo" resultMap="MemberMap">
 		SELECT *
 		FROM User
-		WHERE UserNickName
+		WHERE
+		UserNickName
 		= #{nickname}
 	</select>
-	
+
 	<!-- 아디 중복체크 -->
 	<select id="IdCheck" resultType="int">
 		SELECT COUNT(*) FROM User
 		WHERE
 		UserId = #{id}
 	</select>
-	
+
 	<!-- 카카오 회원가입체크 -->
-	<select id = "kakaocheck" resultType="int">
-		SELECT COUNT(UserId) FROM User
+	<select id="kakaocheck" resultType="int">
+		SELECT COUNT(UserId) FROM
+		User
 		WHERE
 		UserNickName = #{nickname}
 	</select>
-	
+
 	<!-- 비밀번호 변경 -->
 	<update id="updatePw">
-		update User set UserPassword = #{password} where UserId = #{id}
+		update User set UserPassword = #{password} where
+		UserId = #{id}
 	</update>
-	
+
 	<!-- 회원정보 수정 -->
 	<update id="MemberUpdate">
 		UPDATE User
-		SET UserPassword = #{password}, UserNickName = #{nickname}, UserName = #{name},
-		UserEmail = #{email}, UserPhone = #{phone}, UserAddress = #{address}
+		SET UserPassword = #{password},
+		UserNickName = #{nickname}, UserName = #{name},
+		UserEmail = #{email},
+		UserPhone = #{phone}, UserAddress = #{address}
 		WHERE UserId = #{id}
 	</update>
-	
+
 	<!-- 회원 탈퇴 -->
 	<delete id="MemberDelete">
 		DELETE FROM User
 		WHERE UserId = #{id}
 	</delete>
-	
+
 	<!-- 회원주소 수정 -->
 	<update id="updateAddress">
 		UPDATE User
 		SET UserAddress = #{address}
-		WHERE UserNo = #{userNo}
+		WHERE UserNo =
+		#{userNo}
 	</update>
 </mapper>
