@@ -9,15 +9,17 @@ public class PaymentVO {
 	private String name; // 이름
 	private String phone; // 전화번호
 	private String address; // 주소
+	private int orderListNo; // 결제확인
 	
 	public PaymentVO(String title, int priceTotal, String email, String name, String phone,
-			String address) {
+			String address, int orderListNo) {
 		this.title = title;
 		this.priceTotal = priceTotal;
 		this.email = email;
 		this.name = name;
 		this.phone = phone;
 		this.address = address;
+		this.orderListNo = orderListNo;
 	}
 	
 	public String getTitle() {
@@ -61,6 +63,14 @@ public class PaymentVO {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public int getOrderListNo() {
+		return orderListNo;
+	}
+
+	public void setOrderListNo(int orderListNo) {
+		this.orderListNo = orderListNo;
 	}
 	
 }

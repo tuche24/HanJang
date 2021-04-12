@@ -36,6 +36,7 @@
 		<result property="cartNo" column="CartNo" />
 		<result property="itemId" column="ItemId" />
 		<result property="regDate" column="RegDate" />
+		<result property="isFinished" column="IsFinished" />
 		<collection property="cartVO" resultMap="cartMap" />
 		<collection property="bookVO" resultMap="bookMap" />
 	</resultMap>
@@ -89,5 +90,12 @@
 		SELECT COUNT(*) FROM OrderList
 		WHERE UserNo = #{userNo}
 	</select>
+	
+	<!-- 결제완료시 카운트 -->
+	<update id="updatePayment" parameterType="int">
+		UPDATE OrderList
+		SET IsFinished = 1
+		WHERE OrderListNo = #{orderListNo}; 
+	</update>
 	
 </mapper>
