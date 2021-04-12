@@ -583,6 +583,7 @@ line-height:100px;
 margin-top:120px;
 text-align:right;
 width:550px;
+height:360px;
 }
 .today_book_bookintro span{
 font-weight:500;
@@ -720,7 +721,7 @@ height:38px;
 float:left;
 font-size:18px;
 width:70px;
-height:50px;
+height:20px;
 display:block;
 text-align: left;
 }
@@ -876,6 +877,9 @@ color:red;
 <div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">출간일</span><span class="pub_date" style="font-size:14px;">
 	<fmt:parseDate value="${b.pubDate}" var="pubDate1" pattern="yyyyMMdd" />
 	<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${pubDate1}" /></span></div>
+ <div style="margin-left:220px;" class="todayintrodiv"><span style="margin-right:35px; font-weight:550;">가격</span><span class="sell_price" style="font-size:14px;">
+												<fmt:formatNumber value="${b.priceStandard}" pattern="#,###" />원
+											</span></div>
  </div>
 <div class="today_book_bookimage"> 
                   <a href="goToBookDetailCrawl.do?title=${b.title}"><img style="width:100%;height:100%;"src="${b.coverLargeUrl}" alt="" /></a>
