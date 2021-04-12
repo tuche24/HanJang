@@ -1,5 +1,6 @@
 package com.mycompany.myapp.service.impl;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
@@ -114,12 +115,12 @@ public class MemberServiceImpl implements MemberService{
 		PrintWriter out = response.getWriter();
 		// 가입된 아이디가 없으면
 		if(dao.IdCheck(vo.getId()) == 0 || vo.getId() == "") {
-			out.print("test1");
+			out.print("가입된 아이디가 없습니다");
 			out.close();
 		}
 		// 가입된 이메일이 아니면
 		else if(!vo.getEmail().equals(ck.getEmail())) {
-			out.print("test2");
+			out.print("가입된 이메일이 없습니다");
 			out.close();
 		}else {
 			// 임시 비밀번호 생성
@@ -155,6 +156,25 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void updateAddress(MemberVO memberVO) {
 		dao.updateAddress(memberVO);
+	}
+
+	// 아이디 찾기
+	@Override
+	public String findId(HttpServletResponse response, MemberVO memberVO) throws IOException {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String id = dao.findId(memberVO);
+		
+		if (id == null) {
+			out.println("<script>");
+			out.println("alert('가입된 아이디가 없습니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			return null;
+		} else {
+			return id;
+		}
 	}
 
 }

@@ -21,6 +21,9 @@ public interface MemberDAO {
 	
 	public MemberVO findoneinfo(String nickname)throws Exception;
 	
+	// 아이디 찾기
+	public String findId(MemberVO memberVO);
+	
 	//회원정보 수정
 	void MemberUpdate(MemberVO membervo) throws Exception;
 	

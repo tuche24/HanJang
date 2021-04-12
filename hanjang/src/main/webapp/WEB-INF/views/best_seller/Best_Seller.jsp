@@ -39,6 +39,7 @@ function bookDetail(){
 		type : "POST",
 		url : "goToBookDetailCrawl.do",
 		data : param,
+		timeout : 20000,
 		error : function(){
 			ajaxStop();
 			alert("통신실패");

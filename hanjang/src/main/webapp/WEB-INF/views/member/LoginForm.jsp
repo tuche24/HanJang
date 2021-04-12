@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -10,18 +10,6 @@
 		// 인코딩 
 		request.setCharacterEncoding("UTF-8"); 
 	%>
-<!-- 헤더연결 -->
-<script defer>
-	$(document).ready(function(){
-		$(".header").load("/myapp/resources/jsp/header/header.jsp");
-	})
-</script>
-<!-- 푸터연결 -->
-<script defer>
-	$(document).ready(function(){
-		$("#footer").load("/myapp/resources/jsp/footer/footer.jsp");
-	})
-</script>
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 <script>
 	window.onload = function() {
@@ -143,9 +131,8 @@ outline:none;
 </style>
 
 <body>
-
-<div class="header">
-
+<!-- header부분 -->
+<%@ include file="/resources/jsp/header/header.jsp" %>
 </div>
 <br>
 <br>
@@ -168,7 +155,7 @@ outline:none;
 			<div class="loginbuga">
 			<div><a href="gotofindpw.do">비밀번호 찾기</a></div>
 			<div class="bar"></div>
-			<div><a href="">아이디 찾기</a></div>
+			<div><a href="goToFindId.do">아이디 찾기</a></div>
 			</div>
 			<div style="margin-bottom:8px;"><input type="submit" value="로그인" class="logininbut" style="border:none; background-image:linear-gradient(61deg, #7effa8, #3fcbff);"/></div>
 			<div><input type="button" value="회원가입" class="logininbut" style="background:white; border:1px solid; border-image:linear-gradient(61deg, #7effa8, #3fcbff); border-image-slice: 1;" onclick="location.href='joinform.do'"/></div> 
@@ -179,6 +166,6 @@ outline:none;
 	</div>	
 		<div class="logininbut" style="margin-top:7px; margin:0 auto;"><a style="border-radius:5px;display:block;width:100%; height:100%;"" href="https://kauth.kakao.com/oauth/authorize?client_id=036ccf425c45c76afae938160b6e023e&redirect_uri=http://localhost:8081/myapp/kakaologin.do&response_type=code"><img style="width:340px;"src="resources\img\main\kakaobut2.png" /></a></div>
 <!-- footer부분 -->
-<div id="footer"></div>
+<%@ include file="/resources/jsp/footer/footer.jsp" %> 
 </body>
 </html>
