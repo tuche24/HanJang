@@ -384,14 +384,13 @@ function addOrderList() {
 								<input type="hidden" value="${b.itemID}" />
 								<div class="info_area">
 									<div class="image">
-										<%-- <a href="goToBookDetailCrawl.do?title=${b.title}"> --%> <img
-											src="${b.coverLargeUrl}" alt="" onclick="javascript:bookDetail()" style="cursor: pointer;"/>
+									<img src="${b.coverLargeUrl}" alt="" onclick="javascript:bookDetail()" style="cursor: pointer;"/>
 										<input type="hidden" name="${b.title}" />
 									</div>
 
 									<div class="detail">
 										<div class="title">
-											<%-- <a href="goToBookDetailCrawl.do?title=${b.title}"> --%><a id="strong1" onclick="javascript:bookDetail()" style="cursor:pointer;">${b.title}</a>
+											<a id="strong1" onclick="javascript:bookDetail()" style="cursor:pointer;">${b.title}</a>
 											<input type="hidden" name="${b.title}" />
 										</div>
 										<div class="pub_info">
@@ -420,9 +419,6 @@ function addOrderList() {
 
 								<div class="buy_button">
 									<button style="cursor: pointer;" onclick="javascrpt:addCart()">장바구니</button>
-									<!-- test코드 -->
-									<!-- <button style="cursor: pointer;" onclick="javascrpt:testAddCart()">테스트100원</button>
-									<button style="cursor: pointer;" onclick="javascrpt:testAddCart1()">테스트10원</button> -->
 									<br>
 									<button style="cursor: pointer;"
 										onclick="javascript:addOrderList()">바로 구매</button>
@@ -431,125 +427,9 @@ function addOrderList() {
 						</li>
 					</c:forEach>
 				</ul>
-
 			</div>
-
-			<!-- 			<div class="paging">
-				<a class="btn_pre" href="#">&lt;</a>
-				<ul>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-				</ul>
-				<a class="btn_next" href="#">&gt;</a>
-			</div> -->
 		</div>
 	</div>
-	<!-- 	테스트코드
-	<script>
-	function testAddCart() {
-		let UserNo = event.target.parentElement.parentElement.firstElementChild
-				.getAttribute('value');
-		if (!UserNo) {
-			swal.fire({
-				title : 'Error!',
-				text : '로그인이 필요합니다',
-				icon : 'error',
-				confirmButtonText: '확인'
-			})
-		} else {
-			/* else {swal(UserNo)} */
-			let itemID = 999999;
-			/* alert(itemID); */
-			var params = {
-				UserNo : UserNo,
-				ItemId : itemID,
-				Amount : 1
-			}
-
-			$.ajax({
-				type : "POST",
-				url : "addCart.do",
-				data : params,
-				success : function(res) {
-					console.log("동기화성공");
-				},
-				error : function() {
-					console.log("동기화실패");
-				}
-			});
-			// ajax-end
-			swal.fire({
-				title : '장바구니',
-				text : '장바구니로 이동하시겠습니까?',
-				icon : 'info',
-				showCancelButton : true,
-				confirmButtonColor : '#3085d6',
-				cancelButtonColor : '#d33',
-				confirmButtonText : '이동',
-				cancelButtonText : '취소'
-			}).then((result) => {
-				if(result.value){
-					location.href="getOneCart.do";
-				}
-			})
-		}
-		
-	}
-	function testAddCart1() {
-		let UserNo = event.target.parentElement.parentElement.firstElementChild
-				.getAttribute('value');
-		if (!UserNo) {
-			swal.fire({
-				title : 'Error!',
-				text : '로그인이 필요합니다',
-				icon : 'error',
-				confirmButtonText: '확인'
-			})
-		} else {
-			/* else {swal(UserNo)} */
-			let itemID = 999998;
-			/* alert(itemID); */
-			var params = {
-				UserNo : UserNo,
-				ItemId : itemID,
-				Amount : 1
-			}
-
-			$.ajax({
-				type : "POST",
-				url : "addCart.do",
-				data : params,
-				success : function(res) {
-					console.log("동기화성공");
-				},
-				error : function() {
-					console.log("동기화실패");
-				}
-			});
-			// ajax-end
-			swal.fire({
-				title : '장바구니',
-				text : '장바구니로 이동하시겠습니까?',
-				icon : 'info',
-				showCancelButton : true,
-				confirmButtonColor : '#3085d6',
-				cancelButtonColor : '#d33',
-				confirmButtonText : '이동',
-				cancelButtonText : '취소'
-			}).then((result) => {
-				if(result.value){
-					location.href="getOneCart.do";
-				}
-			})
-		}
-		
-	}
-	</script> -->
-<!--
-	<div id="footer"></div> -->
 	<%@ include file="/resources/jsp/footer/footer.jsp" %>
 </body>
 </html>

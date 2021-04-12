@@ -382,10 +382,8 @@ function addOrderList() {
 								<input type="hidden" value="${b.itemID}" />
 								<div class="info_area">
 									<div class="image">
-										<%-- <a href="goToBookDetailCrawl.do?title=${b.title}">  --%>
 											<img src="${b.coverLargeUrl}" alt="" style="cursor: pointer;" onclick="bookDetail()"/>
 											<input type="hidden" name="${b.title}" />
-										<!-- </a> -->
 									</div>
 
 									<div class="detail">
@@ -433,18 +431,6 @@ function addOrderList() {
 					</c:forEach>
 				</ul>
 			</div>
-
-			<!-- <div class="paging">
-				<a class="btn_pre" href="#">&lt;</a>
-				<ul>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-				</ul>
-				<a class="btn_next" href="#">&gt;</a>
-			</div> -->
 		</div>
 	</div>
 	<!-- footer부분 -->
