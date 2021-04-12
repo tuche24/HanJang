@@ -96,6 +96,7 @@ width:340px;
 height:49px;
 border: 1px solid #ccc;
 border-radius:4px;
+text-indent: 7;
 }
 #wrap table tr{
 margin:10px auto;

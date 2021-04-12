@@ -67,7 +67,12 @@
 				<ul>
 					<li>
 						<div class="Litem">주문상태</div>
+						<c:if test="${list.isFinished == 1}">
 						<div class="Ritem">주문완료</div>
+						</c:if>
+						<c:if test="${list.isFinished == 0}">
+						<div class="Ritem">주문취소</div>
+						</c:if>
 					</li>
 				</ul>
 			</div>

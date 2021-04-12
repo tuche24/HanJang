@@ -30,4 +30,7 @@ public interface OrderListDAO {
   
   // 주문확인서 No 값으로 가져오기
 	List<OrderListVO> getOrderList_No(int orderListNo);
+	
+	// 결제확인시 업데이트
+	void updatePayment(int orderListNo);
 }

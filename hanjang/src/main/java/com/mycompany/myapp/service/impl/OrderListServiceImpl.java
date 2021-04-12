@@ -16,23 +16,22 @@ public class OrderListServiceImpl implements OrderListService {
 
 	@Autowired
 	private OrderListDAO dao;
-	
+
 	@Override
 	public void insertOrderList(OrderListVO orderListVO) {
 		// TODO Auto-generated method stub
 		dao.insertOrderList(orderListVO);
 	}
 
-  /*	@Override
-	public List<OrderListVO> getOneOrderList(int orderListNo) {
-		
-		List<OrderListVO> list = dao.getOneOrderList(orderListNo);
-		return list;
-	}*/
+	/*
+	 * @Override public List<OrderListVO> getOneOrderList(int orderListNo) {
+	 * 
+	 * List<OrderListVO> list = dao.getOneOrderList(orderListNo); return list; }
+	 */
 
 	@Override
 	public List<OrderListVO> getLatelyOrderList(OrderListVO orderListVO1) {
-		
+
 		List<OrderListVO> orderListVO = dao.getLatelyOrderList(orderListVO1);
 		return orderListVO;
 	}
@@ -52,9 +51,14 @@ public class OrderListServiceImpl implements OrderListService {
 	public int countPosts(int userNo) {
 		return dao.countPosts(userNo);
 	}
-  
-  public List<OrderListVO> getOrderList_No(int orderListNo) {
-	List<OrderListVO> orderListVO = dao.getOrderList_No(orderListNo);
-	return orderListVO;
+
+	public List<OrderListVO> getOrderList_No(int orderListNo) {
+		List<OrderListVO> orderListVO = dao.getOrderList_No(orderListNo);
+		return orderListVO;
+	}
+
+	@Override
+	public void updatePayment(int orderListVO) {
+		dao.updatePayment(orderListVO);
 	}
 }

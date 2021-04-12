@@ -83,14 +83,4 @@ public class HomeController {
 		return "payment/Payment";
 	}
 	
-	@RequestMapping(value = "/goToComplete.do")
-	public ModelAndView goToComplete(HttpSession session) {
-		ModelAndView mav = new ModelAndView();
-		PaymentVO paymentVO = (PaymentVO) session.getAttribute("payment");
-		session.removeAttribute("payment"); // 주문내역서 paymentVO에 옮기고 세션에서 지우기
-		
-		mav.addObject("payment", paymentVO);
-		mav.setViewName("payment/Complete");
-		return mav;
-	}
 }

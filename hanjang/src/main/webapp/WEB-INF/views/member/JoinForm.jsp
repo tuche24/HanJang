@@ -60,6 +60,7 @@
 	width:332px;
 	height:44px;
 	border: 1px solid #ccc;
+	text-indent: 7;
 }
 .butt{
 	width:120px;
