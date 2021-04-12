@@ -778,6 +778,7 @@ color:red;
 {
  position: absolute;
  background: #ffffff;
+ /* opacity: 0.5; */
 } 
 </style>
 </head>

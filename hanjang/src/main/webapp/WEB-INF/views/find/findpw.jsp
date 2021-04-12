@@ -31,34 +31,80 @@
 	})
 </script>
 <style type="text/css">
-.mybtn{
-  width:150px;
-  height:40px;
-  padding:0;
-  display:inline; 
-  border-radius: 4px; 
-  background: #212529;
-  color: #fff;
-  margin-top: 20px;
-  border: solid 2px #212529; 
-  transition: all 0.5s ease-in-out 0s;
+.w3-content .w3-card-4, .w3-hover-shadow:hover {
+	box-shadow: none;
 }
+
+.pw_title {
+	margin-bottom: 50px;
+	font-weight: bold;
+}
+
+.id {
+	margin-bottom: 30px;
+}
+
+.w3-center {
+	margin-top: 30px;
+}
+
+.w3-center:first-child {
+	margin-bottom: 70px;
+}
+
+.w3-center:last-child {
+	margin-bottom: 150px;
+}
+
+.w3-button {
+	width: 150px;
+	height: 40px;
+	padding: 0;
+	display: inline;
+	border-radius: 4px;
+	background-image: linear-gradient(61deg, #7effa8, #3fcbff);
+	color: #fff;
+	margin-top: 20px;
+	border: none;
+	outline: none;
+	transition: all 0.5s ease-in-out 0s;
+}
+
 .mybtn:hover .mybtn:focus {
-  background: white;
-  color: #212529;
-  text-decoration: none;
+	background: white;
+	color: #212529;
+	text-decoration: none;
+}
+
+.footer div {
+	float: left;
+}
+
+.footer {
+	margin: 0 auto;
+	width: 1050px;
+	height: 300px;
+}
+
+.footer .sns_list li img {
+    width: 40px;
+    height: 50px;
+    padding: 10px 10px 10px 0px;
 }
 </style>
 <title>세상에서 가장 빠른 온라인 서점, 한장두장</title>
 </head>
 <body>
+	<!-- header부분 -->
+	<%@ include file="/resources/jsp/header/header.jsp"%>
+	<br><br><br>
 	<div class="w3-content w3-container w3-margin-top">
 		<div class="w3-container w3-card-4 w3-auto" style="width: 382px;height: 456.3px;">
 			<div class="w3-center w3-large w3-margin-top">
-				<h3>비밀번호 찾기</h3>
+				<h3 class="pw_title">비밀번호 찾기</h3>
 			</div>
 			<div>
-				<p>
+				<p class="id">
 					<label>아이디</label>
 					<input class="w3-input" type="text" id="id" name="id" placeholder="회원가입한 아이디를 입력하세요" required>
 				</p>
@@ -73,5 +119,6 @@
 			</div>
 		</div>
 	</div>
+	<%@ include file="/resources/jsp/footer/footer.jsp"%>
 </body>
 </html>
