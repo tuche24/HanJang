@@ -1,16 +1,12 @@
 package com.mycompany.myapp;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -41,9 +37,6 @@ public class CommunityController {
 	// 요청 게시판 댓글
 	@Resource(name = "reply2Service")
 	private CommunityReplyService reply2service;
-	
-	@Resource(name = "uploadPath")
-	private String uploadPath;
 	
 	/* *** 여기서부터 이 책 추천해요 게시판 컨트롤러 *** */
 	
