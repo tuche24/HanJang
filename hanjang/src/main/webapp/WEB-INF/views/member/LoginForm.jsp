@@ -102,7 +102,7 @@ text-indent: 7;
 margin:10px auto;
 }
 
-.bar{
+.bar_title {
     float: left;
     width: 1px;
     height: 10px;
@@ -129,12 +129,35 @@ font-weight:bold;
 outline:none;
  }
     
+.footer div {
+	float: left;
+}
+
+.footer {
+	margin: 0 auto;
+	width: 1050px;
+	height: 300px;
+}
+
+.left_table {
+	margin-top: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.phone_nb {
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.left_table tr {
+	height: 30px;
+}
 </style>
 
 <body>
 <!-- header부분 -->
 <%@ include file="/resources/jsp/header/header.jsp" %>
-</div>
 <br>
 <br>
 
@@ -155,7 +178,7 @@ outline:none;
 			</table>
 			<div class="loginbuga">
 			<div><a href="gotofindpw.do">비밀번호 찾기</a></div>
-			<div class="bar"></div>
+			<div class="bar_title"></div>
 			<div><a href="goToFindId.do">아이디 찾기</a></div>
 			</div>
 			<div style="margin-bottom:8px;"><input type="submit" value="로그인" class="logininbut" style="border:none; background-image:linear-gradient(61deg, #7effa8, #3fcbff);"/></div>
