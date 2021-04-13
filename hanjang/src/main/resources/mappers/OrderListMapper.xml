@@ -62,8 +62,7 @@
 	<!-- 주문확인서 최근 데이터 가져오기 -->
 	<select id="getLatelyOrderList" resultMap="orderListMap">
 		SELECT * FROM OrderList o, Book b, User u, Cart c
-		WHERE o.CartNo = #{cartNo} AND o.UserNo = #{userNo} AND o.CartNo = c.CartNo AND o.ItemId = b.ItemId AND o.UserNo = u.UserNo
-		GROUP BY o.ItemId, o.UserNo, o.CartNo 
+		WHERE o.CartNo = #{cartNo} AND o.UserNo = #{userNo} AND o.CartNo = c.CartNo AND o.ItemId = b.ItemId AND o.UserNo = u.UserNo AND c.ItemId = b.ItemId AND c.UserNo = u.UserNo
 		ORDER BY o.RegDate DESC, o.ItemId DESC
 	</select>
 	
