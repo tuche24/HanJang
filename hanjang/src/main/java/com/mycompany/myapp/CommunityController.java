@@ -173,7 +173,7 @@ public class CommunityController {
 		String fileUrl = UploadFileUtils.upload(file, req);
 		post.setImgFile(fileUrl);
 		System.out.println(post.getImgFile());
-		service1.insertPost(post);
+		service2.insertPost(post);
 		ra.addFlashAttribute("msg", "insertSuccess");
 		return "redirect:requestList.do";
 	}
