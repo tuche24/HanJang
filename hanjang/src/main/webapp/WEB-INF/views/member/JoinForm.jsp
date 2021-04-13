@@ -307,7 +307,7 @@ $(document).ready(function(){
 				</tr>
 					
 				<tr>
-					<td id="title">생일</td>
+					<td id="title">생일<span id="startag">*</span></td>
 					<td>
 							<input type="text"  id="birthdate" name="birthdate" maxlength="50" class="input_text_f"  placeholder="ex)19990101">
 							<div class="check_font" id="birth_check"></div>
@@ -315,7 +315,7 @@ $(document).ready(function(){
 				</tr>
 					
 				<tr>
-					<td id="title">이메일</td>
+					<td id="title">이메일<span id="startag">*</span></td>
 					<td>
 						<input type="text" name="email" maxlength="50" class="input_text_f" id="email"placeholder="ex)ggggg@gmail.com">
 						
