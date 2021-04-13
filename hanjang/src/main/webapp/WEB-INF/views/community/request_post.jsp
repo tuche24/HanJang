@@ -95,7 +95,7 @@ function clickReplyInsertConfirm() {
 			<c:set var="length" value="${fn:length(str)}" />
 			<c:if test="${fn:substring(str, length-8, length) != 'none.png'}">
 			<tr>
-				<td class="imgSection"><img src="\resources${post.imgFile }" class="postSection_img"></td>
+				<td class="imgSection"><img src="${pageContext.request.contextPath}\resources${post.imgFile }" class="postSection_img"></td>
 			</tr></c:if>
 			<tr>	<!-- 글 내용 부분 -->
 				<td><textarea class="postSection_txt" readonly>${post.content }</textarea></td>
